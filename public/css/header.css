@@ -1,23 +1,35 @@
 header {
-    background-color: #ffffff;
-    padding: 20px 0;
+    background-color: #0F1411;
+    color: white;
+    height: 80px;
+    margin: -8px;
   }
   
-  nav {
-    margin-bottom: 0;
-  }
   
   .navbar-brand {
     font-size: 20px;
     font-weight: bold;
   }
-  
-  .navbar-nav .nav-link {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  
+
   .navbar-nav .nav-link:hover {
-    color: #000000;
+    color: white;
     background-color: #eeeeee;
+  }
+
+  .nav-link{
+    color:white;
+    text-decoration: none;
+  }
+  li {
+    display: inline-block;
+    padding-right: 30px ;
+  }
+  ul {
+    list-style: none;
+    float: left;
+  }
+  #img-logo{
+    float: left;
+    width: 20%;
+    height: 20%;
   }

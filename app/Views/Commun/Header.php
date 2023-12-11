@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="/public/Controls.js" type="text/javascript" ></script>
+        <script src="public/Controls.js" type="text/javascript" ></script>
+        <link href="css/header.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
     <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Logo</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <img id="img-logo" src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"/>
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-            <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Accueil</a>
             </li>
             <li class="nav-item">
             <a class="nav-link" href="#">Permis de conduire</a>
