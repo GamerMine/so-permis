@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 //import './App.css';
-import Test from "./Test";
+import Test from "./pages/Test";
 import {ChakraProvider} from "@chakra-ui/react";
 
 function App() {
