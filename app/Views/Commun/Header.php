@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="/public/Controls.js" type="text/javascript" ></script>
+    </head>
+    <body>
+    <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            <a class="nav-link" href="#">Accueil <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Permis de conduire</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Code de la route</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Qui sommes-nous ?</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+            </li>
+        </ul>
+        </div>
+    </nav>
+</header>
