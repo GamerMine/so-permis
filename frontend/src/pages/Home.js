@@ -3,6 +3,7 @@ import { ElfsightWidget } from 'react-elfsight-widget';
 import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
 
 import {Stack} from "@chakra-ui/react";
+import DocumentsInformations from "../components/DocumentsInformations";
 
 const Home = () => {
 
@@ -20,6 +21,8 @@ const Home = () => {
                     new OCard("", "CODE", "Nos forfaits code"),
                     new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée")
                 ]} hauteur={"450px"} largeur={"350px"}/>
+            <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
+
             <ElfsightWidget widgetId="4b32669e-1d41-4c0b-a813-efdeb3498bad" />;
         </Stack>
 
