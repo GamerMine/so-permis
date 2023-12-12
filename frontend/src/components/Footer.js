@@ -3,8 +3,10 @@ import {
     Stack,
     Box,
     VStack,
+    HStack,
     Text,
-    Link
+    Link,
+    Image,
 } from "@chakra-ui/react";
 import Test from "../pages/Test";
 
@@ -36,10 +38,12 @@ const Footer = () => {
                     src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"/>    
                 </Box>
                 <Box>
-                    <VStack>
+                    <VStack align='center'>
                         <Box>
-                            <img src="./Insta.png" alt="Instagram"/>
-                            <img src="./Snapchat.png" alt="Snapchat"/>
+                            <HStack spacing={"25%"}  align='center'>
+                                <Image boxSize='30px' src="/images/Insta.png" alt="Instagram"/>
+                                <Image boxSize='30px' src="/images/Snapchat.png" alt="Snapchat"/>
+                            </HStack>
                         </Box>
 
                         <Box>
