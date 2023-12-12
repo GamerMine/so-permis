@@ -4,17 +4,7 @@ import FlipCard from '../components/FlipCard';
 import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
 
 import {
-    Box,
-    Button,
-    Card,
-    CardBody,
-    CardFooter,
-    CardHeader,
-    Heading,
-    Stack,
-    StackDivider,
-    Text,
-    Image
+    Stack
 } from "@chakra-ui/react";
 
 const Home = () => {

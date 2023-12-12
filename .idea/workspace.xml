@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ad6ac9e-3666-40ed-bb2b-6901873e2a6c" name="Changes" comment="utilisation des icons de chakra&#10;faire la commande npm install @chakra-ui/react react-icons">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/so-permis.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/ADMINISTRATEUR.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/FORMATION.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/app/Models/NEWSLETTER.inc.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/MultiHorizontalCardsWithButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+    <list default="true" id="2ad6ac9e-3666-40ed-bb2b-6901873e2a6c" name="Changes" comment="merge avec flip card">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/Bado.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controllers/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Database/DB.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Database/DB.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Models/Actualite.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/ACTUALITE.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/writable/logs/log-2023-12-12.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/writable/logs/log-2023-12-12.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/FlipCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/FlipCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MultiHorizontalCardsWithButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MultiHorizontalCardsWithButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,9 +18,16 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "Merging flipCard"
+    "git-widget-placeholder": "flipCard",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
   <component name="RunManager">
@@ -42,10 +36,20 @@
     </configuration>
   </component>
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="merge avec flip card">
+      <option name="closed" value="true" />
+      <created>1702392776487</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1702392776487</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="utilisation des icons de chakra&#10;faire la commande npm install @chakra-ui/react react-icons" />
-    <option name="LAST_COMMIT_MESSAGE" value="utilisation des icons de chakra&#10;faire la commande npm install @chakra-ui/react react-icons" />
+    <MESSAGE value="merge avec flip card" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge avec flip card" />
   </component>
 </project>

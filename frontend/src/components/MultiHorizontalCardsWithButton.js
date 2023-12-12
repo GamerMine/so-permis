@@ -7,6 +7,8 @@ import {
     Grid,
     Text
 } from "@chakra-ui/react";
+import {useState} from "react";
+import ReactCardFlip from "react-card-flip";
 
 export class OCard {
 
@@ -21,16 +23,18 @@ export class OCard {
         this.titre = titre;
         this.texteContenu = texteContenu;
         this.texteBouton = texteBouton;
+        this.isFlipped = false;
     }
 }
 
-/**
- * Ce composant créé plusieurs cards alignées horizontalement
- * Chaque cards est renseigné dans le paramètre
- *
- * @param args (doit avoir cards et hauteur)
- */
 export const MultiHorizontalCardsWithButton = (args) => {
+    const [cards, setCards] = useState(args.cards);
+
+    const handleCardClick = (index) => {
+        const updatedCards = [...cards];
+        updatedCards[index].isFlipped = !updatedCards[index].isFlipped;
+        setCards(updatedCards);
+    };
 
     const style = {
         card: {
@@ -38,7 +42,8 @@ export const MultiHorizontalCardsWithButton = (args) => {
             height: args.hauteur,
             width: args.largeur,
             borderRadius: "10px 50px 10px 50px",
-            boxShadow: "10px 10px 5px rgba(0, 0, 0, 0.5)"
+            boxShadow: "10px 10px 5px rgba(0, 0, 0, 0.5)",
+            cursor: "pointer",
         },
 
         text: {
@@ -64,33 +69,67 @@ export const MultiHorizontalCardsWithButton = (args) => {
         },
 
         buttonText: {
-            color: "white"
+            color: "white",
         },
-    }
+    };
 
     let cardsElements = [];
 
-    args.cards.forEach((card) => {
-        cardsElements.push((
-            <Card style={style.card}>
-                <CardHeader>
-                    <Text>{card.titre}</Text>
-                </CardHeader>
-                <CardBody>
-                    <Text style={style.text}>{card.texteContenu}</Text>
-                </CardBody>
-                <CardFooter alignSelf="center">
-                    <Button style={style.button}>
-                        <Text style={style.buttonText}>{card.texteBouton}</Text>
-                    </Button>
-                </CardFooter>
-            </Card>
-        ))
-    })
+    args.cards.forEach((card, index) => {
+        cardsElements.push(
+            <ReactCardFlip
+                key={index}
+                isFlipped={card.isFlipped}
+                flipDirection="horizontal" // Ou "vertical", selon votre préférence
+            >
+                {/* Face avant */}
+                <Card
+                    style={style.card}
+                    onClick={() => handleCardClick(index)}
+                >
+                    <CardHeader>
+                        <Text>{card.titre}</Text>
+                    </CardHeader>
+                    <CardBody>
+                        <Text style={style.text}>{card.texteContenu}</Text>
+                    </CardBody>
+                    <CardFooter alignSelf="center">
+                        <Button style={style.button}>
+                            <Text style={style.buttonText}>{card.texteBouton}</Text>
+                        </Button>
+                    </CardFooter>
+                </Card>
+
+                {/* Face arrière */}
+                <Card
+                    style={{ ...style.card, borderRadius: "50px 10px 50px 10px", }}
+                    onClick={() => handleCardClick(index)}
+                >
+                    <CardHeader>
+                        <Text>Back of the Card</Text>
+                    </CardHeader>
+                    <CardBody>
+
+                        <Text style={style.text}>Test</Text>
+                    </CardBody>
+                    <CardFooter alignSelf="center">
+                        <Button style={style.button}>
+                            <Text style={style.buttonText}>Back Button</Text>
+                        </Button>
+                    </CardFooter>
+                </Card>
+            </ReactCardFlip>
+        );
+    });
 
     return (
-        <Grid style={args.style} templateColumns="repeat(3, 1fr)" gap="90px" alignSelf="center">
+        <Grid
+            style={args.style}
+            templateColumns="repeat(3, 1fr)"
+            gap="90px"
+            alignSelf="center"
+        >
             {cardsElements}
         </Grid>
     );
-}
+};
