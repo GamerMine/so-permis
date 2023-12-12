@@ -57,7 +57,7 @@ const Footer = () => {
                     <VStack>
                         <Link>Accueil</Link>
                         <Link>Permis de conduire</Link>
-                        <Link>Code de la route</Link>
+                        <Link href="/CodeDeLaRoute">Code de la route</Link>
                         <Link>Qui sommes-nous ?</Link>
                     </VStack>
                 </Box>
