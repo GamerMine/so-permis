@@ -25,11 +25,21 @@ const Test = () => {
         setText(text.data)
     }
 
+    const [bado, setTextbado] = useState()
+    useEffect(() => {
+        getTextbado();
+    },[])
+
+    const getTextbado = async() =>
+    {
+        const text = await axios.get('http://localhost:8080/testBado')
+        setTextbado(text.data)
+    }
     return (
         <Stack>
             <Card border="1px">
                 <CardHeader> Hello test ~ Ceci est le titre </CardHeader>
-                <CardBody> {text} </CardBody>
+                <CardBody> {bado} </CardBody>
             </Card>
             <Card>
                 <CardHeader>
