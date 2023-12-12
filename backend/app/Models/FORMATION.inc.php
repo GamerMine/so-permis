@@ -1,12 +1,11 @@
 <?php
-namespace App\Models;
 /*classe permettant de representer les tuples de la table client */
-class Newsletter {
+class FORMATION {
       /*avec PDO, il faut que les noms attributs soient les m�mes que ceux de la table*/
-      private $idNewsletter;
-      private $email;
+      private $idformation;
+      private $prix;
       private $nom;
-      private $prenom;
+      private $infos;
 
       /* Les m�thodes qui commencent par __ sont des methodes magiques */
       /* Elles sont appel�es automatiquement par php suite � certains �v�nements. */
@@ -15,16 +14,17 @@ class Newsletter {
       	 il y aura une erreur lorsqu'il sera appel� automatiquement par PDO 
        */    
       
-      public function __construct($i=-1,$e="",$n="", $p="") {
-         $this->idNewsletter = $i;
-         $this->email = $p;
+      public function __construct($i=-1,$p="",$n="", $f="") {
+         $this->idformation = $i;
+         $this->prix = $p;
          $this->nom = $n;
-         $this->prenom = $p;
+         $this->infos = $f;
       }
-      public function getIdNewsletter () {return $this->idNewsletter; }
-      public function getEmail() { return $this->email; }
+
+      public function getIdFormation () {return $this->idformation; }
+      public function getPrix() { return $this->prix; }
       public function getNom() { return $this->nom;}
-      public function getPrenom() { return $this->prenom; }
+      public function getInfos() { return $this->infos; }
 
       public function __toString() {
         return '';     

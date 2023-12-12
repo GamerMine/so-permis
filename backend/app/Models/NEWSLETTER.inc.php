@@ -1,13 +1,11 @@
 <?php
-namespace App\Models;
 /*classe permettant de representer les tuples de la table client */
-class Actualite {
+class NEWSLETTER {
       /*avec PDO, il faut que les noms attributs soient les m�mes que ceux de la table*/
-      private $idActualite;
-      private $titreActualite;
-      private $infosActualite;
-      private $imageURL;
-      private $sources;
+      private $idnewsletter;
+      private $email;
+      private $nom;
+      private $prenom;
 
       /* Les m�thodes qui commencent par __ sont des methodes magiques */
       /* Elles sont appel�es automatiquement par php suite � certains �v�nements. */
@@ -16,19 +14,16 @@ class Actualite {
       	 il y aura une erreur lorsqu'il sera appel� automatiquement par PDO 
        */    
       
-      public function __construct($n=-1,$t="",$f="", $i="",$s) {
-         $this->idActualite = $n;
-         $this->titreActualite = $t;
-         $this->infosActualite = $f;
-         $this->imageURL = $i;
-         $this->sources = $s;
+      public function __construct($i=-1,$e="",$n="", $p="") {
+         $this->idnewsletter = $i;
+         $this->email = $e;
+         $this->nom = $n;
+         $this->prenom = $p;
       }
-
-      public function getIdActualite () {return $this->idActualite; }
-      public function getTitreActualite() { return $this->titreActualite; }
-      public function getInfosActualite() { return $this->infosActualite;}
-      public function getImageURL() { return $this->imageURL; }
-      public function getSources() { return $this->sources; }
+      public function getIdNewsletter () {return $this->idnewsletter; }
+      public function getEmail() { return $this->email; }
+      public function getNom() { return $this->nom;}
+      public function getPrenom() { return $this->prenom; }
 
       public function __toString() {
         return '';     

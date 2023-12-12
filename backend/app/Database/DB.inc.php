@@ -1,6 +1,8 @@
 <?php
-require(APPPATH . 'Models/Actualite.inc.php');
-require(APPPATH . 'Models/Formation.inc.php');
+require(APPPATH . 'Models/ACTUALITE.inc.php');
+require(APPPATH . 'Models/FORMATION.inc.php');
+require(APPPATH . 'Models/ADMINISTRATEUR.inc.php');
+require(APPPATH . 'Models/NEWSLETTER.inc.php');
 class DB {
       private static $instance = null; //m�morisation de l'instance de DB pour appliquer le pattern Singleton
       private $connect=null; //connexion PDO � la base
@@ -54,7 +56,7 @@ class DB {
       	     $this->connect = null;
       }
 
-      /************************************************************************/
+      /****************************************Home********************************/
       //	Methode uniquement utilisable dans les m�thodes de la class DB 
       //	permettant d'ex�cuter n'importe quelle requ�te SQL
       //	et renvoyant en r�sultat les tuples renvoy�s par la requ�te
@@ -119,11 +121,11 @@ class DB {
        public function getActualites()
        {
            $requete = 'SELECT * FROM ACTUALITE';
-           return $this->execQuery($requete, null, 'Actualite');
+           return $this->execQuery($requete, null, 'ACTUALITE');
        }
 
        public function insertActualite($titre,$infos, $image, $sources) {
-            $requete = 'insert into client values(?,?,?,?)';
+            $requete = 'insert into ACTUALITE values(?,?,?,?)';
             $tparam = array($titre,$infos,$image,$sources );
             return $this->execMaj($requete,$tparam);
        }
@@ -131,32 +133,32 @@ class DB {
        public function getFormations()
        {
            $requete = 'SELECT * FROM FORMATION';
-           return $this->execQuery($requete, null, 'Formation');
+           return $this->execQuery($requete, null, 'FORMATION');
        }
        public function insertFormation($prix,$nom,$infos) {
-            $requete = 'insert into Formation values(?,?,?)';
+            $requete = 'insert into FORMATION values(?,?,?)';
             $tparam = array($prix, $nom,$infos);
             return $this->execMaj($requete,$tparam);
        }
 
        public function getAdministrateurs()
        {
-           $requete = 'SELECT * FROM Administrateur';
-           return $this->execQuery($requete, null, 'Administrateur');
+           $requete = 'SELECT * FROM ADMINISTRATEUR';
+           return $this->execQuery($requete, null, 'ADMINISTRATEUR');
        }
        public function insertAdministrateur($email,$password) {
-            $requete = 'insert into Administrateur values(?,?)';
+            $requete = 'insert into ADMINISTRATEUR values(?,?)';
             $tparam = array($email, $password);
             return $this->execMaj($requete,$tparam);
        }
 
        public function getNewsletters()
        {
-           $requete = 'SELECT * FROM Newsletter';
-           return $this->execQuery($requete, null, 'Newsletter');
+           $requete = 'SELECT * FROM NEWSLETTER';
+           return $this->execQuery($requete, null, 'NEWSLETTER');
        }
        public function insertNewsletter($email,$nom, $prenom) {
-            $requete = 'insert into Newsletter values(?,?,?)';
+            $requete = 'insert into NEWSLETTER values(?,?,?)';
             $tparam = array($email, $nom, $prenom);
             return $this->execMaj($requete,$tparam);
        }

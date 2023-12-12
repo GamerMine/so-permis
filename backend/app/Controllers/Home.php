@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 use DB;
-use Config\App\Models\Actualite;
 use Kint\Parser\ToStringPlugin;
 
 class Home extends BaseController
@@ -19,8 +18,9 @@ class Home extends BaseController
             // Exécuter le script SQL avec la méthode $this->query()
             $db = DB::getInstance();
             $actualites = $db->getActualites();
-            foreach ($actualites as $row) {
-                return $row[1]. '. '. $row[2];
+            foreach ($actualites as $row) 
+            {
+                return ''. $row->getTitreActualite();
             }
         } catch (\Throwable $th) {
             return $th;

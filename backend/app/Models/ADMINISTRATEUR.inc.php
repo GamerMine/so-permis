@@ -1,12 +1,10 @@
 <?php
-namespace App\Models;
 /*classe permettant de representer les tuples de la table client */
-class Formation {
+class ADMINISTRATEUR {
       /*avec PDO, il faut que les noms attributs soient les m�mes que ceux de la table*/
-      private $idFormation;
-      private $prix;
-      private $nom;
-      private $infos;
+      private $idadmin;
+      private $email;
+      private $password;
 
       /* Les m�thodes qui commencent par __ sont des methodes magiques */
       /* Elles sont appel�es automatiquement par php suite � certains �v�nements. */
@@ -15,17 +13,15 @@ class Formation {
       	 il y aura une erreur lorsqu'il sera appel� automatiquement par PDO 
        */    
       
-      public function __construct($i=-1,$p="",$n="", $f="") {
-         $this->idFormation = $i;
-         $this->prix = $p;
-         $this->nom = $n;
-         $this->infos = $f;
+      public function __construct($i=-1,$e="",$p="") {
+         $this->idadmin = $i;
+         $this->email = $e;
+         $this->password = $p;
       }
 
-      public function getIdFormation () {return $this->idFormation; }
-      public function getPrix() { return $this->prix; }
-      public function getNom() { return $this->nom;}
-      public function getInfos() { return $this->infos; }
+      public function getIdAdmin () {return $this->idadmin; }
+      public function getEmail() { return $this->email; }
+      public function getPassword() { return $this->password;}
 
       public function __toString() {
         return '';     

@@ -1,11 +1,12 @@
 <?php
-namespace App\Models;
 /*classe permettant de representer les tuples de la table client */
-class Administrateur {
+class ACTUALITE {
       /*avec PDO, il faut que les noms attributs soient les m�mes que ceux de la table*/
-      private $idAdmin;
-      private $email;
-      private $password;
+      private $idactualite;
+      private $titreactualite;
+      private $infosactualite;
+      private $imageurl;
+      private $sources;
 
       /* Les m�thodes qui commencent par __ sont des methodes magiques */
       /* Elles sont appel�es automatiquement par php suite � certains �v�nements. */
@@ -14,15 +15,19 @@ class Administrateur {
       	 il y aura une erreur lorsqu'il sera appel� automatiquement par PDO 
        */    
       
-      public function __construct($i=-1,$e="",$p="") {
-         $this->idAdmin = $i;
-         $this->email = $e;
-         $this->password = $p;
+      public function __construct($n=-1,$t="",$f="", $i="",$s="") {
+         $this->idactualite = $n;
+         $this->titreactualite = $t;
+         $this->infosactualite = $f;
+         $this->imageurl = $i;
+         $this->sources = $s;
       }
 
-      public function getIdAdmin () {return $this->idAdmin; }
-      public function getEmail() { return $this->email; }
-      public function getPassword() { return $this->password;}
+      public function getIdActualite () {return $this->idactualite; }
+      public function getTitreActualite() { return $this->titreactualite; }
+      public function getInfosActualite() { return $this->infosactualite;}
+      public function getImageURL() { return $this->imageurl; }
+      public function getSources() { return $this->sources; }
 
       public function __toString() {
         return '';     
