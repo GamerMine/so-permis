@@ -6,6 +6,8 @@ import {
     Text,
     Link
 } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
+import {BsInstagram, BsSnapchat} from "react-icons/bs";
 import Test from "../pages/Test";
 
 const Footer = () => {
@@ -37,9 +39,9 @@ const Footer = () => {
                 </Box>
                 <Box>
                     <VStack>
-                        <Box>
-                            <img src="./Insta.png" alt="Instagram"/>
-                            <img src="./Snapchat.png" alt="Snapchat"/>
+                        <Box display="flex" >
+                            <BsInstagram size={30} />
+                            <BsSnapchat style={{marginLeft:"20px"}} size={30}  />
                         </Box>
 
                         <Box>
