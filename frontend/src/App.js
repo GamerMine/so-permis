@@ -18,7 +18,9 @@ function App() {
           </Router>
           <Footer/>
       </ChakraProvider>
-  );
+
+
+);
 }
 
 export default App;
