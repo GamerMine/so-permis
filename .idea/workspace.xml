@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85cfe65a-6c70-4696-8bd4-274858bca65b" name="Changes" comment="Récupération des avis avec le widget elfsight&#10;Faire la commande npm install react-elfsight-widget" />
+    <list default="true" id="85cfe65a-6c70-4696-8bd4-274858bca65b" name="Changes" comment="Récupération des avis avec le widget elfsight&#10;Faire la commande npm install react-elfsight-widget">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Footer.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +73,7 @@
       <workItem from="1702310633564" duration="1635000" />
       <workItem from="1702370668476" duration="2277000" />
       <workItem from="1702375300547" duration="2999000" />
-      <workItem from="1702384129421" duration="399000" />
+      <workItem from="1702384129421" duration="2722000" />
     </task>
     <task id="LOCAL-00001" summary="Récupération des avis avec le widget elfsight&#10;Faire la commande npm install react-elfsight-widget">
       <option name="closed" value="true" />
@@ -78,7 +83,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702384411039</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Récupération des avis avec le widget elfsight&#10;Faire la commande npm install react-elfsight-widget">
+      <option name="closed" value="true" />
+      <created>1702384742642</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702384742642</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
