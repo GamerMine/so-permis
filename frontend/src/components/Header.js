@@ -4,6 +4,7 @@ const Header = () => {
 
     const style = {
         nav: {
+            height: "100px",
             width: "100%",
             backgroundColor: "black"
         },
@@ -16,25 +17,28 @@ const Header = () => {
         },
 
         imgLogo: {
-            height: "auto",
-            width: "50%"
+            width: "40%"
         },
 
         navLink: {
             color: "white",
-            textDecoration: "none"
+            textDecoration: "none",
         },
 
         gridElement: {
             padding: "20px",
             objectFit: "contain",
-            fontSize: "30px",
-            textAlign: "center"
+            fontSize: "20px",
+            textAlign: "center",
+            fontFamily: "Montserrat, sans-serif",
         },
 
         gridContainer: {
             display: "grid",
-            gridTemplateColumns: "auto auto auto auto auto auto"
+            gridTemplateColumns: "auto auto auto auto auto auto",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%"
         }
     }
 
@@ -45,14 +49,13 @@ const Header = () => {
             <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
             <nav style={style.nav}>
                 <div style={style.gridContainer}>
-                    <img style={{...style.imgLogo, ...style.gridElement}}
-                         src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"/>
-
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Accueil</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Permis de conduire</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Code de la route</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Qui sommes-nous ?</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Contact</a>
+                    <a href={"/"}><img style={{...style.imgLogo, ...style.gridElement}}
+                            src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"/></a>
+                    <a style={{...style.gridElement, ...style.navLink}} href="/">ACCUEIL</a>
+                    <a style={{...style.gridElement, ...style.navLink}} href="#">PERMIS DE CONDUIRE</a>
+                    <a style={{...style.gridElement, ...style.navLink}} href="#">CODE DE LA ROUTE</a>
+                    <a style={{...style.gridElement, ...style.navLink}} href="#">QUI SOMMES-NOUS ?</a>
+                    <a style={{...style.gridElement, ...style.navLink}} href="#">CONTACT</a>
                 </div>
             </nav>
         </header>
