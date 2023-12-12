@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import { ElfsightWidget } from 'react-elfsight-widget';
 import FlipCard from '../components/FlipCard';
+import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
 
-import axios from "axios";
 import {
     Box,
     Button,
@@ -16,18 +16,28 @@ import {
     Text,
     Image
 } from "@chakra-ui/react";
-import Header from "../components/Header";
-import {render} from "@testing-library/react";
 
 const Home = () => {
 
+    const style = {
+        cardsServices: {
+            margin: "150px"
+        }
+    }
+
     return (
         <Stack marginTop="15px">
+            <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
+                [
+                    new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire"),
+                    new OCard("", "CODE", "Nos forfaits code"),
+                    new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée")
+                ]} hauteur={"450px"} largeur={"350px"}/>
             <ElfsightWidget widgetId="4b32669e-1d41-4c0b-a813-efdeb3498bad" />;
             <FlipCard/>
         </Stack>
-    );
 
+    );
 };
 
 export default Home
