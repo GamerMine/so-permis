@@ -21,7 +21,7 @@ const Test = () => {
     }, [])
 
     const getText = async() => {
-        const text = await axios.get('http://localhost:8080/')
+        const text = await axios.get('http://localhost:3000/')
         setText(text.data)
     }
 
@@ -45,9 +45,8 @@ const Test = () => {
                 <CardHeader>
                     <Heading size='md'>Client Report</Heading>
                 </CardHeader>
-
                 <CardBody>
-                    <Stack divider={<StackDivider />} spacing='4'>
+                    <Stack divider={<StackDivider/>} spacing='4'>
                         <Box>
                             <Heading size='xs' textTransform='uppercase'>
                                 Summary
