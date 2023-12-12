@@ -5,7 +5,6 @@ import {
     CardFooter,
     CardHeader,
     Grid,
-    GridItem,
     Text
 } from "@chakra-ui/react";
 
@@ -36,32 +35,60 @@ export const MultiHorizontalCardsWithButton = (args) => {
     const style = {
         card: {
             backgroundColor: "rgba(30,198,177,0.79)",
-            height: args.hauteur
-        }
+            height: args.hauteur,
+            width: args.largeur,
+            borderRadius: "10px 50px 10px 50px",
+            boxShadow: "10px 10px 5px rgba(0, 0, 0, 0.5)"
+        },
+
+        text: {
+            position: "absolute",
+            top: "50%",
+            transform: "translateY(-50%)",
+            width: "100%",
+            left: 0,
+            textAlign: "center",
+            fontSize: "35px",
+            color: "white",
+        },
+
+        button: {
+            backgroundColor: "black",
+            borderRadius: "15px",
+            overflowWrap: "break-word",
+            whiteSpace: "normal",
+            height: "60px",
+            marginLeft: "55px",
+            marginRight: "55px",
+        },
+
+        buttonText: {
+            color: "white"
+        },
     }
 
     let cardsElements = [];
 
     args.cards.forEach((card) => {
         cardsElements.push((
-            <GridItem>
-                <Card style={style.card}>
-                    <CardHeader>
-                        <Text>{card.titre}</Text>
-                    </CardHeader>
-                    <CardBody>
-                        <Text>{card.texteContenu}</Text>
-                    </CardBody>
-                    <CardFooter>
-                        <Button>{card.texteBouton}</Button>
-                    </CardFooter>
-                </Card>
-            </GridItem>
+            <Card style={style.card}>
+                <CardHeader>
+                    <Text>{card.titre}</Text>
+                </CardHeader>
+                <CardBody>
+                    <Text style={style.text}>{card.texteContenu}</Text>
+                </CardBody>
+                <CardFooter alignSelf="center">
+                    <Button style={style.button}>
+                        <Text style={style.buttonText}>{card.texteBouton}</Text>
+                    </Button>
+                </CardFooter>
+            </Card>
         ))
     })
 
     return (
-        <Grid style={args.style} templateColumns="repeat(3, 1fr)" gap="50px">
+        <Grid style={args.style} templateColumns="repeat(3, 1fr)" gap="90px" alignSelf="center">
             {cardsElements}
         </Grid>
     );

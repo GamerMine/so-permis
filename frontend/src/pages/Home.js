@@ -14,8 +14,9 @@ const Home = () => {
             <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                 [
                     new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire"),
-                    new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée")
-                ]} hauteur={"300px"}/>
+                    new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée"),
+                    new OCard("", "CODE", "Nos forfaits code")
+                ]} hauteur={"450px"} largeur={"350px"}/>
         </Stack>
     )
 }
