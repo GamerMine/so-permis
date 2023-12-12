@@ -1,0 +1,172 @@
+CRITICAL - 2023-12-12 12:21:17 --> require(App\Database\DB.inc.php): failed to open stream: No such file or directory
+in APPPATH/Controllers/Home.php on line 14.
+ 1 APPPATH/Controllers/Home.php(14): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(14): require()
+ 3 SYSTEMPATH/CodeIgniter.php(919): App\Controllers\Home->bado()
+ 4 SYSTEMPATH/CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 12:21:17 --> require(App\Database\DB.inc.php): failed to open stream: No such file or directory
+in APPPATH/Controllers/Home.php on line 14.
+ 1 APPPATH/Controllers/Home.php(14): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(14): require()
+ 3 SYSTEMPATH/CodeIgniter.php(919): App\Controllers\Home->bado()
+ 4 SYSTEMPATH/CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 12:21:54 --> require(DB.inc.php): failed to open stream: No such file or directory
+in APPPATH/Controllers/Home.php on line 14.
+ 1 APPPATH/Controllers/Home.php(14): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(14): require()
+ 3 SYSTEMPATH/CodeIgniter.php(919): App\Controllers\Home->bado()
+ 4 SYSTEMPATH/CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 12:21:54 --> require(DB.inc.php): failed to open stream: No such file or directory
+in APPPATH/Controllers/Home.php on line 14.
+ 1 APPPATH/Controllers/Home.php(14): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(14): require()
+ 3 SYSTEMPATH/CodeIgniter.php(919): App\Controllers\Home->bado()
+ 4 SYSTEMPATH/CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 12:23:10 --> require(DB.inc.php): failed to open stream: No such file or directory
+in APPPATH/Controllers/Home.php on line 14.
+ 1 APPPATH/Controllers/Home.php(14): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(14): require()
+ 3 SYSTEMPATH/CodeIgniter.php(919): App\Controllers\Home->bado()
+ 4 SYSTEMPATH/CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 12:23:10 --> require(DB.inc.php): failed to open stream: No such file or directory
+in APPPATH/Controllers/Home.php on line 14.
+ 1 APPPATH/Controllers/Home.php(14): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(14): require()
+ 3 SYSTEMPATH/CodeIgniter.php(919): App\Controllers\Home->bado()
+ 4 SYSTEMPATH/CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 12:23:25 --> require(DB.inc.php): failed to open stream: No such file or directory
+in APPPATH/Controllers/Home.php on line 14.
+ 1 APPPATH/Controllers/Home.php(14): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(14): require()
+ 3 SYSTEMPATH/CodeIgniter.php(919): App\Controllers\Home->bado()
+ 4 SYSTEMPATH/CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 12:23:25 --> require(DB.inc.php): failed to open stream: No such file or directory
+in APPPATH/Controllers/Home.php on line 14.
+ 1 APPPATH/Controllers/Home.php(14): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(14): require()
+ 3 SYSTEMPATH/CodeIgniter.php(919): App\Controllers\Home->bado()
+ 4 SYSTEMPATH/CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 12:29:20 --> require(DB.inc.php): failed to open stream: No such file or directory
+in APPPATH/Controllers/Home.php on line 17.
+ 1 APPPATH/Controllers/Home.php(17): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(17): require()
+ 3 SYSTEMPATH/CodeIgniter.php(919): App\Controllers\Home->bado()
+ 4 SYSTEMPATH/CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 12:29:20 --> require(DB.inc.php): failed to open stream: No such file or directory
+in APPPATH/Controllers/Home.php on line 17.
+ 1 APPPATH/Controllers/Home.php(17): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(17): require()
+ 3 SYSTEMPATH/CodeIgniter.php(919): App\Controllers\Home->bado()
+ 4 SYSTEMPATH/CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 13:24:16 --> include(App\Models\Actualite): failed to open stream: No such file or directory
+in APPPATH/Controllers/Home.php on line 5.
+ 1 APPPATH/Controllers/Home.php(5): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(5): include()
+ 3 SYSTEMPATH/Autoloader/Autoloader.php(306): include_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/app/Controllers/Home.php')
+ 4 SYSTEMPATH/Autoloader/Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 5 SYSTEMPATH/Autoloader/Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 6 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 7 [internal function]: spl_autoload_call()
+ 8 SYSTEMPATH/CodeIgniter.php(877): class_exists()
+ 9 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+10 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 13:24:16 --> include(App\Models\Actualite): failed to open stream: No such file or directory
+in APPPATH/Controllers/Home.php on line 5.
+ 1 APPPATH/Controllers/Home.php(5): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(5): include()
+ 3 SYSTEMPATH/Autoloader/Autoloader.php(306): include_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/app/Controllers/Home.php')
+ 4 SYSTEMPATH/Autoloader/Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 5 SYSTEMPATH/Autoloader/Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 6 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 7 [internal function]: spl_autoload_call()
+ 8 SYSTEMPATH/CodeIgniter.php(877): class_exists()
+ 9 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+10 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 13:24:29 --> include(App\Models\Actualite.inc.php): failed to open stream: No such file or directory
+in APPPATH/Controllers/Home.php on line 5.
+ 1 APPPATH/Controllers/Home.php(5): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(5): include()
+ 3 SYSTEMPATH/Autoloader/Autoloader.php(306): include_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/app/Controllers/Home.php')
+ 4 SYSTEMPATH/Autoloader/Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 5 SYSTEMPATH/Autoloader/Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 6 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 7 [internal function]: spl_autoload_call()
+ 8 SYSTEMPATH/CodeIgniter.php(877): class_exists()
+ 9 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+10 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 13:24:29 --> include(App\Models\Actualite.inc.php): failed to open stream: No such file or directory
+in APPPATH/Controllers/Home.php on line 5.
+ 1 APPPATH/Controllers/Home.php(5): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Controllers/Home.php(5): include()
+ 3 SYSTEMPATH/Autoloader/Autoloader.php(306): include_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/app/Controllers/Home.php')
+ 4 SYSTEMPATH/Autoloader/Autoloader.php(285): CodeIgniter\Autoloader\Autoloader->includeFile()
+ 5 SYSTEMPATH/Autoloader/Autoloader.php(263): CodeIgniter\Autoloader\Autoloader->loadInNamespace()
+ 6 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass()
+ 7 [internal function]: spl_autoload_call()
+ 8 SYSTEMPATH/CodeIgniter.php(877): class_exists()
+ 9 SYSTEMPATH/CodeIgniter.php(481): CodeIgniter\CodeIgniter->startController()
+10 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+11 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 13:25:05 --> Cannot declare class App\Models\Actualite, because the name is already in use
+in APPPATH/Models/Actualite.inc.php on line 4.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-12 13:25:05 --> Cannot declare class App\Models\Actualite, because the name is already in use
+in APPPATH/Models/Actualite.inc.php on line 4.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-12 13:25:48 --> Cannot declare class App\Models\Actualite, because the name is already in use
+in APPPATH/Models/Actualite.inc.php on line 4.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-12 13:25:48 --> Cannot declare class App\Models\Actualite, because the name is already in use
+in APPPATH/Models/Actualite.inc.php on line 4.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-12 13:28:37 --> Return value of App\Controllers\Home::bado() must be of the type string, none returned
+in APPPATH/Controllers/Home.php on line 30.
+ 1 SYSTEMPATH/CodeIgniter.php(919): App\Controllers\Home->bado()
+ 2 SYSTEMPATH/CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
+CRITICAL - 2023-12-12 13:28:37 --> Return value of App\Controllers\Home::bado() must be of the type string, none returned
+in APPPATH/Controllers/Home.php on line 30.
+ 1 SYSTEMPATH/CodeIgniter.php(919): App\Controllers\Home->bado()
+ 2 SYSTEMPATH/CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/home/etudiant/sl210756/public_html/ProjetS5/so-permis/backend/public/index.php')
