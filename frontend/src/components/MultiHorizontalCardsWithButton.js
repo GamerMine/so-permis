@@ -50,6 +50,7 @@ export const MultiHorizontalCardsWithButton = (args) => {
             textAlign: "center",
             fontSize: "35px",
             color: "white",
+            fontFamily: "Montserrat, sans-serif",
         },
 
         button: {
