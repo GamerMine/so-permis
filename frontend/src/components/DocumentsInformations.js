@@ -1,18 +1,11 @@
 import * as React from 'react';
 
 import {
-    Box,
-    Button,
     Card,
     CardBody,
-    CardFooter,
-    CardHeader,
-    Heading,
-    Stack,
-    StackDivider,
     Text,
-    Icon, createIcon,
-    Image, Grid
+    Icon,
+    Grid
 } from "@chakra-ui/react";
 
 const DocumentsInformations = (arg) => {

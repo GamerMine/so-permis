@@ -50,7 +50,7 @@ const Header = () => {
             <nav style={style.nav}>
                 <div style={style.gridContainer}>
                     <a href={"/"}><img style={{...style.imgLogo, ...style.gridElement}}
-                            src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"/></a>
+                            src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png" alt={""}/></a>
                     <a style={{...style.gridElement, ...style.navLink}} href="/">ACCUEIL</a>
                     <a style={{...style.gridElement, ...style.navLink}} href="#">PERMIS DE CONDUIRE</a>
                     <a style={{...style.gridElement, ...style.navLink}} href="#">CODE DE LA ROUTE</a>
