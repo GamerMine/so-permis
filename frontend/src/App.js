@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Test from "./pages/Test";
+import Home from "./pages/Home.js";
 import Header from "./components/Header"
 import {ChakraProvider} from "@chakra-ui/react";
 
@@ -10,7 +10,7 @@ function App() {
           <Router>
             <div className="container">
               <Routes>
-                <Route exact path="/" element={<Test />} />
+                  <Route exact path="/" element={<Home />} />
               </Routes>
             </div>
           </Router>
