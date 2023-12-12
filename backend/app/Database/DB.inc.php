@@ -1,5 +1,6 @@
 <?php
 require(APPPATH . 'Models/Actualite.inc.php');
+require(APPPATH . 'Models/Formation.inc.php');
 class DB {
       private static $instance = null; //m�morisation de l'instance de DB pour appliquer le pattern Singleton
       private $connect=null; //connexion PDO � la base
@@ -120,22 +121,54 @@ class DB {
            $requete = 'SELECT * FROM ACTUALITE';
            return $this->execQuery($requete, null, 'Actualite');
        }
-       
 
-      public function getClientsAdr($adr) {
-      	     $requete = 'select * from client where ville = ?';
-	     return $this->execQuery($requete,array($adr),'Client');
-      }
+       public function insertActualite($titre,$infos, $image, $sources) {
+            $requete = 'insert into client values(?,?,?,?)';
+            $tparam = array($titre,$infos,$image,$sources );
+            return $this->execMaj($requete,$tparam);
+       }
+       
+       public function getFormations()
+       {
+           $requete = 'SELECT * FROM FORMATION';
+           return $this->execQuery($requete, null, 'Formation');
+       }
+       public function insertFormation($prix,$nom,$infos) {
+            $requete = 'insert into Formation values(?,?,?)';
+            $tparam = array($prix, $nom,$infos);
+            return $this->execMaj($requete,$tparam);
+       }
+
+       public function getAdministrateurs()
+       {
+           $requete = 'SELECT * FROM Administrateur';
+           return $this->execQuery($requete, null, 'Administrateur');
+       }
+       public function insertAdministrateur($email,$password) {
+            $requete = 'insert into Administrateur values(?,?)';
+            $tparam = array($email, $password);
+            return $this->execMaj($requete,$tparam);
+       }
+
+       public function getNewsletters()
+       {
+           $requete = 'SELECT * FROM Newsletter';
+           return $this->execQuery($requete, null, 'Newsletter');
+       }
+       public function insertNewsletter($email,$nom, $prenom) {
+            $requete = 'insert into Newsletter values(?,?,?)';
+            $tparam = array($email, $nom, $prenom);
+            return $this->execMaj($requete,$tparam);
+       }
+
+
+
+
+
 
       public function getClient($idcli) {
       	     $requete = 'select * from client where ncli = ?';
 	     return $this->execQuery($requete,array($idcli),'Client');
-      }
-
-      public function insertClient($idcli,$nom,$adr) {
-      	     $requete = 'insert into client values(?,?,?)';
-	     $tparam = array($idcli,$nom,$adr);
-	     return $this->execMaj($requete,$tparam);
       }
 
       public function updateAdrClient($idcli,$adr) {

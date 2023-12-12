@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use DB;
+use Config\App\Models\Actualite;
 use Kint\Parser\ToStringPlugin;
 
 class Home extends BaseController
@@ -19,7 +20,7 @@ class Home extends BaseController
             $db = DB::getInstance();
             $actualites = $db->getActualites();
             foreach ($actualites as $row) {
-                return $row[1];
+                return $row[1]. '. '. $row[2];
             }
         } catch (\Throwable $th) {
             return $th;
