@@ -4,7 +4,8 @@ import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizont
 
 import {Stack} from "@chakra-ui/react";
 import DocumentsInformations from "../components/DocumentsInformations";
-
+import PannelInformationSOPermis from "../components/PannelInformationSOPermis";
+import PannelInformationsVehicules from "../components/PannelInformationsVehicules";
 const Home = () => {
 
     const style = {
@@ -24,6 +25,8 @@ const Home = () => {
             <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
 
             <ElfsightWidget widgetId="4b32669e-1d41-4c0b-a813-efdeb3498bad" />;
+            <PannelInformationSOPermis/>;
+            <PannelInformationsVehicules/>;
         </Stack>
 
     );
