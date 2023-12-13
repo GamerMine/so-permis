@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {
-    Box,
+    SimpleGrid,
     Button,
     Card,
     CardBody,
@@ -79,7 +79,7 @@ const PannelInformationsVehicules =()=>{
 
                 <div style={style.body}>
                     <h4 style={style.title}>So'Permis - Votre auto-école locale de confiance !</h4>
-                    <Grid templateColumns="repeat(2, 1fr)" gap ="70px" alignSelf="center">
+                    <SimpleGrid columns={{sm: 2, md: 2}} spacing='70px' alignSelf="center">
                         <Card style={style.miniBox} >
                             <CardBody>
                                 <Image style={style.imageVoiture} src='./images/Peugeot-208.png' alt='Peugeot-208' borderRadius='lg'/>
@@ -97,7 +97,7 @@ const PannelInformationsVehicules =()=>{
                             </CardBody>
                         </Card>
 
-                    </Grid>
+                    </SimpleGrid>
 
                 </div>
 
