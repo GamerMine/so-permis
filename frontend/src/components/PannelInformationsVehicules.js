@@ -2,17 +2,11 @@ import * as React from 'react';
 
 import {
     SimpleGrid,
-    Button,
     Card,
     CardBody,
-    CardFooter,
-    CardHeader,
-    Heading,
     Stack,
-    StackDivider,
     Text,
-    Icon, createIcon,
-    Image, Grid
+    Image
 } from "@chakra-ui/react";
 
 const PannelInformationsVehicules =()=>{
@@ -92,7 +86,6 @@ const PannelInformationsVehicules =()=>{
                         <Text style={style.textBox}>Bien équipé et confortable, cette voiture t’accompagnera pour ton Permis B Automatique</Text>
                     </CardBody>
                 </Card>
-
             </SimpleGrid>
         </Stack>
     )

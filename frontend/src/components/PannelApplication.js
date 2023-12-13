@@ -1,18 +1,11 @@
 import * as React from 'react';
 
 import {
-    Box,
     SimpleGrid,
     Card,
     CardBody,
-    CardFooter,
-    CardHeader,
-    Heading,
-    Stack,
-    StackDivider,
     Text,
-    Icon, createIcon,
-    Image, Grid
+    Image
 } from "@chakra-ui/react";
 
 const PannelApplication =()=>{

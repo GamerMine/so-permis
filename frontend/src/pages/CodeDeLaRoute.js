@@ -1,7 +1,6 @@
 import React from "react";
 import {
     Box,
-    Text,
     Table,
     Thead,
     Tbody,
@@ -13,11 +12,8 @@ import {
     Card,
     CardBody,
     SimpleGrid,
-    CardHeader,
     Heading,
-    CardFooter,
     Button,
-    AbsoluteCenter,
     Grid,
     GridItem,
     Link,

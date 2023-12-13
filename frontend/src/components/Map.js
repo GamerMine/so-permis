@@ -1,29 +1,14 @@
 import {
     AspectRatio,
-    Button,
-    Stack,
     Box,
-    VStack,
-    HStack,
     Text,
-    Link,
-    Image,
 } from "@chakra-ui/react";
 import { BsInstagram, BsSnapchat } from "react-icons/bs";
-import { Grid, GridItem } from "@chakra-ui/react"
 import { Flex } from "@chakra-ui/react"
-import Test from "../pages/Test";
 
 // Example Address Component
 const AddressComponent = () => {
-    const style = {
-        footer: {
-            width: "100%",
-            backgroundColor: "white",
-            color: "black",
-        },
 
-    }
     return (
         <Box align="center">
             <Text fontSize="2xl" as="b">
@@ -73,14 +58,6 @@ const ContactComponent = () => {
 };
 
 const iframe = () => {
-    const style = {
-        iframe: {
-            width: "100%",
-            margin: "150px",
-            padding: "20px",
-        },
-
-    }
     return (
         <AspectRatio ratio={16 / 9}>
             <iframe
@@ -93,14 +70,7 @@ const iframe = () => {
 
 
 const Map = () => {
-    const style = {
-        footer: {
-            width: "100%",
-            backgroundColor: "white",
-            color: "black",
-        },
 
-    }
     return (
         <Flex direction="row" justify="space-between" align="flex-start">
             {/* Left Section */}
