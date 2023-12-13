@@ -58,7 +58,7 @@ const Header = () => {
                         src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png" />
 
                     <a style={{ ...style.gridElement, ...style.navLink }} href="/">Accueil</a>
-                    <a style={{ ...style.gridElement, ...style.navLink }} href="#">Permis de conduire</a>
+                    <a style={{ ...style.gridElement, ...style.navLink }} href="/Permis">Permis de conduire</a>
                     <a style={{ ...style.gridElement, ...style.navLink }} href="/CodeDeLaRoute">Code de la route</a>
                     <a style={{ ...style.gridElement, ...style.navLink }} href="#">Qui sommes-nous ?</a>
                     <a style={{ ...style.gridElement, ...style.navLink }} href="/Contact">Contact</a>

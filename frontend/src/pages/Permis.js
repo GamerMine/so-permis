@@ -41,13 +41,7 @@ const Permis = () => {
             </Stack>
             <Stack marginTop="15px" gap="0">
                 <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
-                <div style={{backgroundColor: "rgb(15, 20, 17)", padding: "20px"}}>
-                    <h4 style={style.title}>Avis de nos clients</h4>
-                    <ElfsightWidget widgetId="4b32669e-1d41-4c0b-a813-efdeb3498bad" />;
-                </div>
-                <PannelInformationSOPermis/>;
-                <PannelInformationsVehicules/>;
-                <PannelApplication/>;
+
             </Stack>
         </Stack>
 
