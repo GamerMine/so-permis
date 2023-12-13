@@ -33,6 +33,8 @@ const PannelInformationSOPermis =()=>{
         },
 
         miniBoxImg:{
+            marginLeft: "auto",
+            marginRight: "auto",
             boxShadow: '10px 10px 4px rgba(0, 0, 0, 0.25)',
             borderRadius: 40,
             width: "40%",

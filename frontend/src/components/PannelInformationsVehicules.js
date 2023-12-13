@@ -91,9 +91,9 @@ const PannelInformationsVehicules =()=>{
                         <Card style={style.miniBox} >
                             <CardBody>
                                 <Image style={style.imageVoiture} src='./images/Peugeot-5008.png' alt='Peugeot-5008' borderRadius='lg'/>
-                                <Text style={style.textVoiture}>Peugeot 208</Text>
-                                <Text style={style.textInfoVoiture}>Boîte Manuelle</Text>
-                                <Text style={style.textBox}>Pratique et facile à manier, cette voiture t’accompagnera pour ton permis B</Text>
+                                <Text style={style.textVoiture}>Peugeot 5008</Text>
+                                <Text style={style.textInfoVoiture}>Boîte Automatique</Text>
+                                <Text style={style.textBox}>Bien équipé et confortable, cette voiture t’accompagnera pour ton Permis B Automatique</Text>
                             </CardBody>
                         </Card>
 
