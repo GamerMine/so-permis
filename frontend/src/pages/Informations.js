@@ -7,7 +7,7 @@ import DocumentsInformations from "../components/DocumentsInformations";
 import PannelInformationSOPermis from "../components/PannelInformationSOPermis";
 import PannelInformationsVehicules from "../components/PannelInformationsVehicules";
 import PannelApplication from "../components/PannelApplication.js";
-const Home = () => {
+const Informations = () => {
 
     const style = {
         cardsServices: {
@@ -27,23 +27,11 @@ const Home = () => {
 
     return (
         <Stack marginTop="15px" gap="0">
-            <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
-                [
-                    new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire"),
-                    new OCard("", "CODE", "Nos forfaits code"),
-                    new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée")
-                ]} hauteur={"450px"} largeur={"350px"}/>
-            <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
-            <div style={{backgroundColor: "rgb(15, 20, 17)"}}>
-                <h4 style={style.title}>Avis de nos clients</h4>
-                <ElfsightWidget widgetId="4b32669e-1d41-4c0b-a813-efdeb3498bad"/>;
-            </div>
-            <PannelInformationSOPermis/>;
-            <PannelInformationsVehicules/>;
-            <PannelApplication/>;
+            
+
         </Stack>
 
     );
 };
 
-export default Home
+export default Informations

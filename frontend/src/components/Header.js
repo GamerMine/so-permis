@@ -1,7 +1,10 @@
+import * as React from 'react';
+
 const Header = () => {
 
     const style = {
         nav: {
+            height: "100px",
             width: "100%",
             backgroundColor: "black"
         },
@@ -14,30 +17,36 @@ const Header = () => {
         },
 
         imgLogo: {
-            height: "auto",
-            width: "50%"
+            width: "40%"
         },
 
         navLink: {
             color: "white",
-            textDecoration: "none"
+            textDecoration: "none",
         },
 
         gridElement: {
             padding: "20px",
             objectFit: "contain",
-            fontSize: "30px",
-            textAlign: "center"
+            fontSize: "20px",
+            textAlign: "center",
+            fontFamily: "Montserrat, sans-serif",
         },
 
         gridContainer: {
             display: "grid",
-            gridTemplateColumns: "auto auto auto auto auto auto"
+            gridTemplateColumns: "auto auto auto auto auto auto",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%"
         }
     }
 
     return (
         <header>
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
             <nav style={style.nav}>
                 <div style={style.gridContainer}>
                     <img style={{...style.imgLogo, ...style.gridElement}}
@@ -47,7 +56,7 @@ const Header = () => {
                     <a style={{...style.gridElement, ...style.navLink}} href="#">Permis de conduire</a>
                     <a style={{...style.gridElement, ...style.navLink}} href="/CodeDeLaRoute">Code de la route</a>
                     <a style={{...style.gridElement, ...style.navLink}} href="#">Qui sommes-nous ?</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Contact</a>
+                    <a style={{...style.gridElement, ...style.navLink}} href="#">Contact</a>                
                 </div>
             </nav>
         </header>

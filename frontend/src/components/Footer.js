@@ -3,12 +3,10 @@ import {
     Stack,
     Box,
     VStack,
-    HStack,
     Text,
-    Link,
-    Image,
+    Link
 } from "@chakra-ui/react";
-import Test from "../pages/Test";
+import {BsInstagram, BsSnapchat} from "react-icons/bs";
 
 const Footer = () => {
     const style = {
@@ -35,15 +33,13 @@ const Footer = () => {
             <Stack direction={['column', 'row']} spacing={"5%"}  align='center'>
                 <Box w='30%' align='center'>
                 <img style={{...style.imgLogo}}
-                    src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"/>    
+                    src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png" alt={""}/>
                 </Box>
                 <Box>
-                    <VStack align='center'>
-                        <Box>
-                            <HStack spacing={"25%"}  align='center'>
-                                <Image boxSize='30px' src="/images/Insta.png" alt="Instagram"/>
-                                <Image boxSize='30px' src="/images/Snapchat.png" alt="Snapchat"/>
-                            </HStack>
+                    <VStack>
+                        <Box display="flex" >
+                            <BsInstagram size={30} />
+                            <BsSnapchat style={{marginLeft:"20px"}} size={30}  />
                         </Box>
 
                         <Box>

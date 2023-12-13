@@ -39,3 +39,18 @@ INSERT INTO ACTUALITE (titreActualite, infosActualite, imageURL, sources) VALUES
 (
     'Léo est trop fort', 'Car il a réussi a connecter la base', 'imageDeLeoLeBg.png', 'léo'
 );
+
+INSERT INTO FORMATION (prix, nom, infos) VALUES
+(
+    '10.56', 'Formation 1', 'une formation sponso par Léo'
+);
+
+INSERT INTO ADMINISTRATEUR (email, password) VALUES
+(
+    'enorme.bg@leo.fr', 'chsuikunu'
+);
+
+INSERT INTO NEWSLETTER (email, nom, prenom) VALUES
+(
+    'enorme.bg@leo.fr', 'leplusgros', 'bg'
+);
