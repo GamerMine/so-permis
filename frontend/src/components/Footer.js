@@ -65,6 +65,11 @@ const Footer = () => {
                     <p>sopermis76@gmail.com</p>
                 </Box>
             </Stack>
+
+            <Box align='center' style={{marginTop:"20px"}}>
+                <Text fontSize='sm' color={"gray"}><Link href="/MentionsLegales">Mentions légales</Link> - <Link href="/RGPD">RGPD</Link> </Text>
+            </Box>
+
         </footer>
     )
 }
