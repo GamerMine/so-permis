@@ -16,15 +16,6 @@ import {
 import DocumentsInformations from "../components/DocumentsInformations";
 
 const Test = () => {
-    const [text, setText] = useState()
-    useEffect(() => {
-        getText();
-    }, [])
-
-    const getText = async() => {
-        const text = await axios.get('http://localhost:3000/')
-        setText(text.data)
-    }
 
     const [bado, setTextbado] = useState()
     useEffect(() => {
