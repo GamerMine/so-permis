@@ -1,10 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-import CodeDeLaRoute from "./pages/CodeDeLaRoute.js";
 import Home from "./pages/Home";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import {ChakraProvider} from "@chakra-ui/react";
+import {customTheme} from "./Theme/customTheme";
 import Informations from "./pages/Informations";
 import MentionsLegales from "./pages/MentionsLegales";
 import RGPD from "./pages/RGPD";
@@ -12,7 +11,7 @@ import Cookies from "./pages/Cookies";
 
 function App() {
   return (
-      <ChakraProvider>
+      <ChakraProvider theme={customTheme}>
           <Header/>
           <Router>
             <div className="container">
