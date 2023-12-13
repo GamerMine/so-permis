@@ -9,6 +9,8 @@ import {
 } from "@chakra-ui/react";
 import {useState} from "react";
 import ReactCardFlip from "react-card-flip";
+import { useNavigate } from 'react-router-dom';
+
 
 export class OCard {
 
@@ -18,23 +20,46 @@ export class OCard {
      * @param titre chaine de caractères
      * @param texteContenu chaine de caractères
      * @param texteBouton chaine de caractères
+     * @param info
      */
-    constructor(titre, texteContenu, texteBouton) {
+    constructor(titre, texteContenu, texteBouton , info) {
         this.titre = titre;
         this.texteContenu = texteContenu;
         this.texteBouton = texteBouton;
-        this.isFlipped = false;
+        this.info = info ;
+        this.isHovered = false;
     }
 }
 
 export const MultiHorizontalCardsWithButton = (args) => {
     const [cards, setCards] = useState(args.cards);
+    const navigate = useNavigate();
 
-    const handleCardClick = (index) => {
+
+    const handleCardHover = (index, isHovered) => {
         const updatedCards = [...cards];
-        updatedCards[index].isFlipped = !updatedCards[index].isFlipped;
+        updatedCards[index].isHovered = isHovered;
         setCards(updatedCards);
     };
+
+    const handleRedirect = (text) =>{
+        if(text === "permis" )
+        {
+            console.log("permis");
+        }
+
+        if(text === "code" )
+        {
+            console.log("code");
+        }
+
+        if(text === "conduite" )
+        {
+            console.log("conduite");
+        }
+
+
+    }
 
     const style = {
         card: {
@@ -79,13 +104,14 @@ export const MultiHorizontalCardsWithButton = (args) => {
         cardsElements.push(
             <ReactCardFlip
                 key={index}
-                isFlipped={card.isFlipped}
+                isFlipped={card.isHovered}
                 flipDirection="horizontal" // Ou "vertical", selon votre préférence
             >
                 {/* Face avant */}
                 <Card
                     style={style.card}
-                    onClick={() => handleCardClick(index)}
+                    onMouseEnter={() => handleCardHover(index, true)}
+                    onMouseLeave={() => handleCardHover(index, false)}
                 >
                     <CardHeader>
                         <Text>{card.titre}</Text>
@@ -93,30 +119,21 @@ export const MultiHorizontalCardsWithButton = (args) => {
                     <CardBody>
                         <Text style={style.text}>{card.texteContenu}</Text>
                     </CardBody>
-                    <CardFooter alignSelf="center">
-                        <Button style={style.button}>
-                            <Text style={style.buttonText}>{card.texteBouton}</Text>
-                        </Button>
-                    </CardFooter>
                 </Card>
 
                 {/* Face arrière */}
                 <Card
                     style={{ ...style.card, borderRadius: "50px 10px 50px 10px", }}
-                    onClick={() => handleCardClick(index)}
+                    onMouseEnter={() => handleCardHover(index, true)}
+                    onMouseLeave={() => handleCardHover(index, false)}
+                    backgroundImage={`url("../images/${card.info}.jpg")`}
+                    
                 >
-                    <CardHeader>
-                        <Text>Back of the Card</Text>
-                    </CardHeader>
-                    <CardBody>
-
-                        <Text style={style.text}>Test</Text>
-                    </CardBody>
-                    <CardFooter alignSelf="center">
-                        <Button style={style.button}>
-                            <Text style={style.buttonText}>Back Button</Text>
+                    <CardBody alignSelf="center"  display="flex" flexDirection="column" justifyContent="center"  >
+                        <Button style={style.button} onClick={() => handleRedirect(card.info)} >
+                            <Text style={style.buttonText}>{card.texteBouton}</Text>
                         </Button>
-                    </CardFooter>
+                    </CardBody>
                 </Card>
             </ReactCardFlip>
         );
@@ -125,7 +142,11 @@ export const MultiHorizontalCardsWithButton = (args) => {
     return (
         <Grid
             style={args.style}
-            templateColumns="repeat(3, 1fr)"
+            templateColumns={{
+                base: `repeat(1, 1fr)`,
+                md: `repeat(2, 1fr)`,
+                xl: `repeat(3, 1fr)`,
+            }}
             gap="90px"
             alignSelf="center"
         >

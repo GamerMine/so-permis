@@ -3,10 +3,11 @@ import Home from "./pages/Home";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import {ChakraProvider} from "@chakra-ui/react";
+import {customTheme} from "./Theme/customTheme";
 
 function App() {
   return (
-      <ChakraProvider>
+      <ChakraProvider theme={customTheme}>
           <Header/>
           <Router>
             <div className="container">
