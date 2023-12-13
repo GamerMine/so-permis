@@ -27,9 +27,6 @@ const Home = () => {
         },
     }
 
-    const result = axios.get("http://localhost:8080/testBado");
-    console.log(result);
-
     return (
         <Stack marginTop="15px">
             <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
@@ -38,20 +35,11 @@ const Home = () => {
                     new OCard("", "CODE", "Nos forfaits code","code"),
                     new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite"),
                 ]} hauteur={"450px"} largeur={"350px"}/>
-            <ElfsightWidget widgetId="4b32669e-1d41-4c0b-a813-efdeb3498bad" />;
             <Stack marginTop="15px" gap="0">
-                <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')"}} >
-                    <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
-                        [
-                            new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire"),
-                            new OCard("", "CODE", "Nos forfaits code"),
-                            new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée")
-                        ]} hauteur={"450px"} largeur={"350px"}/>
-                </Stack >
                 <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
                 <div style={{backgroundColor: "rgb(15, 20, 17)", padding: "20px"}}>
                     <h4 style={style.title}>Avis de nos clients</h4>
-                    <ElfsightWidget widgetId="4b32669e-1d41-4c0b-a813-efdeb3498bad"/>;
+                    <ElfsightWidget widgetId="4b32669e-1d41-4c0b-a813-efdeb3498bad" />;
                 </div>
                 <PannelInformationSOPermis/>;
                 <PannelInformationsVehicules/>;

@@ -5,39 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ad6ac9e-3666-40ed-bb2b-6901873e2a6c" name="Changes" comment="card flip se retourne en survolant ajout de la méthode click">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Controllers/Home.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Views/Commun/Header.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/Google_Play_Store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/Peugeot-208.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/Peugeot-5008.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/SAROOL LOGO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/apple store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/auto-ecole 1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/code-route.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/public/images/proprio.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/DocumentsInformations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/PannelApplication.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/PannelInformationSOPermis.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/PannelInformationsVehicules.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/CodeDeLaRoute.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Cookies.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Informations.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/MentionsLegales.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/RGPD.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controllers/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Database/Bado.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Database/Bado.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/Database/DB.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Database/DB.inc.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Test.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Test.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +37,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging flipCard",
+    "git-widget-placeholder": "react",
     "last_opened_file_path": "/home/etudiant/gc211206/TP/s5/s5.01_developpement_avance/so-permis/frontend/public/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",

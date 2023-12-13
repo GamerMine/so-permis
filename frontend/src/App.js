@@ -8,6 +8,7 @@ import Informations from "./pages/Informations";
 import MentionsLegales from "./pages/MentionsLegales";
 import RGPD from "./pages/RGPD";
 import Cookies from "./pages/Cookies";
+import CodeDeLaRoute from "./pages/CodeDeLaRoute";
 
 function App() {
   return (
