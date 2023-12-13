@@ -1,18 +1,11 @@
 import * as React from 'react';
 
 import {
-    Box,
-    Button,
     Card,
     CardBody,
-    CardFooter,
-    CardHeader,
-    Heading,
-    Stack,
     SimpleGrid,
     Text,
-    Icon, createIcon,
-    Image, Grid
+    Image
 } from "@chakra-ui/react";
 
 const PannelInformationSOPermis =()=>{

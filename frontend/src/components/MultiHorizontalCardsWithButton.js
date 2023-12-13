@@ -2,15 +2,12 @@ import {
     Button,
     Card,
     CardBody,
-    CardFooter,
     CardHeader,
     Grid,
     Text
 } from "@chakra-ui/react";
 import {useState} from "react";
 import ReactCardFlip from "react-card-flip";
-import { useNavigate } from 'react-router-dom';
-
 
 export class OCard {
 
@@ -33,7 +30,6 @@ export class OCard {
 
 export const MultiHorizontalCardsWithButton = (args) => {
     const [cards, setCards] = useState(args.cards);
-    const navigate = useNavigate();
 
 
     const handleCardHover = (index, isHovered) => {
