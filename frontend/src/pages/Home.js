@@ -28,7 +28,7 @@ const Home = () => {
     }
 
     return (
-        <Stack marginTop="15px">
+        <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')"}} >
             <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                 [
                     new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire","permis"),
