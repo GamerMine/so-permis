@@ -28,13 +28,17 @@ const Home = () => {
     }
 
     return (
-        <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')"}} >
+        <Stack  >
+            <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')"}}>
+
             <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                 [
-                    new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire","permis"),
-                    new OCard("", "CODE", "Nos forfaits code","code"),
-                    new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite"),
+                    new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire","permis", "/Permis"),
+                    new OCard("", "CODE", "Nos forfaits code","code", "/CodeDeLaRoute"),
+                    new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "/CodeDeLaRoute"),
                 ]} hauteur={"450px"} largeur={"350px"}/>
+
+            </Stack>
             <Stack marginTop="15px" gap="0">
                 <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
                 <div style={{backgroundColor: "rgb(15, 20, 17)", padding: "20px"}}>

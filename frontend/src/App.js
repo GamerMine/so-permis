@@ -9,7 +9,7 @@ import Informations from "./pages/Informations";
 import MentionsLegales from "./pages/MentionsLegales";
 import RGPD from "./pages/RGPD";
 import Cookies from "./pages/Cookies";
-//import Permis from "./pages/Permis";
+import Permis from "./pages/Permis";
 import Contact from "./pages/PageContact";
 import CodeDeLaRoute from "./pages/CodeDeLaRoute";
 
@@ -26,7 +26,7 @@ function App() {
             <Route exact path="/MentionsLegales" element={<MentionsLegales />} />
             <Route exact path="/RGPD" element={<RGPD />} />
             <Route exact path="/Cookies" element={<Cookies />} />
-            {/*<Route exact path="/Permis" element={<Permis />} />*/}
+            <Route exact path="/Permis" element={<Permis />} />
             <Route exact path="/Contact" element={<Contact />} />
           </Routes>
         </div>
