@@ -1,71 +1,54 @@
 import React from "react";
 import { ElfsightWidget } from 'react-elfsight-widget';
-import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton";
+import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
 
 import {Stack} from "@chakra-ui/react";
 import DocumentsInformations from "../components/DocumentsInformations";
 import PannelInformationSOPermis from "../components/PannelInformationSOPermis";
 import PannelInformationsVehicules from "../components/PannelInformationsVehicules";
-import {PannelListePermisB, cardPermis} from "../components/PannelListePermisB.js";
+import PannelApplication from "../components/PannelApplication.js";
+
+
 const Permis = () => {
 
     const style = {
-        card: {
-            backgroundColor: "rgba(30,198,177,0.79)",
-            height: args.hauteur,
-            width: args.largeur,
-            borderRadius: "10px 50px 10px 50px",
-            boxShadow: "10px 10px 5px rgba(0, 0, 0, 0.5)",
-            cursor: "pointer",
+        cardsServices: {
+            margin: "150px"
         },
 
-        text: {
-            position: "absolute",
-            top: "50%",
-            transform: "translateY(-50%)",
-            width: "100%",
-            left: 0,
-            textAlign: "center",
+        title:{
+            margin:"50px",
+            color: "#FFF",
+            fontFamily: "Montserrat-Bold, Helvetica",
             fontSize: "35px",
-            color: "white",
-            fontFamily: "Montserrat, sans-serif",
+            fontStyle: "normal",
+            fontWeight: "700",
+            lineHeight: "normal"
         },
-
-        button: {
-            backgroundColor: "black",
-            borderRadius: "15px",
-            overflowWrap: "break-word",
-            whiteSpace: "normal",
-            height: "60px",
-            marginLeft: "55px",
-            marginRight: "55px",
-        },
-
-        buttonText: {
-            color: "white",
-        },
-    };
+    }
 
     return (
-        <Stack marginTop="15px" gap="0">
-            <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')"}} >
+        <Stack  >
+            <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')"}}>
+
                 <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                     [
-                        new OCard("", "PERMIS B", "Nos forfaits conduite permis B","/CodeDeLaRoute"),
-                        new OCard("", "PERMIS B EXPRESS", "Nos forfaits conduite permis B express","/CodeDeLaRoute"),
-                        new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","/CodeDeLaRoute")
+                        new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire","permis"),
+                        new OCard("", "CODE", "Nos forfaits code","code"),
+                        new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite"),
                     ]} hauteur={"450px"} largeur={"350px"}/>
-            </Stack >PannelListePermisB
-            <DocumentsInformations titre={"Documents à fournir"}/>
-            <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')"}} >
-                <PannelListePermisB style={style.cardsServices} cards={
-                    [
-                        new cardPermis("", "PERMIS B", "Nos forfaits conduite permis B"),
-                        new cardPermis("", "PERMIS B EXPRESS", "Nos forfaits conduite permis B express"),
-                        new cardPermis("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée")
-                    ]} hauteur={"450px"} largeur={"350px"}/>
-            </Stack >
 
+            </Stack>
+            <Stack marginTop="15px" gap="0">
+                <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
+                <div style={{backgroundColor: "rgb(15, 20, 17)", padding: "20px"}}>
+                    <h4 style={style.title}>Avis de nos clients</h4>
+                    <ElfsightWidget widgetId="4b32669e-1d41-4c0b-a813-efdeb3498bad" />;
+                </div>
+                <PannelInformationSOPermis/>;
+                <PannelInformationsVehicules/>;
+                <PannelApplication/>;
+            </Stack>
         </Stack>
 
     );

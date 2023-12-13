@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import {useState} from "react";
 import ReactCardFlip from "react-card-flip";
+import {useNavigate} from "react-router-dom";
 
 export class OCard {
 
@@ -19,18 +20,19 @@ export class OCard {
      * @param texteBouton chaine de caractères
      * @param info
      */
-    constructor(titre, texteContenu, texteBouton , info) {
+    constructor(titre, texteContenu, texteBouton , info, link) {
         this.titre = titre;
         this.texteContenu = texteContenu;
         this.texteBouton = texteBouton;
         this.info = info ;
         this.isHovered = false;
+        this.link = link;
     }
 }
 
 export const MultiHorizontalCardsWithButton = (args) => {
     const [cards, setCards] = useState(args.cards);
-
+    const navigate = useNavigate();
 
     const handleCardHover = (index, isHovered) => {
         const updatedCards = [...cards];
@@ -38,23 +40,8 @@ export const MultiHorizontalCardsWithButton = (args) => {
         setCards(updatedCards);
     };
 
-    const handleRedirect = (text) =>{
-        if(text === "permis" )
-        {
-            console.log("permis");
-        }
-
-        if(text === "code" )
-        {
-            console.log("code");
-        }
-
-        if(text === "conduite" )
-        {
-            console.log("conduite");
-        }
-
-
+    const handleRedirect = (link) =>{
+        navigate(link);
     }
 
     const style = {
@@ -98,6 +85,7 @@ export const MultiHorizontalCardsWithButton = (args) => {
 
     args.cards.forEach((card, index) => {
         cardsElements.push(
+
             <ReactCardFlip
                 key={index}
                 isFlipped={card.isHovered}
@@ -123,10 +111,9 @@ export const MultiHorizontalCardsWithButton = (args) => {
                     onMouseEnter={() => handleCardHover(index, true)}
                     onMouseLeave={() => handleCardHover(index, false)}
                     backgroundImage={`url("../images/${card.info}.jpg")`}
-                    
                 >
                     <CardBody alignSelf="center"  display="flex" flexDirection="column" justifyContent="center"  >
-                        <Button style={style.button} onClick={() => handleRedirect(card.info)} >
+                        <Button style={style.button} onClick={() => navigate(`${card.link}`)} >
                             <Text style={style.buttonText}>{card.texteBouton}</Text>
                         </Button>
                     </CardBody>
