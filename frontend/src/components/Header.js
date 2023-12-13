@@ -39,6 +39,11 @@ const Header = () => {
             justifyContent: "center",
             alignItems: "center",
             height: "100%"
+        },
+
+        bandeBleu: {
+            backgroundColor: "#1EC6B1",
+            height: "15px"
         }
     }
 
@@ -59,6 +64,7 @@ const Header = () => {
                     <a style={{...style.gridElement, ...style.navLink}} href="#">Contact</a>                
                 </div>
             </nav>
+            <div style={style.bandeBleu} />
         </header>
     )
 }
