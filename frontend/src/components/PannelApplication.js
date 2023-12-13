@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {
     Box,
-    Button,
+    SimpleGrid,
     Card,
     CardBody,
     CardFooter,
@@ -59,21 +59,21 @@ const PannelApplication =()=>{
 
                 <div style={style.body}>
                     <h4 style={style.title}>Application SAROOL</h4>
-                    <Grid templateColumns="repeat(2, 1fr)" gap ="70px" alignSelf="center">
+                    <SimpleGrid columns={{sm: 2, md: 2}} spacing='70px' alignSelf="center">
                         <Card>
                                 <Image style={style.imageVoiture} src='./images/SAROOL LOGO.png' alt='SAROOL' borderRadius='lg'/>
                         </Card>
                         <Card style={style.miniBox} >
                             <CardBody>
                                 <Text style={style.textBox}>Visualise tes informations personnelles et gères tes disponibilités avec l’application SAROOL !</Text>
-                                <Grid templateColumns="repeat(2, 1fr)" gap ="70px" alignSelf="center">
+                                <SimpleGrid columns={{sm: 2, md: 2}} spacing='70px' alignSelf="center">
                                     <Image style={style.imageVoiture} src='./images/Google_Play_Store.png' alt='play store' borderRadius='lg'/>
                                     <Image style={style.imageVoiture} src='./images/apple store.png' alt='apple store' borderRadius='lg'/>
-                                </Grid>
+                                </SimpleGrid>
                             </CardBody>
                         </Card>
 
-                    </Grid>
+                    </SimpleGrid>
 
                 </div>
 
