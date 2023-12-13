@@ -1,18 +1,19 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-import CodeDeLaRoute from "./pages/CodeDeLaRoute.js";
 import Home from "./pages/Home";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import {ChakraProvider} from "@chakra-ui/react";
+import {customTheme} from "./Theme/customTheme";
 import Informations from "./pages/Informations";
 import MentionsLegales from "./pages/MentionsLegales";
 import RGPD from "./pages/RGPD";
 import Cookies from "./pages/Cookies";
+import Permis from "./pages/Permis";
+import CodeDeLaRoute from "./pages/CodeDeLaRoute";
 
 function App() {
   return (
-      <ChakraProvider>
+      <ChakraProvider theme={customTheme}>
           <Header/>
           <Router>
             <div className="container">
@@ -23,6 +24,7 @@ function App() {
                   <Route exact path="/MentionsLegales" element={<MentionsLegales />} />
                   <Route exact path="/RGPD" element={<RGPD />} />
                   <Route exact path="/Cookies" element={<Cookies />} />
+                  <Route exact path="/Permis" element={<Permis />} />
               </Routes>
             </div>
           </Router>
