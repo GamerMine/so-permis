@@ -34,7 +34,6 @@ const CodeDeLaRoute = () => {
             backgroundImage: "url('/images/code-route.png')",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            
         },
 
         textBlanc: {
@@ -42,8 +41,7 @@ const CodeDeLaRoute = () => {
         },
 
         carte: {
-            backgroundColor: "#1EC6B1",
-            opacity: "0.9",
+            backgroundColor: "rgba(30,198,177,0.79)",
         },
 
         bouton: {

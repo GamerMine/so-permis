@@ -25,6 +25,12 @@ const Home = () => {
             fontWeight: "700",
             lineHeight: "normal"
         },
+
+        imgFond: {
+            backgroundImage: "url('./images/auto-ecole 1.png')",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+        }
     }
 
     const result = axios.get("http://localhost:8080/testBado");
@@ -32,7 +38,7 @@ const Home = () => {
 
     return (
         <Stack marginTop="15px" gap="0">
-            <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')"}} >
+            <Stack style={{...style.imgFond}} >
                 <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                     [
                         new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire"),
