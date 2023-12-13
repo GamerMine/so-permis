@@ -6,6 +6,7 @@ import {Stack} from "@chakra-ui/react";
 import DocumentsInformations from "../components/DocumentsInformations";
 import PannelInformationSOPermis from "../components/PannelInformationSOPermis";
 import PannelInformationsVehicules from "../components/PannelInformationsVehicules";
+import PannelApplication from "../components/PannelApplication.js";
 const Home = () => {
 
     const style = {
@@ -27,6 +28,7 @@ const Home = () => {
             <ElfsightWidget widgetId="4b32669e-1d41-4c0b-a813-efdeb3498bad" />;
             <PannelInformationSOPermis/>;
             <PannelInformationsVehicules/>;
+            <PannelApplication/>;
         </Stack>
 
     );
