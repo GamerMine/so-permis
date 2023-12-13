@@ -47,9 +47,9 @@ const MentionsLegales = () => {
 
                 <div style={style.stitre}> Éditeur du site</div>
 
-            So’Permis, auto école du Havre
-            20 Rue Jean Lurçat
-            76610 Le Havre
+            So’Permis, auto école du Havre<br/>
+            20 Rue Jean Lurçat<br/>
+            76610 Le Havre<br/>
 
 
             <div style={style.stitre}> Directeur de la publication</div>
@@ -64,7 +64,7 @@ const MentionsLegales = () => {
 
             <div style={style.stitre}> Données personnelles</div>
 
-            L'auto-école du Havre s'engage à protéger les données personnelles de ses clients. Les données collectées sont nécessaires au traitement de la demande et à la gestion de la relation client. Elles sont conservées pendant une durée de trois ans à compter de la dernière interaction avec le client.
+            L'auto-école du Havre s'engage à protéger les données personnelles de ses clients. Les données collectées sont nécessaires au traitement de la demande et à la gestion de la relation client. Elles sont conservées pendant une durée de trois ans à compter de la dernière interaction avec le client.<br/><br/>
 
             Le client dispose d'un droit d'accès, de rectification, d'effacement, de limitation, de portabilité et d'opposition au traitement de ses données. Il peut exercer ces droits en contactant l'auto-école du Havre par email ou par courrier.
 
