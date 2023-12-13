@@ -49,19 +49,19 @@ const Header = () => {
 
     return (
         <header>
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-            <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
             <nav style={style.nav}>
                 <div style={style.gridContainer}>
-                    <img style={{...style.imgLogo, ...style.gridElement}}
-                         src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"/>
+                    <img style={{ ...style.imgLogo, ...style.gridElement }}
+                        src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png" />
 
-                    <a style={{...style.gridElement, ...style.navLink}} href="/">Accueil</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Permis de conduire</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="/CodeDeLaRoute">Code de la route</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Qui sommes-nous ?</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Contact</a>                
+                    <a style={{ ...style.gridElement, ...style.navLink }} href="/">Accueil</a>
+                    <a style={{ ...style.gridElement, ...style.navLink }} href="#">Permis de conduire</a>
+                    <a style={{ ...style.gridElement, ...style.navLink }} href="/CodeDeLaRoute">Code de la route</a>
+                    <a style={{ ...style.gridElement, ...style.navLink }} href="#">Qui sommes-nous ?</a>
+                    <a style={{ ...style.gridElement, ...style.navLink }} href="/Contact">Contact</a>
                 </div>
             </nav>
             <div style={style.bandeBleu} />
