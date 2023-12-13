@@ -49,13 +49,14 @@ const Header = () => {
             <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
             <nav style={style.nav}>
                 <div style={style.gridContainer}>
-                    <a href={"/"}><img style={{...style.imgLogo, ...style.gridElement}}
-                            src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png" alt={""}/></a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="/">ACCUEIL</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">PERMIS DE CONDUIRE</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">CODE DE LA ROUTE</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">QUI SOMMES-NOUS ?</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">CONTACT</a>
+                    <img style={{...style.imgLogo, ...style.gridElement}}
+                         src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"/>
+
+                    <a style={{...style.gridElement, ...style.navLink}} href="/">Accueil</a>
+                    <a style={{...style.gridElement, ...style.navLink}} href="#">Permis de conduire</a>
+                    <a style={{...style.gridElement, ...style.navLink}} href="/CodeDeLaRoute">Code de la route</a>
+                    <a style={{...style.gridElement, ...style.navLink}} href="#">Qui sommes-nous ?</a>
+                    <a style={{...style.gridElement, ...style.navLink}} href="#">Contact</a>                
                 </div>
             </nav>
         </header>
