@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Box, Grid, GridItem} from "@chakra-ui/react";
 
 const Header = () => {
 
@@ -10,14 +11,13 @@ const Header = () => {
         },
 
         header: {
-            backgroundColor: "#0F1411",
+            backgroundColor: "black",
             color: "white",
-            height: "5%",
             margin: "-8px"
         },
 
         imgLogo: {
-            width: "40%"
+            width: "600px"
         },
 
         navLink: {
@@ -49,22 +49,20 @@ const Header = () => {
 
     return (
         <header>
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
-            <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
-            <nav style={style.nav}>
-                <div style={style.gridContainer}>
-                    <img style={{...style.imgLogo, ...style.gridElement}}
-                         src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"/>
-
-                    <a style={{...style.gridElement, ...style.navLink}} href="/">Accueil</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Permis de conduire</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="/CodeDeLaRoute">Code de la route</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Qui sommes-nous ?</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Contact</a>                
-                </div>
-            </nav>
-            <div style={style.bandeBleu} />
+            <Grid display={{xl:"flex" , lg:"grid"}} backgroundColor="black">
+                <GridItem><img style={style.imgLogo}
+                    src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"/></GridItem>
+                <nav style={style.nav}>
+                    <div style={style.gridContainer}>
+                        <GridItem><a style={{...style.gridElement, ...style.navLink}} href="/">Accueil</a></GridItem>
+                        <GridItem><a style={{...style.gridElement, ...style.navLink}} href="#">Permis de conduire</a></GridItem>
+                        <GridItem><a style={{...style.gridElement, ...style.navLink}} href="/CodeDeLaRoute">Code de la route</a></GridItem>
+                        <GridItem><a style={{...style.gridElement, ...style.navLink}} href="#">Qui sommes-nous ?</a></GridItem>
+                        <GridItem><a style={{...style.gridElement, ...style.navLink}} href="#">Contact</a></GridItem>
+                    </div>
+                </nav>
+        </Grid>
+            <div style={style.bandeBleu}/>
         </header>
     )
 }

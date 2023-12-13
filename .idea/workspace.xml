@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ad6ac9e-3666-40ed-bb2b-6901873e2a6c" name="Changes" comment="card flip se retourne en survolant ajout de la méthode click">
+    <list default="true" id="2ad6ac9e-3666-40ed-bb2b-6901873e2a6c" name="Changes" comment="changement merge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/Theme/customTheme.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/Theme/customTheme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +24,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -33,20 +34,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "react",
-    "last_opened_file_path": "/home/etudiant/gc211206/TP/s5/s5.01_developpement_avance/so-permis/frontend/public/images",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;responsive&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/etudiant/gc211206/TP/s5/s5.01_developpement_avance/so-permis/frontend/public/images&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/public/images" />
@@ -86,6 +87,7 @@
       <workItem from="1702456115818" duration="4816000" />
       <workItem from="1702461654693" duration="3788000" />
       <workItem from="1702473944012" duration="2473000" />
+      <workItem from="1702481389610" duration="3972000" />
     </task>
     <task id="LOCAL-00003" summary="card flip se retourne en survolant ajout de la méthode click">
       <option name="closed" value="true" />
@@ -95,7 +97,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702476070274</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="changement merge">
+      <option name="closed" value="true" />
+      <created>1702477111288</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702477111288</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,7 +127,8 @@
     <MESSAGE value="merge avec flip card" />
     <MESSAGE value="card flip qui se retourne en cliquant" />
     <MESSAGE value="card flip se retourne en survolant ajout de la méthode click" />
-    <option name="LAST_COMMIT_MESSAGE" value="card flip se retourne en survolant ajout de la méthode click" />
+    <MESSAGE value="changement merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="changement merge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -126,6 +137,11 @@
           <url>file://$PROJECT_DIR$/backend/system/Debug/Toolbar/Views/toolbar.js</url>
           <line>16</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/components/MultiHorizontalCardsWithButton.js</url>
+          <line>131</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

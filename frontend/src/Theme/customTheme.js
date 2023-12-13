@@ -7,7 +7,7 @@ export const customTheme = extendTheme({
         sm: "320px",
         md: "840px",
         lg: "960px",
-        xl: "1300px",
+        xl: "1325px",
         "2xl": "1536px",
     },
 
