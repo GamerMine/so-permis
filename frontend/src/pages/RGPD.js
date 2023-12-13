@@ -19,6 +19,10 @@ const RGPD = () => {
             wordWrap: 'break-word'
         },
 
+        baliseTiret:{
+            marginLeft:"30px"
+        },
+
         titre:{
             paddingBottom:"20px",
             paddingTop:"20px",
@@ -42,55 +46,55 @@ const RGPD = () => {
 
     return (
         <Stack marginTop="15px" gap="0">
-    <div style={style.para}>
-            <div style={style.titre}>Mentions légales</div>
+            <div style={style.para}>
+                <div style={style.titre}>Politique de confidentialité</div>
 
-                <div style={style.stitre}> Éditeur du site</div>
+                <div style={style.stitre}> Introduction</div>
+                So’Permis s'engage à protéger la vie privée de ses clients et des utilisateurs de son site web. Cette politique de confidentialité décrit la manière dont nous collectons, utilisons et partageons les informations personnelles vous concernant.
 
-            So’Permis, auto école du Havre
-            20 Rue Jean Lurçat
-            76610 Le Havre
+                <div style={style.stitre}> Collecte de vos informations personnelles</div>
+                Nous collectons les informations personnelles suivantes vous concernant lorsque vous utilisez notre site web :
+                <ul>
+                    <li style={style.baliseTiret}>Informations que vous nous fournissez : Nous collectons les informations que vous nous fournissez lorsque vous créez un compte, vous inscrivez à un cours ou nous contactez. Ces informations peuvent inclure votre nom, votre adresse e-mail, votre numéro de téléphone, votre adresse postale et d'autres informations de contact.</li>
+                    <li style={style.baliseTiret}>Informations que nous collectons automatiquement : Nous collectons également des informations automatiquement lorsque vous utilisez notre site web. Ces informations peuvent inclure votre adresse IP, le type de navigateur que vous utilisez, la page web que vous visitez et les pages web que vous consultez sur notre site web.</li>
+                </ul>
 
+                <div style={style.stitre}> Utilisation de vos informations personnelles</div>
+                Nous utilisons vos informations personnelles aux fins suivantes :
+                <ul>
+                    <li style={style.baliseTiret}> Pour fournir nos services : Nous utilisons vos informations personnelles pour fournir nos services, notamment pour vous permettre de créer un compte, de vous inscrire à un cours et de nous contacter.</li>
+                    <li style={style.baliseTiret}>Pour améliorer nos services : Nous utilisons vos informations personnelles pour améliorer nos services, notamment pour analyser le trafic sur notre site web et comprendre les besoins de nos clients.</li>
+                    <li style={style.baliseTiret}>Pour vous envoyer des communications marketing : Nous pouvons vous envoyer des communications marketing, telles que des e-mails promotionnels, si vous nous en avez donné l'autorisation.</li>
+                </ul>
 
-            <div style={style.stitre}> Directeur de la publication</div>
+                <div style={style.stitre}> Partage de vos informations personnelles</div>
+                Nous ne partageons vos informations personnelles avec des tiers que dans les cas suivants :
+                <ul>
+                    <li style={style.baliseTiret}> Avec nos prestataires de services : Nous partageons vos informations personnelles avec nos prestataires de services qui nous aident à fournir nos services. Ces prestataires de services sont tenus de protéger vos informations personnelles conformément à la loi.</li>
+                    <li style={style.baliseTiret}>Avec votre consentement : Nous pouvons partager vos informations personnelles avec des tiers si vous nous en avez donné l'autorisation.</li>
+                </ul>
 
-            Sonia So’Permis
+                <div style={style.stitre}> Sécurité de vos informations personnelles</div>
+                Nous prenons des mesures de sécurité pour protéger vos informations personnelles contre la perte, le vol et l'accès non autorisé. Ces mesures comprennent des pare-feu, des contrôles d'accès et des protocoles de cryptage.
 
+                <div style={style.stitre}>Vos droits </div>
+                Vous avez les droits suivants en matière de protection de vos données personnelles :
+                <ul>
+                    <li style={style.baliseTiret}>Le droit d'accès : Vous avez le droit d'accéder à vos informations personnelles que nous détenons.</li>
+                    <li style={style.baliseTiret}>Le droit de rectification : Vous avez le droit de rectifier toute information personnelle inexacte ou incomplète que nous détenons.</li>
+                    <li style={style.baliseTiret}>Le droit d'effacement : Vous avez le droit de nous demander d'effacer vos informations personnelles, sous réserve de certaines exceptions.</li>
+                    <li style={style.baliseTiret}>Le droit à la limitation du traitement : Vous avez le droit de nous demander de limiter le traitement de vos informations personnelles, sous réserve de certaines exceptions.</li>
+                    <li style={style.baliseTiret}>Le droit à la portabilité des données : Vous avez le droit de recevoir vos informations personnelles dans un format structuré, couramment utilisé et lisible par machine.</li>
+                    <li style={style.baliseTiret}>Le droit d'opposition : Vous avez le droit de vous opposer au traitement de vos informations personnelles, sous réserve de certaines exceptions.</li>
+                </ul>
 
-            <div style={style.stitre}> Responsable de la rédaction</div>
+                Pour exercer vos droits, veuillez nous contacter à l'adresse suivante :
+                sopermis76@gmail.com ou directement au 20 Rue Jean Lurçat, 76610 Le Havre
 
-            Équipe de développement du site
+                <div style={style.stitre}>Modifications de cette politique de confidentialité</div>
+                Nous pouvons modifier cette politique de confidentialité de temps à autre. La version la plus récente de la politique de confidentialité sera toujours publiée sur notre site web.
 
-
-            <div style={style.stitre}> Données personnelles</div>
-
-            L'auto-école du Havre s'engage à protéger les données personnelles de ses clients. Les données collectées sont nécessaires au traitement de la demande et à la gestion de la relation client. Elles sont conservées pendant une durée de trois ans à compter de la dernière interaction avec le client.
-
-            Le client dispose d'un droit d'accès, de rectification, d'effacement, de limitation, de portabilité et d'opposition au traitement de ses données. Il peut exercer ces droits en contactant l'auto-école du Havre par email ou par courrier.
-
-
-            <div style={style.stitre}> Propriété intellectuelle</div>
-
-            L'ensemble du contenu du site est la propriété de l'auto-école du Havre. Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle, de ces différents éléments est strictement interdite sans l'accord préalable écrit de l'auto-école du Havre.
-
-
-            <div style={style.stitre}> Liens hypertextes    </div>
-
-
-            Le site peut contenir des liens hypertextes vers d'autres sites. L'auto-école du Havre n'a pas de contrôle sur ces sites et ne peut être tenu responsable de leur contenu.
-
-
-            <div style={style.stitre}>  Loi applicable    </div>
-
-
-            Les présentes mentions légales sont régies par la loi française.
-
-
-            <div style={style.stitre}> Date de dernière mise à jour    </div>
-
-
-            Les présentes mentions légales seront toujours à jour sur ce site
-    </div>
+            </div>
         </Stack>
 
     );
