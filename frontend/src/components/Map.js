@@ -1,7 +1,10 @@
 import {
     AspectRatio,
     Box,
+    SimpleGrid,
     Text,
+    VStack,
+    Input,
 } from "@chakra-ui/react";
 import { BsInstagram, BsSnapchat } from "react-icons/bs";
 import { Flex } from "@chakra-ui/react"
@@ -9,12 +12,21 @@ import { Flex } from "@chakra-ui/react"
 // Example Address Component
 const AddressComponent = () => {
 
+    const style = {
+        adresse: {
+            color: "black",
+            fontSize: "20px",
+            fontFamily: "Montserrat",
+            fontWeight: "normal",
+        },
+    }
+
     return (
         <Box align="center">
             <Text fontSize="2xl" as="b">
                 Adresse
             </Text>
-            <p>20 Rue Jean Lurçat, 76610 Le Havre</p>
+            <Text style={{ ...style.adresse }}>20 Rue Jean Lurçat, 76610 Le Havre</Text>
         </Box>
     );
 };
@@ -22,37 +34,85 @@ const AddressComponent = () => {
 
 // Example Opening Hours Component
 const OpeningHoursComponent = () => {
+    const style = {
+        
+        jour: {
+            color: "black",
+            fontSize: "20px",
+            fontFamily: "Montserrat",
+            fontWeight: "bold",
+        },
+
+        horaires: {
+            color: "black",
+            fontSize: "20px",
+            fontFamily: "Montserrat",
+            fontWeight: "normal",
+        },
+
+        ferme: {
+            color: "red",
+            fontSize: "20px",
+            fontFamily: "Montserrat",
+            fontWeight: "bold",
+        },
+    }
     return (
-        <Box align="center">
+        <Box align='center'>
             <Text fontSize="2xl" as="b">
                 Horaires d’ouvertures
             </Text>
-            <p>
-                Lundi               09 h 00 - 18 h 00 <br />
-                mardi             09 h 00 - 18h 00 <br />
-                mercredi       09 h 00 - 18 h 00 <br />
-                jeudi               09 h 00 - 18 h 00 <br />
-                vendredi       09 h 00 - 18 h 00<br />
-                samedi          09 h 00 - 18 h 00<br />
-                dimanche     fermé<br />
-            </p>
+    
+            <SimpleGrid columns={2}>
+                <Box style={{...style.jour }}>Lundi</Box>
+                <Box style={{ ...style.horaires }}>09 h 00 - 18 h 00</Box>
+                <Box style={{ ...style.jour }}>Mardi</Box>
+                <Box style={{ ...style.horaires }}>09 h 00 - 18 h 00</Box>
+                <Box style={{ ...style.jour }}>Mercredi</Box>
+                <Box style={{ ...style.horaires }}>09 h 00 - 18 h 00</Box>
+                <Box style={{ ...style.jour }}>Jeudi</Box>
+                <Box style={{ ...style.horaires }}>09 h 00 - 18 h 00</Box>
+                <Box style={{ ...style.jour }}>Vendredi</Box>
+                <Box style={{ ...style.horaires }}>09 h 00 - 18 h 00</Box>
+                <Box style={{ ...style.jour }}>Samedi</Box>
+                <Box style={{ ...style.horaires }}>09 h 00 - 18 h 00</Box>
+                <Box style={{ ...style.jour }}>Dimanche</Box>
+                <Box style={{ ...style.ferme }}>fermé</Box>
+            </SimpleGrid>
         </Box>
     );
 };
 
 // Example Contact Component
 const ContactComponent = () => {
+    const style = {
+        contact: {
+            color: "black",
+            fontSize: "20px",
+            fontFamily: "Montserrat",
+            fontWeight: "normal",
+        },
+    }
     return (
         <Box align="center">
             <Text fontSize="2xl" as="b">
-                Contactez-moi
+                Contactez-nous
             </Text>
-            <p>téléphone : 02 78 34 10 63</p>
-            <p>Réseaux sociaux</p>
-            <Box display="flex" >
-                <BsInstagram size={30} />
-                <BsSnapchat style={{ marginLeft: "20px" }} size={30} />
-            </Box>
+            <Text style={{ ...style.contact }}>téléphone : 02 78 34 10 63</Text>
+            <Text style={{ ...style.contact }}>Réseaux sociaux</Text>
+            <VStack>
+                <Box display='flex'>
+                    <BsInstagram size={30} />
+                    <BsSnapchat style={{ marginLeft: "20px" }} size={30} />
+                </Box>
+            </VStack>
+
+            <VStack align='center'>
+                <Text fontSize="2xl" as="b">
+                    Inscrivez-vous à notre Newlsletter
+                </Text>
+                <Input variant='flushed' placeholder="Entrez votre adresse mail" w='50%'/>
+            </VStack>
         </Box>
     );
 };
