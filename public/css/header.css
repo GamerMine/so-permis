@@ -3,26 +3,26 @@ header {
     color: white;
     height: 5%;
     margin: -8px;
-}
-#img-logo{
+  }
+  #img-logo{
     height: auto;
     width: 50%;
-}
+  } 
 
 
-.nav-link{
+  .nav-link{
     color:white;
     text-decoration: none;
-}
+  }
 
-.grid-element {
+  .grid-element {
     padding: 20px;
     object-fit: contain;
     font-size: 30px;
     text-align: center;
-}
+  }
 
-.grid-container{
+  .grid-container{
     display: grid;
     grid-template-columns: auto auto auto auto auto auto;
-}
+  }

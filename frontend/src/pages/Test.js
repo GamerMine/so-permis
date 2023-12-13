@@ -13,6 +13,7 @@ import {
     Text,
     Image
 } from "@chakra-ui/react";
+import DocumentsInformations from "../components/DocumentsInformations";
 
 const Test = () => {
     const [text, setText] = useState()
@@ -37,6 +38,7 @@ const Test = () => {
     }
     return (
         <Stack>
+
             <Card border="1px">
                 <CardHeader> Hello test ~ Ceci est le titre </CardHeader>
                 <CardBody> {bado} </CardBody>
@@ -45,6 +47,8 @@ const Test = () => {
                 <CardHeader>
                     <Heading size='md'>Client Report</Heading>
                 </CardHeader>
+
+                <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
                 <CardBody>
                     <Stack divider={<StackDivider/>} spacing='4'>
                         <Box>
@@ -103,7 +107,11 @@ const Test = () => {
                     </CardFooter>
                 </Stack>
             </Card>
+
+
         </Stack>
+
+
 
     )
 };

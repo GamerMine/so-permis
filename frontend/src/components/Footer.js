@@ -6,9 +6,7 @@ import {
     Text,
     Link
 } from "@chakra-ui/react";
-import { ChakraProvider } from "@chakra-ui/react";
 import {BsInstagram, BsSnapchat} from "react-icons/bs";
-import Test from "../pages/Test";
 
 const Footer = () => {
     const style = {
@@ -35,7 +33,7 @@ const Footer = () => {
             <Stack direction={['column', 'row']} spacing={"5%"}  align='center'>
                 <Box w='30%' align='center'>
                 <img style={{...style.imgLogo}}
-                    src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"/>    
+                    src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png" alt={""}/>
                 </Box>
                 <Box>
                     <VStack>
@@ -55,7 +53,7 @@ const Footer = () => {
                     <VStack>
                         <Link>Accueil</Link>
                         <Link>Permis de conduire</Link>
-                        <Link>Code de la route</Link>
+                        <Link href="/CodeDeLaRoute">Code de la route</Link>
                         <Link>Qui sommes-nous ?</Link>
                     </VStack>
                 </Box>
@@ -67,6 +65,11 @@ const Footer = () => {
                     <p>sopermis76@gmail.com</p>
                 </Box>
             </Stack>
+
+            <Box align='center' style={{marginTop:"20px"}}>
+                <Text fontSize='sm' color={"gray"}><Link href="/MentionsLegales">Mentions légales</Link> - <Link href="/RGPD">RGPD</Link> </Text>
+            </Box>
+
         </footer>
     )
 }
