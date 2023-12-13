@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Connexion = () => {
   const [email, setEmail] = useState('');
@@ -8,33 +9,83 @@ const Connexion = () => {
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
   const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState('');
+  const [emailError, setEmailError] = useState('');
+  let navigate = useNavigate();
+  const [mpError, setMPError] = useState('');
+
 
   const [isLoginForm, setIsLoginForm] = useState(true);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const validateEmail = () => {
+    // Une expression régulière pour valider l'email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (isLoginForm)
+    {
+      if (!emailRegex.test(email)) {
+        setEmailError('Veuillez entrer une adresse e-mail valide.');
+        return false;
+      }
+      setEmailError('');
+      if (password == "" || password == null)
+      {
+        setMPError('Veuillez entrer une mot de passe');
+        return false;
+      }
+      setMPError('');
+      return true;
+    }
+    else
+    {
+      if (!emailRegex.test(registerEmail)) {
+        setEmailError('Veuillez entrer une adresse e-mail valide.');
+        return false;
+      }
+      if (password == "" || password == null)
+      {
+        setMPError('Veuillez entrer une mot de passe');
+        return false;
+      }
+      setMPError('');
+      setEmailError('');
+      return true;
+    }
 
+  };
+
+
+  const useHandleSubmit = async (event) => {
+    event.preventDefault();
+    if (!validateEmail()) {
+      return;
+    }
     try {
         if (isLoginForm)
         {
-          const response = await axios.post('http://localhost:8080/testBado', //TestConnexion
-          { 
-          email: email,
-          password: password,
+          let formData = new FormData();
+          formData.append('email', email);
+          formData.append('password', password);
+          const response = await axios.post('http://localhost:8080/TestConnexion', //TestConnexion
+          formData);
           
-        });
-        console.log(response.data);
-        alert(response.data);
+          if (response.data ==  true)
+          {
+            navigate("/");
+            // Remplacement par une URL dans l'historique
+          }
+          else
+          {
+            console.log(response.data);
+            alert(response.data);
+          }
       }
       else
-      {
-          const response = await axios.post('http://localhost:8080/testBado', //TestConnexion
-          { 
-          email: registerEmail,
-          password: registerPassword,
-          confirmPassword : registerPasswordConfirm
-          
-        });
+      {          
+          let formData = new FormData();
+          formData.append('email', registerEmail);
+          formData.append('password', registerPassword);
+          formData.append('confirmPassword', registerPasswordConfirm);
+          const response = await axios.post('http://localhost:8080/TestConnexion', //TestConnexion
+          formData);
         console.log(response.data);
         alert(response.data);
       }
@@ -55,7 +106,7 @@ const Connexion = () => {
     <div style={styles.formContainer}>
       <div style={styles.box}>
       <h1 style={styles.titre}>{isLoginForm ? 'CONNEXION' : 'INSCRIPTION'}</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={useHandleSubmit}>
           {isLoginForm && (
               <>
                 <label style={styles.label}>
@@ -119,7 +170,7 @@ const Connexion = () => {
                 </label>
               </>
             )}
-            
+            {emailError && <p style={styles.error}>{emailError}</p>}
             <br />
           <input type="submit" value={isLoginForm ? 'Se connecter' : 'S\'inscrire'} style={styles.bouton} />
         </form>

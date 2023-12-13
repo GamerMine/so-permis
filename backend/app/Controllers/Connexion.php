@@ -9,10 +9,9 @@ class Connexion extends BaseController
     {
 
         try {
-            $request = \Config\Services::request();
-            $email = $request->getPost('email');
-            $mp = $request->getPost('password');
-
+            $data = $this->request->getPost();
+            $email = $data['email'];
+            $mp = $data['password'];
             require (APPPATH . "Database/DB.inc.php");
             $retour = ' ';
             // Exécuter le script SQL avec la méthode $this->query()
@@ -26,7 +25,6 @@ class Connexion extends BaseController
                     if ($row->getPassword() == $mp)
                     {
                         $retour = "true";
-                        redirect('/');
                     }
                     else
                     {
