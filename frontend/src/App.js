@@ -4,6 +4,10 @@ import Header from "./components/Header"
 import Footer from "./components/Footer"
 import {ChakraProvider} from "@chakra-ui/react";
 import {customTheme} from "./Theme/customTheme";
+import Informations from "./pages/Informations";
+import MentionsLegales from "./pages/MentionsLegales";
+import RGPD from "./pages/RGPD";
+import Cookies from "./pages/Cookies";
 
 function App() {
   return (
@@ -13,12 +17,19 @@ function App() {
             <div className="container">
               <Routes>
                   <Route exact path="/" element={<Home />} />
+                  <Route exact path="/CodeDeLaRoute" element={<CodeDeLaRoute />} />
+                  <Route exact path="/Informations" element={<Informations />} />
+                  <Route exact path="/MentionsLegales" element={<MentionsLegales />} />
+                  <Route exact path="/RGPD" element={<RGPD />} />
+                  <Route exact path="/Cookies" element={<Cookies />} />
               </Routes>
             </div>
           </Router>
           <Footer/>
       </ChakraProvider>
-  );
+
+
+);
 }
 
 export default App;

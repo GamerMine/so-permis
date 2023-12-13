@@ -1,7 +1,10 @@
+import * as React from 'react';
+
 const Header = () => {
 
     const style = {
         nav: {
+            height: "100px",
             width: "100%",
             backgroundColor: "black"
         },
@@ -14,25 +17,33 @@ const Header = () => {
         },
 
         imgLogo: {
-            height: "auto",
-            width: "50%"
+            width: "40%"
         },
 
         navLink: {
             color: "white",
-            textDecoration: "none"
+            textDecoration: "none",
         },
 
         gridElement: {
             padding: "20px",
             objectFit: "contain",
-            fontSize: "30px",
-            textAlign: "center"
+            fontSize: "20px",
+            textAlign: "center",
+            fontFamily: "Montserrat, sans-serif",
         },
 
         gridContainer: {
             display: "grid",
-            gridTemplateColumns: "auto auto auto auto auto auto"
+            gridTemplateColumns: "auto auto auto auto auto auto",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%"
+        },
+
+        bandeBleu: {
+            backgroundColor: "#1EC6B1",
+            height: "15px"
         }
     }
 
@@ -46,13 +57,14 @@ const Header = () => {
                     <img style={{...style.imgLogo, ...style.gridElement}}
                          src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"/>
 
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Accueil</a>
+                    <a style={{...style.gridElement, ...style.navLink}} href="/">Accueil</a>
                     <a style={{...style.gridElement, ...style.navLink}} href="#">Permis de conduire</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Code de la route</a>
+                    <a style={{...style.gridElement, ...style.navLink}} href="/CodeDeLaRoute">Code de la route</a>
                     <a style={{...style.gridElement, ...style.navLink}} href="#">Qui sommes-nous ?</a>
-                    <a style={{...style.gridElement, ...style.navLink}} href="#">Contact</a>
+                    <a style={{...style.gridElement, ...style.navLink}} href="#">Contact</a>                
                 </div>
             </nav>
+            <div style={style.bandeBleu} />
         </header>
     )
 }

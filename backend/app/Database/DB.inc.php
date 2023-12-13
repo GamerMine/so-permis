@@ -124,11 +124,26 @@ class DB {
            return $this->execQuery($requete, null, 'ACTUALITE');
        }
 
-       public function insertActualite($titre,$infos, $image, $sources) {
+       public function insertActualite($titre,$infos, $image, $sources) 
+       {
             $requete = 'insert into ACTUALITE values(?,?,?,?)';
             $tparam = array($titre,$infos,$image,$sources );
             return $this->execMaj($requete,$tparam);
        }
+
+       public function getActualite($id) 
+       {
+            $requete = 'select * from ACTUALITE where idactualite = ?';
+            return $this->execQuery($requete,array($id),'ACTUALITE');
+       }
+
+       public function deleteClient($id) 
+       {
+            $requete = 'delete from ACTUALITE where idactualite = ?';
+            $tparam = array($id);
+            return $this->execMaj($requete,$tparam);
+       }
+       //Formations
        
        public function getFormations()
        {
@@ -141,6 +156,21 @@ class DB {
             return $this->execMaj($requete,$tparam);
        }
 
+       public function getFormation($id) 
+       {
+            $requete = 'select * from FORMATION where idformation = ?';
+            return $this->execQuery($requete,array($id),'FORMATION');
+       }
+
+       public function deleteFormation($id) 
+       {
+            $requete = 'delete from FORMATION where idformation = ?';
+            $tparam = array($id);
+            return $this->execMaj($requete,$tparam);
+       }
+
+       //Administrateurs
+
        public function getAdministrateurs()
        {
            $requete = 'SELECT * FROM ADMINISTRATEUR';
@@ -151,6 +181,22 @@ class DB {
             $tparam = array($email, $password);
             return $this->execMaj($requete,$tparam);
        }
+
+       public function getAdministrateur($id) 
+       {
+            $requete = 'select * from ADMINISTRATEUR where idadmin = ?';
+            return $this->execQuery($requete,array($id),'FORMATION');
+       }
+
+       public function deleteAdministrateur($id) 
+       {
+            $requete = 'delete from ADMINISTRATEUR where idadmin = ?';
+            $tparam = array($id);
+            return $this->execMaj($requete,$tparam);
+       }
+
+
+       //Newsletter
 
        public function getNewsletters()
        {
@@ -164,14 +210,21 @@ class DB {
        }
 
 
+       public function getNewsletter($id) 
+       {
+            $requete = 'select * from NEWSLETTER where idnewsletter = ?';
+            return $this->execQuery($requete,array($id),'NEWSLETTER');
+       }
+
+       public function deleteNewsletter($id) 
+       {
+            $requete = 'delete from NEWSLETTER where idnewsletter = ?';
+            $tparam = array($id);
+            return $this->execMaj($requete,$tparam);
+       }
 
 
 
-
-      public function getClient($idcli) {
-      	     $requete = 'select * from client where ncli = ?';
-	     return $this->execQuery($requete,array($idcli),'Client');
-      }
 
       public function updateAdrClient($idcli,$adr) {
       	     $requete = 'update client set ville = ? where ncli = ?';
@@ -179,11 +232,7 @@ class DB {
 	     return $this->execMaj($requete,$tparam);
       }
 
-      public function deleteClient($idcli) {
-      	     $requete = 'delete from client where ncli = ?';
-	     $tparam = array($idcli);
-	     return $this->execMaj($requete,$tparam);
-      }
+
 
 } //fin classe DB
 
