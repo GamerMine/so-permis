@@ -17,6 +17,10 @@ import {
     Heading,
     CardFooter,
     Button,
+    AbsoluteCenter,
+    Grid,
+    GridItem,
+    Link,
 } from "@chakra-ui/react";
 
 const CodeDeLaRoute = () => {
@@ -54,35 +58,77 @@ const CodeDeLaRoute = () => {
 
     return (
         <VStack w="100%" h="100%" align="center" marginBottom={"5%"}>
-            <Box w='100%' align="center" backgroundColor={"black"} marginBottom={"-10px"} style={{ ...style.textBlanc }}>
-                <Text fontSize="2xl">Forfait Code</Text>
-                <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
-                    <Card style={{...style.carte}}>
-                        <CardHeader>
-                            <Heading size='md'>FORFAIT CODE SEUL</Heading>
-                        </CardHeader>
-                        
-                        <CardFooter>
-                            <Button style={{...style.bouton}}>1200 €</Button>
-                        </CardFooter>
+
+            <Box w='100%' align='center' marginBottom={"-10px"} marginTop={"2%"} style={{ ...style.textBlanc }}>
+                <SimpleGrid w='40%' columns={3} spacing={4} justify='center' marginBottom={"2%"}>
+                    <Card style={{ ...style.carte }} position={"relative"}>
+                        <Grid w={"100%"} h={"100%"} placeItems={"center"} padding={"10%"}>
+                            <GridItem>
+                                <Heading size='md'>FORFAITS CODE</Heading>
+                            </GridItem>
+                            <GridItem>
+                                <Link href="#boxForfaits"><Button align='center' style={{ ...style.bouton }}>Nos forfaits code</Button></Link>
+                            </GridItem>
+                        </Grid>
                     </Card>
-                    <Card style={{...style.carte}}>
-                        <CardHeader>
-                            <Heading size='md'>FORFAIT CODE EXPRESS EN 4 JOURS</Heading>
-                        </CardHeader>
-                       
-                        <CardFooter>
-                            <Button style={{...style.bouton}}>1100 €</Button>
-                        </CardFooter>
+
+                    <Card style={{ ...style.carte }}>
+                        <Grid w={"100%"} h={"100%"} placeItems={"center"} padding={"10%"}>
+                            <GridItem>
+                                <Heading size='md'>CODE EN SALLE</Heading>
+                            </GridItem>
+                            <GridItem>
+                                <Link href="#boxHoraires"><Button align='center' style={{ ...style.bouton }}>Nos horaires</Button></Link>
+                            </GridItem>
+                        </Grid>
+                    </Card>
+
+                    <Card style={{ ...style.carte }}>
+                        <Grid w={"100%"} h={"100%"} placeItems={"center"} padding={"10%"}>
+                            <GridItem>
+                                <Heading size='md'>CONDITIONS D'ANNULATION</Heading>
+                            </GridItem>
+                            <GridItem>
+                                <Link href="#boxAnnulation"><Button align='center' style={{ ...style.bouton }}>Nos conditions</Button></Link> 
+                            </GridItem>
+                        </Grid>
                     </Card>
                 </SimpleGrid>
             </Box>
 
-            <Box w='100%' align="center" backgroundColor={"black"} marginBottom={"-10px"}>
-                <Text fontSize="2xl" style={{ ...style.textBlanc }}>Horaires code en salle</Text>
+            <Box w='100%' h='20px' align="center" bgGradient='linear(to-b, #FFFFFF, #000000)'></Box>
 
-                <TableContainer w='50%'>
-                    <Table variant="simple">
+            <Box id="boxForfaits" w='100%' align="center" backgroundColor={"black"} marginBottom={"-10px"} marginTop={"-10px"} style={{ ...style.textBlanc }}>
+                <Text fontSize="2xl" marginBottom={"1%"}>Forfait Code</Text>
+                <SimpleGrid w='25%' columns={2} spacing={4} justify='center' marginBottom={"3%"}>
+                    <Card style={{ ...style.carte }} position={"relative"}>
+                        <Grid w={"100%"} h={"100%"} placeItems={"center"} padding={"10%"}>
+                            <GridItem>
+                                <Heading size='md'>FORFAIT CODE SEUL</Heading>
+                            </GridItem>
+                            <GridItem>
+                                <Button align='center' style={{ ...style.bouton }}>1200 €</Button>
+                            </GridItem>
+                        </Grid>
+                    </Card>
+
+                    <Card style={{ ...style.carte }}>
+                        <Grid w={"100%"} h={"100%"} placeItems={"center"} padding={"10%"}>
+                            <GridItem>
+                                <Heading size='md'>FORFAIT CODE EXPRESS EN 4 JOURS</Heading>
+                            </GridItem>
+                            <GridItem>
+                                <Button align='center' style={{ ...style.bouton }}>1100 €</Button>
+                            </GridItem>
+                        </Grid>
+                    </Card>
+                </SimpleGrid>
+            </Box>
+
+            <Box id="boxHoraires" w='100%' align="center" backgroundColor={"black"} marginBottom={"-10px"} style={{ ...style.textBlanc }}>
+                <Text fontSize="2xl" marginBottom={"1%"}>Horaires code en salle</Text>
+                <TableContainer w='50%' marginBottom={"2%"}>
+                    <Table variant="simple" border={"white 1px solid"}>
                         <Thead>
                             <Tr>
                                 <Th style={{ ...style.textBlanc }}>Lundi</Th>
@@ -125,7 +171,7 @@ const CodeDeLaRoute = () => {
 
             <Box w='100%' h='20px' align="center" bgGradient='linear(to-b, #000000, #FFFFFF)'></Box>
 
-            <Box w="50%" h="100%">
+            <Box id="boxAnnulation" w="50%" h="100%" mx={"10%"} px={"5%"}>
                 <Text fontSize="2xl" align='center'>Condition d’annulation du code</Text>
                 <Card align='center' style={{ ...style.carte }} boxShadow={"5px 5px 5px #b5b5b5"}>
                     <CardBody >
