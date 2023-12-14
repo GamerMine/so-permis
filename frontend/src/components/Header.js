@@ -76,14 +76,14 @@ const Header = () => {
                                       gridTemplateColumns={{"sd": "repeat(3,1fr)"}}>
                                     <GridItem><a style={{...style.gridElement, ...style.navLinkBig}}
                                                  href="/">Accueil</a></GridItem>
-                                    <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="#">Permis de
+                                    <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/Permis">Permis de
                                         conduire</a></GridItem>
                                     <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/CodeDeLaRoute">Code
                                         de la route</a></GridItem>
-                                    <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="#">Qui
+                                    <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/QuiSommesNous">Qui
                                         sommes-nous ?</a></GridItem>
                                     <GridItem><a style={{...style.gridElement, ...style.navLinkBig}}
-                                                 href="#">Contact</a></GridItem>
+                                                 href="/Contact">Contact</a></GridItem>
                                 </Grid>
                             </div>
                         </nav>
@@ -113,7 +113,7 @@ const Header = () => {
                                             Accueil
                                         </MenuItem>
                                     </a>
-                                    <a style={style.navLinkSmall} href="#">
+                                    <a style={style.navLinkSmall} href="/Permis">
                                         <MenuItem>
                                             Permis de conduire
                                         </MenuItem>
@@ -123,12 +123,12 @@ const Header = () => {
                                             Code de la route
                                         </MenuItem>
                                     </a>
-                                    <a style={style.navLinkSmall} href="#">
+                                    <a style={style.navLinkSmall} href="/QuiSommesNous">
                                         <MenuItem>
                                             Qui sommes-nous ?
                                         </MenuItem>
                                     </a>
-                                    <a style={style.navLinkSmall} href="#">
+                                    <a style={style.navLinkSmall} href="/Contact">
                                         <MenuItem>
                                             Contact
                                         </MenuItem>
