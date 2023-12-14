@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Connexion from "./pages/Connexion";
 import AjouterForfaits from "./pages/AjouterForfait";
 import GestionForfaits from "./pages/GestionForfaits";
+import AjouterArticle from "./pages/AjouterArticle";
+import GestionArticles from "./pages/GestionArticles";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Home from "./pages/Home";
@@ -35,6 +37,8 @@ function App() {
             <Route exact path="/Connexion" element={<Connexion />} />
             <Route exact path="/AjouterForfaits" element={<AjouterForfaits />} />
             <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
+            <Route exact path="/AjouterArticle" element={<AjouterArticle />} />
+            <Route exact path="/GestionArticles" element={<GestionArticles />} />
             <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
             <Route exact path="/Newsletter" element={<Newsletter/>}/>
           </Routes>
