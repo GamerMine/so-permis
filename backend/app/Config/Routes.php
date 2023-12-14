@@ -10,4 +10,5 @@ $routes->get('/testBado', 'Home::bado');
 $routes->get('/getListePermis', 'ListePermis::bado');
 $routes->match(['post', 'options'],'/TestConnexion', 'Connexion::TestConnexion');
 $routes->get('/GetNewsletter', 'Newsletter::GetNewsletter');
+$routes->get('/getFormations', 'Forfaits::bado');
 

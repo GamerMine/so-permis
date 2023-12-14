@@ -22,9 +22,46 @@ import {
     RadioGroup,
     Radio,
 } from "@chakra-ui/react";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from "axios";
 
 const GestionForfait = () => {
+
+    /*let result = [];
+    const [listeFormations, setListeFormations] = useState()
+    useEffect(() => {
+        getListeFormations();
+    }, [])
+
+    const getListeFormations = async () => {
+        const response = await axios.get('http://localhost:8080/getFormations');
+        if (response.data === true) {
+            setListeFormations(response.data);
+            let tmp = response.data;
+            for (let key in tmp) {
+                result.push({ nom: tmp[key][0], info: tmp[key][1], nom: tmp[key][2] });
+            };
+        } else {
+            console.log(response.data);
+            alert(response.data);
+        }
+    }
+
+    let formations = [];
+
+    result.forEach((formation, index) => {
+        formations.push(
+                <Tr>
+                    <Td>{formation.nom}</Td>
+                    <Td>{formation.prix}</Td>
+                    <Td>{formation.infos}</Td>
+                    <Td>
+                        <Button style={{ ...style.bouton }} size="xs" marginRight='2%'>Modifier</Button>
+                        <Button colorScheme="red" size="xs">Supprimer</Button>
+                    </Td>
+                </Tr>
+        );
+    });*/
 
     const [value, setValue] = React.useState("permis")
 
@@ -91,6 +128,7 @@ const GestionForfait = () => {
                                     <Button colorScheme="red" size="xs">Supprimer</Button>
                                 </Td>
                             </Tr>
+                            {/*{formations}*/}
                         </Tbody>
                     </Table>
                 </CardBody>
