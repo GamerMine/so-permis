@@ -49,9 +49,12 @@ const Header = () => {
 
     return (
         <header>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-            <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"/>
+
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
+
             <nav style={style.nav}>
                 <div style={style.gridContainer}>
                     <img style={{ ...style.imgLogo, ...style.gridElement }}
@@ -60,7 +63,7 @@ const Header = () => {
                     <a style={{ ...style.gridElement, ...style.navLink }} href="/">Accueil</a>
                     <a style={{ ...style.gridElement, ...style.navLink }} href="/Permis">Permis de conduire</a>
                     <a style={{ ...style.gridElement, ...style.navLink }} href="/CodeDeLaRoute">Code de la route</a>
-                    <a style={{ ...style.gridElement, ...style.navLink }} href="#">Qui sommes-nous ?</a>
+                    <a style={{ ...style.gridElement, ...style.navLink }} href="/QuiSommesNous">Qui sommes-nous ?</a>
                     <a style={{ ...style.gridElement, ...style.navLink }} href="/Contact">Contact</a>
                 </div>
             </nav>

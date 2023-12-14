@@ -38,9 +38,6 @@ const Permis = () => {
                         new OCard("", "PERMIS B EXPRESS", "Nos forfaits permis B express","code", "/CodeDeLaRoute"),
                         new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "/CodeDeLaRoute"),
                     ]} hauteur={"450px"} largeur={"350px"}/>
-
-            </Stack>
-            <Stack>
                 <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
             </Stack>
             <Stack style={{backgroundImage: "url('./images/route.jpg')"}}>

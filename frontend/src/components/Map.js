@@ -120,10 +120,7 @@ const ContactComponent = () => {
 const iframe = () => {
     return (
         <AspectRatio ratio={16 / 9}>
-            <iframe
-                title="Google"
-                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.952912260219!2d3.375295414770757!3d6.5276316452784755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1567723392506!5m2!1sen!2sng"'
-            />
+           <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=So'Permis%2020%20Rue%20Jean%20Lur%C3%A7at,%2076610%20Le%20Havre+(So'Permis)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
         </AspectRatio>
     );
 };
