@@ -16,14 +16,11 @@ class ListePermis extends BaseController
     {
         try {
             require (APPPATH . "Database/DB.inc.php");
-            $retour = 'truc';
+            $retour = array();
             // Exécuter le script SQL avec la méthode $this->query()
             $db = DB::getInstance();
             $formations = $db->getFormations();
-            foreach ($formations as $row) {
-                $retour .= $row->getNom().' - ';
-            }
-            return $retour;
+            return $formations;
 
         } catch (\Throwable $th) {
             return $th;
