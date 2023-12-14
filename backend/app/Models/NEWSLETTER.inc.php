@@ -6,6 +6,8 @@ class NEWSLETTER {
       private $email;
       private $nom;
       private $prenom;
+      private $guid;
+      private $actif;
 
       /* Les m�thodes qui commencent par __ sont des methodes magiques */
       /* Elles sont appel�es automatiquement par php suite � certains �v�nements. */
@@ -14,16 +16,20 @@ class NEWSLETTER {
       	 il y aura une erreur lorsqu'il sera appel� automatiquement par PDO 
        */    
       
-      public function __construct($i=-1,$e="",$n="", $p="") {
+      public function __construct($i=-1,$e="",$n="", $p="", $g="", $a = "") {
          $this->idnewsletter = $i;
          $this->email = $e;
          $this->nom = $n;
          $this->prenom = $p;
+         $this->guid = $g;
+         $this->actif =$a;
       }
       public function getIdNewsletter () {return $this->idnewsletter; }
       public function getEmail() { return $this->email; }
       public function getNom() { return $this->nom;}
       public function getPrenom() { return $this->prenom; }
+      public function getGuid() { return $this->guid; }
+      public function getActif() { return $this->actif; }
 
       public function __toString() {
         return '';     

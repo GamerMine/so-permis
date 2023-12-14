@@ -25,4 +25,30 @@ class Newsletter extends BaseController
             return json_encode(["error" => $th->getMessage()]);
         }
     }
+
+    public function DeleteNewsletter() : string
+    {
+        try {
+            $data = $this->request->getPost();
+            $email = $data['email'];
+            require (APPPATH . "Database/DB.inc.php");
+            $retour = 'ca a bien marché - ';
+            // Exécuter le script SQL avec la méthode $this->query()
+            $db = DB::getInstance();
+            $id = -1;
+            $news = $db->getNewsletters();
+            foreach ($news as $new) 
+            {
+                $retour = $retour . $new->getEmail() . ' - ';
+                if ($new->getEmail() == $email)
+                {
+                    $id = $new->getIdNewsletter();
+                }
+            }
+            $db->deleteNewsletter($id);
+            return json_encode($retour);
+        } catch (\Throwable $th) {
+            return json_encode(["error" => $th->getMessage()]);
+        }
+    }
 }

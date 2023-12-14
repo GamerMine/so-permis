@@ -23,7 +23,9 @@ CREATE TABLE IF NOT EXISTS NEWSLETTER
     idNewsletter SERIAL Primary Key NOT NULL,
     email varchar NOT NULL,
     nom varchar(30),
-    prenom varchar(30)
+    prenom varchar(30),
+    guid varchar(200),
+    actif boolean not null
 );
 
 CREATE TABLE IF NOT EXISTS ACTUALITE
@@ -48,13 +50,16 @@ INSERT INTO FORMATION (prix, nom, infos) VALUES
 ('1430€','FORFAIT B COMPLET','Code + 30 leçons de conduite'),
 ('1330€','FORFAIT B','30 leçons de conduite (sans code)'),
 ('1110€','CONDUITE SUPERVISÉE','');
-
-INSERT INTO ADMINISTRATEUR (email, password) VALUES
-(
-    'enorme.bg@leo.fr', 'chsuikunu'
-);
-
-INSERT INTO NEWSLETTER (email, nom, prenom) VALUES
-(
-    'enorme.bg@leo.fr', 'leplusgros', 'bg'
-);
+INSERT INTO NEWSLETTER (email,nom, prenom, guid, actif) VALUES
+('enorme.bg@leo.fr', 'leplusgros', 'bg', 'pzekfkzepofkpze', True),
+('enorme.bh@leo.fr', 'leplusgros', 'bg','idhdoizajdpad', True),
+('enorme.bi@leo.fr', 'leplusgros', 'bg', 'izoajiojdapdjzaedjapzd', True),
+('enorme.bj@leo.fr', 'leplusgros', 'bg', 'ijjjoazjijzijzaâê', True),
+('enorme.bk@leo.fr', 'leplusgros', 'bg', 'jiojioejfoejfoe', True),
+('enorme.bl@leo.fr', 'leplusgros', 'bg', 'knbvbidhfiezkbvczie', True),
+('enorme.bm@leo.fr', 'leplusgros', 'bg', 'fefhzofaàçuaàdjoa', True),
+('enorme.bn@leo.fr', 'leplusgros', 'bg', 'joeifjja)zfjoafjzapofj', True),
+('enorme.bo@leo.fr', 'leplusgros', 'bg','fjpozejfeozjefpozjepfjkoz', True),
+('enorme.bp@leo.fr', 'leplusgros', 'bg', 'fofàejâfjeaôjifzeôjfôzief', True),
+('enorme.bq@leo.fr', 'leplusgros', 'bg', 'ofjofjezoijfẑefjiẑejfôzejfôjzeofjzoej^', True)
+;
