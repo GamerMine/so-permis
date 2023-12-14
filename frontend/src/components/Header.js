@@ -5,7 +5,7 @@ import {FaBars} from 'react-icons/fa'
 const Header = () => {
 
 
-    const isSmallDevice = window.matchMedia("(max-width: 560px)").matches;
+    const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
 
 
     const style = {
