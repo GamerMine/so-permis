@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Connexion from "./pages/Connexion";
+import AjouterForfaits from "./pages/AjouterForfait";
+import GestionForfaits from "./pages/GestionForfaits";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Home from "./pages/Home";
@@ -30,6 +32,8 @@ function App() {
             <Route exact path="/Permis" element={<Permis />} />
             <Route exact path="/Contact" element={<Contact />} />
             <Route exact path="/Connexion" element={<Connexion />} />
+            <Route exact path="/AjouterForfaits" element={<AjouterForfaits />} />
+            <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
             <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
           </Routes>
         </div>
