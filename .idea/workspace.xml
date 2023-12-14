@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ad6ac9e-3666-40ed-bb2b-6901873e2a6c" name="Changes" comment="card flip se retourne en survolant ajout de la méthode click">
+    <list default="true" id="2ad6ac9e-3666-40ed-bb2b-6901873e2a6c" name="Changes" comment="reponsive header et smartphone">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +23,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/bin/php" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -37,7 +37,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "react",
+    "git-widget-placeholder": "responsive",
     "last_opened_file_path": "/home/etudiant/gc211206/TP/s5/s5.01_developpement_avance/so-permis/frontend/public/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -86,6 +86,8 @@
       <workItem from="1702456115818" duration="4816000" />
       <workItem from="1702461654693" duration="3788000" />
       <workItem from="1702473944012" duration="2473000" />
+      <workItem from="1702481389610" duration="3996000" />
+      <workItem from="1702543605586" duration="14789000" />
     </task>
     <task id="LOCAL-00003" summary="card flip se retourne en survolant ajout de la méthode click">
       <option name="closed" value="true" />
@@ -95,7 +97,47 @@
       <option name="project" value="LOCAL" />
       <updated>1702476070274</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="changement merge">
+      <option name="closed" value="true" />
+      <created>1702477111288</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1702477111288</updated>
+    </task>
+    <task id="LOCAL-00005" summary="responsive jusqu'à 1300px">
+      <option name="closed" value="true" />
+      <created>1702485373718</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702485373718</updated>
+    </task>
+    <task id="LOCAL-00006" summary="reponsive header et smartphone">
+      <option name="closed" value="true" />
+      <created>1702564731418</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1702564731418</updated>
+    </task>
+    <task id="LOCAL-00007" summary="reponsive header et smartphone">
+      <option name="closed" value="true" />
+      <created>1702564847800</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1702564847800</updated>
+    </task>
+    <task id="LOCAL-00008" summary="reponsive header et smartphone">
+      <option name="closed" value="true" />
+      <created>1702565072745</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702565072745</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,7 +159,10 @@
     <MESSAGE value="merge avec flip card" />
     <MESSAGE value="card flip qui se retourne en cliquant" />
     <MESSAGE value="card flip se retourne en survolant ajout de la méthode click" />
-    <option name="LAST_COMMIT_MESSAGE" value="card flip se retourne en survolant ajout de la méthode click" />
+    <MESSAGE value="changement merge" />
+    <MESSAGE value="responsive jusqu'à 1300px" />
+    <MESSAGE value="reponsive header et smartphone" />
+    <option name="LAST_COMMIT_MESSAGE" value="reponsive header et smartphone" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -126,6 +171,11 @@
           <url>file://$PROJECT_DIR$/backend/system/Debug/Toolbar/Views/toolbar.js</url>
           <line>16</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/frontend/src/components/MultiHorizontalCardsWithButton.js</url>
+          <line>115</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
