@@ -19,8 +19,9 @@ const Permis = () => {
         const response = await axios.get('http://localhost:8080/getListePermis');
         if (response.data ===  true) {
             setListePermis(response.data);
-            for (let tmp of response){
-                result.push(new OCard(tmp[0], tmp[1], tmp[2]));
+            let tmp = response.data;
+            for (let key in tmp){
+                result.push(new OCard(tmp[key][0], tmp[key][1], tmp[key][2]));
             };
         } else {
             console.log(response.data);
@@ -46,7 +47,7 @@ const Permis = () => {
 
     return (
         <Stack style={{gap: 0}} >
-            <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')"}}>
+            <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
 
                 <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                     [
