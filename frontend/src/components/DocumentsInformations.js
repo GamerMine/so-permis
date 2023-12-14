@@ -99,12 +99,12 @@ const DocumentsInformations = (arg) => {
             <div style={style.transitionFadeTop}/>
             <div style={style.body}>
                 <h4 style={style.title}>{arg.titre}</h4>
-                    <SimpleGrid columns={{sm: 2, md: 3}} spacing='70px' alignSelf="center">
+                <Grid style={{margin:"25px"}} templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(2, 1fr)`, xl: `repeat(3, 1fr)`,}} gap="70px" alignSelf="center">
                         {CardLigne1}
-                    </SimpleGrid>
-                <SimpleGrid columns={{sm: 2, md: 2}} spacing='70px' alignSelf="center">
+                    </Grid>
+                <Grid style={{margin:"25px"}} templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(1, 1fr)`, xl: `repeat(2, 1fr)`,}} gap="70px" alignSelf="center">
                         {CardLigne2}
-                </SimpleGrid>
+                </Grid>
             </div>
 
         </div>

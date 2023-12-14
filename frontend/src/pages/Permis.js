@@ -18,9 +18,10 @@ const Permis = () => {
         const response = await axios.get('http://localhost:8080/getListePermis');
             result =[];
             let tmp = response.data;
-            for (let key of tmp){
+            if(response.data.length !=782)
+            for (let key of tmp)
                 result.push(new OCard(key.nom, key.info, key.prix));
-            }
+
             setListePermis(result);
     }
 
@@ -38,6 +39,10 @@ const Permis = () => {
             fontWeight: "700",
             lineHeight: "normal"
         },
+        transitionFadeBot: {
+            background: "linear-gradient(180deg, #0F1411 0%, rgba(0, 0, 0, 0) 100%)",
+            height:"79px"
+        }
     }
 
 
@@ -52,10 +57,14 @@ const Permis = () => {
                         new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "/CodeDeLaRoute"),
                     ]} hauteur={"450px"} largeur={"350px"}/>
                 <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
+
             </Stack>
             <Stack style={{backgroundImage: "url('./images/route.jpg')",backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+                <div style={style.transitionFadeBot}/>
+
                 <ListePermis style={style.cardsServices} cards={listePermis} hauteur={"450px"} largeur={"350px"}/>
             </Stack>
+
         </Stack>
     );
 };
