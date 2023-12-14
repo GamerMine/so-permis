@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { ElfsightWidget } from 'react-elfsight-widget';
 import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
 
@@ -8,9 +8,22 @@ import PannelInformationSOPermis from "../components/PannelInformationSOPermis";
 import PannelInformationsVehicules from "../components/PannelInformationsVehicules";
 import PannelApplication from "../components/PannelApplication.js";
 import {ListePermis} from "../components/ListePermis";
+import axios from "axios";
 
 
 const Permis = () => {
+    const [listePermis, setListePermis] = useState()
+    useEffect(() => {
+        getListePermis();
+    },[])
+
+    const getListePermis = async() =>
+    {
+        const text = await axios.get('http://localhost:8080/getListePermis');
+        console.log(text);
+        setListePermis(text.data);
+    }
+    console.log(listePermis);
 
     const style = {
         cardsServices: {
