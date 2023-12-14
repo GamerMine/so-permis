@@ -4,7 +4,8 @@ import {
     CardBody,
     CardHeader,
     Grid,
-    Text
+    Text,
+    Link
 } from "@chakra-ui/react";
 import {useState} from "react";
 import ReactCardFlip from "react-card-flip";
@@ -113,9 +114,9 @@ export const MultiHorizontalCardsWithButton = (args) => {
                     backgroundImage={`url("../images/${card.info}.jpg")`}
                 >
                     <CardBody alignSelf="center"  display="flex" flexDirection="column" justifyContent="center"  >
-                        <Button style={style.button} onClick={() => navigate(`${card.link}`)} >
+                        <Link href={`${card.link}`}> <Button style={style.button} >
                             <Text style={style.buttonText}>{card.texteBouton}</Text>
-                        </Button>
+                        </Button></Link>
                     </CardBody>
                 </Card>
             </ReactCardFlip>

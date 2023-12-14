@@ -7,4 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/testBado', 'Home::bado');
+$routes->get('/getListePermis', 'ListePermis::bado');
 $routes->match(['post', 'options'],'/TestConnexion', 'Connexion::TestConnexion');
+
+

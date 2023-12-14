@@ -3,7 +3,7 @@ import Connexion from "./pages/Connexion";
 import Home from "./pages/Home"
 import Header from "./components/Header"
 import Footer from "./components/Footer"
-
+import Home from "./pages/Home";
 import { ChakraProvider } from "@chakra-ui/react";
 import { customTheme } from "./Theme/customTheme";
 import Informations from "./pages/Informations";

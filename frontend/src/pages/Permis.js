@@ -1,12 +1,25 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
 
 import {Stack} from "@chakra-ui/react";
 import DocumentsInformations from "../components/DocumentsInformations";
 import {ListePermis} from "../components/ListePermis";
+import axios from "axios";
 
 
 const Permis = () => {
+    const [listePermis, setListePermis] = useState()
+    useEffect(() => {
+        getListePermis();
+    },[])
+
+    const getListePermis = async() =>
+    {
+        const text = await axios.get('http://localhost:8080/getListePermis');
+        console.log(text);
+        setListePermis(text.data);
+    }
+    console.log(listePermis);
 
     const style = {
         cardsServices: {
