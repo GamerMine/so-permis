@@ -5,13 +5,13 @@ import {
     Card,
     CardBody,
     Text,
-    Image
+    Image, Stack
 } from "@chakra-ui/react";
 
 const PannelApplication =()=>{
     const style ={
         body:{
-            padding: "20px",
+            padding: "80px",
         },
 
         title:{
@@ -25,20 +25,19 @@ const PannelApplication =()=>{
 
         miniBox:{
             alignContent:"center",
+            width: "450px"
         },
 
         textBox:{
-//            textAlign: 'justify',
             color: 'black',
-            fontSize: 35,
+            fontSize: 30,
             fontFamily: 'Montserrat',
             fontWeight: '700',
             wordWrap: 'break-word',
-            textAlign: "center",
-
+            textAlign: "justify",
         },
 
-        imageVoiture: {
+        imageApp: {
             marginLeft: "auto",
             marginRight: "auto",
         }
@@ -47,32 +46,23 @@ const PannelApplication =()=>{
     };
 
     return (
-        <div>
-            <div style={style.body}>
-
-                <div style={style.body}>
-                    <h4 style={style.title}>Application SAROOL</h4>
-                    <SimpleGrid columns={{sm: 2, md: 2}} spacing='70px' alignSelf="center">
-                        <Card>
-                                <Image style={style.imageVoiture} src='./images/SAROOL LOGO.png' alt='SAROOL' borderRadius='lg'/>
-                        </Card>
-                        <Card style={style.miniBox} >
-                            <CardBody>
-                                <Text style={style.textBox}>Visualise tes informations personnelles et gères tes disponibilités avec l’application SAROOL !</Text>
-                                <SimpleGrid columns={{sm: 2, md: 2}} spacing='70px' alignSelf="center">
-                                    <Image style={style.imageVoiture} src='./images/Google_Play_Store.png' alt='play store' borderRadius='lg'/>
-                                    <Image style={style.imageVoiture} src='./images/apple store.png' alt='apple store' borderRadius='lg'/>
-                                </SimpleGrid>
-                            </CardBody>
-                        </Card>
-
-                    </SimpleGrid>
-
-                </div>
-
-            </div>
-            <div style={style.transitionFadeBot}/>
-        </div>
+        <Stack style={style.body}>
+            <h4 style={style.title}>Application SAROOL</h4>
+            <SimpleGrid columns={{sm: 2, md: 2}} spacing='70px' alignSelf="center">
+                <Card style={style.miniBox}>
+                        <Image style={{...style.imageApp, width: "350px"}} src='./images/SAROOL LOGO.png' alt='SAROOL' borderRadius='lg'/>
+                </Card>
+                <Card style={style.miniBox} >
+                    <CardBody>
+                        <Text style={style.textBox}>Visualise tes informations personnelles et gères tes disponibilités avec l’application SAROOL !</Text>
+                        <SimpleGrid columns={{sm: 2, md: 2}} spacing='30px' alignSelf="center" style={{margin: "25px"}}>
+                            <a href={"https://play.google.com/store/apps/details?id=fr.agx.sarool&pcampaignid=web_share"}><Image style={style.imageApp} src='./images/Google_Play_Store.png' alt='play store' borderRadius='lg'/></a>
+                            <a href={"https://apps.apple.com/fr/app/sarool/id1438123977"}><Image style={style.imageApp} src='./images/apple store.png' alt='apple store' borderRadius='lg'/></a>
+                        </SimpleGrid>
+                    </CardBody>
+                </Card>
+            </SimpleGrid>
+        </Stack>
     )
 }
 export default PannelApplication
