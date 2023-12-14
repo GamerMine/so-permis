@@ -1,12 +1,8 @@
 import React from "react";
-import { ElfsightWidget } from 'react-elfsight-widget';
 import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
 
 import {Stack} from "@chakra-ui/react";
 import DocumentsInformations from "../components/DocumentsInformations";
-import PannelInformationSOPermis from "../components/PannelInformationSOPermis";
-import PannelInformationsVehicules from "../components/PannelInformationsVehicules";
-import PannelApplication from "../components/PannelApplication.js";
 import {ListePermis} from "../components/ListePermis";
 
 
@@ -29,7 +25,7 @@ const Permis = () => {
     }
 
     return (
-        <Stack  >
+        <Stack style={{gap: 0}} >
             <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')"}}>
 
                 <MultiHorizontalCardsWithButton style={style.cardsServices} cards={

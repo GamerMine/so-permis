@@ -138,7 +138,7 @@ const CodeDeLaRoute = () => {
             <Box id="boxHoraires" w='100%' align="center" backgroundColor={"black"} marginBottom={"-10px"} style={{ ...style.textBlanc }}>
                 <Heading size="lg" marginBottom={"1%"}>Horaires code en salle</Heading>
                 <TableContainer w='50%' marginBottom={"2%"}>
-                    <Table variant="simple" border={"white 1px solid"}>
+                    <Table border={"white 1px solid"}>
                         <Thead>
                             <Tr>
                                 <Th style={{ ...style.textBlanc }}>Lundi</Th>

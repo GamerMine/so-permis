@@ -11,7 +11,7 @@ const Connexion = () => {
   const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState('');
   const [emailError, setEmailError] = useState('');
   let navigate = useNavigate();
-  const [mpError, setMPError] = useState('');
+  const [setMPError] = useState('');
 
 
   const [isLoginForm, setIsLoginForm] = useState(true);
@@ -26,7 +26,7 @@ const Connexion = () => {
         return false;
       }
       setEmailError('');
-      if (password == "" || password == null)
+      if (password === "" || password == null)
       {
         setMPError('Veuillez entrer une mot de passe');
         return false;
@@ -40,7 +40,7 @@ const Connexion = () => {
         setEmailError('Veuillez entrer une adresse e-mail valide.');
         return false;
       }
-      if (password == "" || password == null)
+      if (password === "" || password == null)
       {
         setMPError('Veuillez entrer une mot de passe');
         return false;
@@ -67,7 +67,7 @@ const Connexion = () => {
           const response = await axios.post('http://localhost:8080/TestConnexion', //TestConnexion
           formData);
           
-          if (response.data ==  true)
+          if (response.data ===  true)
           {
             navigate("/");
             // Remplacement par une URL dans l'historique

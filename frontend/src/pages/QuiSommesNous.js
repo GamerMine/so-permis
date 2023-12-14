@@ -1,10 +1,6 @@
 import React from "react";
 
 import {Stack, Text, Card} from "@chakra-ui/react";
-import DocumentsInformations from "../components/DocumentsInformations";
-import PannelInformationSOPermis from "../components/PannelInformationSOPermis";
-import PannelInformationsVehicules from "../components/PannelInformationsVehicules";
-import PannelApplication from "../components/PannelApplication.js";
 const QuiSommesNous = () => {
 
     const style = {
