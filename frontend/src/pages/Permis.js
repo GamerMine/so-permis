@@ -6,10 +6,9 @@ import DocumentsInformations from "../components/DocumentsInformations";
 import {ListePermis} from "../components/ListePermis";
 import axios from "axios";
 
-
 const Permis = () => {
     let result =[];
-    const [listePermis, setListePermis] = useState()
+    const [listePermis, setListePermis] = useState([])
     useEffect(() => {
         getListePermis();
     },[])
@@ -17,16 +16,12 @@ const Permis = () => {
 
     const getListePermis = async() => {
         const response = await axios.get('http://localhost:8080/getListePermis');
-        if (response.data ===  true) {
-            setListePermis(response.data);
+            result =[];
             let tmp = response.data;
-            for (let key in tmp){
-                result.push(new OCard(tmp[key][0], tmp[key][1], tmp[key][2]));
-            };
-        } else {
-            console.log(response.data);
-            alert(response.data);
-        }
+            for (let key of tmp){
+                result.push(new OCard(key.nom, key.info, key.prix));
+            }
+            setListePermis(result);
     }
 
     const style = {
@@ -45,6 +40,7 @@ const Permis = () => {
         },
     }
 
+
     return (
         <Stack style={{gap: 0}} >
             <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
@@ -57,21 +53,10 @@ const Permis = () => {
                     ]} hauteur={"450px"} largeur={"350px"}/>
                 <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
             </Stack>
-            <Stack style={{backgroundImage: "url('./images/route.jpg')"}}>
-                <ListePermis style={style.cardsServices} cards={
-                    [
-                        new OCard("FORFAIT B COMPLET", "Code + 30 leçons de conduite", "990€"),
-                        new OCard("FORFAIT B", "30 leçons de conduite (sans code)", "890€"),
-                        new OCard("FORFAIT B COMPLET", "Code + 25 leçons de conduite", "1210€"),
-                        new OCard("FORFAIT B", "25 leçons de conduite (sans code)", "1110€"),
-                        new OCard("FORFAIT B COMPLET", "Code + 30 leçons de conduite", "1430€"),
-                        new OCard("FORFAIT B", "30 leçons de conduite (sans code)", "1330€"),
-                        new OCard("CONDUITE SUPERVISÉE", "", "1110€"),
-                    ]} hauteur={"450px"} largeur={"350px"}/>
-                <ListePermis style={style.cardsServices} cards={result} hauteur={"450px"} largeur={"350px"}/>
+            <Stack style={{backgroundImage: "url('./images/route.jpg')",backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+                <ListePermis style={style.cardsServices} cards={listePermis} hauteur={"450px"} largeur={"350px"}/>
             </Stack>
         </Stack>
-
     );
 };
 

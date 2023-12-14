@@ -11,19 +11,19 @@ class ListePermis extends BaseController
         return "Bonjour, je suis CodeIgniter !";
     }
 
-    public function bado() : array
+    public function bado() : string
 
     {
         try {
             require (APPPATH . "Database/DB.inc.php");
-            $retour = array('ee','122','err');
+            $retour = array();
             // Exécuter le script SQL avec la méthode $this->query()
             $db = DB::getInstance();
             $formations = $db->getFormations();
             foreach ($formations as $row) {
                 $retour[] = array("nom"=>$row->getNom(), "info"=>$row->getInfos(),"prix"=>$row->getPrix());
             }
-            return json_encode($retour,true);
+            return json_encode($retour);
 
         } catch (\Throwable $th) {
             return $th;
