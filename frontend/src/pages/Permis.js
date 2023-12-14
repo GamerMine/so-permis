@@ -28,10 +28,6 @@ const Permis = () => {
         }
     }
 
-
-
-
-
     const style = {
         cardsServices: {
             margin: "150px"
@@ -72,8 +68,6 @@ const Permis = () => {
                         new OCard("CONDUITE SUPERVISÉE", "", "1110€"),
                     ]} hauteur={"450px"} largeur={"350px"}/>
                 <ListePermis style={style.cardsServices} cards={result} hauteur={"450px"} largeur={"350px"}/>
-
-
             </Stack>
         </Stack>
 
