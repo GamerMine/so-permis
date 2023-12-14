@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from "./pages/Home";
-import Header from "./components/Header";
+import Connexion from "./pages/Connexion";
+import Header from "./components/Header"
 import Footer from "./components/Footer"
 
 import { ChakraProvider } from "@chakra-ui/react";
@@ -15,6 +15,7 @@ import CodeDeLaRoute from "./pages/CodeDeLaRoute";
 import QuiSommesNous from "./pages/QuiSommesNous.js";
 function App() {
   return (
+
     <ChakraProvider theme={customTheme}>
       <Header />
       <Router>
@@ -28,8 +29,8 @@ function App() {
             <Route exact path="/Cookies" element={<Cookies />} />
             <Route exact path="/Permis" element={<Permis />} />
             <Route exact path="/Contact" element={<Contact />} />
-              <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
-
+            <Route exact path="/Connexion" element={<Connexion />} />
+            <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
           </Routes>
         </div>
       </Router>
