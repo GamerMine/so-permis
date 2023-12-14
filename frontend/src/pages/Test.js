@@ -22,8 +22,7 @@ const Test = () => {
         getTextbado();
     },[])
 
-    const getTextbado = async() =>
-    {
+    const getTextbado = async() => {
         const text = await axios.get('http://localhost:8080/testBado')
         setTextbado(text.data)
     }
