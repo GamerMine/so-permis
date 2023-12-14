@@ -23,7 +23,7 @@ class ListePermis extends BaseController
             foreach ($formations as $row) {
                 $retour[] = array($row->getNom(), $row->getInfos(),$row->getPrix());
             }
-            return $retour;
+            return json_encode($retour,true);
 
         } catch (\Throwable $th) {
             return $th;
