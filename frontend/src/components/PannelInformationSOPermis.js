@@ -3,7 +3,7 @@ import * as React from 'react';
 import {
     Card,
     CardBody,
-    SimpleGrid,
+    Grid,
     Text,
     Image,
     Stack
@@ -59,7 +59,7 @@ const PannelInformationSOPermis =()=>{
         <div>
             <Stack style={style.body}>
                 <h4 style={style.title}>So'Permis - Votre auto-école locale de confiance !</h4>
-                <SimpleGrid columns={{sm: 2, md: 2}} spacing='10px' alignSelf="center">
+                <Grid style={{margin:"25px"}} templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(1, 1fr)`, xl: `repeat(2, 1fr)`,}} gap="10px" alignSelf="center">
                     <Card style={style.miniBoxImg} >
                         <Image src='./images/proprio.jpg' alt='Proprio' borderRadius='lg'/>
                     </Card>
@@ -68,7 +68,7 @@ const PannelInformationSOPermis =()=>{
                             <Text style={style.textBox}>Chez So'Permis, nous redéfinissons l'expérience de l'auto-école au Havre. Notre engagement envers une formation de conduite personnalisée, proposée par des instructeurs dévoués, fait de nous le choix idéal. En tant qu'auto-école locale, nous comprenons les besoins spécifiques de nos élèves. Optez pour So'Permis et bénéficiez d'une formation efficace avec une approche moderne et des tarifs transparents.</Text>
                         </CardBody>
                     </Card>
-                </SimpleGrid>
+                </Grid>
 
             </Stack>
             <div style={style.transitionFadeBot}/>
