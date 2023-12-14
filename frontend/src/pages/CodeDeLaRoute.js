@@ -18,6 +18,7 @@ import {
     GridItem,
     Link,
 } from "@chakra-ui/react";
+import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
 
 const CodeDeLaRoute = () => {
     const style = {
@@ -60,50 +61,24 @@ const CodeDeLaRoute = () => {
 
         police: {
             fontFamily: "Montserrat", 
-        }
+        },
+
+        cardsServices: {
+            margin: "100px"
+        },
     };
 
     return (
         <VStack w="100%" h="100%" align="center" marginBottom={"5%"} style={{ ...style.police }}>
-
             <Box w='100%' align='center' marginBottom={"-10px"} style={{ ...style.textBlanc, ...style.box1}}>
-                <SimpleGrid w='40%' columns={3} spacing={4} justify='center' marginBottom={"2%"}  marginTop={"2%"}>
-                    <Card style={{ ...style.carte }} position={"relative"}>
-                        <Grid w={"100%"} h={"100%"} placeItems={"center"} padding={"10%"}>
-                            <GridItem>
-                                <Heading size='md' style={{ ...style.textBlanc }}>FORFAITS CODE</Heading>
-                            </GridItem>
-                            <GridItem>
-                                <Link href="#boxForfaits"><Button align='center' style={{ ...style.bouton }}>Nos forfaits code</Button></Link>
-                            </GridItem>
-                        </Grid>
-                    </Card>
-
-                    <Card style={{ ...style.carte }}>
-                        <Grid w={"100%"} h={"100%"} placeItems={"center"} padding={"10%"}>
-                            <GridItem>
-                                <Heading size='md' style={{ ...style.textBlanc }}>CODE EN SALLE</Heading>
-                            </GridItem>
-                            <GridItem>
-                                <Link href="#boxHoraires"><Button align='center' style={{ ...style.bouton }}>Nos horaires</Button></Link>
-                            </GridItem>
-                        </Grid>
-                    </Card>
-
-                    <Card style={{ ...style.carte }}>
-                        <Grid w={"100%"} h={"100%"} placeItems={"center"} padding={"10%"}>
-                            <GridItem>
-                                <Heading size='md' style={{ ...style.textBlanc }}>CONDITIONS D'ANNULATION</Heading>
-                            </GridItem>
-                            <GridItem>
-                                <Link href="#boxAnnulation"><Button align='center' style={{ ...style.bouton }}>Nos conditions</Button></Link> 
-                            </GridItem>
-                        </Grid>
-                    </Card>
-                </SimpleGrid>
+                <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
+                    [
+                        new OCard("", "FORFAITS CODE", "Nos forfaits code","code", "#boxForfaits"),
+                        new OCard("", "CODE EN SALLE", "Nos horaires","code", "#boxHoraires"),
+                        new OCard("", "CONDITIONS D'ANNULATION", "Nos conditions","code", "#boxAnnulation"),
+                    ]} hauteur={"450px"} largeur={"350px"}/>
             
                 <Box w='100%' h='20px' align="center" bgGradient='linear(to-b, #FFFFFF00, #000000)'></Box>
-
             </Box>
 
             <Box w='100%' h='30px' align="center" bgGradient='linear(to-b, #040405, #000000)'></Box>
@@ -137,7 +112,7 @@ const CodeDeLaRoute = () => {
 
             <Box id="boxHoraires" w='100%' align="center" backgroundColor={"black"} marginBottom={"-10px"} style={{ ...style.textBlanc }}>
                 <Heading size="lg" marginBottom={"1%"}>Horaires code en salle</Heading>
-                <TableContainer w='50%' marginBottom={"2%"}>
+                <TableContainer w='55%' marginBottom={"2%"}>
                     <Table variant="simple" border={"white 1px solid"}>
                         <Thead>
                             <Tr>
