@@ -8,17 +8,26 @@ import axios from "axios";
 
 
 const Permis = () => {
+    let result =[];
     const [listePermis, setListePermis] = useState()
     useEffect(() => {
         getListePermis();
     },[])
 
-    const getListePermis = async() =>
-    {
-        const text = await axios.get('http://localhost:8080/getListePermis');
-        console.log(text);
-        setListePermis(text.data);
+
+    const getListePermis = async() => {
+        const response = await axios.get('http://localhost:8080/getListePermis');
+        if (response.data ===  true) {
+            setListePermis(response.data);
+            for (let tmp of response){
+                result.push(new OCard(tmp[0], tmp[1], tmp[2]));
+            };
+        } else {
+            console.log(response.data);
+            alert(response.data);
+        }
     }
+
 
 
 
@@ -62,19 +71,7 @@ const Permis = () => {
                         new OCard("FORFAIT B", "30 leçons de conduite (sans code)", "1330€"),
                         new OCard("CONDUITE SUPERVISÉE", "", "1110€"),
                     ]} hauteur={"450px"} largeur={"350px"}/>
-
-
-
-                <ListePermis style={style.cardsServices} cards={
-                    [
-                        new OCard("FORFAIT B COMPLET", "Code + 30 leçons de conduite", "990€"),
-                        new OCard("FORFAIT B", "30 leçons de conduite (sans code)", "890€"),
-                        new OCard("FORFAIT B COMPLET", "Code + 25 leçons de conduite", "1210€"),
-                        new OCard("FORFAIT B", "25 leçons de conduite (sans code)", "1110€"),
-                        new OCard("FORFAIT B COMPLET", "Code + 30 leçons de conduite", "1430€"),
-                        new OCard("FORFAIT B", "30 leçons de conduite (sans code)", "1330€"),
-                        new OCard("CONDUITE SUPERVISÉE", "", "1110€"),
-                    ]} hauteur={"450px"} largeur={"350px"}/>
+                <ListePermis style={style.cardsServices} cards={result} hauteur={"450px"} largeur={"350px"}/>
 
 
             </Stack>
