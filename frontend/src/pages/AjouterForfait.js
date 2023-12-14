@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 
 const AjouterForfait = () => {
-
+    
     const style = {
         bouton: {
             backgroundColor: "#1ec6b1",
@@ -43,7 +43,7 @@ const AjouterForfait = () => {
                     </GridItem>
                 </Grid>
                 <Button marginEnd='1%' style={{ ...style.bouton }}>VALIDER</Button>
-                <Button colorScheme="red" >ANNULER</Button>
+                <Link href="/GestionForfaits"><Button colorScheme="red" >ANNULER</Button></Link>
             </Box>
         </Box>
     );
