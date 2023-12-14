@@ -41,9 +41,13 @@ INSERT INTO ACTUALITE (titreActualite, infosActualite, imageURL, sources) VALUES
 );
 
 INSERT INTO FORMATION (prix, nom, infos) VALUES
-(
-    '10.56', 'Formation 1', 'une formation sponso par Léo'
-);
+('990€', 'FORFAIT B COMPLET', 'Code + 30 leçons de conduite'),
+('890€', 'FORFAIT B', '30 leçons de conduite (sans code)'),
+('1210€','FORFAIT B COMPLET','Code + 25 leçons de conduite'),
+('1110€','FORFAIT B','25 leçons de conduite (sans code)'),
+('1430€','FORFAIT B COMPLET','Code + 30 leçons de conduite'),
+('1330€','FORFAIT B','30 leçons de conduite (sans code)'),
+('1110€','CONDUITE SUPERVISÉE','');
 
 INSERT INTO ADMINISTRATEUR (email, password) VALUES
 (

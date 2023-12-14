@@ -1,0 +1,73 @@
+import * as React from 'react';
+
+const Header = () => {
+
+    const style = {
+        nav: {
+            height: "100px",
+            width: "100%",
+            backgroundColor: "black"
+        },
+
+        header: {
+            backgroundColor: "#0F1411",
+            color: "white",
+            height: "5%",
+            margin: "-8px"
+        },
+
+        imgLogo: {
+            width: "40%"
+        },
+
+        navLink: {
+            color: "white",
+            textDecoration: "none",
+        },
+
+        gridElement: {
+            padding: "20px",
+            objectFit: "contain",
+            fontSize: "20px",
+            textAlign: "center",
+            fontFamily: "Montserrat, sans-serif",
+        },
+
+        gridContainer: {
+            display: "grid",
+            gridTemplateColumns: "auto auto auto auto auto auto",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%"
+        },
+
+        bandeBleu: {
+            backgroundColor: "#1EC6B1",
+            height: "15px"
+        }
+    }
+
+    return (
+        <header>
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin/>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"/>
+
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"/>
+
+            <nav style={style.nav}>
+                <div style={style.gridContainer}>
+                    <img style={{ ...style.imgLogo, ...style.gridElement }}
+                        src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png" />
+
+                    <a style={{ ...style.gridElement, ...style.navLink }} href="/Forfait">Forfait</a>
+                    <a style={{ ...style.gridElement, ...style.navLink }} href="/Newsletter">Newsletter</a>
+                    <a style={{ ...style.gridElement, ...style.navLink }} href="/Articles">Articles</a>
+                </div>
+            </nav>
+            <div style={style.bandeBleu} />
+        </header>
+    )
+}
+
+export default Header

@@ -15,6 +15,7 @@ import Permis from "./pages/Permis";
 import Contact from "./pages/PageContact";
 import CodeDeLaRoute from "./pages/CodeDeLaRoute";
 import QuiSommesNous from "./pages/QuiSommesNous.js";
+import Newsletter from './pages/Newsletter.js';
 function App() {
   return (
 
@@ -35,6 +36,7 @@ function App() {
             <Route exact path="/AjouterForfaits" element={<AjouterForfaits />} />
             <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
             <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
+            <Route exact path="/Newsletter" element={<Newsletter/>}/>
           </Routes>
         </div>
       </Router>
