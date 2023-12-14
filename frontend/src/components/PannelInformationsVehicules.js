@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {
-    SimpleGrid,
+    Grid,
     Card,
     CardBody,
     Stack,
@@ -67,7 +67,7 @@ const PannelInformationsVehicules =()=>{
     return (
         <Stack style={style.body}>
             <h4 style={style.title}>So'Permis - Votre auto-école locale de confiance !</h4>
-            <SimpleGrid columns={{sm: 2, md: 2}} spacing='70px' alignSelf="center">
+            <Grid style={{margin:"25px"}} templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(1, 1fr)`, xl: `repeat(2, 1fr)`,}} gap="70px" alignSelf="center">
                 <Card style={style.miniBox} >
                     <CardBody>
                         <Image style={style.imageVoiture} src='./images/Peugeot-208.png' alt='Peugeot-208' borderRadius='lg'/>
@@ -84,7 +84,7 @@ const PannelInformationsVehicules =()=>{
                         <Text style={style.textBox}>Bien équipé et confortable, cette voiture t’accompagnera pour ton Permis B Automatique</Text>
                     </CardBody>
                 </Card>
-            </SimpleGrid>
+            </Grid>
         </Stack>
     )
 }

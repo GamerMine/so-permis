@@ -5,7 +5,7 @@ import {
     Card,
     CardBody,
     Text,
-    Image, Stack
+    Image, Stack,Grid
 } from "@chakra-ui/react";
 
 const PannelApplication =()=>{
@@ -48,20 +48,20 @@ const PannelApplication =()=>{
     return (
         <Stack style={style.body}>
             <h4 style={style.title}>Application SAROOL</h4>
-            <SimpleGrid columns={{sm: 2, md: 2}} spacing='70px' alignSelf="center">
+            <Grid style={{margin:"25px"}} templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(1, 1fr)`, xl: `repeat(2, 1fr)`,}} gap="70px" alignSelf="center">
                 <Card style={style.miniBox}>
                     <a href={"https://www.sarool.fr/"}><Image style={{...style.imageApp, width: "350px"}} src='./images/SAROOL LOGO.png'   alt='SAROOL' borderRadius='lg'/></a>
                 </Card>
                 <Card style={style.miniBox} >
                     <CardBody>
                         <Text style={style.textBox}>Visualise tes informations personnelles et gères tes disponibilités avec l’application SAROOL !</Text>
-                        <SimpleGrid columns={{sm: 2, md: 2}} spacing='30px' alignSelf="center" style={{margin: "25px"}}>
+                        <Grid style={{margin:"25px"}} templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(1, 1fr)`, xl: `repeat(2, 1fr)`,}} gap="30px" alignSelf="center">
                             <a href={"https://play.google.com/store/apps/details?id=fr.agx.sarool&pcampaignid=web_share"}><Image style={style.imageApp} src='./images/Google_Play_Store.png' alt='play store' borderRadius='lg'/></a>
                             <a href={"https://apps.apple.com/fr/app/sarool/id1438123977"}><Image style={style.imageApp} src='./images/apple store.png' alt='apple store' borderRadius='lg'/></a>
-                        </SimpleGrid>
+                        </Grid>
                     </CardBody>
                 </Card>
-            </SimpleGrid>
+            </Grid>
         </Stack>
     )
 }
