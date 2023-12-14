@@ -50,7 +50,7 @@ const PannelApplication =()=>{
             <h4 style={style.title}>Application SAROOL</h4>
             <SimpleGrid columns={{sm: 2, md: 2}} spacing='70px' alignSelf="center">
                 <Card style={style.miniBox}>
-                        <Image style={{...style.imageApp, width: "350px"}} src='./images/SAROOL LOGO.png' alt='SAROOL' borderRadius='lg'/>
+                    <a href={"https://www.sarool.fr/"}><Image style={{...style.imageApp, width: "350px"}} src='./images/SAROOL LOGO.png'   alt='SAROOL' borderRadius='lg'/></a>
                 </Card>
                 <Card style={style.miniBox} >
                     <CardBody>
