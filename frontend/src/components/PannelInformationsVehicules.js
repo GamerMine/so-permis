@@ -62,8 +62,6 @@ const PannelInformationsVehicules =()=>{
             marginLeft: "auto",
             marginRight: "auto",
         }
-
-
     };
 
     return (
