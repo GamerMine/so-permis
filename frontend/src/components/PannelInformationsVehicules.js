@@ -2,17 +2,11 @@ import * as React from 'react';
 
 import {
     SimpleGrid,
-    Button,
     Card,
     CardBody,
-    CardFooter,
-    CardHeader,
-    Heading,
     Stack,
-    StackDivider,
     Text,
-    Icon, createIcon,
-    Image, Grid
+    Image
 } from "@chakra-ui/react";
 
 const PannelInformationsVehicules =()=>{
@@ -34,7 +28,7 @@ const PannelInformationsVehicules =()=>{
             background: '#20AB9A',
             boxShadow: '10px 10px 4px rgba(0, 0, 0, 0.25)',
             borderRadius: 40,
-            width: "60%"
+            width: "450px"
         },
 
         textBox:{
@@ -68,8 +62,6 @@ const PannelInformationsVehicules =()=>{
             marginLeft: "auto",
             marginRight: "auto",
         }
-
-
     };
 
     return (
@@ -92,7 +84,6 @@ const PannelInformationsVehicules =()=>{
                         <Text style={style.textBox}>Bien équipé et confortable, cette voiture t’accompagnera pour ton Permis B Automatique</Text>
                     </CardBody>
                 </Card>
-
             </SimpleGrid>
         </Stack>
     )

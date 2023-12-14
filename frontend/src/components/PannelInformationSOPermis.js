@@ -1,18 +1,12 @@
 import * as React from 'react';
 
 import {
-    Box,
-    Button,
     Card,
     CardBody,
-    CardFooter,
-    CardHeader,
-    Heading,
-    Stack,
     SimpleGrid,
     Text,
-    Icon, createIcon,
-    Image, Grid
+    Image,
+    Stack
 } from "@chakra-ui/react";
 
 const PannelInformationSOPermis =()=>{
@@ -33,17 +27,13 @@ const PannelInformationSOPermis =()=>{
         },
 
         miniBoxImg:{
-            marginLeft: "auto",
-            marginRight: "auto",
             boxShadow: '10px 10px 4px rgba(0, 0, 0, 0.25)',
             borderRadius: 40,
-            width: "40%",
-            height: "48%"
+            width: "350px",
         },
 
         miniBoxTxt:{
-            width: '100%',
-            height: '100%',
+            width: '500px',
             background: '#20AB9A',
             boxShadow: '10px 10px 4px rgba(0, 0, 0, 0.25)',
             borderRadius: 40
@@ -56,8 +46,7 @@ const PannelInformationSOPermis =()=>{
             fontWeight: "700",
             letterSpacing: "0",
             lineHeight: "normal",
-            // position: "fixed",
-            textAlign: "center",
+            textAlign: "justify",
         },
         transitionFadeBot: {
             background: "linear-gradient(180deg, #0F1411 0%, rgba(0, 0, 0, 0) 100%)",
@@ -68,24 +57,20 @@ const PannelInformationSOPermis =()=>{
 
     return (
         <div>
-            <div style={style.body}>
+            <Stack style={style.body}>
+                <h4 style={style.title}>So'Permis - Votre auto-école locale de confiance !</h4>
+                <SimpleGrid columns={{sm: 2, md: 2}} spacing='10px' alignSelf="center">
+                    <Card style={style.miniBoxImg} >
+                        <Image src='./images/proprio.jpg' alt='Proprio' borderRadius='lg'/>
+                    </Card>
+                    <Card style={style.miniBoxTxt} >
+                        <CardBody >
+                            <Text style={style.textBox}>Chez So'Permis, nous redéfinissons l'expérience de l'auto-école au Havre. Notre engagement envers une formation de conduite personnalisée, proposée par des instructeurs dévoués, fait de nous le choix idéal. En tant qu'auto-école locale, nous comprenons les besoins spécifiques de nos élèves. Optez pour So'Permis et bénéficiez d'une formation efficace avec une approche moderne et des tarifs transparents.</Text>
+                        </CardBody>
+                    </Card>
+                </SimpleGrid>
 
-                <div style={style.body}>
-                    <h4 style={style.title}>So'Permis - Votre auto-école locale de confiance !</h4>
-                    <SimpleGrid minChildWidth='120px' spacing='70px' alignSelf="center">
-                        <Card style={style.miniBoxImg} >
-                            <Image src='./images/proprio.jpg' alt='Proprio' borderRadius='lg'/>
-                        </Card>
-                        <Card style={style.miniBoxTxt} >
-                            <CardBody >
-                                <Text style={style.textBox}>Chez So'Permis, nous redéfinissons l'expérience de l'auto-école au Havre. Notre engagement envers une formation de conduite personnalisée, proposée par des instructeurs dévoués, fait de nous le choix idéal. En tant qu'auto-école locale, nous comprenons les besoins spécifiques de nos élèves. Optez pour So'Permis et bénéficiez d'une formation efficace avec une approche moderne et des tarifs transparents.</Text>
-                            </CardBody>
-                        </Card>
-                    </SimpleGrid>
-
-                </div>
-
-            </div>
+            </Stack>
             <div style={style.transitionFadeBot}/>
         </div>
     )

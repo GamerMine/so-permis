@@ -43,7 +43,7 @@ const Footer = () => {
                         </Box>
 
                         <Box>
-                            <a href="#"><Button style={{...style.bouton}} variant='solid'> Contactez-nous </Button></a>
+                            <a href="/PageContact"><Button style={{...style.bouton}} variant='solid'> Contactez-nous </Button></a>
                         </Box>
 
                     </VStack>
@@ -51,10 +51,10 @@ const Footer = () => {
                 <Box align='center'>
                     <Text fontSize='2xl' as='u'>Informations</Text>
                     <VStack>
-                        <Link>Accueil</Link>
-                        <Link>Permis de conduire</Link>
+                        <Link href="/">Accueil</Link>
+                        <Link href="/Permis">Permis de conduire</Link>
                         <Link href="/CodeDeLaRoute">Code de la route</Link>
-                        <Link>Qui sommes-nous ?</Link>
+                        <Link href="/QuiSommesNous">Qui sommes-nous ?</Link>
                     </VStack>
                 </Box>
                 <Box align='center'>

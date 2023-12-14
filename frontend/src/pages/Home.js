@@ -28,15 +28,19 @@ const Home = () => {
     }
 
     return (
-        <Stack marginTop="15px">
+        <Stack style={{gap: 0}} >
+            <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+
             <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                 [
-                    new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire","permis"),
-                    new OCard("", "CODE", "Nos forfaits code","code"),
-                    new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite"),
+                    new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire","permis", "/Permis"),
+                    new OCard("", "CODE", "Nos forfaits code","code", "/CodeDeLaRoute"),
+                    new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "/CodeDeLaRoute"),
                 ]} hauteur={"450px"} largeur={"350px"}/>
-            <Stack marginTop="15px" gap="0">
+
                 <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
+            </Stack>
+            {/*<Stack marginTop="15px" gap="0">*/}
                 <div style={{backgroundColor: "rgb(15, 20, 17)", padding: "20px"}}>
                     <h4 style={style.title}>Avis de nos clients</h4>
                     <ElfsightWidget widgetId="4b32669e-1d41-4c0b-a813-efdeb3498bad" />;
@@ -44,7 +48,7 @@ const Home = () => {
                 <PannelInformationSOPermis/>;
                 <PannelInformationsVehicules/>;
                 <PannelApplication/>;
-            </Stack>
+            {/*</Stack>*/}
         </Stack>
 
     );

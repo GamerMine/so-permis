@@ -1,7 +1,6 @@
 import React from "react";
 import {
     Box,
-    Text,
     Table,
     Thead,
     Tbody,
@@ -10,18 +9,18 @@ import {
     Td,
     TableContainer,
     VStack,
+    Stack,
     Card,
     CardBody,
     SimpleGrid,
-    CardHeader,
     Heading,
-    CardFooter,
     Button,
-    AbsoluteCenter,
     Grid,
     GridItem,
     Link,
 } from "@chakra-ui/react";
+import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
+import {ListeCode} from "../components/ListeCode";
 
 const CodeDeLaRoute = () => {
     const style = {
@@ -34,7 +33,6 @@ const CodeDeLaRoute = () => {
             backgroundImage: "url('/images/code-route.png')",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            
         },
 
         textBlanc: {
@@ -42,8 +40,7 @@ const CodeDeLaRoute = () => {
         },
 
         carte: {
-            backgroundColor: "#1EC6B1",
-            opacity: "0.9",
+            backgroundColor: "rgba(30,198,177,0.79)",
         },
 
         bouton: {
@@ -66,111 +63,82 @@ const CodeDeLaRoute = () => {
 
         police: {
             fontFamily: "Montserrat", 
+        },
+
+        cardsServices: {
+            margin: "100px"
+        },
+
+        tableau: {
+            borderSpacing: "0",
+            borderCollapse: "separate",
+            borderRadius: "10px",
+            border: "1px solid white",
+        },
+
+        entete: {
+            borderBottom: "1px solid white",
         }
     };
 
     return (
         <VStack w="100%" h="100%" align="center" marginBottom={"5%"} style={{ ...style.police }}>
-
             <Box w='100%' align='center' marginBottom={"-10px"} style={{ ...style.textBlanc, ...style.box1}}>
-                <SimpleGrid w='40%' columns={3} spacing={4} justify='center' marginBottom={"2%"}  marginTop={"2%"}>
-                    <Card style={{ ...style.carte }} position={"relative"}>
-                        <Grid w={"100%"} h={"100%"} placeItems={"center"} padding={"10%"}>
-                            <GridItem>
-                                <Heading size='md' style={{ ...style.textBlanc }}>FORFAITS CODE</Heading>
-                            </GridItem>
-                            <GridItem>
-                                <Link href="#boxForfaits"><Button align='center' style={{ ...style.bouton }}>Nos forfaits code</Button></Link>
-                            </GridItem>
-                        </Grid>
-                    </Card>
-
-                    <Card style={{ ...style.carte }}>
-                        <Grid w={"100%"} h={"100%"} placeItems={"center"} padding={"10%"}>
-                            <GridItem>
-                                <Heading size='md' style={{ ...style.textBlanc }}>CODE EN SALLE</Heading>
-                            </GridItem>
-                            <GridItem>
-                                <Link href="#boxHoraires"><Button align='center' style={{ ...style.bouton }}>Nos horaires</Button></Link>
-                            </GridItem>
-                        </Grid>
-                    </Card>
-
-                    <Card style={{ ...style.carte }}>
-                        <Grid w={"100%"} h={"100%"} placeItems={"center"} padding={"10%"}>
-                            <GridItem>
-                                <Heading size='md' style={{ ...style.textBlanc }}>CONDITIONS D'ANNULATION</Heading>
-                            </GridItem>
-                            <GridItem>
-                                <Link href="#boxAnnulation"><Button align='center' style={{ ...style.bouton }}>Nos conditions</Button></Link> 
-                            </GridItem>
-                        </Grid>
-                    </Card>
-                </SimpleGrid>
+                <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
+                    [
+                        new OCard("", "FORFAITS CODE", "Nos forfaits code","code", "#boxForfaits"),
+                        new OCard("", "CODE EN SALLE", "Nos horaires","code", "#boxHoraires"),
+                        new OCard("", "CONDITIONS D'ANNULATION", "Nos conditions","code", "#boxAnnulation"),
+                    ]} hauteur={"450px"} largeur={"350px"}/>
             
                 <Box w='100%' h='20px' align="center" bgGradient='linear(to-b, #FFFFFF00, #000000)'></Box>
-
             </Box>
 
             <Box w='100%' h='30px' align="center" bgGradient='linear(to-b, #040405, #000000)'></Box>
 
-            <Box id="boxForfaits" w='100%' align="center" backgroundColor={"black"} marginBottom={"-10px"} marginTop={"-10px"} style={{ ...style.textBlanc }}>
-                <Heading size="lg" marginBottom={"1%"}>Forfait Code</Heading>
-                <SimpleGrid w='25%' columns={2} spacing={4} justify='center' marginBottom={"3%"}>
-                    <Card style={{ ...style.carte }} position={"relative"}>
-                        <Grid w={"100%"} h={"100%"} placeItems={"center"} padding={"10%"}>
-                            <GridItem>
-                                <Heading size='md' style={{ ...style.textBlanc }}>FORFAIT CODE SEUL</Heading>
-                            </GridItem>
-                            <GridItem>
-                                <Button align='center' style={{ ...style.bouton }}>1200 €</Button>
-                            </GridItem>
-                        </Grid>
-                    </Card>
-
-                    <Card style={{ ...style.carte }}>
-                        <Grid w={"100%"} h={"100%"} placeItems={"center"} padding={"10%"}>
-                            <GridItem>
-                                <Heading size='md' style={{ ...style.textBlanc }}>FORFAIT CODE EXPRESS EN 4 JOURS</Heading>
-                            </GridItem>
-                            <GridItem>
-                                <Button align='center' style={{ ...style.bouton }}>1100 €</Button>
-                            </GridItem>
-                        </Grid>
-                    </Card>
-                </SimpleGrid>
+            <Box id="boxForfaits" w='100%' align="center" backgroundColor={"black"} marginBottom={"-10px"} marginTop={"-10px"}>
+                <Heading size="lg" style={{ ...style.textBlanc }}>Forfait Code</Heading>
+                <Stack w='25%' columns={2}  justify='center' marginBottom={"3%"}>
+                        
+                    <ListeCode style={style.cardsServices} cards={
+                    [
+                        new OCard("FORFAIT CODE SEUL", "", "1200€"),
+                        new OCard("FORFAIT CODE EXPRESS", "EN 4 JOURS", "1100€"),
+                    ]} hauteur={"450px"} largeur={"350px"}/>
+                   
+                </Stack>
             </Box>
 
             <Box id="boxHoraires" w='100%' align="center" backgroundColor={"black"} marginBottom={"-10px"} style={{ ...style.textBlanc }}>
-                <Heading size="lg" marginBottom={"1%"}>Horaires code en salle</Heading>
-                <TableContainer w='50%' marginBottom={"2%"}>
-                    <Table variant="simple" border={"white 1px solid"}>
-                        <Thead>
+                <Heading size="lg" marginBottom={"2%"}>Horaires code en salle</Heading>
+                <TableContainer w='60%' marginBottom={"3%"}>
+                    <Table size='lg' variant='unstyled' style={{ ...style.tableau }}>
+                        <Thead border='1px solid white'>
                             <Tr>
-                                <Th style={{ ...style.textBlanc }}>Lundi</Th>
-                                <Th style={{ ...style.textBlanc }}>Mardi</Th>
-                                <Th style={{ ...style.textBlanc }}>Mercredi</Th>
-                                <Th style={{ ...style.textBlanc }}>Jeudi</Th>
-                                <Th style={{ ...style.textBlanc }}>Vendredi</Th>
+                                <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Lundi</Th>
+                                <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Mardi</Th>
+                                <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Mercredi</Th>
+                                <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Jeudi</Th>
+                                <Th style={{ ...style.textBlanc, ...style.entete }}>Vendredi</Th>
                             </Tr>
                         </Thead>
                         <Tbody style={{ ...style.textBlanc }}>
                             <Tr>
-                                <Td>
+                                <Td borderEnd='1px solid white'>
                                     <p>Après-midi : </p>
                                     <p style={{ ...style.horaires }}>14h00-17h30 </p>
                                 </Td>
-                                <Td>
+                                <Td borderEnd='1px solid white'>
                                     <p>Matin : </p>
                                     <p style={{ ...style.horaires }}>10h00-11h00</p>
                                     <p>Après-midi : </p>
                                     <p style={{ ...style.horaires }}>14h00-16h30</p>
                                 </Td>
-                                <Td>
+                                <Td borderEnd='1px solid white'>
                                     <p>Après-midi : </p>
                                     <p style={{ ...style.horaires }}>14h00-17h30 </p>
                                 </Td>
-                                <Td>
+                                <Td borderEnd='1px solid white'>
                                     <p>Après-midi : </p>
                                     <p style={{ ...style.horaires }}> 14h00-17h30 </p>
                                 </Td>
@@ -188,7 +156,7 @@ const CodeDeLaRoute = () => {
             <Box w='100%' h='20px' align="center" bgGradient='linear(to-b, #000000, #FFFFFF)'></Box>
 
             <Box id="boxAnnulation" w="50%" h="100%" mx={"10%"} px={"5%"}>
-                <Heading size="lg" align='center'>Condition d’annulation du code</Heading>
+                <Heading size="lg" align='center' marginBottom={"2%"}>Condition d’annulation du code</Heading>
                 <Card align='center' style={{ ...style.carte }} boxShadow={"5px 5px 5px #b5b5b5"}>
                     <CardBody >
                         <SimpleGrid columns={2} >

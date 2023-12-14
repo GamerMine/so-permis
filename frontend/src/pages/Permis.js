@@ -1,0 +1,78 @@
+import React, {useEffect, useState} from "react";
+import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
+
+import {Stack} from "@chakra-ui/react";
+import DocumentsInformations from "../components/DocumentsInformations";
+import {ListePermis} from "../components/ListePermis";
+import axios from "axios";
+
+
+const Permis = () => {
+    let result =[];
+    const [listePermis, setListePermis] = useState()
+    useEffect(() => {
+        getListePermis();
+    },[])
+
+
+    const getListePermis = async() => {
+        const response = await axios.get('http://localhost:8080/getListePermis');
+        if (response.data ===  true) {
+            setListePermis(response.data);
+            let tmp = response.data;
+            for (let key in tmp){
+                result.push(new OCard(tmp[key][0], tmp[key][1], tmp[key][2]));
+            };
+        } else {
+            console.log(response.data);
+            alert(response.data);
+        }
+    }
+
+    const style = {
+        cardsServices: {
+            margin: "150px"
+        },
+
+        title:{
+            margin:"50px",
+            color: "#FFF",
+            fontFamily: "Montserrat-Bold, Helvetica",
+            fontSize: "35px",
+            fontStyle: "normal",
+            fontWeight: "700",
+            lineHeight: "normal"
+        },
+    }
+
+    return (
+        <Stack style={{gap: 0}} >
+            <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+
+                <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
+                    [
+                        new OCard("", "PERMIS B", "Nos forfaits permis B","permis", "/Permis"),
+                        new OCard("", "PERMIS B EXPRESS", "Nos forfaits permis B express","code", "/CodeDeLaRoute"),
+                        new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "/CodeDeLaRoute"),
+                    ]} hauteur={"450px"} largeur={"350px"}/>
+                <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
+            </Stack>
+            <Stack style={{backgroundImage: "url('./images/route.jpg')"}}>
+                <ListePermis style={style.cardsServices} cards={
+                    [
+                        new OCard("FORFAIT B COMPLET", "Code + 30 leçons de conduite", "990€"),
+                        new OCard("FORFAIT B", "30 leçons de conduite (sans code)", "890€"),
+                        new OCard("FORFAIT B COMPLET", "Code + 25 leçons de conduite", "1210€"),
+                        new OCard("FORFAIT B", "25 leçons de conduite (sans code)", "1110€"),
+                        new OCard("FORFAIT B COMPLET", "Code + 30 leçons de conduite", "1430€"),
+                        new OCard("FORFAIT B", "30 leçons de conduite (sans code)", "1330€"),
+                        new OCard("CONDUITE SUPERVISÉE", "", "1110€"),
+                    ]} hauteur={"450px"} largeur={"350px"}/>
+                <ListePermis style={style.cardsServices} cards={result} hauteur={"450px"} largeur={"350px"}/>
+            </Stack>
+        </Stack>
+
+    );
+};
+
+export default Permis

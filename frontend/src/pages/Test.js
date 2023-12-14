@@ -16,23 +16,13 @@ import {
 import DocumentsInformations from "../components/DocumentsInformations";
 
 const Test = () => {
-    const [text, setText] = useState()
-    useEffect(() => {
-        getText();
-    }, [])
-
-    const getText = async() => {
-        const text = await axios.get('http://localhost:3000/')
-        setText(text.data)
-    }
 
     const [bado, setTextbado] = useState()
     useEffect(() => {
         getTextbado();
     },[])
 
-    const getTextbado = async() =>
-    {
+    const getTextbado = async() => {
         const text = await axios.get('http://localhost:8080/testBado')
         setTextbado(text.data)
     }
