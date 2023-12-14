@@ -16,7 +16,7 @@ class ListePermis extends BaseController
     {
         try {
             require (APPPATH . "Database/DB.inc.php");
-            $retour = array();
+            $retour = array('ee','122','err');
             // Exécuter le script SQL avec la méthode $this->query()
             $db = DB::getInstance();
             $formations = $db->getFormations();
