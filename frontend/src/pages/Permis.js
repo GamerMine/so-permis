@@ -19,7 +19,9 @@ const Permis = () => {
         console.log(text);
         setListePermis(text.data);
     }
-    console.log(listePermis);
+
+
+
 
     const style = {
         cardsServices: {
@@ -50,6 +52,18 @@ const Permis = () => {
                 <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
             </Stack>
             <Stack style={{backgroundImage: "url('./images/route.jpg')"}}>
+                <ListePermis style={style.cardsServices} cards={
+                    [
+                        new OCard("FORFAIT B COMPLET", "Code + 30 leçons de conduite", "990€"),
+                        new OCard("FORFAIT B", "30 leçons de conduite (sans code)", "890€"),
+                        new OCard("FORFAIT B COMPLET", "Code + 25 leçons de conduite", "1210€"),
+                        new OCard("FORFAIT B", "25 leçons de conduite (sans code)", "1110€"),
+                        new OCard("FORFAIT B COMPLET", "Code + 30 leçons de conduite", "1430€"),
+                        new OCard("FORFAIT B", "30 leçons de conduite (sans code)", "1330€"),
+                        new OCard("CONDUITE SUPERVISÉE", "", "1110€"),
+                    ]} hauteur={"450px"} largeur={"350px"}/>
+
+
 
                 <ListePermis style={style.cardsServices} cards={
                     [
@@ -61,6 +75,7 @@ const Permis = () => {
                         new OCard("FORFAIT B", "30 leçons de conduite (sans code)", "1330€"),
                         new OCard("CONDUITE SUPERVISÉE", "", "1110€"),
                     ]} hauteur={"450px"} largeur={"350px"}/>
+
 
             </Stack>
         </Stack>

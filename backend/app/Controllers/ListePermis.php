@@ -11,7 +11,7 @@ class ListePermis extends BaseController
         return "Bonjour, je suis CodeIgniter !";
     }
 
-    public function bado() : string
+    public function bado() : array
 
     {
         try {
@@ -20,7 +20,10 @@ class ListePermis extends BaseController
             // Exécuter le script SQL avec la méthode $this->query()
             $db = DB::getInstance();
             $formations = $db->getFormations();
-            return $formations;
+            foreach ($formations as $row) {
+                $retour[$row->getIdFormation()] = array($row->getNom(), $row->getInfos(),$row->getPrix());
+            }
+            return $retour;
 
         } catch (\Throwable $th) {
             return $th;
