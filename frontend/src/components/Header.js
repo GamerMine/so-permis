@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, Flex, Grid, GridItem, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react";
+import {Button,  Grid, GridItem, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react";
 import {FaBars} from 'react-icons/fa'
 
 const Header = () => {
@@ -65,7 +65,7 @@ const Header = () => {
 
             <Grid display={{xl:"flex" , lg:"grid"}} backgroundColor="black" height={{xl:"100px" , lg:"213px" ,"sd":"255px" , base:"455px"}}  >
                 <GridItem><img style={style.imgLogo}
-                    src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"/></GridItem>
+                    src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png" alt={"logo So'Permis"}/></GridItem>
                 <nav style={style.nav} >
                     <div>
                         <Grid marginTop={{lg:"15px"}} style={style.gridContainer} justifyContent={{"sd":"center" , md:"end"}} display={{"sd":"grid" , lg:"flex", base:"grid"}} gridTemplateColumns={{"sd":"repeat(3,1fr)"}}>
@@ -82,7 +82,7 @@ const Header = () => {
         (
                 <Grid display="grid" backgroundColor="black">
                     <GridItem><img style={style.imgLogo}
-                                   src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"/></GridItem>
+                                   src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png" alt={"logo So'Permis"}/></GridItem>
                         <div>
                             <Menu placement="bottom">
                                 <MenuButton as={Button} color="black" width="80%" marginTop="10px" marginBottom="10px" marginLeft="10%">
