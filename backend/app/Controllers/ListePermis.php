@@ -21,7 +21,7 @@ class ListePermis extends BaseController
             $db = DB::getInstance();
             $formations = $db->getFormations();
             foreach ($formations as $row) {
-                $retour[$row->getIdFormation()] = array($row->getNom(), $row->getInfos(),$row->getPrix());
+                $retour[] = array($row->getNom(), $row->getInfos(),$row->getPrix());
             }
             return $retour;
 
