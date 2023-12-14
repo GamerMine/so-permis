@@ -51,9 +51,9 @@ const Footer = () => {
                 <Box align='center'>
                     <Text fontSize='2xl' as='u'>Informations</Text>
                     <VStack>
-                        <Link>Accueil</Link>
-                        <Link>Permis de conduire</Link>
-                        <Link>Code de la route</Link>
+                        <Link href="/">Accueil</Link>
+                        <Link href="/Permis">Permis de conduire</Link>
+                        <Link href="/CodeDeLaRoute">Code de la route</Link>
                         <Link>Qui sommes-nous ?</Link>
                     </VStack>
                 </Box>
@@ -65,6 +65,11 @@ const Footer = () => {
                     <p>sopermis76@gmail.com</p>
                 </Box>
             </Stack>
+
+            <Box align='center' style={{marginTop:"20px"}}>
+                <Text fontSize='sm' color={"gray"}><Link href="/MentionsLegales">Mentions légales</Link> - <Link href="/RGPD">RGPD</Link> </Text>
+            </Box>
+
         </footer>
     )
 }
