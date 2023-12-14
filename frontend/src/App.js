@@ -12,7 +12,7 @@ import Cookies from "./pages/Cookies";
 import Permis from "./pages/Permis";
 import Contact from "./pages/PageContact";
 import CodeDeLaRoute from "./pages/CodeDeLaRoute";
-
+import QuiSommesNous from "./pages/QuiSommesNous.js";
 function App() {
   return (
 
@@ -30,6 +30,7 @@ function App() {
             <Route exact path="/Permis" element={<Permis />} />
             <Route exact path="/Contact" element={<Contact />} />
             <Route exact path="/Connexion" element={<Connexion />} />
+            <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
           </Routes>
         </div>
       </Router>

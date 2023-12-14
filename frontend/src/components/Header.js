@@ -63,7 +63,7 @@ const Header = () => {
                     <a style={{ ...style.gridElement, ...style.navLink }} href="/">Accueil</a>
                     <a style={{ ...style.gridElement, ...style.navLink }} href="/Permis">Permis de conduire</a>
                     <a style={{ ...style.gridElement, ...style.navLink }} href="/CodeDeLaRoute">Code de la route</a>
-                    <a style={{ ...style.gridElement, ...style.navLink }} href="#">Qui sommes-nous ?</a>
+                    <a style={{ ...style.gridElement, ...style.navLink }} href="/QuiSommesNous">Qui sommes-nous ?</a>
                     <a style={{ ...style.gridElement, ...style.navLink }} href="/Contact">Contact</a>
                 </div>
             </nav>

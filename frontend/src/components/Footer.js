@@ -54,7 +54,7 @@ const Footer = () => {
                         <Link href="/">Accueil</Link>
                         <Link href="/Permis">Permis de conduire</Link>
                         <Link href="/CodeDeLaRoute">Code de la route</Link>
-                        <Link>Qui sommes-nous ?</Link>
+                        <Link href="/QuiSommesNous">Qui sommes-nous ?</Link>
                     </VStack>
                 </Box>
                 <Box align='center'>
