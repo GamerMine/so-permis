@@ -37,4 +37,34 @@ class Connexion extends BaseController
             return $th;
         }
     }
+    public function TestCreation() : string 
+    {
+
+        try {
+            $data = $this->request->getPost();
+            $email = $data['email'];
+            $mp = $data['password'];
+            require (APPPATH . "Database/DB.inc.php");
+            $retour = ' ';
+            // Exécuter le script SQL avec la méthode $this->query()
+            $db = DB::getInstance();
+            $administrateurs = $db->getAdministrateurs();
+            $retour = "";
+            foreach ($administrateurs as $row) 
+            {
+                if ( $row->getEmail() == $email)
+                {
+
+                    $retour = "Ce compte existe déjà";
+                }
+            }
+            if ($retour == "")
+            {
+                $db->insertAdministrateur($email, $mp);
+            }
+            return $retour;
+        } catch (\Throwable $th) {
+            return $th;
+        }
+    }
 }
