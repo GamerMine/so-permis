@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
     Box,
     Table,
@@ -7,63 +7,52 @@ import {
     Tr,
     Th,
     Td,
-    TableContainer,
-    VStack,
     Stack,
     Card,
     CardBody,
-    SimpleGrid,
     Heading,
     Button,
-    Grid,
-    GridItem,
     Link,
-    HStack,
     RadioGroup,
     Radio,
+    Center,
 } from "@chakra-ui/react";
-import { useState, useEffect } from 'react';
-import axios from "axios";
+import axios from 'axios';
 
 const GestionForfait = () => {
 
-    /*let result = [];
-    const [listeFormations, setListeFormations] = useState()
+    const [listItems, setListItems] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 8;
+
+
     useEffect(() => {
-        getListeFormations();
-    }, [])
+        const fetchData = async () => {
+            await refreshPage();
+        };
 
-    const getListeFormations = async () => {
-        const response = await axios.get('http://localhost:8080/getFormations');
-        if (response.data === true) {
-            setListeFormations(response.data);
-            let tmp = response.data;
-            for (let key in tmp) {
-                result.push({ nom: tmp[key][0], info: tmp[key][1], nom: tmp[key][2] });
-            };
-        } else {
-            console.log(response.data);
-            alert(response.data);
+        fetchData();
+    }, []);
+
+    const refreshPage = async () => {
+        try {
+            const response = await axios.get('http://localhost:8080/getFormations');
+            setListItems(response.data);
+        } catch (error) {
+            console.error('Erreur lors de la récupération des données :', error);
         }
-    }
+    };
+    const totalPages = Math.ceil(listItems.length / itemsPerPage);
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    let currentItems = listItems.slice(indexOfFirstItem, indexOfLastItem);
 
-    let formations = [];
+    // Fill remaining rows with empty strings
+    currentItems = [...currentItems, ...Array(itemsPerPage - currentItems.length).fill('')];
 
-    result.forEach((formation, index) => {
-        formations.push(
-                <Tr>
-                    <Td>{formation.nom}</Td>
-                    <Td>{formation.prix}</Td>
-                    <Td>{formation.infos}</Td>
-                    <Td>
-                        <Button style={{ ...style.bouton }} size="xs" marginRight='2%'>Modifier</Button>
-                        <Button colorScheme="red" size="xs">Supprimer</Button>
-                    </Td>
-                </Tr>
-        );
-    });*/
-
-    const [value, setValue] = React.useState("permis")
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
 
     const style = {
         bouton: {
@@ -72,22 +61,46 @@ const GestionForfait = () => {
         }
     }
 
+    const formations = [];
+
+    currentItems.map((formation, index) => {
+        formations.push(
+            <Tr key={index}>
+                <Td>{formation}</Td>
+                <Td>{formation.prix}</Td>
+                <Td>{formation.infos}</Td>
+                <Td>
+                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
+                    <Button colorScheme="red" size="md">Supprimer</Button>
+                </Td>
+            </Tr>
+        );
+    });
+
+    const [value, setValue] = React.useState("permis")
+
+
+
     return (
         <Box>
             <Heading textAlign="center" paddingTop="20px">
                 Forfaits
             </Heading>
 
-            <HStack spacing="24px" marginStart='10%' marginBottom='2%'>
-                <RadioGroup onChange={setValue} value={value}>
-                    <Stack direction="row">
-                        <Radio value="permis">Permis</Radio>
-                        <Radio value="code">Code de la route</Radio>
-                    </Stack>
-                </RadioGroup>
-            </HStack>
+            <Box align='center'>
+                <Center spacing="24px" marginY='1%' >
+                    <RadioGroup onChange={setValue} value={value}>
+                        <Stack direction="row">
+                            <Radio value="permis">Permis</Radio>
+                            <Radio value="code">Code de la route</Radio>
+                        </Stack>
+                    </RadioGroup>
+                </Center>
 
-            <Link href="/AjouterForfaits"> <Button style={{ ...style.bouton }} marginStart='10%' marginBottom='2%'>AJOUTER</Button></Link>
+                <Link href="/AjouterForfaits"><Button style={{ ...style.bouton }} marginBottom='2%'>AJOUTER</Button></Link>
+            </Box>
+
+
 
             <Card>
                 <CardBody>
@@ -101,13 +114,13 @@ const GestionForfait = () => {
                             </Tr>
                         </Thead>
                         <Tbody>
-                            <Tr>
+                            {/* <Tr>
                                 <Td>Forfait B</Td>
                                 <Td>890€</Td>
                                 <Td>20 leçons de conduite (sans code)</Td>
                                 <Td>
-                                    <Button style={{ ...style.bouton }} size="xs" marginRight='2%'>Modifier</Button>
-                                    <Button colorScheme="red" size="xs">Supprimer</Button>
+                                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
+                                    <Button colorScheme="red" size="md">Supprimer</Button>
                                 </Td>
                             </Tr>
                             <Tr>
@@ -115,8 +128,8 @@ const GestionForfait = () => {
                                 <Td>990€</Td>
                                 <Td>Code + 20 leçons de conduite</Td>
                                 <Td>
-                                    <Button style={{ ...style.bouton }} size="xs" marginRight='2%'>Modifier</Button>
-                                    <Button colorScheme="red" size="xs">Supprimer</Button>
+                                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
+                                    <Button colorScheme="red" size="md">Supprimer</Button>
                                 </Td>
                             </Tr>
                             <Tr>
@@ -124,13 +137,29 @@ const GestionForfait = () => {
                                 <Td>1200€</Td>
                                 <Td>Formation au permis B Classique en accéléré en 1 mois</Td>
                                 <Td>
-                                    <Button style={{ ...style.bouton }} size="xs" marginRight='2%'>Modifier</Button>
-                                    <Button colorScheme="red" size="xs">Supprimer</Button>
+                                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
+                                    <Button colorScheme="red" size="md">Supprimer</Button>
                                 </Td>
-                            </Tr>
-                            {/*{formations}*/}
+    </Tr>*/}
+                            {formations}
                         </Tbody>
                     </Table>
+
+                    {/* Pagination buttons */}
+                    <Center mt={4}>
+                        <Box>
+                            {Array.from({ length: totalPages }, (_, index) => (
+                                <Button
+                                    key={index}
+                                    colorScheme={currentPage === index + 1 ? 'teal' : 'gray'}
+                                    onClick={() => paginate(index + 1)}
+                                    mx={1}
+                                >
+                                    {index + 1}
+                                </Button>
+                            ))}
+                        </Box>
+                    </Center>
                 </CardBody>
             </Card>
         </Box>

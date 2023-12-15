@@ -11,6 +11,8 @@ $routes->get('/getListePermis', 'ListePermis::bado');
 $routes->match(['post', 'options'],'/TestConnexion', 'Connexion::TestConnexion');
 $routes->get('/GetNewsletter', 'Newsletter::GetNewsletter');
 $routes->post('/DeleteNewsletter', 'Newsletter::DeleteNewsletter');
+$routes->get('/getFormations', 'Forfaits::getFormations');
+$routes->get('/getArticles', 'Forfaits::getArticles');
 $routes->post('/CreationCompte', 'Connexion::TestCreation');
-$routes->get('/getFormations', 'Forfaits::bado');
+
 

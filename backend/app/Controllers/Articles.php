@@ -4,9 +4,9 @@ namespace App\Controllers;
 use DB;
 use Kint\Parser\ToStringPlugin;
 
-class Forfaits extends BaseController
+class Articles extends BaseController
 {
-    public function getFormations() : string
+    public function getArticles() : string
     {
         try {
             require (APPPATH . "Database/DB.inc.php");
@@ -14,8 +14,8 @@ class Forfaits extends BaseController
             // Exécuter le script SQL avec la méthode $this->query()
             $db = DB::getInstance();
             $retour = array();
-            $formations = $db->getFormations();
-            foreach ($formations as $row) 
+            $articles = $db->getActualites();
+            foreach ($articles as $row) 
             {
                 array_push($retour, $row);
             }
