@@ -12,6 +12,7 @@ class Connexion extends BaseController
             $data = $this->request->getPost();
             $email = $data['email'];
             $mp = $data['password'];
+            $_SESSION['user'] = '';
             require (APPPATH . "Database/DB.inc.php");
             $retour = ' ';
             // Exécuter le script SQL avec la méthode $this->query()
@@ -25,6 +26,7 @@ class Connexion extends BaseController
                     if ($row->getPassword() == $mp)
                     {
                         $retour = "true";
+                        $_SESSION['user'] = $row->getIdAdmin();
                     }
                     else
                     {

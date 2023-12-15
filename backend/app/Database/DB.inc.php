@@ -126,7 +126,7 @@ class DB {
 
        public function insertActualite($titre,$infos, $image, $sources) 
        {
-            $requete = 'insert into ACTUALITE values(?,?,?,?)';
+            $requete = 'insert into ACTUALITE (titreActualite, infosActualite, imageURL, sources) values(?,?,?,?)';
             $tparam = array($titre,$infos,$image,$sources );
             return $this->execMaj($requete,$tparam);
        }
@@ -158,7 +158,7 @@ class DB {
 
        public function getFormation($id) 
        {
-            $requete = 'select * from FORMATION where idformation = ?';
+            $requete = 'select * from FORMATION (prix, nom, infos) where idformation = ?';
             return $this->execQuery($requete,array($id),'FORMATION');
        }
 
@@ -177,7 +177,7 @@ class DB {
            return $this->execQuery($requete, null, 'ADMINISTRATEUR');
        }
        public function insertAdministrateur($email,$password) {
-            $requete = 'insert into ADMINISTRATEUR values(?,?)';
+            $requete = 'insert into ADMINISTRATEUR (email, password) values(?,?)';
             $tparam = array($email, $password);
             return $this->execMaj($requete,$tparam);
        }
@@ -204,7 +204,7 @@ class DB {
            return $this->execQuery($requete, null, 'NEWSLETTER');
        }
        public function insertNewsletter($email,$nom, $prenom) {
-            $requete = 'insert into NEWSLETTER values(?,?,?)';
+            $requete = 'insert into NEWSLETTER (email,nom, prenom, guid, actif) values(?,?,?)';
             $tparam = array($email, $nom, $prenom);
             return $this->execMaj($requete,$tparam);
        }

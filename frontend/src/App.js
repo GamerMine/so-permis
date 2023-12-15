@@ -18,6 +18,7 @@ import Contact from "./pages/PageContact";
 import CodeDeLaRoute from "./pages/CodeDeLaRoute";
 import QuiSommesNous from "./pages/QuiSommesNous.js";
 import Newsletter from './pages/Newsletter.js';
+import CreationCompte from './pages/CreationCompte.js'
 function App() {
   return (
 
@@ -41,6 +42,7 @@ function App() {
             <Route exact path="/GestionArticles" element={<GestionArticles />} />
             <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
             <Route exact path="/Newsletter" element={<Newsletter/>}/>
+            <Route exact path="/CreationCompte" element={<CreationCompte/>}/>
           </Routes>
         </div>
       </Router>
