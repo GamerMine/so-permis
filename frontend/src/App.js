@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Connexion from "./pages/Connexion";
+import { Connexion as Connexion} from "./pages/Connexion";
 import AjouterForfaits from "./pages/AjouterForfait";
 import GestionForfaits from "./pages/GestionForfaits";
 import AjouterArticle from "./pages/AjouterArticle";
@@ -24,8 +24,9 @@ function App() {
   return (
 
     <ChakraProvider theme={customTheme}>
-      <Router>
+
         <Header />
+      <Router>
         <div className="container">
           <Routes>
             <Route exact path="/" element={<Home />} />
@@ -37,17 +38,24 @@ function App() {
             <Route exact path="/Permis" element={<Permis />} />
             <Route exact path="/Contact" element={<Contact />} />
             <Route exact path="/Connexion" element={<Connexion />} />
-            <Route exact path="/AjouterForfaits" element={<AjouterForfaits />} />
-            <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
-            <Route exact path="/AjouterArticle" element={<AjouterArticle />} />
-            <Route exact path="/GestionArticles" element={<GestionArticles />} />
             <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
             <Route exact path="/Newsletter" element={<Newsletter/>}/>
-            <Route exact path="/CreationCompte" element={<CreationCompte/>}/>
-            <Route exact path="/ExemplePageArticle" element={<ExemplePageArticle/>}/>
-          </Routes>
+         {/* </Routes>*/}
+{/*          <Connexion>
+            <Routes>*/}
+              <Route exact path="/AjouterArticle" element={<AjouterArticle />} />
+              <Route exact path="/GestionArticles" element={<GestionArticles />} />
+              <Route exact path="/AjouterForfaits" element={<AjouterForfaits />} />
+              <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
+              <Route exact path="/CreationCompte" element={<CreationCompte/>}/>
+            </Routes>
+{/*
+          </Connexion>
+*/}
         </div>
+
       </Router>
+
       <Footer />
     </ChakraProvider>
 
