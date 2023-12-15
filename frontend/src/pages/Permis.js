@@ -5,6 +5,8 @@ import {Stack} from "@chakra-ui/react";
 import DocumentsInformations from "../components/DocumentsInformations";
 import {ListePermis} from "../components/ListePermis";
 import axios from "axios";
+import ConduiteAccompagnee from "../components/ConduiteAccompagnee";
+import PermisB from "../components/PermisB"
 
 const Permis = () => {
     let result =[];
@@ -42,6 +44,9 @@ const Permis = () => {
         transitionFadeBot: {
             background: "linear-gradient(180deg, #0F1411 0%, rgba(0, 0, 0, 0) 100%)",
             height:"79px"
+        },
+        fondBas: {
+            backgroundColor: "#0F1411",
         }
     }
 
@@ -75,7 +80,10 @@ const Permis = () => {
 
                 <ListePermis style={style.cardsServices} cards={listePermis} hauteur={"450px"} largeur={"350px"}/>
             </Stack>
-
+            <div style={style.fondBas}>
+                <PermisB/>
+                <ConduiteAccompagnee/>
+            </div>
         </Stack>
     );
 };
