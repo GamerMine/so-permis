@@ -72,7 +72,6 @@ export const MultiHorizontalCardsWithButton = (args) => {
             width: "100%",
             left: 0,
             textAlign: "center",
-            fontSize: "35px",
             color: "white",
             fontFamily: "Montserrat, sans-serif",
         },
@@ -113,7 +112,7 @@ export const MultiHorizontalCardsWithButton = (args) => {
                         <Text>{card.titre}</Text>
                     </CardHeader>
                     <CardBody>
-                        <Text style={style.text}>{card.texteContenu}</Text>
+                        <Text style={style.text} fontSize={{base:"30px", "smd":"35px"}}>{card.texteContenu}</Text>
                     </CardBody>
                 </Card>
 
