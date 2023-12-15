@@ -21,49 +21,57 @@ import {
     HStack,
     RadioGroup,
     Radio,
+    Center,
+    FormLabel,
+    Input,
+    Textarea,
+    Checkbox,
+    Select,
+    FormControl,
+    FormHelperText,
+    FormErrorMessage,
+    
 } from "@chakra-ui/react";
 import { useState, useEffect } from 'react';
 import axios from "axios";
 
 const GestionArticles = () => {
 
-    /*let result = [];
-    const [listeFormations, setListeFormations] = useState()
+    const [listItems, setListItems] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 8;
+
     useEffect(() => {
-        getListeFormations();
-    }, [])
+        const fetchData = async () => {
+            await refreshPage();
+        };
 
-    const getListeFormations = async () => {
-        const response = await axios.get('http://localhost:8080/getFormations');
-        if (response.data === true) {
-            setListeFormations(response.data);
-            let tmp = response.data;
-            for (let key in tmp) {
-                result.push({ nom: tmp[key][0], info: tmp[key][1], nom: tmp[key][2] });
-            };
-        } else {
-            console.log(response.data);
-            alert(response.data);
+        fetchData();
+    }, []);
+
+    const refreshPage = async () => {
+        try {
+            const response = await axios.get('http://localhost:8080/getArticles');
+            setListItems(response.data);
         }
-    }
+        catch (error) {
+            console.error('Erreur lors de la récupération des données :', error);
+        }
+    };
 
-    let formations = [];
+    const totalPages = Math.ceil(listItems.length / itemsPerPage);
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    let currentItems = listItems.slice(indexOfFirstItem, indexOfLastItem);
 
-    result.forEach((formation, index) => {
-        formations.push(
-                <Tr>
-                    <Td>{formation.nom}</Td>
-                    <Td>{formation.prix}</Td>
-                    <Td>{formation.infos}</Td>
-                    <Td>
-                        <Button style={{ ...style.bouton }} size="xs" marginRight='2%'>Modifier</Button>
-                        <Button colorScheme="red" size="xs">Supprimer</Button>
-                    </Td>
-                </Tr>
-        );
-    });*/
+    // Fill remaining rows with empty strings
+    currentItems = [...currentItems, ...Array(itemsPerPage - currentItems.length).fill('')];
 
-    const [value, setValue] = React.useState("permis")
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
+
+    let articles = [];
 
     const style = {
         bouton: {
@@ -71,6 +79,23 @@ const GestionArticles = () => {
             color: "white",
         }
     }
+
+    currentItems.map((article, index) => {
+        articles.push(
+            <Tr key={index}>
+                <Td>{article}</Td>
+                <Td>{article.source}</Td>
+                <Td>
+                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
+                    <Button colorScheme="red" size="md">Supprimer</Button>
+                </Td>
+            </Tr>
+        );
+    });
+
+    const [value, setValue] = React.useState("permis")
+
+
 
     return (
         <Box>
@@ -93,33 +118,48 @@ const GestionArticles = () => {
                             </Tr>
                         </Thead>
                         <Tbody>
-                            <Tr>
+                            {/*<Tr>
                                 <Td>Nouveau permis de conduire: Tout savoir !</Td>
                                 <Td>Rédigé sur So'Permis</Td>
                                 <Td>
-                                    <Button style={{ ...style.bouton }} size="xs" marginRight='2%'>Modifier</Button>
-                                    <Button colorScheme="red" size="xs">Supprimer</Button>
+                                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
+                                    <Button colorScheme="red" size="md">Supprimer</Button>
                                 </Td>
                             </Tr>
                             <Tr>
                                 <Td>Permis de conduire dès 17 ans : beaucoup d'auto école pas convaincues</Td>
                                 <Td><Link>x.com</Link></Td>
                                 <Td>
-                                    <Button style={{ ...style.bouton }} size="xs" marginRight='2%'>Modifier</Button>
-                                    <Button colorScheme="red" size="xs">Supprimer</Button>
+                                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
+                                    <Button colorScheme="red" size="md">Supprimer</Button>
                                 </Td>
                             </Tr>
                             <Tr>
                                 <Td>Documents pour s'inscrire chez So'Permis</Td>
                                 <Td><Link>facebook.com</Link></Td>
                                 <Td>
-                                    <Button style={{ ...style.bouton }} size="xs" marginRight='2%'>Modifier</Button>
-                                    <Button colorScheme="red" size="xs">Supprimer</Button>
+                                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
+                                    <Button colorScheme="red" size="md">Supprimer</Button>
                                 </Td>
-                            </Tr>
-                            {/*{formations}*/}
+                            </Tr>*/}
+                            {articles}
                         </Tbody>
                     </Table>
+                    {/* Pagination buttons */}
+                    <Center mt={4}>
+                        <Box>
+                            {Array.from({ length: totalPages }, (_, index) => (
+                                <Button
+                                    key={index}
+                                    colorScheme={currentPage === index + 1 ? 'teal' : 'gray'}
+                                    onClick={() => paginate(index + 1)}
+                                    mx={1}
+                                >
+                                    {index + 1}
+                                </Button>
+                            ))}
+                        </Box>
+                    </Center>
                 </CardBody>
             </Card>
         </Box>
