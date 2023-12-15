@@ -45,6 +45,16 @@ const Permis = () => {
             background: "linear-gradient(180deg, #0F1411 0%, rgba(0, 0, 0, 0) 100%)",
             height:"79px"
         },
+
+        transitionFadeTop:{
+            background: "linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(15, 20, 17) 100%)",
+            height: "79px",
+        },
+        transitionFadebasbas:{
+            background: "linear-gradient(180deg, #0F1411 0%, #000 100%)",
+            height: "79px",
+        },
+
         fondBas: {
             backgroundColor: "#0F1411",
         }
@@ -79,10 +89,13 @@ const Permis = () => {
                 <div style={style.transitionFadeBot}/>
 
                 <ListePermis style={style.cardsServices} cards={listePermis} hauteur={"450px"} largeur={"350px"}/>
+                <div style={style.transitionFadeTop}/>
+
             </Stack>
             <div style={style.fondBas}>
                 <PermisB/>
                 <ConduiteAccompagnee/>
+                <div style={style.transitionFadebasbas}/>
             </div>
         </Stack>
     );

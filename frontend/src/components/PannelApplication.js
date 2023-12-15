@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import {
-    SimpleGrid,
     Card,
     CardBody,
     Text,
@@ -11,7 +10,7 @@ import {
 const PannelApplication =()=>{
     const style ={
         body:{
-            padding: "80px",
+            padding: "60px",
         },
 
         title:{
@@ -25,7 +24,6 @@ const PannelApplication =()=>{
 
         miniBox:{
             alignContent:"center",
-            width: "450px"
         },
 
         textBox:{
@@ -47,12 +45,12 @@ const PannelApplication =()=>{
 
     return (
         <Stack style={style.body}>
-            <h4 style={style.title}>Application SAROOL</h4>
+            <Text style={style.title} textAlign={{base:"center", "sd":"left"}}>Application SAROOL</Text>
             <Grid style={{margin:"25px"}} templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(1, 1fr)`, xl: `repeat(2, 1fr)`,}} gap="70px" alignSelf="center">
-                <Card style={style.miniBox}>
+                <Card style={style.miniBox} marginRight={{base:"auto" , xl:"50px"}} marginLeft="auto" width={{base:"275px", "sd":"450px"}}>
                     <a href={"https://www.sarool.fr/"}><Image style={{...style.imageApp, width: "350px"}} src='./images/SAROOL LOGO.png'   alt='SAROOL' borderRadius='lg'/></a>
                 </Card>
-                <Card style={style.miniBox} >
+                <Card style={style.miniBox} marginRight={{base:"auto" , xl:"50px"}} marginLeft="auto" width={{base:"275px", "sd":"450px"}}>
                     <CardBody>
                         <Text style={style.textBox}>Visualise tes informations personnelles et gères tes disponibilités avec l’application SAROOL !</Text>
                         <Grid style={{margin:"25px"}} templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(1, 1fr)`, xl: `repeat(2, 1fr)`,}} gap="30px" alignSelf="center">

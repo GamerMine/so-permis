@@ -1,63 +1,90 @@
 import {
     Grid,
-    Button,
     Box,
     GridItem,
     FormLabel,
     Input,
     Textarea,
-    Checkbox,
-    Select,
-    FormControl,
-    FormHelperText,
+    IconButton,
 } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
 
+import { IoIosAdd, IoIosRemove } from "react-icons/io";
 
-export const FormArticle = () => {
+/**
+ * Composant permettant d'ajouter ou supprimer des paragraphes d'un article
+ * @param {Number} param0 taille du tableau de formulaires
+ * @returns code HTML
+ */
+export const FormArticle = ({ getFormulairesLength }) => {
     const style = {
         bouton: {
             backgroundColor: "#1ec6b1",
-            color: "white",
-        }
+            
+        },
+
+        label: {
+            color: "black",
+            fontWeight: "bold",
+            fontSize: "20px",
+        },
 
     };
 
-    let formations = [];
+    const [formulaires, setFormulaires] = useState([]);
 
-    const formulaire = () => {
-            <Box>
+    useEffect(() => {
+        getFormulairesLength(formulaires.length);
+    }, [formulaires.length, getFormulairesLength]);
+    
+
+    const formulaire = 
+        <Box>
+            <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
                 <GridItem colSpan={4}>
-                    <FormLabel>Sous-titre</FormLabel>
-                    <Input variant='flushed' placeholder="sous-titre" />
+                    <FormLabel style={{ ...style.label }}>Sous-titre</FormLabel>
+                    <Input id={'sousTitre'+formulaires.length} variant='flushed' placeholder="sous-titre" />
                 </GridItem>
 
                 <GridItem colSpan={4}>
-                    <FormLabel>Contenu</FormLabel>
-                    <Textarea variant='outline' size='md' placeholder="Contenu" />
+                    <FormLabel style={{ ...style.label }}>Contenu</FormLabel>
+                    <Textarea id={'contenu'+formulaires.length} variant='outline' size='md' placeholder="Contenu" />
                 </GridItem>
 
                 <GridItem colSpan={2}>
-                    <FormLabel>Image</FormLabel>
-                    <Input variant='unstyled' type="file" accept="image/*" size='md' />
+                    <FormLabel style={{ ...style.label }}>Image</FormLabel>
+                    <Input id={'image'+formulaires.length} variant='unstyled' type="file" accept="image/*" size='md' />
                 </GridItem>
-            </Box>
-    
-    }
-
+                
+            </Grid>
+        </Box>
+        
+    /**
+     * Méthode permettant d'ajouter un paragraphe
+     */
     function ajouterParagraphe()
     {
-        return {formulaire};
+        formulaires.push(formulaire);
+        setFormulaires([...formulaires]);
     }
 
-
+    /**
+     * Méthode permettant de supprimer un paragraphe
+     */
+    function supprimerParagraphe()
+    {
+        formulaires.pop();
+        setFormulaires([...formulaires]);
+    }
+    
     return (
         <Box>
-            <h1>Hello</h1>
-            {formulaire}
+            
+            {formulaires}
 
             <Box align='center'>
-                    {/*Ajout d'un bouton + pour ajouter un paragraphe*/}
-                    <Button style={{ ...style.bouton }} size="md" marginRight='2%' onClick={ajouterParagraphe()}>+</Button>
+                    <IconButton style={{ ...style.bouton }} size="md" marginRight='2%' onClick={ajouterParagraphe} icon={<IoIosAdd/>}/>
+                    <IconButton style={{ ...style.bouton }} size="md" onClick={supprimerParagraphe} icon={<IoIosRemove/>}/>
             </Box>
         </Box>
     );
