@@ -5,6 +5,7 @@ export const customTheme = extendTheme({
     breakpoints: {
         base: "0px",
         sm: "320px",
+        "smd":"449px",
         "sd":"730px",
         md: "840px",
         "menu": "915px",

@@ -1,9 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState,createContext, useContext, useReducer } from 'react';
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
+const AuthContext = createContext();
 
+const initialState = {
+    isAuthenticated: false,
+    user: null,
+};
+
+const authReducer = (state, action) => {
+    switch (action.type) {
+        case 'LOGIN':
+            return {
+                ...state,
+                isAuthenticated: true,
+                user: action.payload,
+            };
+        case 'LOGOUT':
+            return {
+                ...state,
+                isAuthenticated: false,
+                user: null,
+            };
+        default:
+            return state;
+    }
+};
 const Connexion = () => {
-  const [email, setEmail] = useState('');
+    const [state, dispatch] = useReducer(authReducer, initialState);
+    const login = (user) => {
+        dispatch({ type: 'LOGIN', payload: user });
+    };
+
+    const logout = () => {
+        dispatch({ type: 'LOGOUT' });
+    };
+
+    const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
  
   const [emailError, setEmailError] = useState('');
@@ -42,18 +75,21 @@ const Connexion = () => {
         formData.append('password', password);
         const response = await axios.post('http://localhost:8080/TestConnexion', //TestConnexion
         formData);
-        
+
         if (response.data ===  true)
         {
+            login("testadmin");
           navigate("/");
           // Remplacement par une URL dans l'historique
         }
         else
         {
-          console.log(response.data);
+            logout();
+            console.log(response.data);
           alert(response.data);
         }
       } catch (error) {
+        logout();
         // Gérez les erreurs ici
         console.error(error);
         alert(error);
@@ -170,4 +206,13 @@ const styles = {
       marginTop: '20px',
     },
   };
-export default Connexion;
+
+const useAuth = () => {
+    const context = useContext(AuthContext);
+    if (!context) {
+        throw new Error('useAuth must be used within an AuthProvider');
+    }
+    return context;
+};
+
+export {Connexion, useAuth};
