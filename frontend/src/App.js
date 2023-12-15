@@ -23,8 +23,8 @@ function App() {
   return (
 
     <ChakraProvider theme={customTheme}>
-      <Header />
       <Router>
+        <Header />
         <div className="container">
           <Routes>
             <Route exact path="/" element={<Home />} />
