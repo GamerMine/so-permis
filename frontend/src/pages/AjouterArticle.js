@@ -15,9 +15,12 @@ import {
     Stack,
     Checkbox,
 } from "@chakra-ui/react";
-import { Form } from "react-router-dom";
 import { FormArticle } from "../components/FormArticle";
 
+/**
+ * Page permettant d'ajouter un article ou de modifier un article
+ * @returns code HTML
+ */
 const AjouterArticle = () => {
 
     const style = {
@@ -35,6 +38,10 @@ const AjouterArticle = () => {
 
     const [value, setValue] = React.useState("article")
 
+    /**
+     * Méthode permettant de changer le formulaire en fonction de la valeur du radio bouton
+     * @returns code HTML du formulaire
+     */
     function changerFormulaire() {
         if (value === "article") {
             return (

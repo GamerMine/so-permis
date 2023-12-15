@@ -1,25 +1,21 @@
 import {
     Grid,
-    Button,
     Box,
     GridItem,
     FormLabel,
     Input,
     Textarea,
-    Checkbox,
-    Select,
-    FormControl,
-    FormHelperText,
-    Divider,
-    border,
     IconButton,
-    Text,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
 
-
+/**
+ * Composant permettant d'ajouter ou supprimer des paragraphes d'un article
+ * @param {Number} param0 taille du tableau de formulaires
+ * @returns code HTML
+ */
 export const FormArticle = ({ getFormulairesLength }) => {
     const style = {
         bouton: {
@@ -72,12 +68,14 @@ export const FormArticle = ({ getFormulairesLength }) => {
         setFormulaires([...formulaires]);
     }
 
+    /**
+     * Méthode permettant de supprimer un paragraphe
+     */
     function supprimerParagraphe()
     {
         formulaires.pop();
         setFormulaires([...formulaires]);
     }
-    
     
     return (
         <Box>
