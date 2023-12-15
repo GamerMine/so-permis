@@ -40,6 +40,7 @@ function App() {
             <Route exact path="/Connexion" element={<Connexion />} />
             <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
             <Route exact path="/Newsletter" element={<Newsletter/>}/>
+            <Route exact path="/ExemplePageArticle" element={<ExemplePageArticle/>}/>
          {/* </Routes>*/}
 {/*          <Connexion>
             <Routes>*/}
