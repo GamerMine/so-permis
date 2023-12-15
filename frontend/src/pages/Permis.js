@@ -50,7 +50,7 @@ const Permis = () => {
 
     return (
         <Stack style={{gap: 0}} >
-            <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+            <Stack style={{backgroundImage: "url('./images/pagePermis.jpg')", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
 
                 {!isSmallDevice ? (
                         <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
