@@ -12,7 +12,7 @@ import {
 const PannelInformationSOPermis =()=>{
     const style ={
         body:{
-            padding: "20px",
+            padding: "15px",
             backgroundColor: "#0F1411",
         },
 
@@ -29,17 +29,15 @@ const PannelInformationSOPermis =()=>{
         miniBoxImg:{
             boxShadow: '10px 10px 4px rgba(0, 0, 0, 0.25)',
             borderRadius: 40,
-            width: "350px",
             marginLeft: "auto",
-            marginRight: "auto",
         },
 
         miniBoxTxt:{
-            width: '500px',
             background: '#20AB9A',
             boxShadow: '10px 10px 4px rgba(0, 0, 0, 0.25)',
             borderRadius: 40,
-            textAlign: "center"
+            textAlign: "center",
+            marginRight: "auto",
         },
 
         textBox:{
@@ -61,12 +59,12 @@ const PannelInformationSOPermis =()=>{
     return (
         <div>
             <Stack style={style.body}>
-                <h4 style={style.title}>So'Permis - Votre auto-école locale de confiance !</h4>
-                <Grid style={{margin:"25px"}} templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(1, 1fr)`, xl: `repeat(2, 1fr)`,}} gap="10px" alignSelf="center">
-                    <Card style={style.miniBoxImg} >
+                <Text style={style.title} textAlign={{base:"center", "sd":"left"}}>So'Permis - Votre auto-école locale de confiance !</Text>
+                <Grid templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(1, 1fr)`, xl: `repeat(2, 1fr)`,}} gap="25px" alignItems="center">
+                    <Card style={style.miniBoxImg} marginRight={{base:"auto" , xl:"50px"}} width={{base:"275px", "sd":"350px"}}>
                         <Image src='./images/proprio.jpg' alt='Proprio' borderRadius='lg'/>
                     </Card>
-                    <Card style={style.miniBoxTxt} >
+                    <Card style={style.miniBoxTxt} marginLeft={{base:"auto" , xl:"50px"}} width={{base:"275px", "sd":"500px"}} >
                         <CardBody >
                             <Text style={style.textBox}>Chez So'Permis, nous redéfinissons l'expérience de l'auto-école au Havre. Notre engagement envers une formation de conduite personnalisée, proposée par des instructeurs dévoués, fait de nous le choix idéal. En tant qu'auto-école locale, nous comprenons les besoins spécifiques de nos élèves. Optez pour So'Permis et bénéficiez d'une formation efficace avec une approche moderne et des tarifs transparents.</Text>
                         </CardBody>

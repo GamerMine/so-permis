@@ -2,9 +2,10 @@ import React from "react";
 import { ElfsightWidget } from 'react-elfsight-widget';
 import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
 
-import {Stack} from "@chakra-ui/react";
+import {Stack, Text} from "@chakra-ui/react";
 import DocumentsInformations from "../components/DocumentsInformations";
 import PannelInformationSOPermis from "../components/PannelInformationSOPermis";
+import PanelActus from "../components/PanelActus"
 import PannelInformationsVehicules from "../components/PannelInformationsVehicules";
 import PannelApplication from "../components/PannelApplication.js";
 
@@ -51,15 +52,14 @@ const Home = () => {
 
                 <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
             </Stack>
-            {/*<Stack marginTop="15px" gap="0">*/}
                 <div style={{backgroundColor: "rgb(15, 20, 17)", padding: "20px"}}>
-                    <h4 style={style.title}>Avis de nos clients</h4>
+                    <Text style={style.title} textAlign={{base:"center", "sd":"left"}}>Avis de nos clients</Text>
                     <ElfsightWidget widgetId="4b32669e-1d41-4c0b-a813-efdeb3498bad" />;
                 </div>
                 <PannelInformationSOPermis/>;
+                <PanelActus/>
                 <PannelInformationsVehicules/>;
                 <PannelApplication/>;
-            {/*</Stack>*/}
         </Stack>
 
     );

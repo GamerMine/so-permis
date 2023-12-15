@@ -14,10 +14,6 @@ import {
     CardBody,
     SimpleGrid,
     Heading,
-    Button,
-    Grid,
-    GridItem,
-    Link,
 } from "@chakra-ui/react";
 import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
 import {ListeCode} from "../components/ListeCode";

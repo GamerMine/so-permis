@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     Box,
     Heading,
@@ -15,11 +15,14 @@ import {
     Stack,
     Checkbox,
 } from "@chakra-ui/react";
-import { Form } from "react-router-dom";
 import { FormArticle } from "../components/FormArticle";
 
+/**
+ * Page permettant d'ajouter un article ou de modifier un article
+ * @returns code HTML
+ */
 const AjouterArticle = () => {
-    
+
     const style = {
         bouton: {
             backgroundColor: "#1ec6b1",
@@ -27,38 +30,49 @@ const AjouterArticle = () => {
         }
     }
 
+    const [tailleFormulaires, setTailleFormulaires] = useState(0);
+
+    const handleGetFormulairesLength = (length) => {
+        setTailleFormulaires(length);
+    };
+
     const [value, setValue] = React.useState("article")
 
+    /**
+     * Méthode permettant de changer le formulaire en fonction de la valeur du radio bouton
+     * @returns code HTML du formulaire
+     */
     function changerFormulaire() {
         if (value === "article") {
             return (
                 <Box align='center' marginBottom='1%'>
-                <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
-                    <GridItem colSpan={2}>
-                        <FormLabel>Titre</FormLabel>
-                        <Input variant='flushed' placeholder="Titre" />
-                    </GridItem>
+                    <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
+                        <GridItem colSpan={2}>
+                            <FormLabel>Titre</FormLabel>
+                            <Input id="titre" variant='flushed' placeholder="Titre" />
+                        </GridItem>
 
-                    <GridItem colSpan={2}>
-                        <FormLabel>Sources</FormLabel>
-                        <Input variant='flushed' placeholder="Sources"/>
-                    </GridItem>
+                        <GridItem colSpan={2}>
+                            <FormLabel>Sources</FormLabel>
+                            <Input id="source" variant='flushed' placeholder="Sources" />
+                        </GridItem>
+
+                    </Grid>
 
                     {/*<GridItem colSpan={4}>
-                        <FormLabel>Contenu</FormLabel>
-                        <Textarea variant='outline' size='md' placeholder="Contenu"/>
-                    </GridItem>
+                            <FormLabel>Contenu</FormLabel>
+                            <Textarea variant='outline' size='md' placeholder="Contenu"/>
+                        </GridItem>
 
-                    <GridItem colSpan={2}>
-                        <FormLabel>Image</FormLabel>
-                        <Input variant='unstyled' type="file" accept="image/*" size='md'/>
-            </GridItem>*/}
+                        <GridItem colSpan={2}>
+                            <FormLabel>Image</FormLabel>
+                            <Input variant='unstyled' type="file" accept="image/*" size='md'/>
+                        </GridItem>*/}
 
-                    {FormArticle}
-                </Grid>
-                
+                    <FormArticle getFormulairesLength={handleGetFormulairesLength} />
                 </Box>
             );
+
         }
 
         return (
@@ -66,17 +80,48 @@ const AjouterArticle = () => {
                 <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='5%' w='50%' marginBottom='4%'>
                     <GridItem colSpan={2}>
                         <FormLabel>Titre</FormLabel>
-                        <Input variant='flushed' placeholder="Titre" />
+                        <Input id="titre" variant='flushed' placeholder="Titre" />
                     </GridItem>
                     <GridItem colSpan={2}>
                         <FormLabel>URL (source)</FormLabel>
-                        <Input variant='flushed' placeholder="URL"/>
+                        <Input id="source" variant='flushed' placeholder="URL" />
                     </GridItem>
                 </Grid>
             </Box>
         );
-        
-        
+
+
+    }
+
+
+    /**
+     * Méthode permettant de récupérer les données du formulaire
+     */
+    function recupererDonnees() {
+
+        if (value === "article") {
+            const titre = document.getElementById("titre").value;
+            const sources = document.getElementById("source").value;
+
+            
+            const formulaires = [] //tableau contenant les différentes parties de l'article
+
+            for (let i = 0; i < tailleFormulaires; i++) {
+                const sousTitre = document.getElementById("sousTitre" + i).value;
+                const contenu = document.getElementById("contenu" + i).value;
+                const image = document.getElementById("image" + i).value;
+
+                formulaires.push({ sousTitre: sousTitre, contenu: contenu, image: image });
+            }
+        }
+        else
+        {
+            const titre = document.getElementById("titre").value;
+            const source = document.getElementById("source").value;
+        }
+
+        const newsletter = document.getElementById("newsletter").checked;
+
     }
 
     return (
@@ -101,7 +146,7 @@ const AjouterArticle = () => {
             <Box align='center' marginBottom='2%'>
                 <Checkbox value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>
                 <div>
-                    <Button marginEnd='1%' style={{ ...style.bouton }}>VALIDER</Button>
+                    <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
                     <Link href="/GestionArticles"><Button colorScheme="red" >ANNULER</Button></Link>
                 </div>
             </Box>

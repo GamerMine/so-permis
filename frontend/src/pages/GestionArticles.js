@@ -7,29 +7,12 @@ import {
     Tr,
     Th,
     Td,
-    TableContainer,
-    VStack,
-    Stack,
     Card,
     CardBody,
-    SimpleGrid,
     Heading,
     Button,
-    Grid,
-    GridItem,
     Link,
-    HStack,
-    RadioGroup,
-    Radio,
     Center,
-    FormLabel,
-    Input,
-    Textarea,
-    Checkbox,
-    Select,
-    FormControl,
-    FormHelperText,
-    FormErrorMessage,
     
 } from "@chakra-ui/react";
 import { useState, useEffect } from 'react';
@@ -95,8 +78,6 @@ const GestionArticles = () => {
 
     const [value, setValue] = React.useState("permis")
 
-
-
     return (
         <Box>
             <Heading textAlign="center" paddingTop="20px" marginBottom='2%'>
@@ -118,30 +99,6 @@ const GestionArticles = () => {
                             </Tr>
                         </Thead>
                         <Tbody>
-                            {/*<Tr>
-                                <Td>Nouveau permis de conduire: Tout savoir !</Td>
-                                <Td>Rédigé sur So'Permis</Td>
-                                <Td>
-                                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
-                                    <Button colorScheme="red" size="md">Supprimer</Button>
-                                </Td>
-                            </Tr>
-                            <Tr>
-                                <Td>Permis de conduire dès 17 ans : beaucoup d'auto école pas convaincues</Td>
-                                <Td><Link>x.com</Link></Td>
-                                <Td>
-                                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
-                                    <Button colorScheme="red" size="md">Supprimer</Button>
-                                </Td>
-                            </Tr>
-                            <Tr>
-                                <Td>Documents pour s'inscrire chez So'Permis</Td>
-                                <Td><Link>facebook.com</Link></Td>
-                                <Td>
-                                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
-                                    <Button colorScheme="red" size="md">Supprimer</Button>
-                                </Td>
-                            </Tr>*/}
                             {articles}
                         </Tbody>
                     </Table>
@@ -164,7 +121,6 @@ const GestionArticles = () => {
             </Card>
         </Box>
     );
-
 }
 
 export default GestionArticles;
