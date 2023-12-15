@@ -57,6 +57,11 @@ const AjouterArticle = () => {
                             <Input id="source" variant='flushed' placeholder="Sources" />
                         </GridItem>
 
+                        <GridItem colSpan={2}>
+                            <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
+                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' />
+                        </GridItem>
+
                     </Grid>
 
                     {/*<GridItem colSpan={4}>
@@ -102,8 +107,8 @@ const AjouterArticle = () => {
         if (value === "article") {
             const titre = document.getElementById("titre").value;
             const sources = document.getElementById("source").value;
+            const image = document.getElementById("image").value;
 
-            
             const formulaires = [] //tableau contenant les différentes parties de l'article
 
             for (let i = 0; i < tailleFormulaires; i++) {
@@ -113,14 +118,21 @@ const AjouterArticle = () => {
 
                 formulaires.push({ sousTitre: sousTitre, contenu: contenu, image: image });
             }
+
+            
+            console.log(titre);
+            console.log(sources);
+            console.log(image);
+            console.log(formulaires);
         }
-        else
-        {
+        else {
             const titre = document.getElementById("titre").value;
             const source = document.getElementById("source").value;
         }
 
         const newsletter = document.getElementById("newsletter").checked;
+
+        console.log(newsletter);
 
     }
 
@@ -144,7 +156,7 @@ const AjouterArticle = () => {
             {changerFormulaire()}
 
             <Box align='center' marginBottom='2%'>
-                <Checkbox value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>
+                <Checkbox id="newsletter" value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>
                 <div>
                     <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
                     <Link href="/GestionArticles"><Button colorScheme="red" >ANNULER</Button></Link>

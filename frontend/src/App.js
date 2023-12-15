@@ -19,6 +19,7 @@ import CodeDeLaRoute from "./pages/CodeDeLaRoute";
 import QuiSommesNous from "./pages/QuiSommesNous.js";
 import Newsletter from './pages/Newsletter.js';
 import CreationCompte from './pages/CreationCompte.js'
+import ExemplePageArticle from './pages/ExemplePageArticle';
 function App() {
   return (
 
@@ -43,6 +44,7 @@ function App() {
             <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
             <Route exact path="/Newsletter" element={<Newsletter/>}/>
             <Route exact path="/CreationCompte" element={<CreationCompte/>}/>
+            <Route exact path="/ExemplePageArticle" element={<ExemplePageArticle/>}/>
           </Routes>
         </div>
       </Router>
