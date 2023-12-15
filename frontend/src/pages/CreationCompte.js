@@ -3,56 +3,55 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Connexion = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
- 
+  
+  const [registerEmail, setRegisterEmail] = useState('');
+  const [registerPassword, setRegisterPassword] = useState('');
+  const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState('');
   const [emailError, setEmailError] = useState('');
-  let navigate = useNavigate();
+  const [setMPError] = useState('');
 
+
+  const [isLoginForm, setIsLoginForm] = useState(true);
 
   const validateEmail = () => {
-  // Une expression régulière pour valider l'email
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Une expression régulière pour valider l'email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailRegex.test(email)) {
-      setEmailError('Veuillez entrer une adresse e-mail valide.');
-      return false;
+    if (!emailRegex.test(registerEmail)) {
+        setEmailError('Veuillez entrer une adresse e-mail valide.');
+        return false;
     }
-    if (password === "" || password == null)
+    if (registerPassword === "" || registerPassword == null)
     {
-      setEmailError('Veuillez entrer une mot de passe');
-      return false;
+        setEmailError('Veuillez entrer une mot de passe');
+        return false;
+    }
+    if (registerPassword != registerPasswordConfirm)
+    {
+        setEmailError('Le mot de passe n\'est pas le même que celui de la confirmation');
+        return false;
     }
     setEmailError('');
     return true;
 
-
   };
 
-
+  let navigate = useNavigate();
   const useHandleSubmit = async (event) => {
     event.preventDefault();
     if (!validateEmail()) {
       return;
     }
     try {
-
-        let formData = new FormData();
-        formData.append('email', email);
-        formData.append('password', password);
-        const response = await axios.post('http://localhost:8080/TestConnexion', //TestConnexion
-        formData);
         
-        if (response.data ===  true)
-        {
-          navigate("/");
-          // Remplacement par une URL dans l'historique
-        }
-        else
-        {
-          console.log(response.data);
-          alert(response.data);
-        }
+          let formData = new FormData();
+          formData.append('email', registerEmail);
+          formData.append('password', registerPassword);
+          formData.append('confirmPassword', registerPasswordConfirm);
+          const response = await axios.post('http://localhost:8080/CreationCompte',
+          formData);
+        console.log(response.data);
+        navigate("/");
       } catch (error) {
         // Gérez les erreurs ici
         console.error(error);
@@ -60,38 +59,53 @@ const Connexion = () => {
       }
   }
 
+  const switchForm = () => {
+    setIsLoginForm(!isLoginForm);
+  };
 
   return (
   <div style={styles.container}>
     <div style={styles.formContainer}>
       <div style={styles.box}>
-      <h1 style={styles.titre}>{'CONNEXION'}</h1>
+      <h1 style={styles.titre}>INSCRIPTION</h1>
         <form onSubmit={useHandleSubmit}>
 
-                <label style={styles.label}>
-                  Adresse mail :
-                  <br />
-                  <input
-                    type="text"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    style={styles.input}
-                  />
-                </label>
+            <label style={styles.label}>
+                Adresse mail du compte :
                 <br />
-                <label style={styles.label}>
-                  Mot de passe :
-                  <br />
-                  <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    style={styles.input}
-                  />
-                </label>      
+                <input
+                type="text"
+                value={registerEmail}
+                onChange={(e) => setRegisterEmail(e.target.value)}
+                style={styles.input}
+                />
+            </label>
+            <br />
+            <label style={styles.label}>
+                Mot de passe du compte:
+                <br />
+                <input
+                type="password"
+                value={registerPassword}
+                onChange={(e) => setRegisterPassword(e.target.value)}
+                style={styles.input}
+                />
+            </label>
+            <br />
+            <label style={styles.label}>
+                Confirmer le mot de passe:
+                <br />
+                <input
+                type="password"
+                value={registerPasswordConfirm}
+                onChange={(e) => setRegisterPasswordConfirm(e.target.value)}
+                style={styles.input}
+                />
+            </label>
+
             {emailError && <p style={styles.error}>{emailError}</p>}
             <br />
-          <input type="submit" value={'Se connecter'} style={styles.bouton} />
+          <input type="submit" value={'S\'inscrire'} style={styles.bouton} />
         </form>
       </div>
     </div>
