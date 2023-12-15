@@ -35,7 +35,7 @@ export class OCard {
 export const MultiHorizontalCardsWithButton = (args) => {
     const [cards, setCards] = useState(args.cards);
     const navigate = useNavigate();
-    const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
+    const isSmallDevice = window.matchMedia("(max-width: 1080px)").matches;
 
      const handleCardHover = (index, isHovered) => {
          const updatedCards = [...cards];

@@ -12,7 +12,7 @@ import {
 const PannelInformationsVehicules =()=>{
     const style ={
         body:{
-            padding: "80px",
+            padding: "15px",
         },
 
         title:{
@@ -27,8 +27,8 @@ const PannelInformationsVehicules =()=>{
         miniBox:{
             background: '#20AB9A',
             boxShadow: '10px 10px 4px rgba(0, 0, 0, 0.25)',
+            textAlign: "center",
             borderRadius: 40,
-            width: "450px"
         },
 
         textBox:{
@@ -66,9 +66,9 @@ const PannelInformationsVehicules =()=>{
 
     return (
         <Stack style={style.body}>
-            <h4 style={style.title}>So'Permis - Votre auto-école locale de confiance !</h4>
-            <Grid style={{margin:"25px"}} templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(1, 1fr)`, xl: `repeat(2, 1fr)`,}} gap="70px" alignSelf="center">
-                <Card style={style.miniBox} >
+            <Text style={style.title} textAlign={{base:"center", "sd":"left"}}>Nos véhicules chez So'Permis </Text>
+            <Grid templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(1, 1fr)`, xl: `repeat(2, 1fr)`,}} gap="25px" alignItems="center">
+                <Card marginLeft="auto" style={style.miniBox} marginRight={{base:"auto" , xl:"50px"}}  width={{base:"275px", "sd":"450px"}}>
                     <CardBody>
                         <Image style={style.imageVoiture} src='./images/Peugeot-208.png' alt='Peugeot-208' borderRadius='lg'/>
                         <Text style={style.textVoiture}>Peugeot 208</Text>
@@ -76,7 +76,7 @@ const PannelInformationsVehicules =()=>{
                         <Text style={style.textBox}>Pratique et facile à manier, cette voiture t’accompagnera pour ton permis B</Text>
                     </CardBody>
                 </Card>
-                <Card style={style.miniBox} >
+                <Card marginRight="auto"  style={style.miniBox} marginLeft={{base:"auto" , xl:"50px"}} width={{base:"275px", "sd":"450px"}} >
                     <CardBody>
                         <Image style={style.imageVoiture} src='./images/Peugeot-5008.png' alt='Peugeot-5008' borderRadius='lg'/>
                         <Text style={style.textVoiture}>Peugeot 5008</Text>
