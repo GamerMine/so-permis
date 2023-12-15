@@ -6,36 +6,30 @@ const Newsletter = () => {
   const [listItems, setListItems] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
+
   const handleDelete = async (item) => {
     const formData = new FormData();
     formData.append ('email', item);
     const response = await axios.post('http://localhost:8080/DeleteNewsletter', //TestConnexion
     formData);
-    
-    if (response.data ===  true)
-    {
-      
-      // Remplacement par une URL dans l'historique
-    }
-    else
-    {
-      console.log(response.data);
-      alert(response.data);
-    }
+    window.location.reload();
   };
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:8080/GetNewsletter');
-        setListItems(response.data);
-      } catch (error) {
-        console.error('Erreur lors de la récupération des données :', error);
-      }
+      await refreshPage();
     };
 
     fetchData();
   }, []); 
 
+  const refreshPage = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/GetNewsletter');
+      setListItems(response.data);
+    } catch (error) {
+      console.error('Erreur lors de la récupération des données :', error);
+    }
+  };
   const totalPages = Math.ceil(listItems.length / itemsPerPage);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;

@@ -41,7 +41,7 @@ INSERT INTO ACTUALITE (titreActualite, infosActualite, imageURL, sources) VALUES
 (
     'Léo est trop fort', 'Car il a réussi a connecter la base', 'imageDeLeoLeBg.png', 'léo'
 );
-
+ 
 INSERT INTO FORMATION (prix, nom, infos) VALUES
 ('990€', 'FORFAIT B COMPLET', 'Code + 30 leçons de conduite'),
 ('890€', 'FORFAIT B', '30 leçons de conduite (sans code)'),
