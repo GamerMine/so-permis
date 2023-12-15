@@ -46,18 +46,29 @@ const Permis = () => {
     }
 
 
+    const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
+
     return (
         <Stack style={{gap: 0}} >
             <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
 
-                <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
-                    [
+                {!isSmallDevice ? (
+                        <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
+                            [
                         new OCard("", "PERMIS B", "Nos forfaits permis B","permis", "/Permis"),
                         new OCard("", "PERMIS B EXPRESS", "Nos forfaits permis B express","code", "/CodeDeLaRoute"),
                         new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "/CodeDeLaRoute"),
-                    ]} hauteur={"450px"} largeur={"350px"}/>
-                <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
+                            ]} hauteur={"450px"} largeur={"350px"}/>
+                ) : (
+                    <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
+                        [
+                            new OCard("", "PERMIS B", "Nos forfaits permis B","permis", "/Permis"),
+                            new OCard("", "PERMIS B EXPRESS", "Nos forfaits permis B express","code", "/CodeDeLaRoute"),
+                            new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "/CodeDeLaRoute"),
+                        ]} hauteur={"300px"} largeur={"275px"}/>
+                )}
 
+                <DocumentsInformations titre={"Documents à fournir"}/>
             </Stack>
             <Stack style={{backgroundImage: "url('./images/route.jpg')",backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
                 <div style={style.transitionFadeBot}/>
