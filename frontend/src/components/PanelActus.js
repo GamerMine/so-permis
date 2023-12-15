@@ -111,7 +111,7 @@ const PanelActus = () => {
         return (
             <Stack style={{paddingLeft: "80px", paddingRight: "80px"}}>
                 <h4 style={style.title}>Retrouvez nos dernières actus !</h4>
-                    <Card style={style.cards} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} width={{xl: "900px", md: "700px", sm: "400px"}} height= "400px">
+                    <Card style={style.cards} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} width={{xl: "900px", md: "700px", sm: "350px"}} height= "400px">
                         {status || isMobile ? (
                             <Stack>
                                 <Box style={{display: "flex", justifyContent: "center", position: "absolute", top: "50%", transform: "translateY(-50%)", left: "10px"}} borderRadius={"full"} bg={"rgba(0,0,0,0.37)"} w={"12"} h={"12"}>
