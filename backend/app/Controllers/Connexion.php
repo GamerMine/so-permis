@@ -9,10 +9,10 @@ class Connexion extends BaseController
     {
 
         try {
+            session_start();
             $data = $this->request->getPost();
             $email = $data['email'];
             $mp = $data['password'];
-            $_SESSION['user'] = '';
             require (APPPATH . "Database/DB.inc.php");
             $retour = ' ';
             // Exécuter le script SQL avec la méthode $this->query()
@@ -43,11 +43,16 @@ class Connexion extends BaseController
     {
 
         try {
+            session_start();
+            return $_SESSION['user'];
+            if (empty($userId)) {
+                return "Vous n'êtes pas connecté. La création de compte nécessite une connexion.";
+            }
             $data = $this->request->getPost();
             $email = $data['email'];
             $mp = $data['password'];
             require (APPPATH . "Database/DB.inc.php");
-            $retour = ' ';
+            $retour = 'Compte bien créé';
             // Exécuter le script SQL avec la méthode $this->query()
             $db = DB::getInstance();
             $administrateurs = $db->getAdministrateurs();

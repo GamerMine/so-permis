@@ -43,7 +43,6 @@ const Connexion = () => {
       return;
     }
     try {
-        
           let formData = new FormData();
           formData.append('email', registerEmail);
           formData.append('password', registerPassword);
@@ -51,6 +50,7 @@ const Connexion = () => {
           const response = await axios.post('http://localhost:8080/CreationCompte',
           formData);
         console.log(response.data);
+        alert(response.data);
         navigate("/");
       } catch (error) {
         // Gérez les erreurs ici
