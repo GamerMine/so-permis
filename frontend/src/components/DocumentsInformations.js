@@ -114,7 +114,7 @@ const DocumentsInformations = (arg) => {
                     <GridItem >
                         <Card style={{...style.card}}>
                             <Text style={{...style.textLigne}}> ASSR 2 </Text>
-                            <Text style={{...style.textBox}}> Né(e) à partir de 1988', </Text>
+                            <Text style={{...style.textBox}}> Né(e) à partir de 1988 </Text>
                         </Card>
                     </GridItem>
                     <GridItem >
