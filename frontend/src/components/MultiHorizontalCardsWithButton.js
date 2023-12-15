@@ -26,6 +26,7 @@ export class OCard {
         this.texteContenu = texteContenu;
         this.texteBouton = texteBouton;
         this.info = info ;
+        this.isFlipped = false;
         this.isHovered = false;
         this.link = link;
     }
@@ -34,12 +35,21 @@ export class OCard {
 export const MultiHorizontalCardsWithButton = (args) => {
     const [cards, setCards] = useState(args.cards);
     const navigate = useNavigate();
+    const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
 
-    const handleCardHover = (index, isHovered) => {
+     const handleCardHover = (index, isHovered) => {
+         const updatedCards = [...cards];
+         updatedCards[index].isHovered = isHovered;
+         setCards(updatedCards);
+     };
+
+    const handleCardClick = (index) => {
         const updatedCards = [...cards];
-        updatedCards[index].isHovered = isHovered;
+        updatedCards[index].isFlipped = !updatedCards[index].isFlipped ;
         setCards(updatedCards);
-    };
+    }
+
+
 
     const handleRedirect = (link) =>{
         navigate(link);
@@ -89,14 +99,15 @@ export const MultiHorizontalCardsWithButton = (args) => {
 
             <ReactCardFlip
                 key={index}
-                isFlipped={card.isHovered}
+                isFlipped={card.isHovered || card.isFlipped }
                 flipDirection="horizontal" // Ou "vertical", selon votre préférence
             >
                 {/* Face avant */}
                 <Card
                     style={style.card}
-                    onMouseEnter={() => handleCardHover(index, true)}
-                    onMouseLeave={() => handleCardHover(index, false)}
+                    onMouseEnter={() => (!isSmallDevice ? handleCardHover(index, true) : null)}
+                    onMouseLeave={() => (!isSmallDevice ? handleCardHover(index, false) : null)}
+                    onClick={() => (isSmallDevice ? handleCardClick(index) : null)}
                 >
                     <CardHeader>
                         <Text>{card.titre}</Text>
@@ -109,8 +120,9 @@ export const MultiHorizontalCardsWithButton = (args) => {
                 {/* Face arrière */}
                 <Card
                     style={{ ...style.card, borderRadius: "50px 10px 50px 10px", }}
-                    onMouseEnter={() => handleCardHover(index, true)}
-                    onMouseLeave={() => handleCardHover(index, false)}
+                    onMouseEnter={() => (!isSmallDevice ? handleCardHover(index, true) : null)}
+                    onMouseLeave={() => (!isSmallDevice ? handleCardHover(index, false) : null)}
+                    onClick={() => (isSmallDevice ? handleCardClick(index) : null)}
                     backgroundImage={`url("../images/${card.info}.jpg")`}
                 >
                     <CardBody alignSelf="center"  display="flex" flexDirection="column" justifyContent="center"  >

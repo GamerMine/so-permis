@@ -9,17 +9,18 @@ import {
 import {BsInstagram, BsSnapchat} from "react-icons/bs";
 
 const Footer = () => {
+
     const style = {
         footer: {
-            width: "100%",
             backgroundColor: "black",
             color: "white",
-            position: "absolute",
+            height: "100%",
+            marginBottom:"-25px"
         },
 
         imgLogo: {
-            height: "60%",
-            width: "60%",
+            width: "600px",
+            marginTop:"25px"
         },
 
         bouton: {
@@ -29,15 +30,17 @@ const Footer = () => {
     }
 
     return (
-        <footer style={{...style.footer}}> 
-            <Stack direction={['column', 'row']} spacing={"5%"}  align='center'>
-                <Box w='30%' align='center'>
-                <img style={{...style.imgLogo}}
-                    src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png" alt={""}/>
+        <footer style = {{ backgroundColor:"black"}} >
+            <Stack style={{...style.footer}} direction={['column', 'row']} spacing={"8%"}  align='center' display={{base:"grid" , "sd":"flex"}}
+                   gridTemplateColumns={{base:"repeat(2,1fr)"}}
+            >
+                <Box  align='center' marginLeft={{base:"8%" , "sd":"0"}}>
+                    <img style={{...style.imgLogo }}
+                        src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png" alt={"logo So'Permis"}/>
                 </Box>
                 <Box>
                     <VStack>
-                        <Box display="flex" >
+                        <Box display="flex" marginTop="25px" >
                             <BsInstagram size={30} />
                             <BsSnapchat style={{marginLeft:"20px"}} size={30}  />
                         </Box>
@@ -64,12 +67,11 @@ const Footer = () => {
                     <p>02 78 34 10 63</p>
                     <p>sopermis76@gmail.com</p>
                 </Box>
-            </Stack>
 
-            <Box align='center' style={{marginTop:"20px"}}>
+            </Stack>
+            <Box align='center' marginTop={{base:"80px" , "sd":"20px"}}>
                 <Text fontSize='sm' color={"gray"}><Link href="/MentionsLegales">Mentions légales</Link> - <Link href="/RGPD">RGPD</Link> </Text>
             </Box>
-
         </footer>
     )
 }
