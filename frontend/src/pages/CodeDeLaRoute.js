@@ -77,18 +77,23 @@ const CodeDeLaRoute = () => {
         }
     };
 
+    const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
+
     return (
+
+        
         <VStack w="100%" h="100%" align="center" marginBottom={"5%"} style={{ ...style.police }}>
-            <Box w='100%' align='center' marginBottom={"-10px"} style={{ ...style.textBlanc, ...style.box1}}>
+            <Stack w={isSmallDevice ? "auto" : "100%"}  marginBottom={"-10px"} style={{ ...style.textBlanc, ...style.box1}}>
+           
                 <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                     [
                         new OCard("", "FORFAITS CODE", "Nos forfaits code","code", "#boxForfaits"),
                         new OCard("", "CODE EN SALLE", "Nos horaires","code", "#boxHoraires"),
                         new OCard("", "CONDITIONS D'ANNULATION", "Nos conditions","code", "#boxAnnulation"),
-                    ]} hauteur={"450px"} largeur={"350px"}/>
+                    ]}/>
             
                 <Box w='100%' h='20px' align="center" bgGradient='linear(to-b, #FFFFFF00, #000000)'></Box>
-            </Box>
+            </Stack> 
 
             <Box w='100%' h='30px' align="center" bgGradient='linear(to-b, #040405, #000000)'></Box>
 

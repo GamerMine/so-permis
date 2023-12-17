@@ -35,7 +35,7 @@ export class OCard {
 export const MultiHorizontalCardsWithButton = (args) => {
     const [cards, setCards] = useState(args.cards);
     const navigate = useNavigate();
-    const isSmallDevice = window.matchMedia("(max-width: 1080px)").matches;
+    const isSmallDevice = window.matchMedia("(max-width: 449px").matches;
 
      const handleCardHover = (index, isHovered) => {
          const updatedCards = [...cards];
@@ -58,8 +58,6 @@ export const MultiHorizontalCardsWithButton = (args) => {
     const style = {
         card: {
             backgroundColor: "rgba(30,198,177,0.79)",
-            height: args.hauteur,
-            width: args.largeur,
             borderRadius: "10px 50px 10px 50px",
             boxShadow: "10px 10px 5px rgba(0, 0, 0, 0.5)",
             cursor: "pointer",
@@ -107,6 +105,8 @@ export const MultiHorizontalCardsWithButton = (args) => {
                     onMouseEnter={() => (!isSmallDevice ? handleCardHover(index, true) : null)}
                     onMouseLeave={() => (!isSmallDevice ? handleCardHover(index, false) : null)}
                     onClick={() => (isSmallDevice ? handleCardClick(index) : null)}
+                    height={isSmallDevice ? "350px" : "450px"}
+                    width={isSmallDevice ? "275px" : "350px"}
                 >
                     <CardHeader>
                         <Text>{card.titre}</Text>
@@ -123,6 +123,8 @@ export const MultiHorizontalCardsWithButton = (args) => {
                     onMouseLeave={() => (!isSmallDevice ? handleCardHover(index, false) : null)}
                     onClick={() => (isSmallDevice ? handleCardClick(index) : null)}
                     backgroundImage={`url("../images/${card.info}.jpg")`}
+                    height={isSmallDevice ? "350px" : "450px"}
+                    width={isSmallDevice ? "275px" : "350px"}
                 >
                     <CardBody alignSelf="center"  display="flex" flexDirection="column" justifyContent="center"  >
                         <Link href={`${card.link}`}> <Button style={style.button} >
