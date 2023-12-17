@@ -34,22 +34,14 @@ const Home = () => {
         <Stack style={{gap: 0}} >
             <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
 
-                {!isSmallDevice ? (
-                    <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
-                        [
-                            new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire","permis", "/Permis"),
-                            new OCard("", "CODE", "Nos forfaits code","code", "/CodeDeLaRoute"),
-                            new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "/CodeDeLaRoute"),
-                        ]} hauteur={"450px"} largeur={"350px"}/>
-                ) : (
-                    <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
-                        [
-                            new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire","permis", "/Permis"),
-                            new OCard("", "CODE", "Nos forfaits code","code", "/CodeDeLaRoute"),
-                            new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "/CodeDeLaRoute"),
-                        ]} hauteur={"300px"} largeur={"275px"}/>
-                )}
-
+                
+            <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
+                [
+                    new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire","permis", "/Permis"),
+                    new OCard("", "CODE", "Nos forfaits code","code", "/CodeDeLaRoute"),
+                    new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "/CodeDeLaRoute"),
+                ]} />
+                
                 <DocumentsInformations titre={"Comment s’inscrire chez So’Permis ?"}/>
             </Stack>
                 <div style={{backgroundColor: "rgb(15, 20, 17)", padding: "20px"}}>
