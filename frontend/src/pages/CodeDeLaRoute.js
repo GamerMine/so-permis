@@ -12,8 +12,9 @@ import {
     Stack,
     Card,
     CardBody,
-    SimpleGrid,
     Heading,
+    Grid,
+    GridItem,
 } from "@chakra-ui/react";
 import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
 import {ListeCode} from "../components/ListeCode";
@@ -46,15 +47,14 @@ const CodeDeLaRoute = () => {
 
         texte: {
             color: "white",
-            fontWeight: "bold",
-            textWrap: "nowrap",
-            marginRight: "20px",
+            textAlign:"left",
         },
 
         prix: {
             color: "white",
+            fontSize:"22px",
             fontWeight: "bold",
-            textAlign: "center",
+            textAlign: "right",
         },
 
         police: {
@@ -78,6 +78,118 @@ const CodeDeLaRoute = () => {
     };
 
     const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
+
+    const tabDate = () => {
+        return ( 
+            <TableContainer  marginBottom={"3%"}>
+                <Table w='60%' size='base' variant='unstyled' style={{ ...style.tableau }}>
+                    <Thead border='1px solid white'>
+                        <Tr>
+                            <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Lundi</Th>
+                            <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Mardi</Th>
+                            <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Mercredi</Th>
+                            <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Jeudi</Th>
+                            <Th style={{ ...style.textBlanc, ...style.entete }}>Vendredi</Th>
+                        </Tr>
+                    </Thead>
+                    <Tbody style={{ ...style.textBlanc }}>
+                        <Tr>
+                            <Td borderEnd='1px solid white'>
+                                <p>Après-midi : </p>
+                                <p style={{ ...style.horaires }}>14h00-17h30 </p>
+                            </Td>
+
+                            <Td borderEnd='1px solid white'>
+                                <p>Matin : </p>
+                                <p style={{ ...style.horaires }}>10h00-11h00</p>
+                                <p>Après-midi : </p>
+                                <p style={{ ...style.horaires }}>14h00-16h30</p>
+                            </Td>
+                            <Td borderEnd='1px solid white'>
+                                <p>Après-midi : </p>
+                                <p style={{ ...style.horaires }}>14h00-17h30 </p>
+                            </Td>
+                            <Td borderEnd='1px solid white'>
+                                <p>Après-midi : </p>
+                                <p style={{ ...style.horaires }}> 14h00-17h30 </p>
+                            </Td>
+                            <Td>
+                                <p>Matin : </p>
+                                <p style={{ ...style.horaires }}> 10h00-11h00 </p> Après-midi
+                                : <p style={{ ...style.horaires }}>15h00-18h00</p>
+                            </Td>
+                        </Tr>
+                    </Tbody>
+                </Table>
+            </TableContainer>);
+        }
+
+        const ligneDate = () => {
+            return (
+                <TableContainer  marginBottom={"3%"}>
+                <Table w='60%' size='base' variant='unstyled' style={{ ...style.tableau }}>
+                    <Tbody style={{ ...style.textBlanc }}>
+                        <Tr>
+                            <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Lundi</Th>
+                            <Td borderTop='1px solid white'>
+                                <p>Après-midi : </p>
+                                <p style={{ ...style.horaires }}>14h00-17h30 </p>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Mardi</Th>
+                            <Td borderTop='1px solid white'>
+                                <p>Matin : </p>
+                                <p style={{ ...style.horaires }}>10h00-11h00</p>
+                                <p>Après-midi : </p>
+                                <p style={{ ...style.horaires }}>14h00-16h30</p>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Mercredi</Th>
+                            <Td borderTop='1px solid white'>
+                                <p>Après-midi : </p>
+                                <p style={{ ...style.horaires }}>14h00-17h30 </p>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Jeudi</Th>
+                            <Td borderTop='1px solid white'>
+                                <p>Après-midi : </p>
+                                <p style={{ ...style.horaires }}> 14h00-17h30 </p>
+                            </Td>
+                        </Tr>
+                        <Tr>
+                            <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Vendredi</Th>
+                            <Td borderTop='1px solid white'>
+                                <p>Matin : </p>
+                                <p style={{ ...style.horaires }}> 10h00-11h00 </p> 
+                                <p> Après-midi</p>
+                                <p style={{ ...style.horaires }}>15h00-18h00</p>
+                            </Td>
+                        </Tr>
+                    </Tbody>
+                </Table>
+            </TableContainer>);
+        }
+
+        const useSetWidthWindow = () => {
+            const [content, setContent] = React.useState(window.innerWidth);
+        
+            React.useEffect(() => {
+              const handleResize = () => {
+                setContent(window.innerWidth);
+              };
+        
+              window.addEventListener("resize", handleResize);
+        
+              return () => {
+                window.removeEventListener("resize", handleResize);
+              };
+            }, []);
+        
+            return content < 625 ? ligneDate() : tabDate();
+          };
 
     return (
 
@@ -112,67 +224,28 @@ const CodeDeLaRoute = () => {
 
             <Box id="boxHoraires" w='100%' align="center" backgroundColor={"black"} marginBottom={"-10px"} style={{ ...style.textBlanc }}>
                 <Heading size="lg" marginBottom={"2%"}>Horaires code en salle</Heading>
-                <TableContainer w='60%' marginBottom={"3%"}>
-                    <Table size='lg' variant='unstyled' style={{ ...style.tableau }}>
-                        <Thead border='1px solid white'>
-                            <Tr>
-                                <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Lundi</Th>
-                                <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Mardi</Th>
-                                <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Mercredi</Th>
-                                <Th borderEnd='1px solid white' style={{ ...style.textBlanc, ...style.entete }}>Jeudi</Th>
-                                <Th style={{ ...style.textBlanc, ...style.entete }}>Vendredi</Th>
-                            </Tr>
-                        </Thead>
-                        <Tbody style={{ ...style.textBlanc }}>
-                            <Tr>
-                                <Td borderEnd='1px solid white'>
-                                    <p>Après-midi : </p>
-                                    <p style={{ ...style.horaires }}>14h00-17h30 </p>
-                                </Td>
-                                <Td borderEnd='1px solid white'>
-                                    <p>Matin : </p>
-                                    <p style={{ ...style.horaires }}>10h00-11h00</p>
-                                    <p>Après-midi : </p>
-                                    <p style={{ ...style.horaires }}>14h00-16h30</p>
-                                </Td>
-                                <Td borderEnd='1px solid white'>
-                                    <p>Après-midi : </p>
-                                    <p style={{ ...style.horaires }}>14h00-17h30 </p>
-                                </Td>
-                                <Td borderEnd='1px solid white'>
-                                    <p>Après-midi : </p>
-                                    <p style={{ ...style.horaires }}> 14h00-17h30 </p>
-                                </Td>
-                                <Td>
-                                    <p>Matin : </p>
-                                    <p style={{ ...style.horaires }}> 10h00-11h00 </p> Après-midi
-                                    : <p style={{ ...style.horaires }}>15h00-18h00</p>
-                                </Td>
-                            </Tr>
-                        </Tbody>
-                    </Table>
-                </TableContainer>
+                {useSetWidthWindow()}
             </Box>
 
             <Box w='100%' h='20px' align="center" bgGradient='linear(to-b, #000000, #FFFFFF)'></Box>
 
-            <Box id="boxAnnulation" w="50%" h="100%" mx={"10%"} px={"5%"}>
+            <Stack id="boxAnnulation" w="50%" h="100%" mx={"10%"} px={"5%"}>
                 <Heading size="lg" align='center' marginBottom={"2%"}>Condition d’annulation du code</Heading>
-                <Card align='center' style={{ ...style.carte }} boxShadow={"5px 5px 5px #b5b5b5"}>
+                <Card  style={{ ...style.carte }} boxShadow={"5px 5px 5px #b5b5b5"}>
                     <CardBody >
-                        <SimpleGrid columns={2} >
-                            <Box w='100%' style={{ ...style.texte }}>ANNULATION CODE</Box>
-                            <Box style={{ ...style.prix }}>150€</Box>
-                            <Box w='100%' style={{ ...style.texte }}>ANNULATION CODE EXPRESS EN 4 JOURS</Box>
-                            <Box style={{ ...style.prix }}>250€</Box>
-                            <Box w='100%' style={{ ...style.texte }}>ANNULATION CODE + CONDUITE</Box>
-                            <Box style={{ ...style.prix }}>410€</Box>
-                            <Box w='100%' style={{ ...style.texte }}>ANNULATION CODE + CONDUITE EXPRESS 15 JOURS</Box>
-                            <Box style={{ ...style.prix }}>660€</Box>
-                        </SimpleGrid>
+                        <Grid columns={2} >
+                            <GridItem style={{ ...style.texte }}>ANNULATION CODE</GridItem>
+                            <GridItem style={{ ...style.prix }}>150€</GridItem>
+                            <GridItem style={{ ...style.texte }}>ANNULATION CODE EXPRESS EN 4 JOURS</GridItem>
+                            <GridItem style={{ ...style.prix }}>250€</GridItem>
+                            <GridItem style={{ ...style.texte }}>ANNULATION CODE + CONDUITE</GridItem>
+                            <GridItem style={{ ...style.prix }}>410€</GridItem>
+                            <GridItem style={{ ...style.texte }}>ANNULATION CODE + CONDUITE EXPRESS 15 JOURS</GridItem>
+                            <GridItem style={{ ...style.prix }}>660€</GridItem>
+                        </Grid>
                     </CardBody>
                 </Card>
-            </Box>
+            </Stack>
         </VStack>
     );
 };
