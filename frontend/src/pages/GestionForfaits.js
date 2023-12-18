@@ -37,7 +37,20 @@ const GestionForfait = () => {
     const refreshPage = async () => {
         try {
             const response = await axios.get('http://localhost:8080/getFormations');
-            setListItems(response.data);
+            //const retour = response.data.map(item => new Formation(item.id,item.prix, item.nom, item.infos));;
+            const retrievedFormations = response.data.map(item => (
+                {
+                    id: item.idformation,
+                    nom: item.nom,
+                    prix: item.prix,
+                    infos: item.infos,
+                }
+            ));
+            /*for (let key of response.data)
+                retour.push(new Formation(key.prix, key.nom, key.infos));*/
+            setFormations(retrievedFormations);
+            console.log(formations);
+            setListItems(formations);
         } catch (error) {
             console.error('Erreur lors de la récupération des données :', error);
         }
@@ -61,12 +74,12 @@ const GestionForfait = () => {
         }
     }
 
-    const formations = [];
+    const [formations, setFormations] = useState([]);
 
     currentItems.map((formation, index) => {
         formations.push(
             <Tr key={index}>
-                <Td>{formation}</Td>
+                <Td>{formation.nom}</Td>
                 <Td>{formation.prix}</Td>
                 <Td>{formation.infos}</Td>
                 <Td>
@@ -167,4 +180,32 @@ const GestionForfait = () => {
 
 }
 
+class Formation {
+    constructor(idformation = -1, prix = "", nom = "", infos = "") {
+        this.idformation = idformation;
+        this.prix = prix;
+        this.nom = nom;
+        this.infos = infos;
+    }
+
+    getIdFormation() {
+        return this.idformation;
+    }
+
+    getPrix() {
+        return this.prix;
+    }
+
+    getNom() {
+        return this.nom;
+    }
+
+    getInfos() {
+        return this.infos;
+    }
+
+    toString() {
+        return ''; // Vous pouvez implémenter la logique nécessaire ici si besoin
+    }
+}
 export default GestionForfait;

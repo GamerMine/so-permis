@@ -66,7 +66,9 @@ class Autoload extends AutoloadConfig
      *
      * @var array<string, string>
      */
-    public $classmap = [];
+    public $classmap = [
+        'Config\Services' => APPPATH . 'Config/Services.php',
+    ];
 
     /**
      * -------------------------------------------------------------------

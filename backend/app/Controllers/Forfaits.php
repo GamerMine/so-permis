@@ -10,14 +10,13 @@ class Forfaits extends BaseController
     {
         try {
             require (APPPATH . "Database/DB.inc.php");
-            $retour = ' ';
             // Exécuter le script SQL avec la méthode $this->query()
             $db = DB::getInstance();
             $retour = array();
             $formations = $db->getFormations();
             foreach ($formations as $row) 
             {
-                array_push($retour, $row);
+                $retour[] = array("id"=>$row->getIdFormation(),"prix"=>$row->getPrix(), "nom"=>$row->getNom(),"infos"=>$row->getInfos());
             }
             return json_encode($retour);
 
