@@ -8,13 +8,11 @@ import {
     Link,
     FormLabel,
     Input,
-    Textarea,
     HStack,
     RadioGroup,
     Radio,
     Stack,
     Checkbox,
-    FormControl,
 } from "@chakra-ui/react";
 import { FormArticle } from "../components/FormArticle";
 import Cookies from 'js-cookie';
@@ -22,7 +20,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 /**
- * Page permettant d'ajouter un article ou de modifier un article
+ * Page permettant d'ajouter un article 
  * @returns code HTML
  */
 const AjouterArticle = () => {
@@ -55,7 +53,7 @@ const AjouterArticle = () => {
       formData.append('compte', ''+valeurDuCookie);
       const response = await axios.post('http://localhost:8080/EstAdmin',
       formData);
-      if (response.data != true)
+      if (response.data !== true)
       {
         navigate("/");
       }
