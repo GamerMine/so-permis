@@ -6,6 +6,7 @@ import {
     Input,
     Textarea,
     IconButton,
+    Tooltip,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 
@@ -83,8 +84,12 @@ export const FormArticle = ({ getFormulairesLength }) => {
             {formulaires}
 
             <Box align='center'>
-                    <IconButton style={{ ...style.bouton }} size="md" marginRight='2%' onClick={ajouterParagraphe} icon={<IoIosAdd/>}/>
-                    <IconButton style={{ ...style.bouton }} size="md" onClick={supprimerParagraphe} icon={<IoIosRemove/>}/>
+                    <Tooltip label="Ajouter un paragraphe" aria-label="Ajouter un paragraphe">
+                        <IconButton style={{ ...style.bouton }} size="md" marginRight='2%' onClick={ajouterParagraphe} icon={<IoIosAdd/>}/>
+                    </Tooltip>
+                    <Tooltip label="Supprimer un paragraphe" aria-label="Supprimer un paragraphe">
+                        <IconButton style={{ ...style.bouton }} size="md" onClick={supprimerParagraphe} icon={<IoIosRemove/>}/>
+                    </Tooltip>
             </Box>
         </Box>
     );

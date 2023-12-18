@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Cookies from 'js-cookie';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -12,6 +13,20 @@ const Connexion = () => {
 
 
   const [isLoginForm, setIsLoginForm] = useState(true);
+
+  const verifConnexion = async () =>
+  {
+    const valeurDuCookie = Cookies.get('compte');
+    let formData = new FormData();
+    formData.append('compte', ''+valeurDuCookie);
+    const response = await axios.post('http://localhost:8080/EstAdmin',
+    formData);
+    if (response.data != true)
+    {
+      navigate("/");
+    }
+    console.log(response.data);
+  }
 
   const validateEmail = () => {
     // Une expression régulière pour valider l'email
@@ -43,26 +58,26 @@ const Connexion = () => {
       return;
     }
     try {
+          const valeurDuCookie = Cookies.get('compte');
           let formData = new FormData();
           formData.append('email', registerEmail);
           formData.append('password', registerPassword);
           formData.append('confirmPassword', registerPasswordConfirm);
+          formData.append('compte', ''+valeurDuCookie);
           const response = await axios.post('http://localhost:8080/CreationCompte',
           formData);
         console.log(response.data);
-        alert(response.data);
         navigate("/");
       } catch (error) {
         // Gérez les erreurs ici
         console.error(error);
-        alert(error);
       }
   }
 
   const switchForm = () => {
     setIsLoginForm(!isLoginForm);
   };
-
+  verifConnexion();
   return (
   <div style={styles.container}>
     <div style={styles.formContainer}>

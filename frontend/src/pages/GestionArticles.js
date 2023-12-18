@@ -13,7 +13,7 @@ import {
     Button,
     Link,
     Center,
-    
+    Tooltip,
 } from "@chakra-ui/react";
 import { useState, useEffect } from 'react';
 import axios from "axios";
@@ -23,7 +23,7 @@ const GestionArticles = () => {
     const [listItems, setListItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
-
+    
     useEffect(() => {
         const fetchData = async () => {
             await refreshPage();
@@ -35,6 +35,7 @@ const GestionArticles = () => {
     const refreshPage = async () => {
         try {
             const response = await axios.get('http://localhost:8080/getArticles');
+
             setListItems(response.data);
         }
         catch (error) {
@@ -54,8 +55,6 @@ const GestionArticles = () => {
         setCurrentPage(pageNumber);
     };
 
-    let articles = [];
-
     const style = {
         bouton: {
             backgroundColor: "#1ec6b1",
@@ -63,11 +62,13 @@ const GestionArticles = () => {
         }
     }
 
+    let articles = [];
+
     currentItems.map((article, index) => {
         articles.push(
             <Tr key={index}>
-                <Td>{article}</Td>
-                <Td>{article.source}</Td>
+                <Td>{article.titreActualite}</Td>
+                <Td>{article.sources}</Td>
                 <Td>
                     <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
                     <Button colorScheme="red" size="md">Supprimer</Button>
@@ -85,7 +86,9 @@ const GestionArticles = () => {
             </Heading>
 
             <div align='center'>
-                <Link href="/AjouterArticle"> <Button style={{ ...style.bouton }}>AJOUTER</Button></Link>
+                <Tooltip label="Ajouter un article" aria-label="Ajouter un article">
+                    <Link href="/AjouterArticle"> <Button style={{ ...style.bouton }}>AJOUTER</Button></Link>
+                </Tooltip>
             </div>
 
             <Card marginTop='2%'>
@@ -121,6 +124,40 @@ const GestionArticles = () => {
             </Card>
         </Box>
     );
+}
+
+class Articles {
+    constructor(idActualite, titreActualite, infosActualite, imgUrl, sources) {
+        this.idActualite = idActualite;
+        this.titreActualite = titreActualite;
+        this.infosActualite = infosActualite;
+        this.imgUrl = imgUrl;
+        this.sources = sources;
+    }
+
+    getIdActualite() {
+        return this.idActualite;
+    }
+
+    getTitreActualite() {
+        return this.titreActualite;
+    }
+
+    getInfosActualite() {
+        return this.infosActualite;
+    }
+
+    getImgUrl() {
+        return this.imgUrl;
+    }
+
+    getSources() {
+        return this.sources;
+    }
+
+    toString() {
+        return this.idActualite + " " + this.titreActualite + " " + this.infosActualite + " " + this.imgUrl + " " + this.sources;
+    }
 }
 
 export default GestionArticles;
