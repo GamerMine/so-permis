@@ -137,7 +137,7 @@ class DB {
             return $this->execQuery($requete,array($id),'ACTUALITE');
        }
 
-       public function deleteClient($id) 
+       public function deleteActualite($id) 
        {
             $requete = 'delete from ACTUALITE where idactualite = ?';
             $tparam = array($id);

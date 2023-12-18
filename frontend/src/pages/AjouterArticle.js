@@ -37,9 +37,8 @@ const AjouterArticle = () => {
     const handleUpdate = async (formData) => {
         const response = await axios.post('http://localhost:8080/AjouterArticle', //TestConnexion
         formData);
-        console.log(response.data);
-        //window.location.reload();
-      };
+        window.location.replace("/GestionArticles");
+    };
 
     const [tailleFormulaires, setTailleFormulaires] = useState(0);
 
@@ -132,6 +131,7 @@ const AjouterArticle = () => {
      * Méthode permettant de récupérer les données du formulaire
      */
     function recupererDonnees() {
+        let formData = new FormData();
 
         if (value === "article") {
             const titre = document.getElementById("titre").value;
@@ -148,36 +148,25 @@ const AjouterArticle = () => {
                 formulaires.push({ sousTitre: sousTitre, contenu: contenu, image: image });
             }
 
-            JSON.stringify(formulaires);
-            console.log(JSON.stringify(formulaires));
-            
-            console.log(titre);
-            console.log(sources);
-            console.log(image);
-            console.log(formulaires);
-
-            let formData = new FormData();
+           
             formData.append('titreActualite', ''+titre);
             formData.append('infosActualite', ''+JSON.stringify(formulaires));
             formData.append('imageURL', ''+image);
             formData.append('sources', ''+sources);
 
-            console.log(formData);
+           
             handleUpdate(formData);
-
         }
         else {
             const titre = document.getElementById("titre").value;
             const source = document.getElementById("source").value;
 
-            console.log(titre);
-            console.log(source);
         }
 
         const newsletter = document.getElementById("newsletter").checked;
 
-        console.log(newsletter);
-
+       
+        
     }
 
     return (

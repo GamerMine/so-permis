@@ -38,8 +38,25 @@ const GestionArticles = () => {
       {
         navigate("/");
       }
-      console.log(response.data);
     }
+
+    const handleDelete = async (item) => {
+        const formData = new FormData();
+        console.log(item);
+        formData.append('idactualite', item);
+        const response = await axios.post('http://localhost:8080/DeleteArticle',
+            formData);
+        window.location.reload();
+    };
+
+    const handleUpdate = async (item) => {
+        const formData = new FormData();
+        console.log(item);
+        formData.append('idactualite', item);
+        const response = await axios.post('http://localhost:8080/UpdateArticle',
+            formData);
+        ;
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -84,8 +101,8 @@ const GestionArticles = () => {
                 <Td>{article.titreActualite}</Td>
                 <Td>{article.sources}</Td>
                 <Td>
-                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
-                    <Button colorScheme="red" size="md">Supprimer</Button>
+                    <Button style={{ ...style.bouton }} size="md" marginRight='2%' onClick={() => handleUpdate(article.id)}>Modifier</Button>
+                    <Button colorScheme="red" size="md" onClick={() => handleDelete(article.id)}>Supprimer</Button>
                 </Td>
             </Tr>
         );
