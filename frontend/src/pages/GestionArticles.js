@@ -13,16 +13,33 @@ import {
     Button,
     Link,
     Center,
-    
+    Tooltip,
 } from "@chakra-ui/react";
 import { useState, useEffect } from 'react';
 import axios from "axios";
+import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
 
 const GestionArticles = () => {
 
     const [listItems, setListItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
+    let navigate = useNavigate();
+    
+    const verifConnexion = async () =>
+    {
+      const valeurDuCookie = Cookies.get('compte');
+      let formData = new FormData();
+      formData.append('compte', ''+valeurDuCookie);
+      const response = await axios.post('http://localhost:8080/EstAdmin',
+      formData);
+      if (response.data != true)
+      {
+        navigate("/");
+      }
+      console.log(response.data);
+    }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -35,6 +52,7 @@ const GestionArticles = () => {
     const refreshPage = async () => {
         try {
             const response = await axios.get('http://localhost:8080/getArticles');
+
             setListItems(response.data);
         }
         catch (error) {
@@ -47,14 +65,9 @@ const GestionArticles = () => {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     let currentItems = listItems.slice(indexOfFirstItem, indexOfLastItem);
 
-    // Fill remaining rows with empty strings
-    currentItems = [...currentItems, ...Array(itemsPerPage - currentItems.length).fill('')];
-
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
     };
-
-    let articles = [];
 
     const style = {
         bouton: {
@@ -63,11 +76,13 @@ const GestionArticles = () => {
         }
     }
 
+    let articles = [];
+
     currentItems.map((article, index) => {
         articles.push(
             <Tr key={index}>
-                <Td>{article}</Td>
-                <Td>{article.source}</Td>
+                <Td>{article.titreActualite}</Td>
+                <Td>{article.sources}</Td>
                 <Td>
                     <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
                     <Button colorScheme="red" size="md">Supprimer</Button>
@@ -77,7 +92,7 @@ const GestionArticles = () => {
     });
 
     const [value, setValue] = React.useState("permis")
-
+    verifConnexion();
     return (
         <Box>
             <Heading textAlign="center" paddingTop="20px" marginBottom='2%'>
@@ -85,7 +100,9 @@ const GestionArticles = () => {
             </Heading>
 
             <div align='center'>
-                <Link href="/AjouterArticle"> <Button style={{ ...style.bouton }}>AJOUTER</Button></Link>
+                <Tooltip label="Ajouter un article" aria-label="Ajouter un article">
+                    <Link href="/AjouterArticle"> <Button style={{ ...style.bouton }}>AJOUTER</Button></Link>
+                </Tooltip>
             </div>
 
             <Card marginTop='2%'>

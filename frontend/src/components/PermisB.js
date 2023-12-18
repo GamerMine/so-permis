@@ -15,6 +15,7 @@ const PermisB =()=>{
         },
 
         title:{
+            marginLeft: "80px",
             color: '#20AB9A',
             fontSize: "35px",
             fontFamily: "Montserrat-Bold, Helvetica",
@@ -25,11 +26,9 @@ const PermisB =()=>{
 
         bottomCard: {
             margin:"70px",
-            marginLeft:"200px",
-            marginRight:"200px",
-            padding:"30px",
+            padding:"15px",
             borderRadius:40,
-            fontSize: "38px",
+            fontSize: "30px",
             backgroundColor: "black",
             alignContent:"center",
             color:"white",
@@ -40,10 +39,7 @@ const PermisB =()=>{
         },
 
         textGaucheTitre: {
-            paddingLeft:"90px",
-            paddingRight:"90px",
-            paddingBottom:"10px",
-            paddingTop:"80px",
+            marginTop:"80px",
             borderRadius:0,
             backgroundColor: '#20AB9A',
             fontSize: "38px",
@@ -57,12 +53,10 @@ const PermisB =()=>{
 
         textGauche: {
             backgroundColor: '#20AB9A',
-            paddingLeft:"90px",
-            paddingRight:"90px",
             paddingTop:"10px",
             color: 'white',
-            fontSize: "33px",
-            fontFamily: "Montserrat-Bold",
+            fontSize: "25px",
+            fontFamily: "Montserrat",
             fontWeight: '700',
             wordWrap: 'break-word',
             marginBottom:"30px",
@@ -76,7 +70,6 @@ const PermisB =()=>{
             borderRadius:0,
             backgroundColor: "#0F1411",
             color: 'white',
-            fontSize: "32px",
             fontFamily: 'Montserrat',
             fontWeight: '700',
             wordWrap: 'break-word',
@@ -97,7 +90,7 @@ const PermisB =()=>{
                     </Text>
                     <Text style={style.bottomCard}>1200€</Text>
                 </Card>
-                <Card style={{backgroundColor: '#0F1411'}}>
+                <Card style={{backgroundColor: '#0F1411'}} fontSize={{base:"25px", sm: "18px"}}>
                     <Text style={style.textDroite}>
                         Le permis B en 1 mois, c'est comme un marathon. C'est un challenge qui demande de la motivation, de la concentration et de la persévérance. Mais c'est aussi une expérience fun et enrichissante. En 7 semaines, tu apprendras à conduire en sécurité, mais aussi à t'adapter à des situations de conduite variées.
 <br/><br/>

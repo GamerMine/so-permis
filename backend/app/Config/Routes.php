@@ -9,11 +9,14 @@ $routes->get('/', 'Home::index');
 $routes->get('/testBado', 'Home::bado');
 $routes->get('/getListePermis', 'ListePermis::bado');
 $routes->get('/getListeActus', 'BDD::getListeActus');
-$routes->match(['post', 'options'],'/TestConnexion', 'Connexion::TestConnexion');
+$routes->match(['post', 'options'], '/TestConnexion', 'Connexion::TestConnexion');
 $routes->get('/GetNewsletter', 'Newsletter::GetNewsletter');
 $routes->post('/DeleteNewsletter', 'Newsletter::DeleteNewsletter');
 $routes->get('/getFormations', 'Forfaits::getFormations');
-$routes->get('/getArticles', 'Forfaits::getArticles');
+$routes->get('/getArticles', 'Articles::getArticles');
+$routes->post('/AjouterArticle', 'Articles::AjouterArticle');
 $routes->post('/CreationCompte', 'Connexion::TestCreation');
 
-
+$routes->match(['post', 'options'], '/TestConnexion', 'Connexion::TestConnexion');
+$routes->POST('/subscribeNewsletter', 'Contact::subscribeNewsletter');
+$routes->post('/EstAdmin', 'Connexion::EstConnecte');

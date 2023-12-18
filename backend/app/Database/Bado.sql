@@ -15,7 +15,8 @@ CREATE TABLE IF NOT EXISTS ADMINISTRATEUR
 (
     idAdmin SERIAL Primary Key NOT NULL,
     email varchar(30) NOT NULL,
-    password varchar(120) NOT NULL
+    password varchar(120) NOT NULL,
+    id_unique varchar(250) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS NEWSLETTER 
@@ -42,9 +43,9 @@ INSERT INTO ACTUALITE (titreActualite, infosActualite, imageURL, sources) VALUES
     'Léo est trop fort', 'Car il a réussi a connecter la base', 'imageDeLeoLeBg.png', 'léo'
 );
 
-INSERT INTO ADMINISTRATEUR(email, password) VALUES 
+INSERT INTO ADMINISTRATEUR(email, password, id_unique) VALUES 
 (
-    'enorme.bg@leo.fr', 'chsuikunu'
+    'enorme.bg@leo.fr', 'chsuikunu', '1535766848483415641343135'
 );
 INSERT INTO FORMATION (prix, nom, infos) VALUES
 ('990€', 'FORFAIT B COMPLET', 'Code + 30 leçons de conduite'),

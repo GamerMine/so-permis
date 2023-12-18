@@ -1,0 +1,179 @@
+ERROR - 2023-12-18 09:22:17 --> Email: sendWithSmtp throwed ErrorException: fsockopen(): php_network_getaddresses: getaddrinfo for smtp.mail.gmail.com failed: H�te inconnu.  in C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php:1883
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1883): fsockopen()
+#2 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1796): CodeIgniter\Email\Email->SMTPConnect()
+#3 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1681): CodeIgniter\Email\Email->sendWithSmtp()
+#4 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1575): CodeIgniter\Email\Email->spoolEmail()
+#5 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(64): CodeIgniter\Email\Email->send()
+#6 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(23): App\Controllers\Contact->NewsletterMailInscription()
+#7 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(919): App\Controllers\Contact->subscribeNewsletter()
+#8 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+#9 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+#10 C:\iut\S5\SAE\so-permis\backend\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\iut\S5\SAE\so-permis\backend\system\Commands\Server\rewrite.php(47): require_once('...')
+#12 {main}
+ERROR - 2023-12-18 09:22:17 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-18 09:22:17 --> 
+ERROR - 2023-12-18 09:26:03 --> Email: sendWithSmtp throwed ErrorException: fsockopen(): Unable to connect to smtp.gmail.com:287 (Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu) in C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php:1883
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1883): fsockopen()
+#2 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1796): CodeIgniter\Email\Email->SMTPConnect()
+#3 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1681): CodeIgniter\Email\Email->sendWithSmtp()
+#4 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1575): CodeIgniter\Email\Email->spoolEmail()
+#5 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(64): CodeIgniter\Email\Email->send()
+#6 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(23): App\Controllers\Contact->NewsletterMailInscription()
+#7 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(919): App\Controllers\Contact->subscribeNewsletter()
+#8 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+#9 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+#10 C:\iut\S5\SAE\so-permis\backend\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\iut\S5\SAE\so-permis\backend\system\Commands\Server\rewrite.php(47): require_once('...')
+#12 {main}
+ERROR - 2023-12-18 09:26:03 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-18 09:26:03 --> 
+ERROR - 2023-12-18 09:26:24 --> Email: sendWithSmtp throwed ErrorException: fsockopen(): Unable to connect to smtp.gmail.com:287 (Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu) in C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php:1883
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1883): fsockopen()
+#2 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1796): CodeIgniter\Email\Email->SMTPConnect()
+#3 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1681): CodeIgniter\Email\Email->sendWithSmtp()
+#4 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1575): CodeIgniter\Email\Email->spoolEmail()
+#5 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(64): CodeIgniter\Email\Email->send()
+#6 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(23): App\Controllers\Contact->NewsletterMailInscription()
+#7 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(919): App\Controllers\Contact->subscribeNewsletter()
+#8 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+#9 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+#10 C:\iut\S5\SAE\so-permis\backend\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\iut\S5\SAE\so-permis\backend\system\Commands\Server\rewrite.php(47): require_once('...')
+#12 {main}
+ERROR - 2023-12-18 09:26:24 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-18 09:26:24 --> 
+ERROR - 2023-12-18 09:29:00 --> Email: sendWithSmtp throwed ErrorException: fsockopen(): Unable to connect to smtp.gmail.com:287 (Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu) in C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php:1883
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1883): fsockopen()
+#2 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1796): CodeIgniter\Email\Email->SMTPConnect()
+#3 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1681): CodeIgniter\Email\Email->sendWithSmtp()
+#4 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1575): CodeIgniter\Email\Email->spoolEmail()
+#5 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(64): CodeIgniter\Email\Email->send()
+#6 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(23): App\Controllers\Contact->NewsletterMailInscription()
+#7 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(919): App\Controllers\Contact->subscribeNewsletter()
+#8 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+#9 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+#10 C:\iut\S5\SAE\so-permis\backend\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\iut\S5\SAE\so-permis\backend\system\Commands\Server\rewrite.php(47): require_once('...')
+#12 {main}
+ERROR - 2023-12-18 09:29:00 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-18 09:29:00 --> 
+ERROR - 2023-12-18 09:30:16 --> Email: sendWithSmtp throwed ErrorException: fsockopen(): Unable to connect to smtp.gmail.com:287 (Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu) in C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php:1883
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1883): fsockopen()
+#2 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1796): CodeIgniter\Email\Email->SMTPConnect()
+#3 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1681): CodeIgniter\Email\Email->sendWithSmtp()
+#4 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1575): CodeIgniter\Email\Email->spoolEmail()
+#5 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(64): CodeIgniter\Email\Email->send()
+#6 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(23): App\Controllers\Contact->NewsletterMailInscription()
+#7 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(919): App\Controllers\Contact->subscribeNewsletter()
+#8 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+#9 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+#10 C:\iut\S5\SAE\so-permis\backend\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\iut\S5\SAE\so-permis\backend\system\Commands\Server\rewrite.php(47): require_once('...')
+#12 {main}
+ERROR - 2023-12-18 09:30:16 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-18 09:30:16 --> 
+ERROR - 2023-12-18 09:32:03 --> Email: sendWithSmtp throwed ErrorException: fsockopen(): Unable to connect to smtp.gmail.com:287 (Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu) in C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php:1883
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1883): fsockopen()
+#2 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1796): CodeIgniter\Email\Email->SMTPConnect()
+#3 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1681): CodeIgniter\Email\Email->sendWithSmtp()
+#4 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1575): CodeIgniter\Email\Email->spoolEmail()
+#5 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(64): CodeIgniter\Email\Email->send()
+#6 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(23): App\Controllers\Contact->NewsletterMailInscription()
+#7 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(919): App\Controllers\Contact->subscribeNewsletter()
+#8 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+#9 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+#10 C:\iut\S5\SAE\so-permis\backend\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\iut\S5\SAE\so-permis\backend\system\Commands\Server\rewrite.php(47): require_once('...')
+#12 {main}
+ERROR - 2023-12-18 09:32:03 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-18 09:32:03 --> 
+ERROR - 2023-12-18 09:32:25 --> Email: sendWithSmtp throwed ErrorException: fsockopen(): Unable to connect to smtp.gmail.com:287 (Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu) in C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php:1883
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1883): fsockopen()
+#2 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1796): CodeIgniter\Email\Email->SMTPConnect()
+#3 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1681): CodeIgniter\Email\Email->sendWithSmtp()
+#4 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1575): CodeIgniter\Email\Email->spoolEmail()
+#5 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(64): CodeIgniter\Email\Email->send()
+#6 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(23): App\Controllers\Contact->NewsletterMailInscription()
+#7 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(919): App\Controllers\Contact->subscribeNewsletter()
+#8 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+#9 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+#10 C:\iut\S5\SAE\so-permis\backend\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\iut\S5\SAE\so-permis\backend\system\Commands\Server\rewrite.php(47): require_once('...')
+#12 {main}
+ERROR - 2023-12-18 09:32:25 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-18 09:32:25 --> 
+ERROR - 2023-12-18 09:32:46 --> Email: sendWithSmtp throwed ErrorException: fsockopen(): Unable to connect to smtp.gmail.com:287 (Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu) in C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php:1883
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1883): fsockopen()
+#2 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1796): CodeIgniter\Email\Email->SMTPConnect()
+#3 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1681): CodeIgniter\Email\Email->sendWithSmtp()
+#4 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1575): CodeIgniter\Email\Email->spoolEmail()
+#5 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(64): CodeIgniter\Email\Email->send()
+#6 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(23): App\Controllers\Contact->NewsletterMailInscription()
+#7 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(919): App\Controllers\Contact->subscribeNewsletter()
+#8 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+#9 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+#10 C:\iut\S5\SAE\so-permis\backend\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\iut\S5\SAE\so-permis\backend\system\Commands\Server\rewrite.php(47): require_once('...')
+#12 {main}
+ERROR - 2023-12-18 09:32:46 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-18 09:32:46 --> 
+ERROR - 2023-12-18 09:34:13 --> Email: sendWithSmtp throwed ErrorException: fsockopen(): Unable to connect to smtp.gmail.com:287 (Une tentative de connexion a échoué car le parti connecté n’a pas répondu convenablement au-delà d’une certaine durée ou une connexion établie a échoué car l’hôte de connexion n’a pas répondu) in C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php:1883
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1883): fsockopen()
+#2 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1796): CodeIgniter\Email\Email->SMTPConnect()
+#3 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1681): CodeIgniter\Email\Email->sendWithSmtp()
+#4 C:\iut\S5\SAE\so-permis\backend\system\Email\Email.php(1575): CodeIgniter\Email\Email->spoolEmail()
+#5 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(64): CodeIgniter\Email\Email->send()
+#6 C:\iut\S5\SAE\so-permis\backend\app\Controllers\Contact.php(23): App\Controllers\Contact->NewsletterMailInscription()
+#7 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(919): App\Controllers\Contact->subscribeNewsletter()
+#8 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+#9 C:\iut\S5\SAE\so-permis\backend\system\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+#10 C:\iut\S5\SAE\so-permis\backend\public\index.php(79): CodeIgniter\CodeIgniter->run()
+#11 C:\iut\S5\SAE\so-permis\backend\system\Commands\Server\rewrite.php(47): require_once('...')
+#12 {main}
+ERROR - 2023-12-18 09:34:13 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-18 09:34:13 --> 
+ERROR - 2023-12-18 09:36:08 --> Email: Unable to send email using SMTP. Your server might not be configured to send mail using this method.
+ERROR - 2023-12-18 09:36:08 --> 220 smtp.gmail.com ESMTP o7-20020a056000010700b003365fc41bcasm5629021wrx.51 - gsmtp
+
+hello: 250-smtp.gmail.com at your service, [194.254.109.166]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+starttls: 220 2.0.0 Ready to start TLS
+
+hello: 250-smtp.gmail.com at your service, [194.254.109.166]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+Failed to authenticate password. Error: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials o7-20020a056000010700b003365fc41bcasm5629021wrx.51 - gsmtp
+

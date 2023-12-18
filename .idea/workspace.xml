@@ -5,17 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ad6ac9e-3666-40ed-bb2b-6901873e2a6c" name="Changes" comment="reponsive header et smartphone">
+      <change afterPath="$PROJECT_DIR$/backend/app/Controllers/Contact.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Controllers/MailGmail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/writable/logs/log-2023-12-18.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/article .png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Newsletter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/PageAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/so-permis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/so-permis.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Config/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Config/Email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Config/Routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Config/Routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controllers/Articles.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controllers/Articles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controllers/Connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controllers/Connexion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Database/Bado.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Database/Bado.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Database/DB.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Database/DB.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/ADMINISTRATEUR.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/ADMINISTRATEUR.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ConduiteAccompagnee.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ConduiteAccompagnee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/FormArticle.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/FormArticle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ListePermis.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ListePermis.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MultiHorizontalCardsWithButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MultiHorizontalCardsWithButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/PermisB.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/PermisB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/AjouterArticle.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AjouterArticle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/AjouterForfait.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AjouterForfait.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Connexion.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Connexion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/CreationCompte.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/CreationCompte.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/GestionArticles.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/GestionArticles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/GestionForfaits.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/GestionForfaits.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/backend/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,7 +73,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "responsive",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Merging contact",
     "last_opened_file_path": "/home/etudiant/gc211206/TP/s5/s5.01_developpement_avance/so-permis/frontend/public/images",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -88,6 +125,8 @@
       <workItem from="1702473944012" duration="2473000" />
       <workItem from="1702481389610" duration="3996000" />
       <workItem from="1702543605586" duration="14789000" />
+      <workItem from="1702901897085" duration="6389000" />
+      <workItem from="1702910231869" duration="453000" />
     </task>
     <task id="LOCAL-00003" summary="card flip se retourne en survolant ajout de la méthode click">
       <option name="closed" value="true" />
@@ -174,7 +213,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/components/MultiHorizontalCardsWithButton.js</url>
-          <line>115</line>
+          <line>138</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

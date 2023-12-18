@@ -18,6 +18,8 @@ import {
     Center,
 } from "@chakra-ui/react";
 import axios from 'axios';
+import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
 
 const GestionForfait = () => {
 
@@ -25,6 +27,21 @@ const GestionForfait = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
 
+    let navigate = useNavigate();
+    
+    const verifConnexion = async () =>
+    {
+      const valeurDuCookie = Cookies.get('compte');
+      let formData = new FormData();
+      formData.append('compte', ''+valeurDuCookie);
+      const response = await axios.post('http://localhost:8080/EstAdmin',
+      formData);
+      if (response.data != true)
+      {
+        navigate("/");
+      }
+      console.log(response.data);
+    }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -38,17 +55,10 @@ const GestionForfait = () => {
         try {
             const response = await axios.get('http://localhost:8080/getFormations');
             //const retour = response.data.map(item => new Formation(item.id,item.prix, item.nom, item.infos));;
-            const retrievedFormations = response.data.map(item => (
-                {
-                    id: item.idformation,
-                    nom: item.nom,
-                    prix: item.prix,
-                    infos: item.infos,
-                }
-            ));
+
             /*for (let key of response.data)
                 retour.push(new Formation(key.prix, key.nom, key.infos));*/
-            setFormations(retrievedFormations);
+            setFormations(response.data);
             console.log(formations);
             setListItems(formations);
         } catch (error) {
@@ -94,6 +104,7 @@ const GestionForfait = () => {
 
 
 
+    verifConnexion();
     return (
         <Box>
             <Heading textAlign="center" paddingTop="20px">
@@ -180,32 +191,4 @@ const GestionForfait = () => {
 
 }
 
-class Formation {
-    constructor(idformation = -1, prix = "", nom = "", infos = "") {
-        this.idformation = idformation;
-        this.prix = prix;
-        this.nom = nom;
-        this.infos = infos;
-    }
-
-    getIdFormation() {
-        return this.idformation;
-    }
-
-    getPrix() {
-        return this.prix;
-    }
-
-    getNom() {
-        return this.nom;
-    }
-
-    getInfos() {
-        return this.infos;
-    }
-
-    toString() {
-        return ''; // Vous pouvez implémenter la logique nécessaire ici si besoin
-    }
-}
 export default GestionForfait;
