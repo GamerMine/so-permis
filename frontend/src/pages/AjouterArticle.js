@@ -17,6 +17,8 @@ import {
     FormControl,
 } from "@chakra-ui/react";
 import { FormArticle } from "../components/FormArticle";
+import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
 
 /**
  * Page permettant d'ajouter un article ou de modifier un article
@@ -45,8 +47,23 @@ const AjouterArticle = () => {
         setTailleFormulaires(length);
     };
 
+    let navigate = useNavigate();
+    
+    const verifConnexion = async () =>
+    {
+      const valeurDuCookie = Cookies.get('compte');
+      let formData = new FormData();
+      formData.append('compte', ''+valeurDuCookie);
+      const response = await axios.post('http://localhost:8080/EstAdmin',
+      formData);
+      if (response.data != true)
+      {
+        navigate("/");
+      }
+      console.log(response.data);
+    }
     const [value, setValue] = React.useState("article")
-
+    verifConnexion();
     /**
      * Méthode permettant de changer le formulaire en fonction de la valeur du radio bouton
      * @returns code HTML du formulaire

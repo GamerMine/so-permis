@@ -9,7 +9,7 @@ import {
     Image
 } from "@chakra-ui/react";
 
-const ConduiteAccompagnee =()=>{
+const ConduiteAccompagnee = () => {
     const style ={
         body:{
             padding: "80px",
@@ -17,7 +17,7 @@ const ConduiteAccompagnee =()=>{
 
         title:{
             color: '#20AB9A',
-            fontSize: "35px",
+            fontSize: "30px",
             fontFamily: "Montserrat-Bold, Helvetica",
             fontWeight: '700',
             wordWrap: 'break-word',
@@ -32,9 +32,9 @@ const ConduiteAccompagnee =()=>{
         },
 
         bottomCard: {
-            padding:"30px",
+            padding:"5px",
             borderRadius:40,
-            fontSize: "38px",
+            fontSize: "30px",
             backgroundColor: "black",
             alignContent:"center",
             color:"white",
@@ -45,7 +45,7 @@ const ConduiteAccompagnee =()=>{
         },
         textVoiture: {
             color: 'white',
-            fontSize: "32px",
+            fontSize: "25px",
             fontFamily: 'Montserrat',
             fontWeight: '700',
             wordWrap: 'break-word',
