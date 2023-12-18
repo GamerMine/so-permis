@@ -5,7 +5,7 @@ import {
     CardHeader,
     Grid,
     Text,
-    Link
+    Link, CardFooter
 } from "@chakra-ui/react";
 import {useState} from "react";
 import ReactCardFlip from "react-card-flip";
@@ -21,13 +21,15 @@ export class OCard {
      * @param texteBouton chaine de caractères
      * @param info
      */
-    constructor(titre, texteContenu, texteBouton , info, link) {
+    constructor(titre, texteContenu, texteBouton , info, link, canFlip=true, isClickable=true) {
         this.titre = titre;
         this.texteContenu = texteContenu;
         this.texteBouton = texteBouton;
         this.info = info ;
         this.isFlipped = false;
+        this.canFlip = canFlip;
         this.isHovered = false;
+        this.isClickable = isClickable;
         this.link = link;
     }
 }
@@ -39,14 +41,18 @@ export const MultiHorizontalCardsWithButton = (args) => {
 
      const handleCardHover = (index, isHovered) => {
          const updatedCards = [...cards];
-         updatedCards[index].isHovered = isHovered;
-         setCards(updatedCards);
+         if (updatedCards[index] !== undefined) {
+             updatedCards[index].isHovered = isHovered;
+             setCards(updatedCards);
+         }
      };
 
     const handleCardClick = (index) => {
         const updatedCards = [...cards];
-        updatedCards[index].isFlipped = !updatedCards[index].isFlipped ;
-        setCards(updatedCards);
+        if (updatedCards[index] === undefined) {
+            updatedCards[index].isFlipped = !updatedCards[index].isFlipped;
+            setCards(updatedCards);
+        }
     }
 
 
@@ -60,7 +66,14 @@ export const MultiHorizontalCardsWithButton = (args) => {
             backgroundColor: "rgba(30,198,177,0.79)",
             borderRadius: "10px 50px 10px 50px",
             boxShadow: "10px 10px 5px rgba(0, 0, 0, 0.5)",
-            cursor: "pointer",
+        },
+
+        textTitre: {
+            textAlign: "center",
+            fontSize: "35px",
+            color: "white",
+            fontFamily: "Montserrat, sans-serif",
+            fontWeight:"bold"
         },
 
         text: {
@@ -75,6 +88,16 @@ export const MultiHorizontalCardsWithButton = (args) => {
         },
 
         button: {
+            backgroundColor: "black",
+            borderRadius: "15px",
+            overflowWrap: "break-word",
+            whiteSpace: "normal",
+            height: "60px",
+            marginLeft: "55px",
+            marginRight: "55px",
+        },
+
+        buttonForward: {
             backgroundColor: "black",
             borderRadius: "15px",
             overflowWrap: "break-word",
@@ -101,7 +124,7 @@ export const MultiHorizontalCardsWithButton = (args) => {
             >
                 {/* Face avant */}
                 <Card
-                    style={style.card}
+                    style={{...style.card}}
                     onMouseEnter={() => (!isSmallDevice ? handleCardHover(index, true) : null)}
                     onMouseLeave={() => (!isSmallDevice ? handleCardHover(index, false) : null)}
                     onClick={() => (isSmallDevice ? handleCardClick(index) : null)}
@@ -109,29 +132,39 @@ export const MultiHorizontalCardsWithButton = (args) => {
                     width={isSmallDevice ? "275px" : "350px"}
                 >
                     <CardHeader>
-                        <Text>{card.titre}</Text>
+                        <Text style={style.textTitre}>{card.titre}</Text>
                     </CardHeader>
                     <CardBody>
                         <Text style={style.text} fontSize={{base:"30px", "smd":"35px"}}>{card.texteContenu}</Text>
                     </CardBody>
+                    {card.canFlip === false && (
+                        <CardFooter>
+                            <Link href={`${card.link}`} style={{width: "100%", textAlign: "center"}}> <Button style={style.buttonForward} >
+                                <Text style={style.buttonText}>{card.texteBouton}</Text>
+                            </Button></Link>
+                        </CardFooter>
+                    )}
                 </Card>
 
                 {/* Face arrière */}
-                <Card
-                    style={{ ...style.card, borderRadius: "50px 10px 50px 10px", }}
-                    onMouseEnter={() => (!isSmallDevice ? handleCardHover(index, true) : null)}
-                    onMouseLeave={() => (!isSmallDevice ? handleCardHover(index, false) : null)}
-                    onClick={() => (isSmallDevice ? handleCardClick(index) : null)}
-                    backgroundImage={`url("../images/${card.info}.jpg")`}
-                    height={isSmallDevice ? "350px" : "450px"}
-                    width={isSmallDevice ? "275px" : "350px"}
-                >
-                    <CardBody alignSelf="center"  display="flex" flexDirection="column" justifyContent="center"  >
-                        <Link href={`${card.link}`}> <Button style={style.button} >
-                            <Text style={style.buttonText}>{card.texteBouton}</Text>
-                        </Button></Link>
-                    </CardBody>
-                </Card>
+                {card.canFlip === true && (
+                    <Card
+                        style={{ ...style.card, borderRadius: "50px 10px 50px 10px", }}
+                        onMouseEnter={() => (!isSmallDevice ? handleCardHover(index, true) : null)}
+                        onMouseLeave={() => (!isSmallDevice ? handleCardHover(index, false) : null)}
+                        onClick={() => (isSmallDevice ? handleCardClick(index) : null)}
+                        backgroundImage={`url("../images/${card.info}.jpg")`}
+                        height={isSmallDevice ? "350px" : "450px"}
+                        width={isSmallDevice ? "275px" : "350px"}
+                    >
+                        <CardBody alignSelf="center"  display="flex" flexDirection="column" justifyContent="center"  >
+                            <Link href={`${card.link}`} style={{cursor: "pointer"}}> <Button style={style.button} >
+                                <Text style={style.buttonText}>{card.texteBouton}</Text>
+                            </Button></Link>
+                        </CardBody>
+                    </Card>
+                )}
+
             </ReactCardFlip>
         );
     });
