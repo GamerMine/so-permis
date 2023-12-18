@@ -1,5 +1,5 @@
 import React from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 import {
     Box,
@@ -26,7 +26,6 @@ const Contact = () => {
 
     const {
         handleSubmit,
-        control,
         register,
         formState: { errors },
     } = useForm();
@@ -59,7 +58,7 @@ const Contact = () => {
             <Box width="60%">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Stack spacing={4}>
-                        <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+                        <Grid templateColumns="repeat(1,1fr)" gap={4}>
                             <GridItem>
                                 <FormControl isInvalid={errors.firstName}>
                                     <FormLabel htmlFor="firstName">Prénom</FormLabel>
@@ -85,7 +84,7 @@ const Contact = () => {
                                 </FormControl>
                             </GridItem>
                         </Grid>
-                        <Grid templateColumns="repeat(2, 1fr)" gap={4}>
+                        <Grid templateColumns={{base:"repeat(1,1fr)", "smdp":"repeat(2,1fr)"}} gap={4}>
                             <GridItem>
                                 <FormControl isInvalid={errors.email}>
                                     <FormLabel htmlFor="email">Email</FormLabel>
