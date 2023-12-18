@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Cookies from 'js-cookie';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -43,19 +44,20 @@ const Connexion = () => {
       return;
     }
     try {
+          const valeurDuCookie = Cookies.get('compte');
           let formData = new FormData();
           formData.append('email', registerEmail);
           formData.append('password', registerPassword);
           formData.append('confirmPassword', registerPasswordConfirm);
+          formData.append('compte', ''+valeurDuCookie);
+          console.log(valeurDuCookie);
           const response = await axios.post('http://localhost:8080/CreationCompte',
           formData);
         console.log(response.data);
-        alert(response.data);
         navigate("/");
       } catch (error) {
         // Gérez les erreurs ici
         console.error(error);
-        alert(error);
       }
   }
 

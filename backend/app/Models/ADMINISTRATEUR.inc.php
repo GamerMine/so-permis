@@ -5,6 +5,7 @@ class ADMINISTRATEUR {
       private $idadmin;
       private $email;
       private $password;
+      private $id_unique;
 
       /* Les m�thodes qui commencent par __ sont des methodes magiques */
       /* Elles sont appel�es automatiquement par php suite � certains �v�nements. */
@@ -13,15 +14,17 @@ class ADMINISTRATEUR {
       	 il y aura une erreur lorsqu'il sera appel� automatiquement par PDO 
        */    
       
-      public function __construct($i=-1,$e="",$p="") {
+      public function __construct($i=-1,$e="",$p="", $u="") {
          $this->idadmin = $i;
          $this->email = $e;
          $this->password = $p;
+         $this->id_unique = $u;
       }
 
       public function getIdAdmin () {return $this->idadmin; }
       public function getEmail() { return $this->email; }
       public function getPassword() { return $this->password;}
+      public function getId_Unique() { return $this->id_unique;}
 
       public function __toString() {
         return '';     

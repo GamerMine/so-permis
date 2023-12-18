@@ -1,5 +1,6 @@
 import React, { useState,createContext, useContext, useReducer } from 'react';
 import axios from "axios";
+import Cookies from 'js-cookie';
 import { useNavigate  } from "react-router-dom";
 const AuthContext = createContext();
 
@@ -75,17 +76,17 @@ const Connexion = () => {
         const response = await axios.post('http://localhost:8080/TestConnexion', //TestConnexion
         formData);
 
-        if (response.data ===  true)
+        if (!response.data.startsWith('Incorrect'))
         {
             login("testadmin");
-          navigate("/");
+            Cookies.set('compte',response.data);
+            navigate("/");
           // Remplacement par une URL dans l'historique
         }
         else
         {
             logout();
             console.log(response.data);
-          alert(response.data);
         }
       } catch (error) {
         logout();
