@@ -1,14 +1,10 @@
-import {useState} from "react";
 import {MultiHorizontalCardsWithButton, OCard} from "./MultiHorizontalCardsWithButton";
 
 export const ListePermis = (args) => {
-    const [cards, setCards] = useState(args.cards);
 
     const style = {
         card: {
             backgroundColor: "rgba(30,198,177,0.79)",
-            height: args.hauteur,
-            width: args.largeur,
             borderRadius: "50px 10px 50px 10px",
             boxShadow: "10px 10px 5px rgba(0, 0, 0, 0.5)",
         },
@@ -33,7 +29,7 @@ export const ListePermis = (args) => {
 
     let cardsElements = [];
 
-    args.cards.forEach((card, index) => {
+    args.cards.forEach((card) => {
         cardsElements.push(new OCard(card.titre, card.texteContenu, card.texteBouton, undefined, undefined, false, false))
     });
 
