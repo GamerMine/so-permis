@@ -148,8 +148,7 @@ const AjouterArticle = () => {
                 formulaires.push({ sousTitre: sousTitre, contenu: contenu, image: image });
             }
 
-<<<<<<< Updated upstream
-           
+
             formData.append('titreActualite', ''+titre);
             formData.append('infosActualite', ''+JSON.stringify(formulaires));
             formData.append('imageURL', ''+image);
@@ -157,13 +156,11 @@ const AjouterArticle = () => {
 
            
             handleUpdate(formData);
-=======
 
             console.log(titre);
             console.log(sources);
             console.log(image);
             console.log(formulaires);
->>>>>>> Stashed changes
         }
         else {
             const titre = document.getElementById("titre").value;
