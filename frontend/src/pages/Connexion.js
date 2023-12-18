@@ -52,7 +52,7 @@ const Connexion = () => {
         if (!(''+response.data).startsWith('Incorrect'))
         {
             Cookies.set('compte',response.data);
-            navigate("/PagesAdmin");
+            navigate("/PageAdmin");
           // Remplacement par une URL dans l'historique
         }
         else
