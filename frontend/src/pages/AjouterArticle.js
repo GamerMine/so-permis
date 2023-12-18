@@ -22,7 +22,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 /**
- * Page permettant d'ajouter un article ou de modifier un article
+ * Page permettant d'ajouter un article 
  * @returns code HTML
  */
 const AjouterArticle = () => {
