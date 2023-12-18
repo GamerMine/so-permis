@@ -3,8 +3,10 @@ import * as React from 'react';
 import {
     Grid,
     Card,
+    CardBody,
     Stack,
     Text,
+    Image
 } from "@chakra-ui/react";
 
 const PermisB =()=>{
@@ -64,6 +66,7 @@ const PermisB =()=>{
 
 
         textDroite: {
+            padding:"80px",
             borderRadius:0,
             backgroundColor: "#0F1411",
             color: 'white',
@@ -88,7 +91,7 @@ const PermisB =()=>{
                     <Text style={style.bottomCard}>1200€</Text>
                 </Card>
                 <Card style={{backgroundColor: '#0F1411'}} fontSize={{base:"25px", sm: "18px"}}>
-                    <Text style={style.textDroite} padding={{base:"15px", "smd":"80px"}}>
+                    <Text style={style.textDroite}>
                         Le permis B en 1 mois, c'est comme un marathon. C'est un challenge qui demande de la motivation, de la concentration et de la persévérance. Mais c'est aussi une expérience fun et enrichissante. En 7 semaines, tu apprendras à conduire en sécurité, mais aussi à t'adapter à des situations de conduite variées.
 <br/><br/>
                         Alors, si tu es prêt à relever le défi, lance-toi !</Text>
