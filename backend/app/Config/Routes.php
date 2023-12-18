@@ -18,3 +18,4 @@ $routes->post('/CreationCompte', 'Connexion::TestCreation');
 
 $routes->match(['post', 'options'], '/TestConnexion', 'Connexion::TestConnexion');
 $routes->POST('/subscribeNewsletter', 'Contact::subscribeNewsletter');
+$routes->post('/EstAdmin', 'Connexion::EstConnecte');

@@ -83,4 +83,29 @@ class Connexion extends BaseController
             return $th;
         }
     }
+
+
+    public function EstConnecte() : string 
+    {
+
+        try {
+            $data = $this->request->getPost();
+            $compte = $data['compte'];
+            require (APPPATH . "Database/DB.inc.php");
+            $db = DB::getInstance();
+            $administrateurs = $db->getAdministrateurs();
+            $retour = 'false';
+            foreach ($administrateurs as $row) 
+            {
+                if ( $row->getId_Unique() == $compte)
+                {
+                    $retour = 'true';
+                }
+            }
+            
+            return $retour;
+        } catch (\Throwable $th) {
+            return $th;
+        }
+    }
 }

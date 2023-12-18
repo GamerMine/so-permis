@@ -14,6 +14,20 @@ const Connexion = () => {
 
   const [isLoginForm, setIsLoginForm] = useState(true);
 
+  const verifConnexion = async () =>
+  {
+    const valeurDuCookie = Cookies.get('compte');
+    let formData = new FormData();
+    formData.append('compte', ''+valeurDuCookie);
+    const response = await axios.post('http://localhost:8080/EstAdmin',
+    formData);
+    if (response.data != true)
+    {
+      navigate("/");
+    }
+    console.log(response.data);
+  }
+
   const validateEmail = () => {
     // Une expression régulière pour valider l'email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -50,7 +64,6 @@ const Connexion = () => {
           formData.append('password', registerPassword);
           formData.append('confirmPassword', registerPasswordConfirm);
           formData.append('compte', ''+valeurDuCookie);
-          console.log(valeurDuCookie);
           const response = await axios.post('http://localhost:8080/CreationCompte',
           formData);
         console.log(response.data);
@@ -64,7 +77,7 @@ const Connexion = () => {
   const switchForm = () => {
     setIsLoginForm(!isLoginForm);
   };
-
+  verifConnexion();
   return (
   <div style={styles.container}>
     <div style={styles.formContainer}>

@@ -75,8 +75,8 @@ const Connexion = () => {
         formData.append('password', password);
         const response = await axios.post('http://localhost:8080/TestConnexion', //TestConnexion
         formData);
-
-        if (!response.data.startsWith('Incorrect'))
+        console.log(response.data);
+        if (!(''+response.data).startsWith('Incorrect'))
         {
             login("testadmin");
             Cookies.set('compte',response.data);
