@@ -103,7 +103,7 @@ const GestionForfait = () => {
     const [value, setValue] = React.useState("permis")
 
 
-    verifConnexion();//salut je suis Léo le gaulois
+    verifConnexion();
     return (
         <Box>
             <Heading textAlign="center" paddingTop="20px">

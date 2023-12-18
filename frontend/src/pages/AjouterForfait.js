@@ -10,6 +10,8 @@ import {
     Input,
     Textarea,
 } from "@chakra-ui/react";
+import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
 
 const AjouterForfait = () => {
     
@@ -20,6 +22,23 @@ const AjouterForfait = () => {
         }
     }
 
+    let navigate = useNavigate();
+    
+    const verifConnexion = async () =>
+    {
+      const valeurDuCookie = Cookies.get('compte');
+      let formData = new FormData();
+      formData.append('compte', ''+valeurDuCookie);
+      const response = await axios.post('http://localhost:8080/EstAdmin',
+      formData);
+      if (response.data != true)
+      {
+        navigate("/");
+      }
+      console.log(response.data);
+    }
+
+    verifConnexion();
     return (
         <Box>
             <Heading textAlign="center" paddingTop="20px">
