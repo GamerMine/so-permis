@@ -13,10 +13,10 @@ class DB {
       /************************************************************************/	
       private function __construct() {
       	      // Connexion � la base de donn�es
-	      $connStr = 'pgsql:host=woody port=5432 dbname=sl210756'; // A MODIFIER ! 
+	      $connStr = 'pgsql:host=host.dwightstudio.fr port=25565 dbname=sopermis'; // A MODIFIER ! 
 	      try {
 		  // Connexion � la base
-	      	  $this->connect = new PDO($connStr, 'sl210756', 'VIREZ203'); //A MODIFIER !
+	      	  $this->connect = new PDO($connStr, 'sopermis', 'sopermis'); //A MODIFIER !
 		  // Configuration facultative de la connexion
 		  $this->connect->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER); 
 		  $this->connect->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION); 
