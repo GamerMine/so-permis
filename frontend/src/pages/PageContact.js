@@ -7,8 +7,8 @@ const PageContact = () => {
 
     return (
         <Stack marginTop="15px" gap="0">
-            <PannelContact />
-            <PannelMap />
+            <PannelContact/>
+            <PannelMap/>
         </Stack>
     );
 };

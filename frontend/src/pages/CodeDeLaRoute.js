@@ -193,10 +193,8 @@ const CodeDeLaRoute = () => {
 
     return (
 
-        
         <VStack w="100%" h="100%" align="center" marginBottom={"5%"} style={{ ...style.police }}>
             <Stack w={isSmallDevice ? "auto" : "100%"}  marginBottom={"-10px"} style={{ ...style.textBlanc, ...style.box1}}>
-           
                 <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                     [
                         new OCard("", "FORFAITS CODE", "Nos forfaits code","code", "#boxForfaits"),

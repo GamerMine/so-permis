@@ -46,7 +46,21 @@ class Articles extends BaseController
             $db->insertActualite($titre,$infos, $image, $sources);
             return json_encode(["success" => "Article ajouté"]);
 
+        } catch (\Throwable $th) {
+            return json_encode(["error" => $th->getMessage()]);
+        }
+    }
+
+    public function DeleteArticle()
+    {
+        try {
+            require (APPPATH . "Database/DB.inc.php");
             
+            $db = DB::getInstance();
+            $id = $this->request->getPost('idactualite');
+
+            $db->deleteActualite($id);
+            return json_encode(["success" => "Article supprimé"]);
 
         } catch (\Throwable $th) {
             return json_encode(["error" => $th->getMessage()]);
