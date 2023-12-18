@@ -23,7 +23,6 @@ const GestionArticles = () => {
     const [listItems, setListItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
-    const [articles, setArticles] = useState([]);
     
     useEffect(() => {
         const fetchData = async () => {
@@ -37,19 +36,7 @@ const GestionArticles = () => {
         try {
             const response = await axios.get('http://localhost:8080/getArticles');
 
-            const retrievedArticles = response.data.map(item => (
-                {
-                    id: item.idActualite,
-                    titre: item.titreActualite,
-                    infos: item.infosActualite,
-                    imgUrl: item.imgUrl,
-                    sources: item.sources,
-                }
-            ));
-
-            setArticles(retrievedArticles);
-            console.log(articles);
-            setListItems(articles);
+            setListItems(response.data);
         }
         catch (error) {
             console.error('Erreur lors de la récupération des données :', error);
@@ -75,12 +62,12 @@ const GestionArticles = () => {
         }
     }
 
-    
+    let articles = [];
 
     currentItems.map((article, index) => {
         articles.push(
             <Tr key={index}>
-                <Td>{article.titre}</Td>
+                <Td>{article.titreActualite}</Td>
                 <Td>{article.sources}</Td>
                 <Td>
                     <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>

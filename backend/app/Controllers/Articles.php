@@ -17,7 +17,13 @@ class Articles extends BaseController
             $articles = $db->getActualites();
             foreach ($articles as $row) 
             {
-                array_push($retour, $row);
+                $retour[] = [
+                    'id' => $row->getIdActualite(),
+                    'titreActualite' => $row->getTitreActualite(),
+                    'infosActualite' => $row->getInfosActualite(),
+                    'imageURL' => $row->getImageURL(),
+                    'sources' => $row->getSources()
+                ];
             }
             return json_encode($retour);
 
