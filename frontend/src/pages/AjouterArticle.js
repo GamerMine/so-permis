@@ -35,9 +35,7 @@ const AjouterArticle = () => {
         }
     }
 
-    const handleDelete = async (item) => {
-        const formData = new FormData();
-
+    const handleUpdate = async (formData) => {
         const response = await axios.post('http://localhost:8080/AjouterArticle', //TestConnexion
         formData);
         window.location.reload();
@@ -64,6 +62,7 @@ const AjouterArticle = () => {
       }
       console.log(response.data);
     }
+
     const [value, setValue] = React.useState("article")
     verifConnexion();
     /**
@@ -156,6 +155,15 @@ const AjouterArticle = () => {
             console.log(sources);
             console.log(image);
             console.log(formulaires);
+
+            let formData = new FormData();
+            formData.append('titreActualite', ''+titre);
+            formData.append('infosActualite', ''+JSON.stringify(formulaires));
+            formData.append('imageURL', ''+image);
+            formData.append('sources', ''+sources);
+
+            handleUpdate(formData);
+
         }
         else {
             const titre = document.getElementById("titre").value;

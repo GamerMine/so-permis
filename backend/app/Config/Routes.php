@@ -14,6 +14,7 @@ $routes->get('/GetNewsletter', 'Newsletter::GetNewsletter');
 $routes->post('/DeleteNewsletter', 'Newsletter::DeleteNewsletter');
 $routes->get('/getFormations', 'Forfaits::getFormations');
 $routes->get('/getArticles', 'Articles::getArticles');
+$routes->post('/AjouterArticle', 'Articles::AjouterArticle');
 $routes->post('/CreationCompte', 'Connexion::TestCreation');
 
 $routes->match(['post', 'options'], '/TestConnexion', 'Connexion::TestConnexion');
