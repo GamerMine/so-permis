@@ -38,9 +38,9 @@ class Articles extends BaseController
             require (APPPATH . "Database/DB.inc.php");
             
             $db = DB::getInstance();
-            $titre = $this->request->getPost('titre');
-            $infos = $this->request->getPost('infos');
-            $image = $this->request->getPost('image');
+            $titre = $this->request->getPost('titreActualite');
+            $infos = $this->request->getPost('infosActualite');
+            $image = $this->request->getPost('imageURL');
             $sources = $this->request->getPost('sources');
 
             $db->insertActualite($titre,$infos, $image, $sources);

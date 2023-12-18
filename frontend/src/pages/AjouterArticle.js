@@ -37,7 +37,8 @@ const AjouterArticle = () => {
     const handleUpdate = async (formData) => {
         const response = await axios.post('http://localhost:8080/AjouterArticle', //TestConnexion
         formData);
-        window.location.reload();
+        console.log(response.data);
+        //window.location.reload();
       };
 
     const [tailleFormulaires, setTailleFormulaires] = useState(0);
@@ -161,6 +162,7 @@ const AjouterArticle = () => {
             formData.append('imageURL', ''+image);
             formData.append('sources', ''+sources);
 
+            console.log(formData);
             handleUpdate(formData);
 
         }
