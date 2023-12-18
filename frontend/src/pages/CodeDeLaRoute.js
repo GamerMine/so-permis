@@ -217,7 +217,7 @@ const CodeDeLaRoute = () => {
                     [
                         new OCard("FORFAIT CODE SEUL", "", "1200€"),
                         new OCard("FORFAIT CODE EXPRESS", "EN 4 JOURS", "1100€"),
-                    ]} hauteur={"450px"} largeur={"350px"}/>
+                    ]} />
                    
                 </Stack>
             </Box>
@@ -229,7 +229,7 @@ const CodeDeLaRoute = () => {
 
             <Box w='100%' h='20px' align="center" bgGradient='linear(to-b, #000000, #FFFFFF)'></Box>
 
-            <Stack id="boxAnnulation" w="50%" h="100%" mx={"10%"} px={"5%"}>
+            <Stack id="boxAnnulation" w={{base:"80%", "sb":"50%"}} h="100%" mx={"10%"} px={"5%"}>
                 <Heading size="lg" align='center' marginBottom={"2%"}>Condition d’annulation du code</Heading>
                 <Card  style={{ ...style.carte }} boxShadow={"5px 5px 5px #b5b5b5"}>
                     <CardBody >
