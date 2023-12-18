@@ -176,9 +176,9 @@ class DB {
            $requete = 'SELECT * FROM ADMINISTRATEUR';
            return $this->execQuery($requete, null, 'ADMINISTRATEUR');
        }
-       public function insertAdministrateur($email,$password) {
-            $requete = 'insert into ADMINISTRATEUR (email, password) values(?,?)';
-            $tparam = array($email, $password);
+       public function insertAdministrateur($email,$password,$id_unique) {
+            $requete = 'insert into ADMINISTRATEUR (email, password, id_unique) values(?,?,?)';
+            $tparam = array($email, $password, $id_unique);
             return $this->execMaj($requete,$tparam);
        }
 

