@@ -17,13 +17,30 @@ import {
 } from "@chakra-ui/react";
 import { useState, useEffect } from 'react';
 import axios from "axios";
+import Cookies from 'js-cookie';
+import { useNavigate } from "react-router-dom";
 
 const GestionArticles = () => {
 
     const [listItems, setListItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
+    let navigate = useNavigate();
     
+    const verifConnexion = async () =>
+    {
+      const valeurDuCookie = Cookies.get('compte');
+      let formData = new FormData();
+      formData.append('compte', ''+valeurDuCookie);
+      const response = await axios.post('http://localhost:8080/EstAdmin',
+      formData);
+      if (response.data != true)
+      {
+        navigate("/");
+      }
+      console.log(response.data);
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             await refreshPage();
@@ -78,7 +95,7 @@ const GestionArticles = () => {
     });
 
     const [value, setValue] = React.useState("permis")
-
+    verifConnexion();
     return (
         <Box>
             <Heading textAlign="center" paddingTop="20px" marginBottom='2%'>
