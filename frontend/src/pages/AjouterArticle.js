@@ -31,6 +31,14 @@ const AjouterArticle = () => {
         }
     }
 
+    const handleDelete = async (item) => {
+        const formData = new FormData();
+
+        const response = await axios.post('http://localhost:8080/AjouterArticle', //TestConnexion
+        formData);
+        window.location.reload();
+      };
+
     const [tailleFormulaires, setTailleFormulaires] = useState(0);
 
     const handleGetFormulairesLength = (length) => {
@@ -122,6 +130,8 @@ const AjouterArticle = () => {
                 formulaires.push({ sousTitre: sousTitre, contenu: contenu, image: image });
             }
 
+            JSON.stringify(formulaires);
+            console.log(JSON.stringify(formulaires));
             
             console.log(titre);
             console.log(sources);

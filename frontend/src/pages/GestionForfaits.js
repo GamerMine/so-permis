@@ -92,8 +92,6 @@ const GestionForfait = () => {
 
     const [value, setValue] = React.useState("permis")
 
-
-
     return (
         <Box>
             <Heading textAlign="center" paddingTop="20px">
