@@ -1,14 +1,5 @@
-import {
-    Button,
-    Card,
-    CardBody,
-    CardHeader,
-    Grid,
-    Text,
-    CardFooter
-} from "@chakra-ui/react";
-import {useState} from "react";
 import * as React from "react";
+import {Grid} from "@chakra-ui/react";
 
 export class CardPermis {
 
@@ -19,13 +10,10 @@ export class CardPermis {
     }
 }
 export const ListePermis = (args) => {
-    const isSmallDevice = window.matchMedia("(max-width: 449px").matches;
 
     const style = {
         card: {
             backgroundColor: "rgba(30,198,177,0.79)",
-            height: args.hauteur,
-            width: args.largeur,
             borderRadius: "50px 10px 50px 10px",
             boxShadow: "10px 10px 5px rgba(0, 0, 0, 0.5)",
         },
@@ -68,18 +56,19 @@ export const ListePermis = (args) => {
 
     let cardsElements = [];
 
-    args.cards.forEach((card, index) => {
+    args.cards.forEach((card) => {
         cardsElements.push(
-                <Card style={{...style.card}} height={isSmallDevice ? "350px" : "450px"} alignSelf="center" flexDirection="column" justifyContent="center" width={isSmallDevice ? "275px" : "350px"}>
+                <Card style={{...style.card}} height={isSmallDevice ? "350px" : "450px"}
+                      width={isSmallDevice ? "275px" : "350px"}>
                     <CardHeader>
                         <Text style={style.textTitre}>{card.titre}</Text>
                     </CardHeader>
-                    <CardBody alignSelf="center"  display="flex" flexDirection="column" justifyContent="center">
-                        <Text style={style.text} fontSize={{base:"30px", "smd":"35px"}}>{card.texteContenu}</Text>
+                    <CardBody>
+                        <Text style={style.text} fontSize={{base: "30px", "smd": "35px"}}>{card.texteContenu}</Text>
                     </CardBody>
-                        <CardFooter>
-                            <Text style={style.bottomCard}>{card.texteBouton}</Text>
-                        </CardFooter>
+                    <CardFooter>
+                        <Text style={style.bottomCard}>{card.texteBouton}</Text>
+                    </CardFooter>
                 </Card>
         );
     });

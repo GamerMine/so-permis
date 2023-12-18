@@ -13,7 +13,7 @@ import {BsPersonVcard} from "react-icons/bs";
 const DocumentsInformations = (arg) => {
     const style = {
         body: {
-            padding: "20px",
+            padding: "15px",
             backgroundColor: "#0F1411",
         },
         transitionFadeTop:{
@@ -22,7 +22,6 @@ const DocumentsInformations = (arg) => {
         },
 
         title:{
-            margin:"50px",
             color: "#FFF",
             fontFamily: "Montserrat-Bold, Helvetica",
             fontSize: "35px",
