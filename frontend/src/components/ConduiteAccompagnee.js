@@ -6,12 +6,13 @@ import {
     CardBody,
     Stack,
     Text,
+    Image
 } from "@chakra-ui/react";
 
 const ConduiteAccompagnee = () => {
     const style ={
         body:{
-            padding: "15px",
+            padding: "80px",
         },
 
         title:{
@@ -27,6 +28,7 @@ const ConduiteAccompagnee = () => {
             background: '#20AB9A',
             boxShadow: '10px 10px 4px rgba(0, 0, 0, 0.25)',
             borderRadius: 40,
+            width: "450px"
         },
 
         bottomCard: {
@@ -58,9 +60,9 @@ const ConduiteAccompagnee = () => {
 
     return (
         <Stack style={style.body}>
-            <Text style={style.title} textAlign={{base:"center", "sd":"left"}}>Conduite accompagnée</Text>
+            <h4 style={style.title}>Conduite accompagnée</h4>
             <Grid style={{margin:"25px"}} templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(1, 1fr)`, xl: `repeat(2, 1fr)`,}} gap="70px" alignSelf="center">
-                <Card style={style.miniBox} width={{base:"275px","smd":"350px",  md:"450px"}}>
+                <Card style={style.miniBox} >
                     <CardBody>
                         <Text style={style.textVoiture}>FORFAIT CONDUITE ACCOMPAGNÉE CODE<br/>
                             +<br/>
@@ -71,7 +73,7 @@ const ConduiteAccompagnee = () => {
                         <Text style={style.bottomCard}>1200€</Text>
                     </CardBody>
                 </Card>
-                <Card style={style.miniBox} width={{base:"275px", "smd":"350px", md:"450px"}}>
+                <Card style={style.miniBox} >
                     <CardBody>
                         <Text style={style.textVoiture}>FORFAIT CONDUITE ACCOMPANGNÉE<br/>
                             +<br/>

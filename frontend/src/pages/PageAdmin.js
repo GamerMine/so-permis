@@ -16,11 +16,11 @@ const PageAdmin = () => {
         formData.append('compte', ''+valeurDuCookie);
         const response = await axios.post('http://localhost:8080/EstAdmin',
             formData);
-        if (response.data !== true)
+        if (response.data != true)
         {
             navigate("/");
         }
-        // console.log(response.data);
+        console.log(response.data);
     }
     let navigate = useNavigate();
 
@@ -41,7 +41,7 @@ const PageAdmin = () => {
         },
     }
 
-    // const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
+    const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
     verifConnexion();
     return (
         <Stack style={{gap: 0}} >
