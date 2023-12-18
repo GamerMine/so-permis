@@ -65,9 +65,6 @@ const GestionArticles = () => {
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     let currentItems = listItems.slice(indexOfFirstItem, indexOfLastItem);
 
-    // Fill remaining rows with empty strings
-    currentItems = [...currentItems, ...Array(itemsPerPage - currentItems.length).fill('')];
-
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
     };
@@ -141,40 +138,6 @@ const GestionArticles = () => {
             </Card>
         </Box>
     );
-}
-
-class Articles {
-    constructor(idActualite, titreActualite, infosActualite, imgUrl, sources) {
-        this.idActualite = idActualite;
-        this.titreActualite = titreActualite;
-        this.infosActualite = infosActualite;
-        this.imgUrl = imgUrl;
-        this.sources = sources;
-    }
-
-    getIdActualite() {
-        return this.idActualite;
-    }
-
-    getTitreActualite() {
-        return this.titreActualite;
-    }
-
-    getInfosActualite() {
-        return this.infosActualite;
-    }
-
-    getImgUrl() {
-        return this.imgUrl;
-    }
-
-    getSources() {
-        return this.sources;
-    }
-
-    toString() {
-        return this.idActualite + " " + this.titreActualite + " " + this.infosActualite + " " + this.imgUrl + " " + this.sources;
-    }
 }
 
 export default GestionArticles;

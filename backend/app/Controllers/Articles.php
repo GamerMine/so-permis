@@ -31,4 +31,25 @@ class Articles extends BaseController
             return json_encode(["error" => $th->getMessage()]);
         }
     }
+
+    public function AjouterArticle()
+    {
+        try {
+            require (APPPATH . "Database/DB.inc.php");
+            
+            $db = DB::getInstance();
+            $titre = $this->request->getPost('titreActualite');
+            $infos = $this->request->getPost('infosActualite');
+            $image = $this->request->getPost('imageURL');
+            $sources = $this->request->getPost('sources');
+
+            $db->insertActualite($titre,$infos, $image, $sources);
+            return json_encode(["success" => "Article ajouté"]);
+
+            
+
+        } catch (\Throwable $th) {
+            return json_encode(["error" => $th->getMessage()]);
+        }
+    }
 }
