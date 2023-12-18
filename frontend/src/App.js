@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Connexion as Connexion} from "./pages/Connexion";
+import Connexion from "./pages/Connexion";
 import AjouterForfaits from "./pages/AjouterForfait";
 import GestionForfaits from "./pages/GestionForfaits";
 import AjouterArticle from "./pages/AjouterArticle";
@@ -20,6 +20,7 @@ import QuiSommesNous from "./pages/QuiSommesNous.js";
 import Newsletter from './pages/Newsletter.js';
 import CreationCompte from './pages/CreationCompte.js'
 import ExemplePageArticle from './pages/ExemplePageArticle';
+import PageAdmin from './pages/PageAdmin';
 function App() {
   return (
 
@@ -41,18 +42,15 @@ function App() {
             <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
             <Route exact path="/Newsletter" element={<Newsletter/>}/>
             <Route exact path="/ExemplePageArticle" element={<ExemplePageArticle/>}/>
-         {/* </Routes>*/}
-{/*          <Connexion>
-            <Routes>*/}
+
               <Route exact path="/AjouterArticle" element={<AjouterArticle />} />
               <Route exact path="/GestionArticles" element={<GestionArticles />} />
               <Route exact path="/AjouterForfaits" element={<AjouterForfaits />} />
               <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
               <Route exact path="/CreationCompte" element={<CreationCompte/>}/>
-            </Routes>
-{/*
-          </Connexion>
-*/}
+               <Route exact path="/PageAdmin" element={<PageAdmin/>}/>
+
+          </Routes>
         </div>
 
       </Router>
