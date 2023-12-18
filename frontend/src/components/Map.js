@@ -1,13 +1,11 @@
 import {
     AspectRatio,
     Box,
-    SimpleGrid,
     Text,
     VStack,
-    Input,
+    Input, Stack, GridItem, Grid,
 } from "@chakra-ui/react";
 import { BsInstagram, BsSnapchat } from "react-icons/bs";
-import { Flex } from "@chakra-ui/react"
 
 // Example Address Component
 const AddressComponent = () => {
@@ -34,13 +32,15 @@ const AddressComponent = () => {
 
 // Example Opening Hours Component
 const OpeningHoursComponent = () => {
+
     const style = {
-        
+
         jour: {
             color: "black",
             fontSize: "20px",
             fontFamily: "Montserrat",
             fontWeight: "bold",
+
         },
 
         horaires: {
@@ -57,28 +57,31 @@ const OpeningHoursComponent = () => {
             fontWeight: "bold",
         },
     }
+
+
+
     return (
-        <Box align='center'>
+        <Box align='center' marginTop="40px">
             <Text fontSize="2xl" as="b">
                 Horaires d’ouvertures
             </Text>
     
-            <SimpleGrid columns={2}>
-                <Box style={{...style.jour }}>Lundi</Box>
-                <Box style={{ ...style.horaires }}>09 h 00 - 18 h 00</Box>
-                <Box style={{ ...style.jour }}>Mardi</Box>
-                <Box style={{ ...style.horaires }}>09 h 00 - 18 h 00</Box>
-                <Box style={{ ...style.jour }}>Mercredi</Box>
-                <Box style={{ ...style.horaires }}>09 h 00 - 18 h 00</Box>
-                <Box style={{ ...style.jour }}>Jeudi</Box>
-                <Box style={{ ...style.horaires }}>09 h 00 - 18 h 00</Box>
-                <Box style={{ ...style.jour }}>Vendredi</Box>
-                <Box style={{ ...style.horaires }}>09 h 00 - 18 h 00</Box>
-                <Box style={{ ...style.jour }}>Samedi</Box>
-                <Box style={{ ...style.horaires }}>09 h 00 - 18 h 00</Box>
-                <Box style={{ ...style.jour }}>Dimanche</Box>
-                <Box style={{ ...style.ferme }}>fermé</Box>
-            </SimpleGrid>
+            <Grid w={{base:"100%", md:"85%"}} gridTemplateColumns={{base:"1fr" , md:"1fr 1fr"}}>
+                <GridItem style={{...style.jour }} textAlign={{md:"right" , base:"center"}} marginRight={{md:"30px"}}>Lundi</GridItem>
+                <GridItem style={{ ...style.horaires }} textAlign={{md:"left", base:"center"}}>09 h 00 - 18 h 00</GridItem>
+                <GridItem style={{ ...style.jour }} textAlign={{md:"right" , base:"center"}} marginRight={{md:"30px"}}>Mardi</GridItem>
+                <GridItem style={{ ...style.horaires }} textAlign={{md:"left", base:"center"}}>09 h 00 - 18 h 00</GridItem>
+                <GridItem style={{ ...style.jour }} textAlign={{md:"right" , base:"center"}} marginRight={{md:"30px"}}>Mercredi</GridItem>
+                <GridItem style={{ ...style.horaires }} textAlign={{md:"left", base:"center"}}>09 h 00 - 18 h 00</GridItem>
+                <GridItem style={{ ...style.jour }} textAlign={{md:"right" , base:"center"}} marginRight={{md:"30px"}}>Jeudi</GridItem>
+                <GridItem style={{ ...style.horaires }} textAlign={{md:"left", base:"center"}}>09 h 00 - 18 h 00</GridItem>
+                <GridItem style={{ ...style.jour }} textAlign={{md:"right" , base:"center"}} marginRight={{md:"30px"}}>Vendredi</GridItem>
+                <GridItem style={{ ...style.horaires }} textAlign={{md:"left", base:"center"}}>09 h 00 - 18 h 00</GridItem>
+                <GridItem style={{ ...style.jour }} textAlign={{md:"right" , base:"center"}} marginRight={{md:"30px"}}>Samedi</GridItem>
+                <GridItem style={{ ...style.horaires }} textAlign={{md:"left", base:"center"}}>09 h 00 - 18 h 00</GridItem>
+                <GridItem style={{ ...style.jour }} textAlign={{md:"right" , base:"center"}} marginRight={{md:"30px"}}>Dimanche</GridItem>
+                <GridItem style={{ ...style.ferme }} textAlign={{md:"left", base:"center"}}>fermé</GridItem>
+            </Grid>
         </Box>
     );
 };
@@ -94,11 +97,11 @@ const ContactComponent = () => {
         },
     }
     return (
-        <Box align="center">
+        <Box align="center" marginTop="40px">
             <Text fontSize="2xl" as="b">
                 Contactez-nous
             </Text>
-            <Text style={{ ...style.contact }}>téléphone : 02 78 34 10 63</Text>
+            <Text style={{ ...style.contact }}>téléphone :</Text> <Text style={{...style.contact}} fontSize="15px"> 02 78 34 10 63</Text>
             <Text style={{ ...style.contact }}>Réseaux sociaux</Text>
             <VStack>
                 <Box display='flex'>
@@ -107,11 +110,11 @@ const ContactComponent = () => {
                 </Box>
             </VStack>
 
-            <VStack align='center'>
+            <VStack align='center' marginTop="40px" >
                 <Text fontSize="2xl" as="b">
                     Inscrivez-vous à notre Newlsletter
                 </Text>
-                <Input variant='flushed' placeholder="Entrez votre adresse mail" w='50%'/>
+                <Input variant='flushed' placeholder="Entrez votre adresse mail" w={{base:"75%",md:"50%"}}/>
             </VStack>
         </Box>
     );
@@ -129,9 +132,9 @@ const iframe = () => {
 const Map = () => {
 
     return (
-        <Flex direction="row" justify="space-between" align="flex-start">
+        <Stack direction={{base:"column","md":"row"}} alignItems="center" marginTop="50px" marginBottom="50px">
             {/* Left Section */}
-            <Box width="47%" margin="3%">
+            <Box width={{base:"78%","md":"47%"}} margin="auto" >
 
                 {AddressComponent()}
                 {OpeningHoursComponent()}
@@ -139,10 +142,10 @@ const Map = () => {
             </Box>
 
             {/* Right Section */}
-            <Box width="47%" margin="3%">
+            <Box width={{base:"74%","md":"47%"}}  margin="auto" marginTop="25px">
                 {iframe()}
             </Box>
-        </Flex>
+        </Stack>
     );
 };
 
