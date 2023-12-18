@@ -16,11 +16,11 @@ const PageAdmin = () => {
         formData.append('compte', ''+valeurDuCookie);
         const response = await axios.post('http://localhost:8080/EstAdmin',
             formData);
-        if (response.data != true)
+        if (response.data !== true)
         {
             navigate("/");
         }
-        console.log(response.data);
+        // console.log(response.data);
     }
     let navigate = useNavigate();
 
@@ -37,16 +37,17 @@ const PageAdmin = () => {
             fontSize: "35px",
             fontStyle: "normal",
             fontWeight: "700",
-            lineHeight: "normal"
+            lineHeight: "normal",
         },
     }
 
-    const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
+    // const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
     verifConnexion();
     return (
         <Stack style={{gap: 0}} >
-            <Stack style={{backgroundImage: "url('./images/auto-ecole 1.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
+            <Stack style={{backgroundImage: "url('./images/code_article_ligne-de-rives.jpeg')", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
 
+                <Text style={style.title} textAlign={{base:"center", "sd":"left"}}>Dashboard</Text>
 
                 <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                     [

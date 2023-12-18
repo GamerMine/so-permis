@@ -71,6 +71,8 @@ const Permis = () => {
                     ]}/>
 
                 <DocumentsInformations titre={"Documents à fournir"}/>
+
+
             </Stack>
             <Stack style={{backgroundImage: "url('./images/route.jpg')",backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
                 <div style={style.transitionFadeBot}/>

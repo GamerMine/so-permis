@@ -1,12 +1,12 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState } from 'react';
 import axios from "axios";
 import Cookies from 'js-cookie';
 import { useNavigate  } from "react-router-dom";
 
-const initialState = {
-    isAuthenticated: false,
-    user: null,
-};
+// const initialState = {
+//     isAuthenticated: false,
+//     user: null,
+// };
 
 const Connexion = () => {
 
@@ -52,7 +52,7 @@ const Connexion = () => {
         if (!(''+response.data).startsWith('Incorrect'))
         {
             Cookies.set('compte',response.data);
-            navigate("/PagesAdmin");
+            navigate("/PageAdmin");
           // Remplacement par une URL dans l'historique
         }
         else
