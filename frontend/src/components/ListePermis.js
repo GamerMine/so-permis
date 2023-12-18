@@ -70,11 +70,11 @@ export const ListePermis = (args) => {
 
     args.cards.forEach((card, index) => {
         cardsElements.push(
-                <Card style={{...style.card}} height={isSmallDevice ? "350px" : "450px"} width={isSmallDevice ? "275px" : "350px"}>
+                <Card style={{...style.card}} height={isSmallDevice ? "350px" : "450px"} alignSelf="center" flexDirection="column" justifyContent="center" width={isSmallDevice ? "275px" : "350px"}>
                     <CardHeader>
                         <Text style={style.textTitre}>{card.titre}</Text>
                     </CardHeader>
-                    <CardBody>
+                    <CardBody alignSelf="center"  display="flex" flexDirection="column" justifyContent="center">
                         <Text style={style.text} fontSize={{base:"30px", "smd":"35px"}}>{card.texteContenu}</Text>
                     </CardBody>
                         <CardFooter>
