@@ -72,9 +72,9 @@ const AjouterArticle = () => {
         if (value === "article") {
             return (
                 <Box align='center' marginBottom='1%'>
-                    
+
                     <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
-                        
+
                         <GridItem colSpan={2}>
                             <FormLabel>Titre</FormLabel>
                             <Input id="titre" variant='flushed' placeholder="Titre" />
@@ -82,16 +82,16 @@ const AjouterArticle = () => {
 
                         <GridItem colSpan={2}>
                             <FormLabel>Sources</FormLabel>
-                            <Input id="source" variant='flushed' placeholder="Sources"/>
+                            <Input id="source" variant='flushed' placeholder="Sources" />
                         </GridItem>
 
                         <GridItem colSpan={2}>
                             <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
-                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md'/>
+                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' />
                         </GridItem>
 
                     </Grid>
-                    
+
                     {/*<GridItem colSpan={4}>
                             <FormLabel>Contenu</FormLabel>
                             <Textarea variant='outline' size='md' placeholder="Contenu"/>
@@ -148,6 +148,7 @@ const AjouterArticle = () => {
                 formulaires.push({ sousTitre: sousTitre, contenu: contenu, image: image });
             }
 
+<<<<<<< Updated upstream
            
             formData.append('titreActualite', ''+titre);
             formData.append('infosActualite', ''+JSON.stringify(formulaires));
@@ -156,6 +157,13 @@ const AjouterArticle = () => {
 
            
             handleUpdate(formData);
+=======
+
+            console.log(titre);
+            console.log(sources);
+            console.log(image);
+            console.log(formulaires);
+>>>>>>> Stashed changes
         }
         else {
             const titre = document.getElementById("titre").value;
