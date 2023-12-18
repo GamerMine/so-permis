@@ -1,22 +1,5 @@
-import {
-    Card,
-    CardBody, CardFooter,
-    CardHeader,
-    Grid,
-    Button,
-    Text,
-    Heading
-} from "@chakra-ui/react";
 import {useState} from "react";
-
-
-export class OCard {
-    constructor(titre, texteContenu, texteBouton) {
-        this.titre = titre;
-        this.texteContenu = texteContenu;
-        this.texteBouton = texteBouton;
-    }
-}
+import {MultiHorizontalCardsWithButton, OCard} from "./MultiHorizontalCardsWithButton";
 
 export const ListePermis = (args) => {
     const [cards, setCards] = useState(args.cards);
@@ -30,13 +13,7 @@ export const ListePermis = (args) => {
             boxShadow: "10px 10px 5px rgba(0, 0, 0, 0.5)",
         },
 
-        textTitre: {
-            textAlign: "center",
-            fontSize: "35px",
-            color: "white",
-            fontFamily: "Montserrat, sans-serif",
-            fontWeight:"bold"
-        },
+
         text: {
             textAlign: "center",
             fontSize: "35px",
@@ -57,33 +34,10 @@ export const ListePermis = (args) => {
     let cardsElements = [];
 
     args.cards.forEach((card, index) => {
-        cardsElements.push(
-
-                <Card align='center' style={style.card}>
-                    <CardHeader>
-                        <Heading  style={style.textTitre}>{card.titre}</Heading >
-                    </CardHeader>
-                    <CardBody>
-                        <Text style={style.text}>{card.texteContenu}</Text>
-                    </CardBody>
-                    <CardFooter>
-                        <Button style={style.bottomCard}>{card.texteBouton}</Button>
-                    </CardFooter>
-                </Card>
-        );
+        cardsElements.push(new OCard(card.titre, card.texteContenu, card.texteBouton, undefined, undefined, false, false))
     });
 
     return (
-        <Grid
-            style={args.style}
-            templateColumns={{
-                base: `repeat(1, 1fr)`,
-                md: `repeat(2, 1fr)`,
-                xl: `repeat(3, 1fr)`,}}
-            gap="90px"
-            alignSelf="center">
-
-            {cardsElements}
-        </Grid>
+        <MultiHorizontalCardsWithButton style={style.cardsServices} cards={cardsElements}/>
     );
 };
