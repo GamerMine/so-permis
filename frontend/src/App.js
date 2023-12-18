@@ -26,7 +26,7 @@ function App() {
 
     <ChakraProvider theme={customTheme}>
 
-        <Header />
+      <Header />
       <Router>
         <div className="container">
           <Routes>
@@ -40,15 +40,15 @@ function App() {
             <Route exact path="/Contact" element={<Contact />} />
             <Route exact path="/Connexion" element={<Connexion />} />
             <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
-            <Route exact path="/Newsletter" element={<Newsletter/>}/>
-            <Route exact path="/ExemplePageArticle" element={<ExemplePageArticle/>}/>
+            <Route exact path="/Newsletter" element={<Newsletter />} />
+            <Route exact path="/ExemplePageArticle" element={<ExemplePageArticle />} />
 
-              <Route exact path="/AjouterArticle" element={<AjouterArticle />} />
-              <Route exact path="/GestionArticles" element={<GestionArticles />} />
-              <Route exact path="/AjouterForfaits" element={<AjouterForfaits />} />
-              <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
-              <Route exact path="/CreationCompte" element={<CreationCompte/>}/>
-               <Route exact path="/PageAdmin" element={<PageAdmin/>}/>
+            <Route exact path="/AjouterArticle" element={<AjouterArticle />} />
+            <Route exact path="/GestionArticles" element={<GestionArticles />} />
+            <Route exact path="/AjouterForfaits" element={<AjouterForfaits />} />
+            <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
+            <Route exact path="/CreationCompte" element={<CreationCompte />} />
+            <Route exact path="/PageAdmin" element={<PageAdmin />} />
 
           </Routes>
         </div>
