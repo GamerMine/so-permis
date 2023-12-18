@@ -20,6 +20,7 @@ import { FormArticle } from "../components/FormArticle";
 import Cookies from 'js-cookie';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 /**
  * Page permettant d'ajouter un article ou de modifier un article
@@ -33,6 +34,14 @@ const AjouterArticle = () => {
             color: "white",
         }
     }
+
+    const handleDelete = async (item) => {
+        const formData = new FormData();
+
+        const response = await axios.post('http://localhost:8080/AjouterArticle', //TestConnexion
+        formData);
+        window.location.reload();
+      };
 
     const [tailleFormulaires, setTailleFormulaires] = useState(0);
 
@@ -140,6 +149,8 @@ const AjouterArticle = () => {
                 formulaires.push({ sousTitre: sousTitre, contenu: contenu, image: image });
             }
 
+            JSON.stringify(formulaires);
+            console.log(JSON.stringify(formulaires));
             
             console.log(titre);
             console.log(sources);
