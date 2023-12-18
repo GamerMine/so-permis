@@ -12,7 +12,7 @@ class Articles extends BaseController
             require (APPPATH . "Database/DB.inc.php");
             $retour = ' ';
             // Exécuter le script SQL avec la méthode $this->query()
-            $db = DB::getInstance();
+            $db = DB::getInstance(); 
             $retour = array();
             $articles = $db->getActualites();
             foreach ($articles as $row) 

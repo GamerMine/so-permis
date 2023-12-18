@@ -13,7 +13,7 @@ import {
     Button,
     Link,
     Center,
-    
+    Tooltip,
 } from "@chakra-ui/react";
 import { useState, useEffect } from 'react';
 import axios from "axios";
@@ -54,8 +54,6 @@ const GestionArticles = () => {
         setCurrentPage(pageNumber);
     };
 
-    let articles = [];
-
     const style = {
         bouton: {
             backgroundColor: "#1ec6b1",
@@ -63,11 +61,13 @@ const GestionArticles = () => {
         }
     }
 
-    currentItems.map((article, index) => {
+    let articles = [];
+
+    currentItems.forEach((article, index) => {
         articles.push(
             <Tr key={index}>
-                <Td>{article}</Td>
-                <Td>{article.source}</Td>
+                <Td>{article.titreActualite}</Td>
+                <Td>{article.sources}</Td>
                 <Td>
                     <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
                     <Button colorScheme="red" size="md">Supprimer</Button>
@@ -85,7 +85,9 @@ const GestionArticles = () => {
             </Heading>
 
             <div align='center'>
-                <Link href="/AjouterArticle"> <Button style={{ ...style.bouton }}>AJOUTER</Button></Link>
+                <Tooltip label="Ajouter un article" aria-label="Ajouter un article">
+                    <Link href="/AjouterArticle"> <Button style={{ ...style.bouton }}>AJOUTER</Button></Link>
+                </Tooltip>
             </div>
 
             <Card marginTop='2%'>

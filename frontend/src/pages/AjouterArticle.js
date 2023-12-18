@@ -14,6 +14,7 @@ import {
     Radio,
     Stack,
     Checkbox,
+    FormControl,
 } from "@chakra-ui/react";
 import { FormArticle } from "../components/FormArticle";
 
@@ -46,7 +47,9 @@ const AjouterArticle = () => {
         if (value === "article") {
             return (
                 <Box align='center' marginBottom='1%'>
+                    
                     <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
+                        
                         <GridItem colSpan={2}>
                             <FormLabel>Titre</FormLabel>
                             <Input id="titre" variant='flushed' placeholder="Titre" />
@@ -54,16 +57,16 @@ const AjouterArticle = () => {
 
                         <GridItem colSpan={2}>
                             <FormLabel>Sources</FormLabel>
-                            <Input id="source" variant='flushed' placeholder="Sources" />
+                            <Input id="source" variant='flushed' placeholder="Sources"/>
                         </GridItem>
 
                         <GridItem colSpan={2}>
                             <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
-                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' />
+                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md'/>
                         </GridItem>
 
                     </Grid>
-
+                    
                     {/*<GridItem colSpan={4}>
                             <FormLabel>Contenu</FormLabel>
                             <Textarea variant='outline' size='md' placeholder="Contenu"/>
@@ -128,6 +131,9 @@ const AjouterArticle = () => {
         else {
             const titre = document.getElementById("titre").value;
             const source = document.getElementById("source").value;
+
+            console.log(titre);
+            console.log(source);
         }
 
         const newsletter = document.getElementById("newsletter").checked;

@@ -7,7 +7,6 @@ import {
     Text,
     Heading
 } from "@chakra-ui/react";
-import {useState} from "react";
 
 
 export class OCard {
@@ -18,13 +17,11 @@ export class OCard {
 }
 
 export const ListeCode = (args) => {
-    const [cards, setCards] = useState(args.cards);
+    const isSmallDevice = window.matchMedia("(max-width: 449px").matches;
 
     const style = {
         card: {
             backgroundColor: "rgba(30,198,177,0.79)",
-            height: args.hauteur,
-            width: args.largeur,
             borderRadius: "50px 10px 50px 10px",
             boxShadow: "10px 10px 5px rgba(0, 0, 0, 0.5)",
         },
@@ -55,10 +52,11 @@ export const ListeCode = (args) => {
 
     let cardsElements = [];
 
-    args.cards.forEach((card, index) => {
+    args.cards.forEach((card) => {
         cardsElements.push(
 
-                <Card align='center' justify='center' style={style.card}>
+                <Card align='center' justify='center' height={isSmallDevice ? "350px" : "450px"}
+                      width={isSmallDevice ? "275px" : "350px"} style={style.card}>
                     <CardHeader>
                         <Heading  style={style.textTitre}>{card.titre}</Heading >
                     </CardHeader>
