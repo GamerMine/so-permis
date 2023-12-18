@@ -42,18 +42,17 @@ function App() {
             <Route exact path="/Permis" element={<Permis />} />
             <Route exact path="/Contact" element={<Contact />} />
             <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
-            <Route exact path="/Newsletter" element={<Newsletter/>}/>
-            <Route exact path="/ExemplePageArticle" element={<ExemplePageArticle/>}/>
-            {/* </Routes>*/}
-            {/*          <Connexion>
-            <Routes>*/}
-              <Route exact path="/Connexion" element={<Connexion />} />
-              <Route exact path="/AjouterArticle" element={<AjouterArticle />} />
-              <Route exact path="/GestionArticles" element={<GestionArticles />} />
-              <Route exact path="/AjouterForfaits" element={<AjouterForfaits />} />
-              <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
-              <Route exact path="/CreationCompte" element={<CreationCompte/>}/>
-              <Route exact path="/PageAdmin" element={<PageAdmin/>}/>
+            <Route exact path="/Newsletter" element={<Newsletter />} />
+            <Route exact path="/ExemplePageArticle" element={<ExemplePageArticle />} />
+
+            <Route exact path="/Connexion" element={<Connexion />} />
+            <Route exact path="/AjouterArticle" element={<AjouterArticle />} />
+            <Route exact path="/GestionArticles" element={<GestionArticles />} />
+            <Route exact path="/AjouterForfaits" element={<AjouterForfaits />} />
+            <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
+            <Route exact path="/CreationCompte" element={<CreationCompte />} />
+            <Route exact path="/PageAdmin" element={<PageAdmin />} />
+
           </Routes>
         <Footer />
         </div>
