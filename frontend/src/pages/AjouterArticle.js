@@ -20,7 +20,6 @@ import { FormArticle } from "../components/FormArticle";
 import Cookies from 'js-cookie';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
 
 /**
  * Page permettant d'ajouter un article ou de modifier un article
