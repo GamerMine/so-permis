@@ -203,9 +203,9 @@ class DB {
            $requete = 'SELECT * FROM NEWSLETTER';
            return $this->execQuery($requete, null, 'NEWSLETTER');
        }
-       public function insertNewsletter($email,$nom, $prenom) {
-            $requete = 'insert into NEWSLETTER (email,nom, prenom, guid, actif) values(?,?,?)';
-            $tparam = array($email, $nom, $prenom);
+       public function insertNewsletter($email,$nom, $prenom, $guid, $actif) {
+            $requete = 'insert into NEWSLETTER (email,nom, prenom, guid, actif) values(?,?,?,?,?)';
+            $tparam = array($email, $nom, $prenom, $guid, $actif);
             return $this->execMaj($requete,$tparam);
        }
 
