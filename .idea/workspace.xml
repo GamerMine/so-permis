@@ -5,17 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ad6ac9e-3666-40ed-bb2b-6901873e2a6c" name="Changes" comment="reponsive header et smartphone">
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/PageAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/so-permis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/so-permis.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Connexion.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Connexion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/backend/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -37,6 +48,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "responsive",
     "last_opened_file_path": "/home/etudiant/gc211206/TP/s5/s5.01_developpement_avance/so-permis/frontend/public/images",
     "node.js.detected.package.eslint": "true",
@@ -88,6 +100,7 @@
       <workItem from="1702473944012" duration="2473000" />
       <workItem from="1702481389610" duration="3996000" />
       <workItem from="1702543605586" duration="14789000" />
+      <workItem from="1702901897085" duration="6389000" />
     </task>
     <task id="LOCAL-00003" summary="card flip se retourne en survolant ajout de la méthode click">
       <option name="closed" value="true" />
@@ -174,7 +187,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/components/MultiHorizontalCardsWithButton.js</url>
-          <line>115</line>
+          <line>138</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
