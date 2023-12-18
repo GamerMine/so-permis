@@ -23,7 +23,8 @@ const GestionArticles = () => {
     const [listItems, setListItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
-
+    const [articles, setArticles] = useState([]);
+    
     useEffect(() => {
         const fetchData = async () => {
             await refreshPage();
@@ -35,7 +36,20 @@ const GestionArticles = () => {
     const refreshPage = async () => {
         try {
             const response = await axios.get('http://localhost:8080/getArticles');
-            setListItems(response.data);
+
+            const retrievedArticles = response.data.map(item => (
+                {
+                    id: item.idActualite,
+                    titre: item.titreActualite,
+                    infos: item.infosActualite,
+                    imgUrl: item.imgUrl,
+                    sources: item.sources,
+                }
+            ));
+
+            setArticles(retrievedArticles);
+            console.log(articles);
+            setListItems(articles);
         }
         catch (error) {
             console.error('Erreur lors de la récupération des données :', error);
@@ -61,12 +75,12 @@ const GestionArticles = () => {
         }
     }
 
-    let articles = [];
+    
 
-    currentItems.forEach((article, index) => {
+    currentItems.map((article, index) => {
         articles.push(
             <Tr key={index}>
-                <Td>{article.titreActualite}</Td>
+                <Td>{article.titre}</Td>
                 <Td>{article.sources}</Td>
                 <Td>
                     <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
@@ -123,6 +137,40 @@ const GestionArticles = () => {
             </Card>
         </Box>
     );
+}
+
+class Articles {
+    constructor(idActualite, titreActualite, infosActualite, imgUrl, sources) {
+        this.idActualite = idActualite;
+        this.titreActualite = titreActualite;
+        this.infosActualite = infosActualite;
+        this.imgUrl = imgUrl;
+        this.sources = sources;
+    }
+
+    getIdActualite() {
+        return this.idActualite;
+    }
+
+    getTitreActualite() {
+        return this.titreActualite;
+    }
+
+    getInfosActualite() {
+        return this.infosActualite;
+    }
+
+    getImgUrl() {
+        return this.imgUrl;
+    }
+
+    getSources() {
+        return this.sources;
+    }
+
+    toString() {
+        return this.idActualite + " " + this.titreActualite + " " + this.infosActualite + " " + this.imgUrl + " " + this.sources;
+    }
 }
 
 export default GestionArticles;
