@@ -4,8 +4,7 @@ import {FaBars} from 'react-icons/fa'
 import {useLocation} from "react-router-dom";
 
 const Header = () => {
-
-    const normalHeaderLocations = ["/Connexion", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle"]
+    const normalHeaderLocations = ["/Connexion", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/:articleId" , "/PageAdmin"]
     const location = useLocation();
     const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
 
@@ -81,10 +80,13 @@ const Header = () => {
                                           justifyContent={{"sd": "center", md: "end"}}
                                           display={{"sd": "grid", lg: "flex", base: "grid"}}
                                           gridTemplateColumns={{"sd": "repeat(3,1fr)"}}>
+                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/PageAdmin">DASHBOARD</a></GridItem>
+
                                         <GridItem><a style={{...style.gridElement, ...style.navLinkBig}}
                                                      href="/GestionForfaits">FORFAIT</a></GridItem>
                                         <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="#">NEWSLETTER</a></GridItem>
                                         <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/GestionArticles">ARTICLES</a></GridItem>
+                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/Deconnexion">DECONNEXION</a></GridItem>
                                     </Grid>
                                 </div>
                             </nav>
@@ -122,6 +124,11 @@ const Header = () => {
                                         <a style={style.navLinkSmall} href="/GestionArticles">
                                             <MenuItem>
                                                 ARTICLES
+                                            </MenuItem>
+                                        </a>
+                                        <a style={style.navLinkSmall} href="/Deconnexion">
+                                            <MenuItem>
+                                                DECONNEXION
                                             </MenuItem>
                                         </a>
                                     </MenuList>

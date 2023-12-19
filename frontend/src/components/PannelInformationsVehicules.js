@@ -12,7 +12,7 @@ import {
 const PannelInformationsVehicules =()=>{
     const style ={
         body:{
-            padding: "15px",
+            padding: "80px",
         },
 
         title:{
@@ -67,21 +67,13 @@ const PannelInformationsVehicules =()=>{
     return (
         <Stack style={style.body}>
             <Text style={style.title} textAlign={{base:"center", "sd":"left"}}>Nos véhicules chez So'Permis </Text>
-            <Grid templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(1, 1fr)`, xl: `repeat(2, 1fr)`,}} gap="25px" alignItems="center">
-                <Card marginLeft="auto" style={style.miniBox} marginRight={{base:"auto" , xl:"50px"}}  width={{base:"275px", "sd":"450px"}}>
-                    <CardBody>
-                        <Image style={style.imageVoiture} src='./images/Peugeot-208.png' alt='Peugeot-208' borderRadius='lg'/>
-                        <Text style={style.textVoiture}>Peugeot 208</Text>
-                        <Text style={style.textInfoVoiture}>Boîte Manuelle</Text>
-                        <Text style={style.textBox}>Pratique et facile à manier, cette voiture t’accompagnera pour ton permis B</Text>
-                    </CardBody>
-                </Card>
+            <Grid templateColumns="repeat(1, 1fr)" gap="25px" alignSelf="center">
                 <Card marginRight="auto"  style={style.miniBox} marginLeft={{base:"auto" , xl:"50px"}} width={{base:"275px", "sd":"450px"}} >
                     <CardBody>
-                        <Image style={style.imageVoiture} src='./images/Peugeot-5008.png' alt='Peugeot-5008' borderRadius='lg'/>
-                        <Text style={style.textVoiture}>Peugeot 5008</Text>
-                        <Text style={style.textInfoVoiture}>Boîte Automatique</Text>
-                        <Text style={style.textBox}>Bien équipé et confortable, cette voiture t’accompagnera pour ton Permis B Automatique</Text>
+                        <Image style={style.imageVoiture} src='./images/Citroen-C3.png' alt='Citroen-C3' borderRadius='lg'/>
+                        <Text style={style.textVoiture}>Citroën C3</Text>
+                        <Text style={style.textInfoVoiture}>Boîte Manuelle</Text>
+                        <Text style={style.textBox}>Bien équipé et confortable, cette voiture t’accompagnera pour ton Permis B</Text>
                     </CardBody>
                 </Card>
             </Grid>
