@@ -28,7 +28,7 @@ const Home = () => {
         },
     }
 
-    const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
+    //const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
 
     return (
         <Stack style={{gap: 0}} >
