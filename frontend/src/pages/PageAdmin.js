@@ -56,8 +56,6 @@ const PageAdmin = () => {
                         new OCard("", "AJOUTER UN FORFAIT", "Ajouter un Forfait ","conduite", "/AjouterForfaits"),
                         new OCard("", "GESTION DES FORFAITS", "Nos forfaits code","code", "/GestionForfaits"),
                         new OCard("", "CREATION D'UN COMPTE ", "Création d'un Compte","code", "/CreationCompte"),
-
-
                     ]} />
 
             </Stack>

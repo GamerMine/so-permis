@@ -5,7 +5,7 @@ import {useLocation} from "react-router-dom";
 
 const Header = () => {
 
-    const normalHeaderLocations = ["/Connexion", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle"]
+    const normalHeaderLocations = ["/Connexion", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle", "/PageAdmin"]
     const location = useLocation();
     const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
 
@@ -81,6 +81,8 @@ const Header = () => {
                                           justifyContent={{"sd": "center", md: "end"}}
                                           display={{"sd": "grid", lg: "flex", base: "grid"}}
                                           gridTemplateColumns={{"sd": "repeat(3,1fr)"}}>
+                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/PageAdmin">DASHBOARD</a></GridItem>
+
                                         <GridItem><a style={{...style.gridElement, ...style.navLinkBig}}
                                                      href="/GestionForfaits">FORFAIT</a></GridItem>
                                         <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="#">NEWSLETTER</a></GridItem>
