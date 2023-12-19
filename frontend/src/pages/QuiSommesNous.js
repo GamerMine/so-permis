@@ -19,7 +19,7 @@ const QuiSommesNous = () => {
             backgroundImage: "url('./images/VueHavre.jpg')", 
             backgroundRepeat: "no-repeat", 
             backgroundSize: "cover", 
-            minHeight: "600px",
+            minHeight: "700px",
             marginBottom: "-28px"
         },
         para: {
@@ -56,10 +56,8 @@ const QuiSommesNous = () => {
         },
 
         card: {
-            marginTop: "3%",
+            marginTop: "150px",
             backgroundColor: "rgba(30,198,177,0.79)",
-            height: "450px",
-            width: "350px",
             borderRadius: "50px 10px 50px 10px",
             boxShadow: "10px 10px 5px rgba(0, 0, 0, 0.5)",
         },
@@ -91,7 +89,7 @@ const QuiSommesNous = () => {
     return (
         <Stack>
             <div align="center" style={{ ...style.imgFond }}>
-                <Card align='center' justify='center' style={style.card}>
+                <Card align='center' justify='center' style={style.card} height={{base:"350px" , "smdp":"450px"}} width={{base:"275px" , "smdp":"350px"}}>
                     <CardHeader>
                         <Heading style={{ ...style.textTitre }}></Heading >
                     </CardHeader>
