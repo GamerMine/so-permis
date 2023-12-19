@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS ADMINISTRATEUR
     idAdmin SERIAL Primary Key NOT NULL,
     email varchar(30) NOT NULL,
     password varchar(120) NOT NULL,
-    id_unique varchar(250) NOT NULL
+    id_unique varchar(250)
 );
 
 CREATE TABLE IF NOT EXISTS NEWSLETTER 

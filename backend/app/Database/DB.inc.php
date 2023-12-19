@@ -213,6 +213,12 @@ class DB
           $tparam = array($id);
           return $this->execMaj($requete, $tparam);
      }
+     public function updateAdministrateur($id,$email, $password, $id_unique)
+     {
+          $requete = 'update Administrateur set email = ?, password =?, id_unique = ? where idAdmin = ?';
+          $tparam = array($email,$password, $id_unique, $id);
+          return $this->execMaj($requete, $tparam);
+     }
 
 
      //Newsletter
