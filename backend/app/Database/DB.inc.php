@@ -149,7 +149,7 @@ class DB
 
      public function updateActualite($id, $titre, $infos, $image, $sources)
      {
-          $requete = 'update ACTUALITE set titre = ?, infos =?, image = ?, sources = ? where idActualite = ?';
+          $requete = 'update ACTUALITE set titreactualite = ?, infosactualite =?, imageURL = ?, sources = ? where idActualite = ?';
           $tparam = array($titre,$infos, $image, $sources, $id);
           return $this->execMaj($requete, $tparam);
      }

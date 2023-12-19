@@ -53,9 +53,10 @@ const GestionArticles = () => {
         const formData = new FormData();
         console.log(item);
         formData.append('idactualite', item);
-        const response = await axios.post('http://localhost:8080/UpdateArticle',
-            formData);
-        ;
+        //const response = await axios.post('http://localhost:8080/ModifierArticle', formData);
+        
+        //window.location.replace("/ModifierArticle");
+        navigate(`/ModifierArticle/${item}`);
     };
 
     useEffect(() => {
