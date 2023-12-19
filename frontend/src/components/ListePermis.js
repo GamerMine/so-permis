@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Grid} from "@chakra-ui/react";
+import {Card, CardBody, CardFooter, CardHeader, Grid, Text} from "@chakra-ui/react";
 
 export class CardPermis {
 
@@ -55,6 +55,7 @@ export const ListePermis = (args) => {
     };
 
     let cardsElements = [];
+    const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
 
     args.cards.forEach((card) => {
         cardsElements.push(
