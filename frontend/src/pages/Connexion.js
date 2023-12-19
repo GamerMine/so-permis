@@ -3,10 +3,10 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 import { useNavigate  } from "react-router-dom";
 
-// const initialState = {
-//     isAuthenticated: false,
-//     user: null,
-// };
+const initialState = {
+    isAuthenticated: false,
+    user: null,
+};
 
 const Connexion = () => {
 
