@@ -34,7 +34,7 @@ const AjouterArticle = () => {
 
     const handleUpdate = async (formData) => {
         const response = await axios.post('http://localhost:8080/AjouterArticle', //TestConnexion
-        formData);
+            formData);
         window.location.replace("/GestionArticles");
     };
 
@@ -45,19 +45,17 @@ const AjouterArticle = () => {
     };
 
     let navigate = useNavigate();
-    
-    const verifConnexion = async () =>
-    {
-      const valeurDuCookie = Cookies.get('compte');
-      let formData = new FormData();
-      formData.append('compte', ''+valeurDuCookie);
-      const response = await axios.post('http://localhost:8080/EstAdmin',
-      formData);
-      if (response.data !== true)
-      {
-        navigate("/");
-      }
-      console.log(response.data);
+
+    const verifConnexion = async () => {
+        const valeurDuCookie = Cookies.get('compte');
+        let formData = new FormData();
+        formData.append('compte', '' + valeurDuCookie);
+        const response = await axios.post('http://localhost:8080/EstAdmin',
+            formData);
+        if (response.data != true) {
+            navigate("/");
+        }
+        console.log(response.data);
     }
 
     const [value, setValue] = React.useState("article")
@@ -147,13 +145,14 @@ const AjouterArticle = () => {
             }
 
 
-            formData.append('titreActualite', ''+titre);
-            formData.append('infosActualite', ''+JSON.stringify(formulaires));
-            formData.append('imageURL', ''+image);
-            formData.append('sources', ''+sources);
+            formData.append('titreActualite', '' + titre);
+            formData.append('infosActualite', '' + JSON.stringify(formulaires));
+            formData.append('imageURL', '' + image);
+            formData.append('sources', '' + sources);
 
-           
+
             handleUpdate(formData);
+
 
             console.log(titre);
             console.log(sources);
@@ -168,8 +167,8 @@ const AjouterArticle = () => {
 
         const newsletter = document.getElementById("newsletter").checked;
 
-       
-        
+
+
     }
 
     return (

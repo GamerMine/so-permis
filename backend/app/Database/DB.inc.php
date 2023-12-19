@@ -150,7 +150,7 @@ class DB
      public function updateActualite($id, $titre, $infos, $image, $sources)
      {
           $requete = 'update ACTUALITE set titre = ?, infos =?, image = ?, sources = ? where idActualite = ?';
-          $tparam = array($titre,$infos, $image, $sources, $id);
+          $tparam = array($titre, $infos, $image, $sources, $id);
           return $this->execMaj($requete, $tparam);
      }
      //Formations
@@ -183,7 +183,7 @@ class DB
      public function updateFormation($id, $prix, $nom, $infos, $type_f)
      {
           $requete = 'update Formation set prix = ?, nom =?, infos = ?, type_f = ? where idFormation = ?';
-          $tparam = array($prix,$nom, $infos, $type_f, $id);
+          $tparam = array($prix, $nom, $infos, $type_f, $id);
           return $this->execMaj($requete, $tparam);
      }
 
@@ -213,33 +213,48 @@ class DB
           $tparam = array($id);
           return $this->execMaj($requete, $tparam);
      }
-     public function updateAdministrateur($id,$email, $password, $id_unique)
+     public function updateAdministrateur($id, $email, $password, $id_unique)
      {
           $requete = 'update Administrateur set email = ?, password =?, id_unique = ? where idAdmin = ?';
-          $tparam = array($email,$password, $id_unique, $id);
+          $tparam = array($email, $password, $id_unique, $id);
           return $this->execMaj($requete, $tparam);
      }
 
-     public function disconnect($id_unique) {
-         $requete = 'update ADMINISTRATEUR set id_unique = null where id_unique = ?';
-         $tparam = array($id_unique);
-         return $this->execMaj($requete, $tparam);
+     public function disconnect($id_unique)
+     {
+          $requete = 'update ADMINISTRATEUR set id_unique = null where id_unique = ?';
+          $tparam = array($id_unique);
+          return $this->execMaj($requete, $tparam);
      }
 
 
      //Newsletter
+
+     public function getNewslettersEmail($email)
+     {
+          $requete = 'SELECT * FROM NEWSLETTER where email = ?';
+          return $this->execQuery($requete, array($email), 'NEWSLETTER');
+     }
 
      public function getNewsletters()
      {
           $requete = 'SELECT * FROM NEWSLETTER';
           return $this->execQuery($requete, null, 'NEWSLETTER');
      }
-     public function insertNewsletter($email, $nom, $prenom)
+     public function insertNewsletter($email, $actif)
      {
-          $requete = 'insert into NEWSLETTER (email,nom, prenom, guid, actif) values(?,?,?)';
-          $tparam = array($email, $nom, $prenom);
+          $requete = 'INSERT into NEWSLETTER (email,actif) values(?,?)';
+          $tparam = array($email, $actif);
           return $this->execMaj($requete, $tparam);
      }
+     /*
+     public function insertNewsletteremail($email)
+     {
+          $requete = 'insert into NEWSLETTER (email) values(?)';
+          $tparam = array($email);
+          return $this->execMaj($requete, $tparam);
+     }
+     */
 
 
 
@@ -253,6 +268,23 @@ class DB
      {
           $requete = 'delete from NEWSLETTER where idnewsletter = ?';
           $tparam = array($id);
+          return $this->execMaj($requete, $tparam);
+     }
+
+
+
+
+     public function updateAdrClient($idcli, $adr)
+     {
+          $requete = 'update client set ville = ? where ncli = ?';
+          $tparam = array($adr, $idcli);
+          return $this->execMaj($requete, $tparam);
+     }
+
+     public function updatetoken($token, $mail)
+     {
+          $requete = 'update NEWSLETTER set guid = ? where email = ?';
+          $tparam = array($token, $mail);
           return $this->execMaj($requete, $tparam);
      }
 } //fin classe DB
