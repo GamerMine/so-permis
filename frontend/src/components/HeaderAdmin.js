@@ -1,12 +1,13 @@
 import * as React from 'react';
 import {Button, Grid, GridItem, Menu, MenuButton, MenuItem, MenuList, Stack, Text} from "@chakra-ui/react";
 import {FaBars} from 'react-icons/fa'
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
+import axios from "axios";
 
 const Header = () => {
-
-    const normalHeaderLocations = ["/Connexion", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle", "/PageAdmin"]
+    const normalHeaderLocations = ["/Connexion", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/:articleId" , "/PageAdmin"]
     const location = useLocation();
+    const navigate = useNavigate();
     const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
 
     const style = {
@@ -58,6 +59,11 @@ const Header = () => {
             backgroundColor: "#1EC6B1",
             height: "15px"
         }
+    }
+
+    async function requestDisconnect() {
+        await axios.get("http://localhost:8080/Deconnexion");
+        navigate("/");
     }
 
     if (normalHeaderLocations.includes(location.pathname)) {
@@ -127,7 +133,7 @@ const Header = () => {
                                                 ARTICLES
                                             </MenuItem>
                                         </a>
-                                        <a style={style.navLinkSmall} href="/Deconnexion">
+                                        <a style={style.navLinkSmall} href="#" onClick={requestDisconnect}>
                                             <MenuItem>
                                                 DECONNEXION
                                             </MenuItem>

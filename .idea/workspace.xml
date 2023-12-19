@@ -5,8 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ad6ac9e-3666-40ed-bb2b-6901873e2a6c" name="Changes" comment="reponsive header et smartphone">
+      <change afterPath="$PROJECT_DIR$/backend/app/Controllers/Contact.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/app/Controllers/MailGmail.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/writable/logs/log-2023-12-18.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/public/images/article .png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Newsletter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/PageAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/so-permis.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/so-permis.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/PageAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PageAdmin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Config/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Config/Email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Config/Routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Config/Routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controllers/Articles.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controllers/Articles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Controllers/Connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Controllers/Connexion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Database/Bado.sql" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Database/Bado.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Database/DB.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Database/DB.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Models/ADMINISTRATEUR.inc.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Models/ADMINISTRATEUR.inc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ConduiteAccompagnee.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ConduiteAccompagnee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/FormArticle.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/FormArticle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/ListePermis.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/ListePermis.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Map.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Map.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/MultiHorizontalCardsWithButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/MultiHorizontalCardsWithButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/PermisB.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/PermisB.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/AjouterArticle.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AjouterArticle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/AjouterForfait.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/AjouterForfait.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Connexion.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Connexion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/CreationCompte.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/CreationCompte.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/GestionArticles.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/GestionArticles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/GestionForfaits.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/GestionForfaits.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,21 +69,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging contact&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/etudiant/gc211206/TP/s5/s5.01_developpement_avance/so-permis/frontend/public/images&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "Merging contact",
+    "last_opened_file_path": "/home/etudiant/gc211206/TP/s5/s5.01_developpement_avance/so-permis/frontend/public/images",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/frontend/public/images" />
@@ -98,7 +127,6 @@
       <workItem from="1702543605586" duration="14789000" />
       <workItem from="1702901897085" duration="6389000" />
       <workItem from="1702910231869" duration="453000" />
-      <workItem from="1702974250976" duration="4872000" />
     </task>
     <task id="LOCAL-00003" summary="card flip se retourne en survolant ajout de la méthode click">
       <option name="closed" value="true" />

@@ -220,6 +220,12 @@ class DB
           return $this->execMaj($requete, $tparam);
      }
 
+     public function disconnect($id_unique) {
+         $requete = 'update ADMINISTRATEUR set id_unique = null where id_unique = ?';
+         $tparam = array($id_unique);
+         return $this->execMaj($requete, $tparam);
+     }
+
 
      //Newsletter
 
@@ -247,16 +253,6 @@ class DB
      {
           $requete = 'delete from NEWSLETTER where idnewsletter = ?';
           $tparam = array($id);
-          return $this->execMaj($requete, $tparam);
-     }
-
-
-
-
-     public function updateAdrClient($idcli, $adr)
-     {
-          $requete = 'update client set ville = ? where ncli = ?';
-          $tparam = array($adr, $idcli);
           return $this->execMaj($requete, $tparam);
      }
 } //fin classe DB
