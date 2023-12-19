@@ -71,8 +71,9 @@ const ListePermis = (args) => {
             let result =[];
             let tmp = response.data;
             for (let key of tmp)
-                result.push(<Card style={{...style.card}} height={isSmallDevice ? "350px" : "450px"} alignSelf="center" flexDirection="column" justifyContent="center" width={isSmallDevice ? "275px" : "350px"}>
-                    <CardHeader>
+                result.push(
+                    <Card style={{...style.card}} height={isSmallDevice ? "350px" : "450px"} alignSelf="center" flexDirection="column" justifyContent="center" width={isSmallDevice ? "275px" : "350px"}>
+                        <CardHeader>
                         <Text style={style.textTitre}>{key.nom}</Text>
                     </CardHeader>
                     <CardBody alignSelf="center"  display="flex" flexDirection="column" justifyContent="center">
