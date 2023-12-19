@@ -13,6 +13,7 @@ import {
     Radio,
     Stack,
     Checkbox,
+    Textarea,
 } from "@chakra-ui/react";
 import { FormArticle } from "../components/FormArticle";
 import Cookies from 'js-cookie';
@@ -33,8 +34,7 @@ const AjouterArticle = () => {
     }
 
     const handleUpdate = async (formData) => {
-        const response = await axios.post('http://localhost:8080/AjouterArticle', //TestConnexion
-            formData);
+        const response = await axios.post('http://localhost:8080/AjouterArticle', formData);
         window.location.replace("/GestionArticles");
     };
 
@@ -133,7 +133,6 @@ const AjouterArticle = () => {
             formData.append('imageURL', '' + image);
             formData.append('sources', '' + sources);
 
-
             handleUpdate(formData);
         }
         else {
@@ -143,9 +142,6 @@ const AjouterArticle = () => {
         }
 
         const newsletter = document.getElementById("newsletter").checked;
-
-
-
     }
 
     return (

@@ -76,10 +76,8 @@ const ModifierArticle = () => {
     }, [articleId]);
 
     const handleUpdate = async (formData) => {
-        console.log(formData);
         const response = await axios.post('http://localhost:8080/UpdateArticle', formData);
-        console.log(response.data);
-        //window.location.replace("/GestionArticles");
+        window.location.replace("/GestionArticles");
     };
 
     function handleInputChange(event) {

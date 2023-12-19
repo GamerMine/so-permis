@@ -129,7 +129,7 @@ class DB
 
      public function insertActualite($titre, $infos, $image, $sources)
      {
-          $requete = 'insert into ACTUALITE values(?,?,?,?)';
+          $requete = 'insert into ACTUALITE (titreActualite, infosActualite, imageURL, sources) values(?,?,?,?)';
           $tparam = array($titre, $infos, $image, $sources);
           return $this->execMaj($requete, $tparam);
      }
