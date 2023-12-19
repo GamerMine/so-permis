@@ -8,13 +8,11 @@ import {
     Link,
     FormLabel,
     Input,
-    Textarea,
     HStack,
     RadioGroup,
     Radio,
     Stack,
     Checkbox,
-    FormControl,
 } from "@chakra-ui/react";
 import { FormArticle } from "../components/FormArticle";
 import Cookies from 'js-cookie';
@@ -22,7 +20,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 /**
- * Page permettant d'ajouter un article ou de modifier un article
+ * Page permettant d'ajouter un article 
  * @returns code HTML
  */
 const AjouterArticle = () => {
@@ -154,6 +152,12 @@ const AjouterArticle = () => {
 
 
             handleUpdate(formData);
+
+
+            console.log(titre);
+            console.log(sources);
+            console.log(image);
+            console.log(formulaires);
         }
         else {
             const titre = document.getElementById("titre").value;
@@ -170,7 +174,7 @@ const AjouterArticle = () => {
     return (
         <Box>
             <Heading textAlign="center" marginTop='1%'>
-                Ajouter un article / Modifier un article
+                Ajouter un article
             </Heading>
 
             <Box align='center'>

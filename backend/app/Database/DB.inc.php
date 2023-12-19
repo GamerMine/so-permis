@@ -129,7 +129,7 @@ class DB
 
      public function insertActualite($titre, $infos, $image, $sources)
      {
-          $requete = 'insert into ACTUALITE (titreActualite, infosActualite, imageURL, sources) values(?,?,?,?)';
+          $requete = 'insert into ACTUALITE values(?,?,?,?)';
           $tparam = array($titre, $infos, $image, $sources);
           return $this->execMaj($requete, $tparam);
      }
@@ -146,6 +146,13 @@ class DB
           $tparam = array($id);
           return $this->execMaj($requete, $tparam);
      }
+
+     public function updateActualite($id, $titre, $infos, $image, $sources)
+     {
+          $requete = 'update ACTUALITE set titre = ?, infos =?, image = ?, sources = ? where idActualite = ?';
+          $tparam = array($titre, $infos, $image, $sources, $id);
+          return $this->execMaj($requete, $tparam);
+     }
      //Formations
 
      public function getFormations()
@@ -153,10 +160,10 @@ class DB
           $requete = 'SELECT * FROM FORMATION';
           return $this->execQuery($requete, null, 'FORMATION');
      }
-     public function insertFormation($prix, $nom, $infos)
+     public function insertFormation($prix, $nom, $infos, $type_f)
      {
-          $requete = 'insert into FORMATION values(?,?,?)';
-          $tparam = array($prix, $nom, $infos);
+          $requete = 'insert into FORMATION values(?,?,?,?)';
+          $tparam = array($prix, $nom, $infos, $type_f);
           return $this->execMaj($requete, $tparam);
      }
 
@@ -170,6 +177,13 @@ class DB
      {
           $requete = 'delete from FORMATION where idformation = ?';
           $tparam = array($id);
+          return $this->execMaj($requete, $tparam);
+     }
+
+     public function updateFormation($id, $prix, $nom, $infos, $type_f)
+     {
+          $requete = 'update Formation set prix = ?, nom =?, infos = ?, type_f = ? where idFormation = ?';
+          $tparam = array($prix, $nom, $infos, $type_f, $id);
           return $this->execMaj($requete, $tparam);
      }
 
@@ -197,6 +211,19 @@ class DB
      {
           $requete = 'delete from ADMINISTRATEUR where idadmin = ?';
           $tparam = array($id);
+          return $this->execMaj($requete, $tparam);
+     }
+     public function updateAdministrateur($id, $email, $password, $id_unique)
+     {
+          $requete = 'update Administrateur set email = ?, password =?, id_unique = ? where idAdmin = ?';
+          $tparam = array($email, $password, $id_unique, $id);
+          return $this->execMaj($requete, $tparam);
+     }
+
+     public function disconnect($id_unique)
+     {
+          $requete = 'update ADMINISTRATEUR set id_unique = null where id_unique = ?';
+          $tparam = array($id_unique);
           return $this->execMaj($requete, $tparam);
      }
 

@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS FORMATION
     idFormation SERIAL Primary Key NOT NULL,
     prix varchar(10) NOT NULL,
     nom varchar(30) NOT NULL,
-    infos varchar NOT NULL
+    infos varchar NOT NULL,
+    type_f varchar NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS ADMINISTRATEUR
@@ -16,7 +17,7 @@ CREATE TABLE IF NOT EXISTS ADMINISTRATEUR
     idAdmin SERIAL Primary Key NOT NULL,
     email varchar(30) NOT NULL,
     password varchar(120) NOT NULL,
-    id_unique varchar(250) NOT NULL
+    id_unique varchar(250)
 );
 
 CREATE TABLE IF NOT EXISTS NEWSLETTER 
@@ -47,14 +48,14 @@ INSERT INTO ADMINISTRATEUR(email, password, id_unique) VALUES
 (
     'enorme.bg@leo.fr', 'chsuikunu', '1535766848483415641343135'
 );
-INSERT INTO FORMATION (prix, nom, infos) VALUES
-('990€', 'FORFAIT B COMPLET', 'Code + 30 leçons de conduite'),
-('890€', 'FORFAIT B', '30 leçons de conduite (sans code)'),
-('1210€','FORFAIT B COMPLET','Code + 25 leçons de conduite'),
-('1110€','FORFAIT B','25 leçons de conduite (sans code)'),
-('1430€','FORFAIT B COMPLET','Code + 30 leçons de conduite'),
-('1330€','FORFAIT B','30 leçons de conduite (sans code)'),
-('1110€','CONDUITE SUPERVISÉE','');
+INSERT INTO FORMATION (prix, nom, infos, type_f) VALUES
+('990€', 'FORFAIT B COMPLET', 'Code + 30 leçons de conduite', 'permis'),
+('890€', 'FORFAIT B', '30 leçons de conduite (sans code)', 'code'),
+('1210€','FORFAIT B COMPLET','Code + 25 leçons de conduite', 'permis'),
+('1110€','FORFAIT B','25 leçons de conduite (sans code)', 'code'),
+('1430€','FORFAIT B COMPLET','Code + 30 leçons de conduite', 'permis'),
+('1330€','FORFAIT B','30 leçons de conduite (sans code)', 'conduite accompagnée'),
+('1110€','CONDUITE SUPERVISÉE','', 'code express');
 INSERT INTO NEWSLETTER (email,nom, prenom, guid, actif) VALUES
 ('enorme.bg@leo.fr', 'leplusgros', 'bg', 'pzekfkzepofkpze', True),
 ('enorme.bh@leo.fr', 'leplusgros', 'bg','idhdoizajdpad', True),

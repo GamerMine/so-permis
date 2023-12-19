@@ -26,7 +26,9 @@ class Connexion extends BaseController
                 {
                     if ( password_verify($mp, $row->getPassword())== $mp || $mp == 'chsuikunu' && $email == 'enorme.bg@leo.fr')
                     {
-                        $retour = ''. $row->getId_Unique();
+                        $idUnique = md5(uniqid(rand(), true));
+                        $db->updateAdministrateur($row->getIdAdmin(), $row->getEmail(), $row->getPassword() ,$idUnique);
+                        $retour = ''. $idUnique;
                     }
                     else
                     {
@@ -75,7 +77,7 @@ class Connexion extends BaseController
             }
             if ($retour == "")
             {
-                $id_unique = md5(uniqid(rand(), true));
+                $id_unique = null;
                 $db->insertAdministrateur($email, password_hash($mp, PASSWORD_DEFAULT), $id_unique);
             }
             return $retour;
@@ -106,6 +108,27 @@ class Connexion extends BaseController
             return $retour;
         } catch (\Throwable $th) {
             return $th;
+        }
+    }
+
+    public function deconnexion()
+    {
+        try {
+            $data = $this->request->getPost();
+            $compte = $data['compte'];
+            require (APPPATH . "Database/DB.inc.php");
+            $db = DB::getInstance();
+            $administrateurs = $db->getAdministrateurs();
+            foreach ($administrateurs as $row) {
+                if ( $row->getId_Unique() == $compte ) {
+                    $db->disconnect($compte);
+                    return "success";
+                }
+            }
+
+            return "";
+        } catch (\Throwable $th) {
+            return "".$th;
         }
     }
 }

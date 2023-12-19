@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Connexion from "./pages/Connexion";
 import AjouterForfaits from "./pages/AjouterForfait";
 import GestionForfaits from "./pages/GestionForfaits";
@@ -21,13 +21,16 @@ import Newsletter from './pages/Newsletter.js';
 import CreationCompte from './pages/CreationCompte.js'
 import ExemplePageArticle from './pages/ExemplePageArticle';
 import PageAdmin from './pages/PageAdmin';
+import HeaderAdmin from "./components/HeaderAdmin";
+
 function App() {
+
   return (
 
     <ChakraProvider theme={customTheme}>
-
-      <Header />
       <Router>
+        <Header/>
+        <HeaderAdmin/>
         <div className="container">
           <Routes>
             <Route exact path="/" element={<Home />} />
@@ -38,11 +41,11 @@ function App() {
             <Route exact path="/Cookies" element={<Cookies />} />
             <Route exact path="/Permis" element={<Permis />} />
             <Route exact path="/Contact" element={<Contact />} />
-            <Route exact path="/Connexion" element={<Connexion />} />
             <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
             <Route exact path="/Newsletter" element={<Newsletter />} />
             <Route exact path="/ExemplePageArticle" element={<ExemplePageArticle />} />
 
+            <Route exact path="/Connexion" element={<Connexion />} />
             <Route exact path="/AjouterArticle" element={<AjouterArticle />} />
             <Route exact path="/GestionArticles" element={<GestionArticles />} />
             <Route exact path="/AjouterForfaits" element={<AjouterForfaits />} />
@@ -51,11 +54,10 @@ function App() {
             <Route exact path="/PageAdmin" element={<PageAdmin />} />
 
           </Routes>
+        <Footer />
         </div>
 
       </Router>
-
-      <Footer />
     </ChakraProvider>
 
 

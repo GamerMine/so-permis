@@ -13,7 +13,8 @@ import {BsPersonVcard} from "react-icons/bs";
 const DocumentsInformations = (arg) => {
     const style = {
         body: {
-            padding: "20px",
+            paddingTop: "20px",
+            paddingBottom: "20px",
             backgroundColor: "#0F1411",
         },
         transitionFadeTop:{
