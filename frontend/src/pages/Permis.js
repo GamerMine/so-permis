@@ -9,23 +9,6 @@ import ConduiteAccompagnee from "../components/ConduiteAccompagnee";
 import PermisB from "../components/PermisB"
 
 const Permis = () => {
-    let result =[];
-    const [listePermis, setListePermis] = useState([])
-    useEffect(() => {
-        getListePermis();
-    },[])
-
-
-    const getListePermis = async() => {
-        const response = await axios.get('http://localhost:8080/getListePermis');
-            result =[];
-            let tmp = response.data;
-            if(response.data.length !=782)
-            for (let key of tmp)
-                result.push(new OCard(key.nom, key.info, key.prix));
-
-            setListePermis(result);
-    }
 
     const style = {
         cardsServices: {
@@ -90,7 +73,7 @@ const Permis = () => {
             <Stack style={{backgroundImage: "url('./images/route.jpg')",backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
                 <div style={style.transitionFadeBot}/>
 
-                <ListePermis style={style.cardsServices} cards={listePermis} hauteur={"450px"} largeur={"350px"}/>
+                <ListePermis style={style.cardsServices} hauteur={"450px"} largeur={"350px"}/>
                 <div style={style.transitionFadeTop}/>
 
             </Stack>
