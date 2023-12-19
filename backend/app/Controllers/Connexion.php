@@ -108,4 +108,25 @@ class Connexion extends BaseController
             return $th;
         }
     }
+
+    public function deconnexion()
+    {
+        try {
+            $data = $this->request->getPost();
+            $compte = $data['compte'];
+            require (APPPATH . "Database/DB.inc.php");
+            $db = DB::getInstance();
+            $administrateurs = $db->getAdministrateurs();
+            foreach ($administrateurs as $row) {
+                if ($row->getId_Unique() == $compte) {
+                    $db->disconnect($compte);
+                    return "success";
+                }
+            }
+
+            return "success";
+        } catch (\Throwable $th) {
+            return $th;
+        }
+    }
 }

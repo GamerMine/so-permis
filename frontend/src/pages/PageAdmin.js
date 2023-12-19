@@ -53,11 +53,11 @@ const PageAdmin = () => {
 
                 <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                     [
-                        new OCard("", "AJOUTER UN ARTICLE", "Ajouter un article","redaction", "/AjouterArticle"),
-                        new OCard("", "GESTION DES ARTICLES", "Gestion des Articles","code", "/GestionArticles"),
-                        new OCard("", "AJOUTER UN FORFAIT", "Ajouter un Forfait ","conduite", "/AjouterForfaits"),
-                        new OCard("", "GESTION DES FORFAITS", "Nos forfaits ","code", "/GestionForfaits"),
-                        new OCard("", "CREATION D'UN COMPTE ", "Création d'un Compte","code", "/CreationCompte"),
+                        new OCard("", "AJOUTER UN ARTICLE", "Ajouter un article","", "/AjouterArticle"),
+                        new OCard("", "GESTION DES ARTICLES", "Gestion des Articles","", "/GestionArticles"),
+                        new OCard("", "AJOUTER UN FORFAIT", "Ajouter un Forfait ","", "/AjouterForfaits"),
+                        new OCard("", "GESTION DES FORFAITS", "Nos forfaits code","", "/GestionForfaits"),
+                        new OCard("", "CREATION D'UN COMPTE ", "Création d'un Compte","", "/CreationCompte"),
                     ]} />
 
             </Stack>
