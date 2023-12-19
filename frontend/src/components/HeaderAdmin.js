@@ -87,6 +87,7 @@ const Header = () => {
                                                      href="/GestionForfaits">FORFAIT</a></GridItem>
                                         <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="#">NEWSLETTER</a></GridItem>
                                         <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/GestionArticles">ARTICLES</a></GridItem>
+                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/Deconnexion">DECONNEXION</a></GridItem>
                                     </Grid>
                                 </div>
                             </nav>
@@ -124,6 +125,11 @@ const Header = () => {
                                         <a style={style.navLinkSmall} href="/GestionArticles">
                                             <MenuItem>
                                                 ARTICLES
+                                            </MenuItem>
+                                        </a>
+                                        <a style={style.navLinkSmall} href="/Deconnexion">
+                                            <MenuItem>
+                                                DECONNEXION
                                             </MenuItem>
                                         </a>
                                     </MenuList>
