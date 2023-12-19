@@ -70,6 +70,10 @@ const Header = () => {
         navigate("/");
     }
 
+    const naviguerToHome = () => {
+        navigate('/PageAdmin');
+    }
+
     if (normalHeaderLocations.includes(location.pathname)) {
         return (
             <header>
@@ -81,7 +85,8 @@ const Header = () => {
                                 <Stack>
                                     <img style={style.imgLogo}
                                            src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"
-                                           alt={"logo So'Permis"}/>
+                                           alt={"logo So'Permis"}
+                                           onClick={naviguerToHome}/>
                                     <Text style={{color: "white", fontFamily: "Luxurious Roman", textAlign: "center", margin: "0" , marginTop:"-20px"}} fontSize={"3xl"}>ADMINISTRATEUR</Text>
                                 </Stack>
                             </GridItem>
