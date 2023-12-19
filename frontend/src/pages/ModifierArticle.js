@@ -160,10 +160,8 @@ const ModifierArticle = () => {
 
                         <GridItem colSpan={2}>
                             <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
-                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' onChange={handleInputChange} />
+                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' value={article.image} onChange={handleInputChange} />
                         </GridItem>
-
-
 
                         <GridItem colSpan={4}>
                             <FormLabel style={{ ...style.label }}>Infos</FormLabel>
