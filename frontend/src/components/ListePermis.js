@@ -1,5 +1,4 @@
 import {
-    Button,
     Card,
     CardBody,
     CardHeader,
@@ -10,17 +9,9 @@ import {
 import {useEffect, useState} from "react";
 import * as React from "react";
 import axios from "axios";
-import {OCard} from "./MultiHorizontalCardsWithButton";
 
-export class CardPermis {
 
-    constructor(titre, texteContenu, texteBouton) {
-        this.titre = titre;
-        this.texteContenu = texteContenu;
-        this.texteBouton = texteBouton;
-    }
-}
-export const ListePermis = (args) => {
+const ListePermis = (args) => {
     const isSmallDevice = window.matchMedia("(max-width: 449px").matches;
 
     const style = {
@@ -95,8 +86,6 @@ export const ListePermis = (args) => {
         } catch (ignored) {}
     }
 
-    let cardsElements = [];
-
     return (
         <Grid
             style={args.style}
@@ -112,3 +101,5 @@ export const ListePermis = (args) => {
         </Grid>
     );
 };
+
+export default ListePermis;

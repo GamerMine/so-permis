@@ -1,10 +1,8 @@
-import React, {useEffect, useState} from "react";
 import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
 
 import {Stack} from "@chakra-ui/react";
 import DocumentsInformations from "../components/DocumentsInformations";
-import {ListePermis,CardPermis} from "../components/ListePermis";
-import axios from "axios";
+import ListePermis from "../components/ListePermis";
 import ConduiteAccompagnee from "../components/ConduiteAccompagnee";
 import PermisB from "../components/PermisB"
 
