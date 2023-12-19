@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {HOSTNAME} from "../Variables";
 
 const Connexion = () => {
   
@@ -19,7 +20,7 @@ const Connexion = () => {
     const valeurDuCookie = Cookies.get('compte');
     let formData = new FormData();
     formData.append('compte', ''+valeurDuCookie);
-    const response = await axios.post('http://localhost:8080/EstAdmin',
+    const response = await axios.post(HOSTNAME+'/EstAdmin',
     formData);
     if (response.data != true)
     {
@@ -64,7 +65,7 @@ const Connexion = () => {
           formData.append('password', registerPassword);
           formData.append('confirmPassword', registerPasswordConfirm);
           formData.append('compte', ''+valeurDuCookie);
-          const response = await axios.post('http://localhost:8080/CreationCompte',
+          const response = await axios.post(HOSTNAME+'/CreationCompte',
           formData);
         console.log(response.data);
         navigate("/");

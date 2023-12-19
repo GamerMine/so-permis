@@ -20,6 +20,7 @@ import {
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
+import {HOSTNAME} from "../Variables";
 
 const GestionForfait = () => {
 
@@ -33,7 +34,7 @@ const GestionForfait = () => {
       const valeurDuCookie = Cookies.get('compte');
       let formData = new FormData();
       formData.append('compte', ''+valeurDuCookie);
-      const response = await axios.post('http://localhost:8080/EstAdmin',
+      const response = await axios.post(HOSTNAME+'/EstAdmin',
       formData);
       if (response.data != true)
       {
@@ -51,7 +52,7 @@ const GestionForfait = () => {
 
     const refreshPage = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/getFormations');
+            const response = await axios.get(HOSTNAME+'/getFormations');
             setListItems(response.data);
         }
         catch (error) {
@@ -64,7 +65,7 @@ const GestionForfait = () => {
         const formData = new FormData();
         console.log(item);
         formData.append('idFormation', item);
-        const response = await axios.post('http://localhost:8080/DeleteFormations',
+        const response = await axios.post(HOSTNAME+'/DeleteFormations',
             formData);
         window.location.reload();
     };
@@ -73,7 +74,7 @@ const GestionForfait = () => {
         const formData = new FormData();
         console.log(item);
         formData.append('idFormation', item);
-        const response = await axios.post('http://localhost:8080/UpdateFormations',
+        const response = await axios.post(HOSTNAME+'/UpdateFormations',
             formData);
         ;
     };

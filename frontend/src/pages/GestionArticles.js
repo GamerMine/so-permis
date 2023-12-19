@@ -19,6 +19,7 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
+import {HOSTNAME} from "../Variables";
 
 const GestionArticles = () => {
 
@@ -32,7 +33,7 @@ const GestionArticles = () => {
       const valeurDuCookie = Cookies.get('compte');
       let formData = new FormData();
       formData.append('compte', ''+valeurDuCookie);
-      const response = await axios.post('http://localhost:8080/EstAdmin',
+      const response = await axios.post(HOSTNAME+'/EstAdmin',
       formData);
       if (response.data != true)
       {
@@ -44,7 +45,7 @@ const GestionArticles = () => {
         const formData = new FormData();
         console.log(item);
         formData.append('idactualite', item);
-        const response = await axios.post('http://localhost:8080/DeleteArticle',
+        const response = await axios.post(HOSTNAME+'/DeleteArticle',
             formData);
         window.location.reload();
     };
@@ -63,7 +64,7 @@ const GestionArticles = () => {
 
     const refreshPage = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/getArticles');
+            const response = await axios.get(HOSTNAME+'/getArticles');
 
             setListItems(response.data);
         }

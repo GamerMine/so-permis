@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from "axios";
 import Cookies from 'js-cookie';
 import { useNavigate  } from "react-router-dom";
+import {HOSTNAME} from "../Variables";
 
 const initialState = {
     isAuthenticated: false,
@@ -46,7 +47,7 @@ const Connexion = () => {
         let formData = new FormData();
         formData.append('email', email);
         formData.append('password', password);
-        const response = await axios.post('http://localhost:8080/TestConnexion', //TestConnexion
+        const response = await axios.post(HOSTNAME+'/TestConnexion', //TestConnexion
         formData);
         console.log(response.data);
         if (!(''+response.data).startsWith('Incorrect'))

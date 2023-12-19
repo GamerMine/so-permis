@@ -19,6 +19,7 @@ import { FormArticle } from "../components/FormArticle";
 import Cookies from 'js-cookie';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {HOSTNAME} from "../Variables";
 
 /**
  * Page permettant d'ajouter un article 
@@ -34,7 +35,7 @@ const AjouterArticle = () => {
     }
 
     const handleUpdate = async (formData) => {
-        const response = await axios.post('http://localhost:8080/AjouterArticle', formData);
+        const response = await axios.post(HOSTNAME+'/AjouterArticle', formData);
         window.location.replace("/GestionArticles");
     };
 
@@ -50,7 +51,7 @@ const AjouterArticle = () => {
         const valeurDuCookie = Cookies.get('compte');
         let formData = new FormData();
         formData.append('compte', '' + valeurDuCookie);
-        const response = await axios.post('http://localhost:8080/EstAdmin',
+        const response = await axios.post(HOSTNAME+'/EstAdmin',
             formData);
         if (response.data != true) {
             navigate("/");

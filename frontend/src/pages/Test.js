@@ -14,6 +14,7 @@ import {
     Image
 } from "@chakra-ui/react";
 import DocumentsInformations from "../components/DocumentsInformations";
+import {HOSTNAME} from "../Variables";
 
 const Test = () => {
 
@@ -23,7 +24,7 @@ const Test = () => {
     },[])
 
     const getTextbado = async() => {
-        const text = await axios.get('http://localhost:8080/testBado')
+        const text = await axios.get(HOSTNAME+'/testBado')
         setTextbado(text.data)
     }
     return (

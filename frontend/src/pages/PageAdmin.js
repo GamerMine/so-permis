@@ -5,7 +5,7 @@ import {Stack, Text} from "@chakra-ui/react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
-
+import {HOSTNAME} from "../Variables";
 
 const PageAdmin = () => {
 
@@ -14,7 +14,7 @@ const PageAdmin = () => {
         const valeurDuCookie = Cookies.get('compte');
         let formData = new FormData();
         formData.append('compte', ''+valeurDuCookie);
-        const response = await axios.post('http://localhost:8080/EstAdmin',
+        const response = await axios.post(HOSTNAME+'/EstAdmin',
             formData);
         if (response.data != true)
         {

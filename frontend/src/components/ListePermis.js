@@ -2,6 +2,8 @@ import * as React from "react";
 import {Card, CardBody, CardFooter, CardHeader, Grid, GridItem, Text} from "@chakra-ui/react";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {HOSTNAME} from "../Variables";
+
 export class CardPermis {
 
     constructor(titre, texteContenu, texteBouton) {
@@ -63,7 +65,7 @@ export const ListePermis = (args) => {
     const getListePermis = async() => {
         try {
 
-            const response = await axios.get('http://localhost:8080/getListePermis');
+            const response = await axios.get(HOSTNAME+'/getListePermis');
             let result =[];
             let tmp = response.data;
             for (let key of tmp)

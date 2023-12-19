@@ -14,7 +14,7 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
-
+import {HOSTNAME} from "../Variables";
 
 const AjouterForfait = () => {
     
@@ -32,7 +32,7 @@ const AjouterForfait = () => {
       const valeurDuCookie = Cookies.get('compte');
       let formData = new FormData();
       formData.append('compte', ''+valeurDuCookie);
-      const response = await axios.post('http://localhost:8080/EstAdmin',
+      const response = await axios.post(HOSTNAME+'/EstAdmin',
       formData);
       if (response.data != true)
       {
@@ -64,7 +64,7 @@ const AjouterForfait = () => {
 
     const handleUpdate = async (formData) => {
         console.log(formData);
-        const response = await axios.post('http://localhost:8080/AjouterForfait', formData);
+        const response = await axios.post(HOSTNAME+'/AjouterForfait', formData);
         window.location.replace("/GestionForfaits");
     };
 

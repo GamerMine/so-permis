@@ -20,6 +20,7 @@ import {
 import Cookies from 'js-cookie';
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import {HOSTNAME} from "../Variables";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
 
 /**
@@ -76,7 +77,7 @@ const ModifierArticle = () => {
     }, [articleId]);
 
     const handleUpdate = async (formData) => {
-        const response = await axios.post('http://localhost:8080/UpdateArticle', formData);
+        const response = await axios.post(HOSTNAME+'/UpdateArticle', formData);
         window.location.replace("/GestionArticles");
     };
 
@@ -94,7 +95,7 @@ const ModifierArticle = () => {
         const valeurDuCookie = Cookies.get('compte');
         let formData = new FormData();
         formData.append('compte', '' + valeurDuCookie);
-        const response = await axios.post('http://localhost:8080/EstAdmin', formData);
+        const response = await axios.post(HOSTNAME+'/EstAdmin', formData);
         if (response.data != true) {
             navigate("/");
         }
