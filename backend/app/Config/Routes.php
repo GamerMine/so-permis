@@ -15,10 +15,13 @@ $routes->post('/DeleteNewsletter', 'Newsletter::DeleteNewsletter');
 $routes->post('/AjouterFormations', 'Forfaits::AjouterFormations');
 $routes->get('/getFormations', 'Forfaits::getFormations');
 $routes->post('/DeleteFormations', 'Forfaits::DeleteFormations');
-$routes->post('/AjouterFormations', 'Forfaits::AjouterFormations');
+
 $routes->get('/getArticles', 'Articles::getArticles');
 $routes->post('/AjouterArticle', 'Articles::AjouterArticle');
 $routes->post('/DeleteArticle', 'Articles::DeleteArticle');
+$routes->get('/ModifierArticle/(:num)', 'Articles::ModifierArticle/$1');
+$routes->post('/UpdateArticle', 'Articles::UpdateArticle');
+
 $routes->post('/CreationCompte', 'Connexion::TestCreation');
 $routes->post('/Deconnexion', 'Connexion::deconnexion');
 

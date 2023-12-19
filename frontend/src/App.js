@@ -4,6 +4,7 @@ import AjouterForfaits from "./pages/AjouterForfait";
 import GestionForfaits from "./pages/GestionForfaits";
 import AjouterArticle from "./pages/AjouterArticle";
 import GestionArticles from "./pages/GestionArticles";
+import ModifierArticle from "./pages/ModifierArticle";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Home from "./pages/Home";
@@ -48,6 +49,7 @@ function App() {
             <Route exact path="/Connexion" element={<Connexion />} />
             <Route exact path="/AjouterArticle" element={<AjouterArticle />} />
             <Route exact path="/GestionArticles" element={<GestionArticles />} />
+            <Route exact path="/ModifierArticle/:articleId" element={<ModifierArticle />} />
             <Route exact path="/AjouterForfaits" element={<AjouterForfaits />} />
             <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
             <Route exact path="/CreationCompte" element={<CreationCompte />} />

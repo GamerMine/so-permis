@@ -1,11 +1,12 @@
 import * as React from 'react';
 import {Button,  Grid, GridItem, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react";
 import {FaBars} from 'react-icons/fa'
+import { useNavigate  } from "react-router-dom";
 import {useLocation} from "react-router-dom";
 
 const Header = () => {
 
-    const normalHeaderLocations = ["/", "/CodeDeLaRoute", "/Informations", "/MentionsLegales", "/RGPD", "/Cookies", "/Permis", "/Contact", "/QuiSommesNous", "/Newsletter", "/ExemplePageArticle"]
+    const normalHeaderLocations = ["/", "/CodeDeLaRoute", "/Informations", "/MentionsLegales", "/RGPD", "/Cookies", "/Permis", "/Contact", "/QuiSommesNous", "/Newsletter", "/ExemplePageArticle", "/Connexion"]
     const location = useLocation();
     const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
 
@@ -23,7 +24,8 @@ const Header = () => {
         },
 
         imgLogo: {
-            width: "600px"
+            width: "600px",
+            cursor :'pointer'
         },
 
         navLinkBig: {
@@ -59,6 +61,10 @@ const Header = () => {
             height: "15px"
         }
     }
+    let navigate = useNavigate();
+    const naviguerToHome = () => {
+        navigate('/');
+    }
 
     if (normalHeaderLocations.includes(location.pathname)) {
         return (
@@ -69,7 +75,7 @@ const Header = () => {
                               height={{xl: "100px", lg: "213px", "sd": "255px", base: "455px"}}>
                             <GridItem><img style={style.imgLogo}
                                            src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"
-                                           alt={"logo So'Permis"}/></GridItem>
+                                           alt={"logo So'Permis"} onClick={naviguerToHome}/></GridItem>
                             <nav style={style.nav}>
                                 <div>
                                     <Grid marginTop={{lg: "15px"}} style={style.gridContainer}

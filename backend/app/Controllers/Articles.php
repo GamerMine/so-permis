@@ -5,7 +5,7 @@ use DB;
 use Kint\Parser\ToStringPlugin;
 
 class Articles extends BaseController
-{
+{ 
     public function getArticles() : string
     {
         try {
@@ -61,6 +61,55 @@ class Articles extends BaseController
 
             $db->deleteActualite($id);
             return json_encode(["success" => "Article supprimé"]);
+
+        } catch (\Throwable $th) {
+            return json_encode(["error" => $th->getMessage()]);
+        }
+    }
+
+    public function ModifierArticle($id)
+    {
+        try {
+            require(APPPATH . "Database/DB.inc.php");
+    
+            $db = DB::getInstance();
+    
+            // Récupérer les détails de l'article spécifique en fonction de l'ID
+            $article = $db->getActualite($id);
+            $retour = array();
+
+                $retour = [
+                    'id' => $article[0]->getIdActualite(),
+                    'titreActualite' => $article[0]->getTitreActualite(),
+                    'infosActualite' => $article[0]->getInfosActualite(),
+                    'imageURL' => $article[0]->getImageURL(),
+                    'sources' => $article[0]->getSources()
+                ];
+        
+                
+            return json_encode($retour);
+
+        } catch (\Throwable $th) {
+            return json_encode(["error" => $th->getMessage()]);
+        }
+    }
+
+    public function UpdateArticle()
+    {
+        try {
+            require (APPPATH . "Database/DB.inc.php");
+            
+            $db = DB::getInstance();
+            $id = $this->request->getPost('id');
+            $titre = $this->request->getPost('titreActualite');
+            $infos = $this->request->getPost('infosActualite');
+            $image = $this->request->getPost('imageURL');
+            $sources = $this->request->getPost('sources');
+            print_r($titre);
+
+            $db->updateActualite($id, $titre,$infos, $image, $sources);
+
+            return json_encode(["success" => "Article modifié"]);
 
         } catch (\Throwable $th) {
             return json_encode(["error" => $th->getMessage()]);
