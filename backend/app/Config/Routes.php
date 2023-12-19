@@ -21,6 +21,7 @@ $routes->get('/ModifierArticle/(:num)', 'Articles::ModifierArticle/$1');
 $routes->post('/UpdateArticle', 'Articles::UpdateArticle');
 
 $routes->post('/CreationCompte', 'Connexion::TestCreation');
+$routes->post('/Deconnexion', 'Connexion::deconnexion');
 
 $routes->match(['post', 'options'], '/TestConnexion', 'Connexion::TestConnexion');
 $routes->POST('/subscribeNewsletter', 'Contact::subscribeNewsletter');

@@ -1,11 +1,14 @@
 import * as React from 'react';
 import {Button, Grid, GridItem, Menu, MenuButton, MenuItem, MenuList, Stack, Text} from "@chakra-ui/react";
 import {FaBars} from 'react-icons/fa'
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 const Header = () => {
-    const normalHeaderLocations = ["/Connexion", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/:articleId" , "/PageAdmin"]
+    const normalHeaderLocations = ["/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/:articleId" , "/PageAdmin"]
     const location = useLocation();
+    const navigate = useNavigate();
     const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
 
     const style = {
@@ -22,7 +25,8 @@ const Header = () => {
         },
 
         imgLogo: {
-            width: "425px"
+            width: "425px",
+            cursor :'pointer'
         },
 
         navLinkBig: {
@@ -59,6 +63,18 @@ const Header = () => {
         }
     }
 
+    async function requestDisconnect() {
+        const formData = new FormData();
+        formData.append("compte", ""+Cookies.get('compte'));
+        const response = await axios.post("http://localhost:8080/Deconnexion", formData);
+        console.log(response.data);
+        navigate("/");
+    }
+
+    const naviguerToHome = () => {
+        navigate('/PageAdmin');
+    }
+
     if (normalHeaderLocations.includes(location.pathname)) {
         return (
             <header>
@@ -70,7 +86,8 @@ const Header = () => {
                                 <Stack>
                                     <img style={style.imgLogo}
                                            src="https://www.easysysteme.fr/photos/auto-ecoles/bureaux/so-permis_logo_64f5d2aa4bc5d.png"
-                                           alt={"logo So'Permis"}/>
+                                           alt={"logo So'Permis"}
+                                           onClick={naviguerToHome}/>
                                     <Text style={{color: "white", fontFamily: "Luxurious Roman", textAlign: "center", margin: "0" , marginTop:"-20px"}} fontSize={"3xl"}>ADMINISTRATEUR</Text>
                                 </Stack>
                             </GridItem>
@@ -86,7 +103,7 @@ const Header = () => {
                                                      href="/GestionForfaits">FORFAIT</a></GridItem>
                                         <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="#">NEWSLETTER</a></GridItem>
                                         <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/GestionArticles">ARTICLES</a></GridItem>
-                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/Deconnexion">DECONNEXION</a></GridItem>
+                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="#" onClick={requestDisconnect}>DECONNEXION</a></GridItem>
                                     </Grid>
                                 </div>
                             </nav>
@@ -126,7 +143,7 @@ const Header = () => {
                                                 ARTICLES
                                             </MenuItem>
                                         </a>
-                                        <a style={style.navLinkSmall} href="/Deconnexion">
+                                        <a style={style.navLinkSmall} href="#" onClick={requestDisconnect}>
                                             <MenuItem>
                                                 DECONNEXION
                                             </MenuItem>
