@@ -120,15 +120,15 @@ class Connexion extends BaseController
             $db = DB::getInstance();
             $administrateurs = $db->getAdministrateurs();
             foreach ($administrateurs as $row) {
-                if ($row->getId_Unique() == $compte) {
+                if ( $row->getId_Unique() == $compte ) {
                     $db->disconnect($compte);
                     return "success";
                 }
             }
 
-            return "success";
+            return "";
         } catch (\Throwable $th) {
-            return $th;
+            return "".$th;
         }
     }
 }

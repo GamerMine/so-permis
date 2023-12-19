@@ -3,6 +3,7 @@ import {Button, Grid, GridItem, Menu, MenuButton, MenuItem, MenuList, Stack, Tex
 import {FaBars} from 'react-icons/fa'
 import {useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Header = () => {
     const normalHeaderLocations = ["/Connexion", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/:articleId" , "/PageAdmin"]
@@ -62,7 +63,10 @@ const Header = () => {
     }
 
     async function requestDisconnect() {
-        await axios.get("http://localhost:8080/Deconnexion");
+        const formData = new FormData();
+        formData.append("compte", ""+Cookies.get('compte'));
+        const response = await axios.post("http://localhost:8080/Deconnexion", formData);
+        console.log(response.data);
         navigate("/");
     }
 
@@ -93,7 +97,7 @@ const Header = () => {
                                                      href="/GestionForfaits">FORFAIT</a></GridItem>
                                         <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="#">NEWSLETTER</a></GridItem>
                                         <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/GestionArticles">ARTICLES</a></GridItem>
-                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/Deconnexion">DECONNEXION</a></GridItem>
+                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="#" onClick={requestDisconnect}>DECONNEXION</a></GridItem>
                                     </Grid>
                                 </div>
                             </nav>
