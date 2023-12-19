@@ -6,7 +6,7 @@ import {useLocation} from "react-router-dom";
 
 const Header = () => {
 
-    const normalHeaderLocations = ["/", "/CodeDeLaRoute", "/Informations", "/MentionsLegales", "/RGPD", "/Cookies", "/Permis", "/Contact", "/QuiSommesNous", "/Newsletter", "/ExemplePageArticle"]
+    const normalHeaderLocations = ["/", "/CodeDeLaRoute", "/Informations", "/MentionsLegales", "/RGPD", "/Cookies", "/Permis", "/Contact", "/QuiSommesNous", "/Newsletter", "/ExemplePageArticle", "/Connexion"]
     const location = useLocation();
     const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
 
@@ -24,7 +24,8 @@ const Header = () => {
         },
 
         imgLogo: {
-            width: "600px"
+            width: "600px",
+            cursor :'pointer'
         },
 
         navLinkBig: {

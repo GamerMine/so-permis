@@ -6,7 +6,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const Header = () => {
-    const normalHeaderLocations = ["/Connexion", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/:articleId" , "/PageAdmin"]
+    const normalHeaderLocations = ["/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/:articleId" , "/PageAdmin"]
     const location = useLocation();
     const navigate = useNavigate();
     const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
@@ -25,7 +25,8 @@ const Header = () => {
         },
 
         imgLogo: {
-            width: "425px"
+            width: "425px",
+            cursor :'pointer'
         },
 
         navLinkBig: {
