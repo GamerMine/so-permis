@@ -203,17 +203,31 @@ class DB
 
      //Newsletter
 
+     public function getNewslettersEmail($email)
+     {
+          $requete = 'SELECT * FROM NEWSLETTER where email = ?';
+          return $this->execQuery($requete, array($email), 'NEWSLETTER');
+     }
+
      public function getNewsletters()
      {
           $requete = 'SELECT * FROM NEWSLETTER';
           return $this->execQuery($requete, null, 'NEWSLETTER');
      }
-     public function insertNewsletter($email, $nom, $prenom)
+     public function insertNewsletter($email, $actif)
      {
-          $requete = 'insert into NEWSLETTER (email,nom, prenom, guid, actif) values(?,?,?)';
-          $tparam = array($email, $nom, $prenom);
+          $requete = 'INSERT into NEWSLETTER (email,actif) values(?,?)';
+          $tparam = array($email, $actif);
           return $this->execMaj($requete, $tparam);
      }
+     /*
+     public function insertNewsletteremail($email)
+     {
+          $requete = 'insert into NEWSLETTER (email) values(?)';
+          $tparam = array($email);
+          return $this->execMaj($requete, $tparam);
+     }
+     */
 
 
 
@@ -237,6 +251,13 @@ class DB
      {
           $requete = 'update client set ville = ? where ncli = ?';
           $tparam = array($adr, $idcli);
+          return $this->execMaj($requete, $tparam);
+     }
+
+     public function updatetoken($token, $mail)
+     {
+          $requete = 'update NEWSLETTER set guid = ? where email = ?';
+          $tparam = array($token, $mail);
           return $this->execMaj($requete, $tparam);
      }
 } //fin classe DB

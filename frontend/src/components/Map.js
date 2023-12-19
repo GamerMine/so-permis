@@ -132,7 +132,6 @@ const ContactComponent = () => {
                 alert("Utilisateur inscrit " + response.data);
             }
         } catch (error) {
-            console.error(error);
             alert(error);
         } finally {
             setIsSubmitting(false);
