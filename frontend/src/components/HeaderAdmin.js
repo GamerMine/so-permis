@@ -4,8 +4,7 @@ import {FaBars} from 'react-icons/fa'
 import {useLocation} from "react-router-dom";
 
 const Header = () => {
-
-    const normalHeaderLocations = ["/Connexion", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle", "/PageAdmin"]
+    const normalHeaderLocations = ["/Connexion", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/:articleId" , "/PageAdmin"]
     const location = useLocation();
     const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
 
