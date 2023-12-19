@@ -4,6 +4,7 @@ import {FaBars} from 'react-icons/fa'
 import {useLocation, useNavigate} from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { HOSTNAME } from "../Variables";
 
 const Header = () => {
     const normalHeaderLocations = ["/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/:articleId" , "/PageAdmin"]
@@ -66,7 +67,7 @@ const Header = () => {
     async function requestDisconnect() {
         const formData = new FormData();
         formData.append("compte", ""+Cookies.get('compte'));
-        const response = await axios.post("http://localhost:8080/Deconnexion", formData);
+        const response = await axios.post(HOSTNAME+"/Deconnexion", formData);
         console.log(response.data);
         navigate("/");
     }

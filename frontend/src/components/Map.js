@@ -12,6 +12,7 @@ import { BsInstagram, BsSnapchat } from "react-icons/bs";
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { HOSTNAME } from "../Variables";
 
 // Example Address Component
 const AddressComponent = () => {
@@ -113,13 +114,13 @@ const ContactComponent = () => {
             formData.append('email', email);
             /*
                         const response = await axios.post(
-                            "http://localhost:8080/Contact",
+                            HOSTNAME+"/Contact",
                             formData
                         );
             */
 
             const response = await axios.post(
-                "http://localhost:8080/subscribeNewsletter",
+                HOSTNAME+"/subscribeNewsletter",
                 formData
             );
 
