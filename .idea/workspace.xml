@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ad6ac9e-3666-40ed-bb2b-6901873e2a6c" name="Changes" comment="reponsive header et smartphone">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/PageAdmin.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PageAdmin.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +98,7 @@
       <workItem from="1702543605586" duration="14789000" />
       <workItem from="1702901897085" duration="6389000" />
       <workItem from="1702910231869" duration="453000" />
+      <workItem from="1702974250976" duration="4872000" />
     </task>
     <task id="LOCAL-00003" summary="card flip se retourne en survolant ajout de la méthode click">
       <option name="closed" value="true" />

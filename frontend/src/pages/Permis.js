@@ -1,31 +1,12 @@
-import React, {useEffect, useState} from "react";
 import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
 
 import {Stack} from "@chakra-ui/react";
 import DocumentsInformations from "../components/DocumentsInformations";
-import {ListePermis,CardPermis} from "../components/ListePermis";
-import axios from "axios";
+import ListePermis from "../components/ListePermis";
 import ConduiteAccompagnee from "../components/ConduiteAccompagnee";
 import PermisB from "../components/PermisB"
 
 const Permis = () => {
-    let result =[];
-    const [listePermis, setListePermis] = useState([])
-    useEffect(() => {
-        getListePermis();
-    },[])
-
-
-    const getListePermis = async() => {
-        const response = await axios.get('http://localhost:8080/getListePermis');
-            result =[];
-            let tmp = response.data;
-            if(response.data.length !=782)
-            for (let key of tmp)
-                result.push(new OCard(key.nom, key.info, key.prix));
-
-            setListePermis(result);
-    }
 
     const style = {
         cardsServices: {
@@ -71,7 +52,7 @@ const Permis = () => {
                     <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                         [
                         new OCard("", "PERMIS B", "Nos forfaits permis B","permis", "/Permis"),
-                        new OCard("", "PERMIS B EXPRESS", "Nos forfaits permis B express","code", "/CodeDeLaRoute"),
+                        new OCard("", "PERMIS B EXPRESS", "Nos forfaits permis B express","ConduiteAccompagnee", "/CodeDeLaRoute"),
                         new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "/CodeDeLaRoute"),
 
                     ]} hauteur={"450px"} largeur={"350px"}/>
@@ -79,7 +60,7 @@ const Permis = () => {
                 <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                     [
                         new OCard("", "PERMIS B", "Nos forfaits permis B","permis", "/Permis"),
-                        new OCard("", "PERMIS B EXPRESS", "Nos forfaits permis B express","code", "/CodeDeLaRoute"),
+                        new OCard("", "PERMIS B EXPRESS", "Nos forfaits permis B express","ConduiteAccompagnee", "/CodeDeLaRoute"),
                         new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "/CodeDeLaRoute"),
                     ]} hauteur={"300px"} largeur={"275px"}/>
                 )}
@@ -90,7 +71,7 @@ const Permis = () => {
             <Stack style={{backgroundImage: "url('./images/route.jpg')",backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
                 <div style={style.transitionFadeBot}/>
 
-                <ListePermis style={style.cardsServices} cards={listePermis} hauteur={"450px"} largeur={"350px"}/>
+                <ListePermis style={style.cardsServices} hauteur={"450px"} largeur={"350px"}/>
                 <div style={style.transitionFadeTop}/>
 
             </Stack>

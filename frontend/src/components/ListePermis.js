@@ -1,5 +1,4 @@
 import {
-    Button,
     Card,
     CardBody,
     CardHeader,
@@ -7,18 +6,12 @@ import {
     Text,
     CardFooter
 } from "@chakra-ui/react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import * as React from "react";
+import axios from "axios";
 
-export class CardPermis {
 
-    constructor(titre, texteContenu, texteBouton) {
-        this.titre = titre;
-        this.texteContenu = texteContenu;
-        this.texteBouton = texteBouton;
-    }
-}
-export const ListePermis = (args) => {
+const ListePermis = (args) => {
     const isSmallDevice = window.matchMedia("(max-width: 449px").matches;
 
     const style = {
@@ -64,25 +57,35 @@ export const ListePermis = (args) => {
             wordWrap: 'break-word',
         },
 
-    };
+    }
 
-    let cardsElements = [];
+    const [listePermis, setListePermis] = useState([])
+    useEffect(() => {
+        getListePermis();
+    },[])
 
-    args.cards.forEach((card, index) => {
-        cardsElements.push(
-                <Card style={{...style.card}} height={isSmallDevice ? "350px" : "450px"} alignSelf="center" flexDirection="column" justifyContent="center" width={isSmallDevice ? "275px" : "350px"}>
-                    <CardHeader>
-                        <Text style={style.textTitre}>{card.titre}</Text>
+    const getListePermis = async() => {
+        try {
+
+            const response = await axios.get('http://localhost:8080/getListePermis');
+            let result =[];
+            let tmp = response.data;
+            for (let key of tmp)
+                result.push(
+                    <Card style={{...style.card}} height={isSmallDevice ? "350px" : "450px"} alignSelf="center" flexDirection="column" justifyContent="center" width={isSmallDevice ? "275px" : "350px"}>
+                        <CardHeader>
+                        <Text style={style.textTitre}>{key.nom}</Text>
                     </CardHeader>
                     <CardBody alignSelf="center"  display="flex" flexDirection="column" justifyContent="center">
-                        <Text style={style.text} fontSize={{base:"30px", "smd":"35px"}}>{card.texteContenu}</Text>
+                        <Text style={style.text} fontSize={{base:"30px", "smd":"35px"}}>{key.info}</Text>
                     </CardBody>
-                        <CardFooter>
-                            <Text style={style.bottomCard}>{card.texteBouton}</Text>
-                        </CardFooter>
-                </Card>
-        );
-    });
+                    <CardFooter>
+                        <Text style={style.bottomCard}>{key.prix}</Text>
+                    </CardFooter>
+                </Card>);
+            setListePermis(result);
+        } catch (ignored) {}
+    }
 
     return (
         <Grid
@@ -95,7 +98,9 @@ export const ListePermis = (args) => {
             gap="90px"
             alignSelf="center"
         >
-            {cardsElements}
+            {listePermis}
         </Grid>
     );
 };
+
+export default ListePermis;
