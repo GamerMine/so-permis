@@ -15,6 +15,7 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 
+
 const AjouterForfait = () => {
     
     const style = {
@@ -40,6 +41,33 @@ const AjouterForfait = () => {
       console.log(response.data);
     }
 
+    function recupererDonnees() {
+        let formData = new FormData();
+
+        const nom = document.getElementById("nom").value;
+        const prix = document.getElementById("prix").value;
+        const info = document.getElementById("info").value;
+
+        formData.append('nom', ''+nom);
+        formData.append('info', ''+info);
+        formData.append('prix', ''+prix);
+        formData.append('$type_f', 'permis');
+
+
+        console.log(nom);
+        console.log(prix);
+        console.log(info);
+        handleUpdate(formData);
+
+
+    }
+
+    const handleUpdate = async (formData) => {
+        console.log(formData);
+        const response = await axios.post('http://localhost:8080/AjouterForfait', formData);
+        window.location.replace("/GestionForfaits");
+    };
+
     verifConnexion();
     return (
         <Box>
@@ -50,20 +78,20 @@ const AjouterForfait = () => {
                 <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='5%' w='50%' marginBottom='4%'>
                     <GridItem colSpan={2}>
                         <FormLabel>Nom</FormLabel>
-                        <Input variant='flushed' placeholder="Nom" />
+                        <Input id="nom" variant='flushed' placeholder="Nom" />
                     </GridItem>
 
                     <GridItem colSpan={2}>
-                        <FormLabel>Prix</FormLabel>
-                        <Input variant='flushed' placeholder="Prix" />
+                        <FormLabel >Prix</FormLabel>
+                        <Input id="prix" variant='flushed' placeholder="Prix" />
                     </GridItem>
 
                     <GridItem colSpan={4}>
-                        <FormLabel>Description</FormLabel>
-                        <Textarea variant='outline' size='md' placeholder="Description" />
+                        <FormLabel >Description</FormLabel>
+                        <Textarea id="info" variant='outline' size='md' placeholder="Info" />
                     </GridItem>
                 </Grid>
-                <Button marginEnd='1%' style={{ ...style.bouton }}>VALIDER</Button>
+                <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
                 <Link href="/GestionForfaits"><Button colorScheme="red" >ANNULER</Button></Link>
             </Box>
         </Box>

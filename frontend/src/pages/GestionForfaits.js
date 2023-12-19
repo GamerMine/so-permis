@@ -15,7 +15,7 @@ import {
     Link,
     RadioGroup,
     Radio,
-    Center,
+    Center, GridItem, CardHeader, Text, CardFooter,
 } from "@chakra-ui/react";
 import axios from 'axios';
 import Cookies from 'js-cookie';
@@ -26,7 +26,6 @@ const GestionForfait = () => {
     const [listItems, setListItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
-
     let navigate = useNavigate();
     
     const verifConnexion = async () =>
@@ -47,24 +46,38 @@ const GestionForfait = () => {
         const fetchData = async () => {
             await refreshPage();
         };
-
         fetchData();
     }, []);
 
     const refreshPage = async () => {
         try {
             const response = await axios.get('http://localhost:8080/getFormations');
-            //const retour = response.data.map(item => new Formation(item.id,item.prix, item.nom, item.infos));;
-
-            /*for (let key of response.data)
-                retour.push(new Formation(key.prix, key.nom, key.infos));*/
-            setFormations(response.data);
-            console.log(formations);
-            setListItems(formations);
-        } catch (error) {
+            setListItems(response.data);
+        }
+        catch (error) {
             console.error('Erreur lors de la récupération des données :', error);
         }
     };
+
+
+    const handleDelete = async (item) => {
+        const formData = new FormData();
+        console.log(item);
+        formData.append('idFormation', item);
+        const response = await axios.post('http://localhost:8080/DeleteFormations',
+            formData);
+        window.location.reload();
+    };
+
+    const handleUpdate = async (item) => {
+        const formData = new FormData();
+        console.log(item);
+        formData.append('idFormation', item);
+        const response = await axios.post('http://localhost:8080/UpdateFormations',
+            formData);
+        ;
+    };
+
     const totalPages = Math.ceil(listItems.length / itemsPerPage);
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -84,24 +97,36 @@ const GestionForfait = () => {
         }
     }
 
-    const [formations, setFormations] = useState([]);
+    let formationsForfait = [];
+    const [permisSelect, setPermisSelect] = React.useState('Permis')
 
     currentItems.map((formation, index) => {
-        formations.push(
-            <Tr key={index}>
-                <Td>{formation.nom}</Td>
-                <Td>{formation.prix}</Td>
-                <Td>{formation.infos}</Td>
-                <Td>
-                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
-                    <Button colorScheme="red" size="md">Supprimer</Button>
-                </Td>
-            </Tr>
-        );
+        console.log(formation);
+        if(permisSelect=="Permis" && formation.type_f=="permis")
+            formationsForfait.push(
+                <Tr>
+                    <Td>{formation.nom}</Td>
+                    <Td>{formation.prix}</Td>
+                    <Td>{formation.infos}</Td>
+                    <Td>
+                        <Button style={{ ...style.bouton }} size="md" marginRight='2%' onClick={() => handleUpdate(formation.id)}>Modifier</Button>
+                        <Button colorScheme="red" size="md" onClick={() => handleDelete(formation.id)}>Supprimer</Button>
+                    </Td>
+                </Tr>
+            );
+        if(permisSelect=="Code" && formation.type_f=="code")
+            formationsForfait.push(
+                <Tr>
+                    <Td>{formation.nom}</Td>
+                    <Td>{formation.prix}</Td>
+                    <Td>{formation.infos}</Td>
+                    <Td>
+                        <Button style={{ ...style.bouton }} size="md" marginRight='2%' onClick={() => handleUpdate(formation.id)}>Modifier</Button>
+                        <Button colorScheme="red" size="md" onClick={() => handleDelete(formation.id)}>Supprimer</Button>
+                    </Td>
+                </Tr>
+            );
     });
-
-    const [value, setValue] = React.useState("permis")
-
 
 
     verifConnexion();
@@ -113,19 +138,16 @@ const GestionForfait = () => {
 
             <Box align='center'>
                 <Center spacing="24px" marginY='1%' >
-                    <RadioGroup onChange={setValue} value={value}>
+                    <RadioGroup id="formationSelect" onChange={setPermisSelect} value={permisSelect}>
                         <Stack direction="row">
-                            <Radio value="permis">Permis</Radio>
-                            <Radio value="code">Code de la route</Radio>
+                            <Radio value='Permis'>Permis</Radio>
+                            <Radio value='Code'>Code de la route</Radio>
                         </Stack>
                     </RadioGroup>
                 </Center>
 
                 <Link href="/AjouterForfaits"><Button style={{ ...style.bouton }} marginBottom='2%'>AJOUTER</Button></Link>
             </Box>
-
-
-
             <Card>
                 <CardBody>
                     <Table variant="striped" colorScheme="gray">
@@ -138,34 +160,7 @@ const GestionForfait = () => {
                             </Tr>
                         </Thead>
                         <Tbody>
-                            {/* <Tr>
-                                <Td>Forfait B</Td>
-                                <Td>890€</Td>
-                                <Td>20 leçons de conduite (sans code)</Td>
-                                <Td>
-                                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
-                                    <Button colorScheme="red" size="md">Supprimer</Button>
-                                </Td>
-                            </Tr>
-                            <Tr>
-                                <Td>Forfait B Complet</Td>
-                                <Td>990€</Td>
-                                <Td>Code + 20 leçons de conduite</Td>
-                                <Td>
-                                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
-                                    <Button colorScheme="red" size="md">Supprimer</Button>
-                                </Td>
-                            </Tr>
-                            <Tr>
-                                <Td>Forfait B Express</Td>
-                                <Td>1200€</Td>
-                                <Td>Formation au permis B Classique en accéléré en 1 mois</Td>
-                                <Td>
-                                    <Button style={{ ...style.bouton }} size="md" marginRight='2%'>Modifier</Button>
-                                    <Button colorScheme="red" size="md">Supprimer</Button>
-                                </Td>
-    </Tr>*/}
-                            {formations}
+                            {formationsForfait}
                         </Tbody>
                     </Table>
 

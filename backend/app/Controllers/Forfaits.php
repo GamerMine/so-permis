@@ -14,11 +14,45 @@ class Forfaits extends BaseController
             $db = DB::getInstance();
             $retour = array();
             $formations = $db->getFormations();
-            foreach ($formations as $row) 
-            {
-                $retour[] = array("id"=>$row->getIdFormation(),"prix"=>$row->getPrix(), "nom"=>$row->getNom(),"infos"=>$row->getInfos());
+            foreach ($formations as $row) {
+                $retour[] = array("id"=>$row->getIdFormation(),"prix"=>$row->getPrix(), "nom"=>$row->getNom(),"infos"=>$row->getInfos(), "type_f"=>$row->getTypeF());
+
             }
             return json_encode($retour);
+
+        } catch (\Throwable $th) {
+            return json_encode(["error" => $th->getMessage()]);
+        }
+    }
+
+    public function AjouterFormations()
+    {
+        try {
+            require (APPPATH . "Database/DB.inc.php");
+
+            $db = DB::getInstance();
+            $nom = $this->request->getPost('nom');
+            $prix = $this->request->getPost('prix');
+            $infos = $this->request->getPost('infos');
+            $type_f= $this->request->getPost('$type_f');
+            $db->insertFormation($nom,$prix, $infos,$type_f);
+            return json_encode(["success" => "Formations ajouté"]);
+
+        } catch (\Throwable $th) {
+            return json_encode(["error" => $th->getMessage()]);
+        }
+    }
+
+    public function DeleteFormations()
+    {
+        try {
+            require (APPPATH . "Database/DB.inc.php");
+
+            $db = DB::getInstance();
+            $id = $this->request->getPost('idFormation');
+
+            $db->deleteFormation($id);
+            return json_encode(["success" => "Formation supprimé"]);
 
         } catch (\Throwable $th) {
             return json_encode(["error" => $th->getMessage()]);
