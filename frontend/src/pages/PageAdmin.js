@@ -41,7 +41,7 @@ const PageAdmin = () => {
         },
     }
 
-    const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
+    //const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
     verifConnexion();
     return (
         <Stack style={{gap: 0}} >
