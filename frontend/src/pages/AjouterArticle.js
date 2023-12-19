@@ -177,7 +177,7 @@ const AjouterArticle = () => {
     return (
         <Box>
             <Heading textAlign="center" marginTop='1%'>
-                Ajouter un article / Modifier un article
+                Ajouter un article
             </Heading>
 
             <Box align='center'>
