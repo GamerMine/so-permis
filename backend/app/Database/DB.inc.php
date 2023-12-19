@@ -146,6 +146,13 @@ class DB
           $tparam = array($id);
           return $this->execMaj($requete, $tparam);
      }
+
+     public function updateActualite($id, $titre, $infos, $image, $sources)
+     {
+          $requete = 'update ACTUALITE set titre = ?, infos =?, image = ?, sources = ? where idActualite = ?';
+          $tparam = array($titre,$infos, $image, $sources, $id);
+          return $this->execMaj($requete, $tparam);
+     }
      //Formations
 
      public function getFormations()
@@ -153,10 +160,10 @@ class DB
           $requete = 'SELECT * FROM FORMATION';
           return $this->execQuery($requete, null, 'FORMATION');
      }
-     public function insertFormation($prix, $nom, $infos)
+     public function insertFormation($prix, $nom, $infos, $type_f)
      {
-          $requete = 'insert into FORMATION values(?,?,?)';
-          $tparam = array($prix, $nom, $infos);
+          $requete = 'insert into FORMATION values(?,?,?,?)';
+          $tparam = array($prix, $nom, $infos, $type_f);
           return $this->execMaj($requete, $tparam);
      }
 
@@ -170,6 +177,13 @@ class DB
      {
           $requete = 'delete from FORMATION where idformation = ?';
           $tparam = array($id);
+          return $this->execMaj($requete, $tparam);
+     }
+
+     public function updateFormation($id, $prix, $nom, $infos, $type_f)
+     {
+          $requete = 'update Formation set prix = ?, nom =?, infos = ?, type_f = ? where idFormation = ?';
+          $tparam = array($prix,$nom, $infos, $type_f, $id);
           return $this->execMaj($requete, $tparam);
      }
 
