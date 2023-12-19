@@ -28,7 +28,7 @@ const Home = () => {
         },
     }
 
-    const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
+    //const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
 
     return (
         <Stack style={{gap: 0}} >
@@ -37,7 +37,7 @@ const Home = () => {
                 
             <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                 [
-                    new OCard("", "AJOUTER UN ARTICLE", "Nos forfaits permis de conduire","permis", "/AjouterArticle"),
+                    new OCard("", "PERMIS DE CONDUIRE", "Nos forfaits permis de conduire","permis", "/AjouterArticle"),
                     new OCard("", "CODE", "Nos forfaits code","code", "/CodeDeLaRoute"),
                     new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "/CodeDeLaRoute"),
                 ]} />
