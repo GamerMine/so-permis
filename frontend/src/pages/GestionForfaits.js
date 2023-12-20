@@ -79,7 +79,6 @@ const GestionForfait = () => {
     }
     changementCatego();
 
-
     const handleDelete = async (item) => {
         const formData = new FormData();
         console.log(item);
@@ -123,7 +122,6 @@ const GestionForfait = () => {
                     </Td>
                 </Tr>
             );
-
     });
 
     verifConnexion();
@@ -141,7 +139,7 @@ const GestionForfait = () => {
                             <Radio value='conduite_accompagnee'>Conduite Accompagnée</Radio>
                             <Radio value='code'>Code de la route</Radio>
                             <Radio value='annulation'>Annulation</Radio>
-
+                            <Radio value='express'>Forfait Express</Radio>
                         </Stack>
                     </RadioGroup>
                 </Center>

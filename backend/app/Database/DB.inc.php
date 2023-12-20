@@ -169,7 +169,7 @@ class DB
 
      public function getFormation($id)
      {
-          $requete = 'select * from FORMATION (prix, nom, infos) where idformation = ?';
+          $requete = 'select * from FORMATION where idformation = ?';
           return $this->execQuery($requete, array($id), 'FORMATION');
      }
 
@@ -182,9 +182,11 @@ class DB
 
      public function updateFormation($id, $prix, $nom, $infos, $type_f)
      {
+
           $requete = 'update Formation set prix = ?, nom =?, infos = ?, type_f = ? where idFormation = ?';
           $tparam = array($prix, $nom, $infos, $type_f, $id);
-          return $this->execMaj($requete, $tparam);
+
+         return $this->execMaj($requete, $tparam);
      }
 
      //Administrateurs

@@ -95,7 +95,10 @@ class Forfaits extends BaseController
             $infos = $this->request->getPost('infos');
             $type_f= $this->request->getPost('type_f');
 
-            $db->UpdateFormation($id, $prix,$nom, $infos, $type_f);
+            echo $type_f;
+
+
+            $db->updateFormation($id, $prix,$nom, $infos, $type_f);
 
             return json_encode(["success" => "Formation modifié"]);
 

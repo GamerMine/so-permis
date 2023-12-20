@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 import { HOSTNAME } from "../Variables";
 
 const Header = () => {
-    const normalHeaderLocations = ["/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/:articleId" , "/PageAdmin"]
+    const normalHeaderLocations = ["/ModifierForfaits/:formationId", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/:articleId" , "/PageAdmin"]
     const location = useLocation();
     const navigate = useNavigate();
     const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
