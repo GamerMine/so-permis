@@ -71,17 +71,4 @@ INSERT INTO FORMATION (prix, nom, infos, type_f) VALUES
 ('410€','ANNULATION','Code + conduite', 'annulation'),
 ('660€','ANNULATION','Code + conduite express 15 jours', 'annulation'),
 
-('100€','CONDUITE SUPERVISÉE','', 'code express');
-INSERT INTO NEWSLETTER (email,nom, prenom, guid, actif) VALUES
-('enorme.bg@leo.fr', 'leplusgros', 'bg', 'pzekfkzepofkpze', True),
-('enorme.bh@leo.fr', 'leplusgros', 'bg','idhdoizajdpad', True),
-('enorme.bi@leo.fr', 'leplusgros', 'bg', 'izoajiojdapdjzaedjapzd', True),
-('enorme.bj@leo.fr', 'leplusgros', 'bg', 'ijjjoazjijzijzaâê', True),
-('enorme.bk@leo.fr', 'leplusgros', 'bg', 'jiojioejfoejfoe', True),
-('enorme.bl@leo.fr', 'leplusgros', 'bg', 'knbvbidhfiezkbvczie', True),
-('enorme.bm@leo.fr', 'leplusgros', 'bg', 'fefhzofaàçuaàdjoa', True),
-('enorme.bn@leo.fr', 'leplusgros', 'bg', 'joeifjja)zfjoafjzapofj', True),
-('enorme.bo@leo.fr', 'leplusgros', 'bg','fjpozejfeozjefpozjepfjkoz', True),
-('enorme.bp@leo.fr', 'leplusgros', 'bg', 'fofàejâfjeaôjifzeôjfôzief', True),
-('enorme.bq@leo.fr', 'leplusgros', 'bg', 'ofjofjezoijfẑefjiẑejfôzejfôjzeofjzoej^', True)
-;
+('100€','CONDUITE SUPERVISÉE','', 'code');
