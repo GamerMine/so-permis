@@ -7,8 +7,6 @@ import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 import {HOSTNAME} from "../Variables";
 
-let verifie = 0;
-
 const PageAdmin = () => {
     const navigate = useNavigate();
     const [content, setContent] = useState((
@@ -18,7 +16,6 @@ const PageAdmin = () => {
     ));
 
     const verifConnexion = async () => {
-        console.log("Calling verifConnexion");
         const valeurDuCookie = Cookies.get('compte');
         let formData = new FormData();
         formData.append('compte', ''+valeurDuCookie);
@@ -47,7 +44,6 @@ const PageAdmin = () => {
         }
     }
 
-    verifConnexion();
     const style = {
         cardsServices: {
             margin: "50"
@@ -66,7 +62,10 @@ const PageAdmin = () => {
         },
     }
 
-    //const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
+    useEffect(() => {
+        verifConnexion();
+    }, []);
+
     return (
         <Stack style={{gap: 0}} >
             {content}
