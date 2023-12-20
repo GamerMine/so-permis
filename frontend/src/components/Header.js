@@ -1,13 +1,14 @@
 import * as React from 'react';
-import {Button,  Grid, GridItem, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react";
+import {Button, Grid, GridItem, Menu, MenuButton, MenuItem, MenuList} from "@chakra-ui/react";
 import {FaBars} from 'react-icons/fa'
-import { useNavigate  } from "react-router-dom";
+import { useNavigate, NavLink  } from "react-router-dom";
 import {useLocation} from "react-router-dom";
 
 const Header = () => {
 
-    const normalHeaderLocations = ["/", "/CodeDeLaRoute", "/Informations", "/MentionsLegales", "/RGPD", "/Cookies", "/Permis", "/Contact", "/QuiSommesNous", "/Newsletter", "/ExemplePageArticle", "/Connexion"]
+    const normalHeaderLocations = ["", "/", "/CodeDeLaRoute", "/Informations", "/MentionsLegales", "/RGPD", "/Cookies", "/Permis", "/Contact", "/QuiSommesNous", "/Newsletter", "/ExemplePageArticle", "/Connexion"]
     const location = useLocation();
+    const navigate = useNavigate();
     const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
 
     const style = {
@@ -61,11 +62,11 @@ const Header = () => {
             height: "15px"
         }
     }
-    let navigate = useNavigate();
     const naviguerToHome = () => {
         navigate('/');
     }
 
+    if (location.pathname.endsWith("/")) location.pathname = location.pathname = location.pathname.substring(0, location.pathname.length - 1);
     if (normalHeaderLocations.includes(location.pathname)) {
         return (
             <header>
@@ -82,16 +83,16 @@ const Header = () => {
                                           justifyContent={{"sd": "center", md: "end"}}
                                           display={{"sd": "grid", lg: "flex", base: "grid"}}
                                           gridTemplateColumns={{"sd": "repeat(3,1fr)"}}>
-                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}}
-                                                     href="/">Accueil</a></GridItem>
-                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/Permis">Permis de
-                                            conduire</a></GridItem>
-                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/CodeDeLaRoute">Code
-                                            de la route</a></GridItem>
-                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/QuiSommesNous">Qui
-                                            sommes-nous ?</a></GridItem>
-                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}}
-                                                     href="/Contact">Contact</a></GridItem>
+                                        <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}}
+                                                     to="/">Accueil</NavLink></GridItem>
+                                        <GridItem><NavLink to="/Permis" style={{...style.gridElement, ...style.navLinkBig}}>Permis de
+                                            conduire</NavLink></GridItem>
+                                        <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="/CodeDeLaRoute">Code
+                                            de la route</NavLink></GridItem>
+                                        <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="/QuiSommesNous">Qui
+                                            sommes-nous ?</NavLink></GridItem>
+                                        <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}}
+                                                     to="/Contact">Contact</NavLink></GridItem>
                                     </Grid>
                                 </div>
                             </nav>
@@ -116,31 +117,31 @@ const Header = () => {
                                         </Grid>
                                     </MenuButton>
                                     <MenuList>
-                                        <a style={style.navLinkSmall} href="/">
+                                        <NavLink style={style.navLinkSmall} to="/">
                                             <MenuItem>
                                                 Accueil
                                             </MenuItem>
-                                        </a>
-                                        <a style={style.navLinkSmall} href="/Permis">
+                                        </NavLink>
+                                        <NavLink style={style.navLinkSmall} to="/Permis">
                                             <MenuItem>
                                                 Permis de conduire
                                             </MenuItem>
-                                        </a>
-                                        <a style={style.navLinkSmall} href="/CodeDeLaRoute">
+                                        </NavLink>
+                                        <NavLink style={style.navLinkSmall} to="/CodeDeLaRoute">
                                             <MenuItem>
                                                 Code de la route
                                             </MenuItem>
-                                        </a>
-                                        <a style={style.navLinkSmall} href="/QuiSommesNous">
+                                        </NavLink>
+                                        <NavLink style={style.navLinkSmall} to="/QuiSommesNous">
                                             <MenuItem>
                                                 Qui sommes-nous ?
                                             </MenuItem>
-                                        </a>
-                                        <a style={style.navLinkSmall} href="/Contact">
+                                        </NavLink>
+                                        <NavLink style={style.navLinkSmall} to="/Contact">
                                             <MenuItem>
                                                 Contact
                                             </MenuItem>
-                                        </a>
+                                        </NavLink>
                                     </MenuList>
                                 </Menu>
                             </div>
