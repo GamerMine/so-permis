@@ -22,6 +22,10 @@ $routes->post('/DeleteArticle', 'Articles::DeleteArticle');
 $routes->get('/ModifierArticle/(:num)', 'Articles::ModifierArticle/$1');
 $routes->post('/UpdateArticle', 'Articles::UpdateArticle');
 
+$routes->post('/UpdateFormation', 'Forfaits::UpdateFormation');
+$routes->get('/ModifierFormation/(:num)', 'Forfaits::ModifierFormation/$1');
+
+
 $routes->post('/CreationCompte', 'Connexion::TestCreation');
 $routes->post('/Deconnexion', 'Connexion::deconnexion');
 

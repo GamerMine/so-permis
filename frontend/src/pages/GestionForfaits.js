@@ -28,7 +28,12 @@ const GestionForfait = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
     let navigate = useNavigate();
-    
+    let totalPages = Math.ceil(listItems.length / itemsPerPage);
+    let indexOfLastItem = currentPage * itemsPerPage;
+    let indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    let currentItems = listItems.slice(indexOfFirstItem, indexOfLastItem);
+    const [permisSelect, setPermisSelect] = React.useState('permis')
+
     const verifConnexion = async () =>
     {
       const valeurDuCookie = Cookies.get('compte');
@@ -61,6 +66,19 @@ const GestionForfait = () => {
         }
     };
 
+    const changementCatego = ()=>{
+        let tabtemp = [];
+        for(let tesee of listItems)
+            if(permisSelect==tesee.type_f)
+                tabtemp.push(tesee);
+
+        totalPages = Math.ceil(tabtemp.length / itemsPerPage);
+        indexOfLastItem = currentPage * itemsPerPage;
+        indexOfFirstItem = indexOfLastItem - itemsPerPage;
+        currentItems = tabtemp.slice(indexOfFirstItem, indexOfLastItem);
+    }
+    changementCatego();
+
 
     const handleDelete = async (item) => {
         const formData = new FormData();
@@ -70,19 +88,11 @@ const GestionForfait = () => {
         window.location.reload();
     };
 
-    const handleUpdate = async (item) => {
-        const formData = new FormData();
-        console.log(item);
-        formData.append('idFormation', item);
-        const response = await axios.post(HOSTNAME+'/UpdateFormations',
-            formData);
-        ;
+    const handleUpdate  = async (item) => {
+        navigate(`/ModifierForfaits/${item}`);
     };
 
-    const totalPages = Math.ceil(listItems.length / itemsPerPage);
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    let currentItems = listItems.slice(indexOfFirstItem, indexOfLastItem);
+
 
     // Fill remaining rows with empty strings
     currentItems = [...currentItems, ...Array(itemsPerPage - currentItems.length).fill('')];
@@ -99,10 +109,9 @@ const GestionForfait = () => {
     }
 
     let formationsForfait = [];
-    const [permisSelect, setPermisSelect] = React.useState('permis')
 
     currentItems.map((formation, index) => {
-        if(permisSelect=="permis" && formation.type_f=="permis")
+        if(permisSelect==formation.type_f)
             formationsForfait.push(
                 <Tr>
                     <Td>{formation.nom}</Td>
@@ -114,44 +123,8 @@ const GestionForfait = () => {
                     </Td>
                 </Tr>
             );
-        if(permisSelect=="conduite_accompagnee" && formation.type_f=="conduite_accompagnee")
-            formationsForfait.push(
-                <Tr>
-                    <Td>{formation.nom}</Td>
-                    <Td>{formation.prix}</Td>
-                    <Td>{formation.infos}</Td>
-                    <Td>
-                        <Button style={{ ...style.bouton }} size="md" marginRight='2%' onClick={() => handleUpdate(formation.id)}>Modifier</Button>
-                        <Button colorScheme="red" size="md" onClick={() => handleDelete(formation.id)}>Supprimer</Button>
-                    </Td>
-                </Tr>
-            );
-        if(permisSelect=="code" && formation.type_f=="code")
-            formationsForfait.push(
-                <Tr>
-                    <Td>{formation.nom}</Td>
-                    <Td>{formation.prix}</Td>
-                    <Td>{formation.infos}</Td>
-                    <Td>
-                        <Button style={{ ...style.bouton }} size="md" marginRight='2%' onClick={() => handleUpdate(formation.id)}>Modifier</Button>
-                        <Button colorScheme="red" size="md" onClick={() => handleDelete(formation.id)}>Supprimer</Button>
-                    </Td>
-                </Tr>
-            );
-        if(permisSelect=="annulation" && formation.type_f=="annulation")
-            formationsForfait.push(
-                <Tr>
-                    <Td>{formation.nom}</Td>
-                    <Td>{formation.prix}</Td>
-                    <Td>{formation.infos}</Td>
-                    <Td>
-                        <Button style={{ ...style.bouton }} size="md" marginRight='2%' onClick={() => handleUpdate(formation.id)}>Modifier</Button>
-                        <Button colorScheme="red" size="md" onClick={() => handleDelete(formation.id)}>Supprimer</Button>
-                    </Td>
-                </Tr>
-            );
-    });
 
+    });
 
     verifConnexion();
     return (
