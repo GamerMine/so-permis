@@ -16,7 +16,7 @@ class NEWSLETTER {
       	 il y aura une erreur lorsqu'il sera appel� automatiquement par PDO 
        */    
       
-      public function __construct($i=-1,$e="",$n="", $p="", $g="", $a = "") {
+      public function __construct($i=-1,$e="",$n="", $p="", $g="", $a = false) {
          $this->idnewsletter = $i;
          $this->email = $e;
          $this->nom = $n;

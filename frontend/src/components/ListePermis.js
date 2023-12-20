@@ -70,7 +70,7 @@ export const ListePermis = (args) => {
                             <Text style={style.textTitre} fontSize={{base:"33px", "smdp":"38px"}}>{key.nom}</Text>
                         </CardHeader>
                         <CardBody height={isSmallDevice ? "100px" : "200px"} alignSelf="center"  display="flex" flexDirection="column" justifyContent="center">
-                            <Text style={style.text} fontSize={{base:"30px", "smd":"35px"}}>{key.info}</Text>
+                            <Text style={style.textTitre} fontSize={{base:"30px", "smd":"35px"}}>{key.info}</Text>
                         </CardBody>
                         <CardFooter display="flex" flexDirection="column" justifyContent="center" alignSelf="center" height={isSmallDevice ? "100px" : "75px"}>
                             <Text style={style.bottomCard}>{key.prix}</Text>
