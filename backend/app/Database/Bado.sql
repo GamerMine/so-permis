@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS NEWSLETTER
     nom varchar(30),
     prenom varchar(30),
     guid varchar(200),
-    actif boolean not null
+    actif boolean not null default false
 );
 
 CREATE TABLE IF NOT EXISTS ACTUALITE
