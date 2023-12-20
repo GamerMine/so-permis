@@ -111,8 +111,6 @@ const AjouterArticle = () => {
                 </Grid>
             </Box>
         );
-
-
     }
 
 

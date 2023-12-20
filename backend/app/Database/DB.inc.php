@@ -150,7 +150,7 @@ class DB
      public function updateActualite($id, $titre, $infos, $image, $sources)
      {
           $requete = 'update ACTUALITE set titreactualite = ?, infosactualite =?, imageURL = ?, sources = ? where idActualite = ?';
-          $tparam = array($titre,$infos, $image, $sources, $id);
+          $tparam = array($titre, $infos, $image, $sources, $id);
           return $this->execMaj($requete, $tparam);
      }
      //Formations
@@ -162,14 +162,14 @@ class DB
      }
      public function insertFormation($prix, $nom, $infos, $type_f)
      {
-         $requete = 'insert into FORMATION (prix, nom, infos, type_f) values(?,?,?,?)';
-         $tparam = array($prix, $nom, $infos, $type_f);
-         return $this->execMaj($requete, $tparam);
+          $requete = 'insert into FORMATION (prix, nom, infos, type_f) values(?,?,?,?)';
+          $tparam = array($prix, $nom, $infos, $type_f);
+          return $this->execMaj($requete, $tparam);
      }
 
      public function getFormation($id)
      {
-          $requete = 'select * from FORMATION (prix, nom, infos) where idformation = ?';
+          $requete = 'select * from FORMATION where idformation = ?';
           return $this->execQuery($requete, array($id), 'FORMATION');
      }
 
@@ -182,9 +182,11 @@ class DB
 
      public function updateFormation($id, $prix, $nom, $infos, $type_f)
      {
+
           $requete = 'update Formation set prix = ?, nom =?, infos = ?, type_f = ? where idFormation = ?';
           $tparam = array($prix, $nom, $infos, $type_f, $id);
-          return $this->execMaj($requete, $tparam);
+
+         return $this->execMaj($requete, $tparam);
      }
 
      //Administrateurs
@@ -241,20 +243,19 @@ class DB
           $requete = 'SELECT * FROM NEWSLETTER';
           return $this->execQuery($requete, null, 'NEWSLETTER');
      }
-     public function insertNewsletter($email, $actif)
+     public function insertNewsletter($email)
      {
-          $requete = 'INSERT into NEWSLETTER (email,actif) values(?,?)';
-          $tparam = array($email, $actif);
-          return $this->execMaj($requete, $tparam);
-     }
-     /*
-     public function insertNewsletteremail($email)
-     {
-          $requete = 'insert into NEWSLETTER (email) values(?)';
+          $requete = 'INSERT into NEWSLETTER (email) values(?)';
           $tparam = array($email);
           return $this->execMaj($requete, $tparam);
      }
-     */
+
+     public function updateActif($token)
+     {
+          $requete = 'update NEWSLETTER set actif =\'t\' where guid = ?';
+          $tparam = array($token);
+          return $this->execMaj($requete, $tparam);
+     }
 
 
 

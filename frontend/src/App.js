@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Connexion from "./pages/Connexion";
 import AjouterForfaits from "./pages/AjouterForfait";
 import GestionForfaits from "./pages/GestionForfaits";
@@ -23,6 +23,7 @@ import CreationCompte from './pages/CreationCompte.js'
 import ExemplePageArticle from './pages/ExemplePageArticle';
 import PageAdmin from './pages/PageAdmin';
 import HeaderAdmin from "./components/HeaderAdmin";
+import Confirmation from "./pages/Confirmation";
 import ModifierForfaits from "./pages/ModifierForfaits"
 
 function App() {
@@ -31,8 +32,8 @@ function App() {
 
     <ChakraProvider theme={customTheme}>
       <Router>
-        <Header/>
-        <HeaderAdmin/>
+        <Header />
+        <HeaderAdmin />
         <div className="container">
           <Routes>
             <Route exact path="/" element={<Home />} />
@@ -55,12 +56,11 @@ function App() {
             <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
             <Route exact path="/CreationCompte" element={<CreationCompte />} />
             <Route exact path="/PageAdmin" element={<PageAdmin />} />
-            <Route exact path="/ModifierForfaits/:formationId" element={<ModifierForfaits />} />
 
-
+            <Route exact path="/Confirmation" element={<Confirmation />} />
 
           </Routes>
-        <Footer />
+          <Footer />
         </div>
 
       </Router>

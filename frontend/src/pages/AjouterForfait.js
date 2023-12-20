@@ -88,6 +88,7 @@ const AjouterForfait = () => {
                             <Radio value='permis'>Permis</Radio>
                             <Radio value='conduite_accompagnee'>Conduite Accompagnée</Radio>
                             <Radio value='code'>Code de la route</Radio>
+                            <Radio value='annulation'>Annulation</Radio>
 
                         </Stack>
                     </RadioGroup>
