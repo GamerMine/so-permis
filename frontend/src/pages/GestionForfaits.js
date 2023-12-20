@@ -115,7 +115,7 @@ const GestionForfait = () => {
                     </Td>
                 </Tr>
             );
-        if(permisSelect=="Code" && formation.type_f=="code")
+        if(permisSelect=="Code" && formation.type_f=="conduite_accompagnee")
             formationsForfait.push(
                 <Tr>
                     <Td>{formation.nom}</Td>
@@ -142,7 +142,7 @@ const GestionForfait = () => {
                     <RadioGroup id="formationSelect" onChange={setPermisSelect} value={permisSelect}>
                         <Stack direction="row">
                             <Radio value='Permis'>Permis</Radio>
-                            <Radio value='Code'>Code de la route</Radio>
+                            <Radio value='conduite_accompagnee'>Conduite Accompagnée</Radio>
                         </Stack>
                     </RadioGroup>
                 </Center>
