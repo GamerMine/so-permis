@@ -86,7 +86,9 @@ const AjouterForfait = () => {
                     <RadioGroup id="formationSelect" onChange={setPermisSelect} value={permisSelect}>
                         <Stack direction="row">
                             <Radio value='permis'>Permis</Radio>
-                            <Radio value='conduite_accompagnee'>Code de la route</Radio>
+                            <Radio value='conduite_accompagnee'>Conduite Accompagnée</Radio>
+                            <Radio value='code'>Code de la route</Radio>
+
                         </Stack>
                     </RadioGroup>
                 </Center>

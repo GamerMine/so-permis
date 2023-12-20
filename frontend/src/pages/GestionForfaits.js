@@ -34,8 +34,7 @@ const GestionForfait = () => {
       const valeurDuCookie = Cookies.get('compte');
       let formData = new FormData();
       formData.append('compte', ''+valeurDuCookie);
-      const response = await axios.post(HOSTNAME+'/EstAdmin',
-      formData);
+      const response = await axios.post(HOSTNAME+'/EstAdmin', formData);
       if (response.data != true)
       {
         navigate("/");
@@ -53,6 +52,8 @@ const GestionForfait = () => {
     const refreshPage = async () => {
         try {
             const response = await axios.get(HOSTNAME+'/getFormations');
+
+            console.log(response.data);
             setListItems(response.data);
         }
         catch (error) {
@@ -65,8 +66,7 @@ const GestionForfait = () => {
         const formData = new FormData();
         console.log(item);
         formData.append('idFormation', item);
-        const response = await axios.post(HOSTNAME+'/DeleteFormations',
-            formData);
+        const response = await axios.post(HOSTNAME+'/DeleteFormations', formData);
         window.location.reload();
     };
 
@@ -99,11 +99,10 @@ const GestionForfait = () => {
     }
 
     let formationsForfait = [];
-    const [permisSelect, setPermisSelect] = React.useState('Permis')
+    const [permisSelect, setPermisSelect] = React.useState('permis')
 
     currentItems.map((formation, index) => {
-        console.log(formation);
-        if(permisSelect=="Permis" && formation.type_f=="permis")
+        if(permisSelect=="permis" && formation.type_f=="permis")
             formationsForfait.push(
                 <Tr>
                     <Td>{formation.nom}</Td>
@@ -115,7 +114,31 @@ const GestionForfait = () => {
                     </Td>
                 </Tr>
             );
-        if(permisSelect=="Code" && formation.type_f=="conduite_accompagnee")
+        if(permisSelect=="conduite_accompagnee" && formation.type_f=="conduite_accompagnee")
+            formationsForfait.push(
+                <Tr>
+                    <Td>{formation.nom}</Td>
+                    <Td>{formation.prix}</Td>
+                    <Td>{formation.infos}</Td>
+                    <Td>
+                        <Button style={{ ...style.bouton }} size="md" marginRight='2%' onClick={() => handleUpdate(formation.id)}>Modifier</Button>
+                        <Button colorScheme="red" size="md" onClick={() => handleDelete(formation.id)}>Supprimer</Button>
+                    </Td>
+                </Tr>
+            );
+        if(permisSelect=="code" && formation.type_f=="code")
+            formationsForfait.push(
+                <Tr>
+                    <Td>{formation.nom}</Td>
+                    <Td>{formation.prix}</Td>
+                    <Td>{formation.infos}</Td>
+                    <Td>
+                        <Button style={{ ...style.bouton }} size="md" marginRight='2%' onClick={() => handleUpdate(formation.id)}>Modifier</Button>
+                        <Button colorScheme="red" size="md" onClick={() => handleDelete(formation.id)}>Supprimer</Button>
+                    </Td>
+                </Tr>
+            );
+        if(permisSelect=="annulation" && formation.type_f=="annulation")
             formationsForfait.push(
                 <Tr>
                     <Td>{formation.nom}</Td>
@@ -141,8 +164,11 @@ const GestionForfait = () => {
                 <Center spacing="24px" marginY='1%' >
                     <RadioGroup id="formationSelect" onChange={setPermisSelect} value={permisSelect}>
                         <Stack direction="row">
-                            <Radio value='Permis'>Permis</Radio>
+                            <Radio value='permis'>Permis</Radio>
                             <Radio value='conduite_accompagnee'>Conduite Accompagnée</Radio>
+                            <Radio value='code'>Code de la route</Radio>
+                            <Radio value='annulation'>Annulation</Radio>
+
                         </Stack>
                     </RadioGroup>
                 </Center>
