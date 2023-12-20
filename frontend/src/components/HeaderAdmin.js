@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Button, Grid, GridItem, Menu, MenuButton, MenuItem, MenuList, Stack, Text} from "@chakra-ui/react";
 import {FaBars} from 'react-icons/fa'
-import {useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate, NavLink} from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { HOSTNAME } from "../Variables";
@@ -76,6 +76,7 @@ const Header = () => {
         navigate('/PageAdmin');
     }
 
+    if (location.pathname.endsWith("/")) location.pathname = location.pathname = location.pathname.substring(0, location.pathname.length - 1);
     if (normalHeaderLocations.includes(location.pathname)) {
         return (
             <header>
@@ -98,13 +99,13 @@ const Header = () => {
                                           justifyContent={{"sd": "center", md: "end"}}
                                           display={{"sd": "grid", lg: "flex", base: "grid"}}
                                           gridTemplateColumns={{"sd": "repeat(3,1fr)"}}>
-                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/PageAdmin">DASHBOARD</a></GridItem>
+                                        <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="/PageAdmin">DASHBOARD</NavLink></GridItem>
 
-                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}}
-                                                     href="/GestionForfaits">FORFAIT</a></GridItem>
-                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="#">NEWSLETTER</a></GridItem>
-                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="/GestionArticles">ARTICLES</a></GridItem>
-                                        <GridItem><a style={{...style.gridElement, ...style.navLinkBig}} href="#" onClick={requestDisconnect}>DECONNEXION</a></GridItem>
+                                        <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}}
+                                                     to="/GestionForfaits">FORFAIT</NavLink></GridItem>
+                                        <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="#">NEWSLETTER</NavLink></GridItem>
+                                        <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="/GestionArticles">ARTICLES</NavLink></GridItem>
+                                        <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="#" onClick={requestDisconnect}>DECONNEXION</NavLink></GridItem>
                                     </Grid>
                                 </div>
                             </nav>
@@ -129,26 +130,26 @@ const Header = () => {
                                         </Grid>
                                     </MenuButton>
                                     <MenuList>
-                                        <a style={style.navLinkSmall} href="/GestionForfaits">
+                                        <NavLink style={style.navLinkSmall} to="/GestionForfaits">
                                             <MenuItem>
                                                 FORFAIT
                                             </MenuItem>
-                                        </a>
-                                        <a style={style.navLinkSmall} href="#">
+                                        </NavLink>
+                                        <NavLink style={style.navLinkSmall} to="#">
                                             <MenuItem>
                                                 NEWSLETTER
                                             </MenuItem>
-                                        </a>
-                                        <a style={style.navLinkSmall} href="/GestionArticles">
+                                        </NavLink>
+                                        <NavLink style={style.navLinkSmall} to="/GestionArticles">
                                             <MenuItem>
                                                 ARTICLES
                                             </MenuItem>
-                                        </a>
-                                        <a style={style.navLinkSmall} href="#" onClick={requestDisconnect}>
+                                        </NavLink>
+                                        <NavLink style={style.navLinkSmall} to="#" onClick={requestDisconnect}>
                                             <MenuItem>
                                                 DECONNEXION
                                             </MenuItem>
-                                        </a>
+                                        </NavLink>
                                     </MenuList>
                                 </Menu>
                             </div>
