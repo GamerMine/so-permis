@@ -22,6 +22,7 @@ import CreationCompte from './pages/CreationCompte.js'
 import ExemplePageArticle from './pages/ExemplePageArticle';
 import PageAdmin from './pages/PageAdmin';
 import HeaderAdmin from "./components/HeaderAdmin";
+import Actualite from "./pages/Actualite";
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
             <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
             <Route exact path="/CreationCompte" element={<CreationCompte />} />
             <Route exact path="/PageAdmin" element={<PageAdmin />} />
+            <Route exact path="/Actualite" element={<Actualite/>} />
 
           </Routes>
         <Footer />

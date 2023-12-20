@@ -11,7 +11,7 @@ import {useLocation} from "react-router-dom";
 
 const Footer = () => {
 
-    const normalHeaderLocations = ["/", "/CodeDeLaRoute", "/Informations", "/MentionsLegales", "/RGPD", "/Cookies", "/Permis", "/Contact", "/QuiSommesNous", "/Newsletter", "/ExemplePageArticle"]
+    const normalHeaderLocations = ["/", "/CodeDeLaRoute", "/Informations", "/MentionsLegales", "/RGPD", "/Cookies", "/Permis", "/Contact", "/QuiSommesNous", "/Newsletter", "/ExemplePageArticle", "/Actualite"]
     const location = useLocation();
 
     const style = {

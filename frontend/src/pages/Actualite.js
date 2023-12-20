@@ -1,17 +1,108 @@
-import {Stack, Text} from "@chakra-ui/react";
-import * as React from "react";
-import Actualite from "./pages/Actualite.js";
+import React, { useEffect, useState } from "react";
+import {
+    Grid,
+    GridItem,
+    Stack,
+    Text,
+    Divider,
+    Modal,
+    ModalContent,
+    ModalOverlay,
+    ModalHeader,
+    ModalBody, ModalFooter, ModalCloseButton, Button, useDisclosure
+} from "@chakra-ui/react";
+import axios from "axios";
+import {BsSun} from "react-icons/bs";
 
 const Actualite = () => {
+    const [actus, setActus] = useState([]);
+
+    const style = {
+        titre: {
+            color: '#20AB9A',
+            textAlign: "center",
+            fontSize: "45px",
+            fontFamily: "Montserrat-Bold, Helvetica",
+            fontWeight: '700',
+            wordWrap: 'break-word',
+            margin: "30px"
+        },
+        actu: {
+            height:"max-content",
+            borderRadius:40,
+            fontSize: "30px",
+            backgroundColor: "#1EC6B1",
+            color:"black",
+            textAlign: "center",
+            fontFamily: "Montserrat-Bold, Helvetica",
+            marginLeft:"25px",
+            marginRight:"25px",
+        },
+        image:{
+            margin:"auto" ,
+            width:'auto',
+            display: 'block',
+            marginBottom: '30px',
+            height: 'auto',
+            maxHeight:"350px",
+            maxWidth:"350px",
+            borderRadius: '8px'
+        }
+    };
+
+    const { isOpen, onOpen, onClose } = useDisclosure();
+
+    useEffect(() => {
+        const fetchActus = async () => {
+            try {
+                const response = await axios.get("http://localhost:8080/getListeActus");
+                const actu = response.data;
+                const reversedActus = actu.reverse();
+                setActus(reversedActus);
+            } catch (error) {
+                console.error("Error fetching news articles:", error);
+            }
+        };
+        fetchActus();
+    }, []); // Empty dependency array to run the effect only once on mount
 
     return (
-        <Stack style={{gap: 0}} >
-            <Text color="black">
-                page de test
-            </Text>
+        <Stack>
+            <Text style={style.titre}>Les actualités</Text>
+            <Grid marginTop="20px" marginBottom="90px" templateColumns={{ base: "repeat(1, 1fr)", sd: "repeat(2, 1fr)", xg: "repeat(3, 8fr)" }}>
+                {actus.map((actuItem, index) => (
+                    <Stack key={actuItem.idActu}>
+                        <GridItem style={style.actu}>
+                            <Stack onClick={onOpen}>
+                                <Text marginTop="5px">Article {index + 1}</Text>
+                                <Divider />
+                                <Text marginTop="5px" alignSelf="center">{actuItem.titreActu}</Text>
+                            </Stack>
+                        </GridItem>
+
+                        <Modal isOpen={isOpen} onClose={onClose}>
+                            <ModalOverlay />
+                            <ModalContent>
+                                <ModalHeader>
+                                    {actuItem.titreActu != null ? actuItem.titreActu : null}
+                                </ModalHeader>
+                                <ModalCloseButton />
+                                <ModalBody alignItems="center" >
+                                    {actuItem.imageURL != null ?
+                                        <img style={{...style.image}}
+                                             src="./images/permis.jpg" alt="Description of the image"/> : null}
+                                    {actuItem.infosActu != null ? actuItem.infosActu : null}
+                                </ModalBody>
+                                <ModalFooter>
+                                    Source: {actuItem.sources != null ? actuItem.sources : null}
+                                </ModalFooter>
+                            </ModalContent>
+                        </Modal>
+                    </Stack>
+                ))}
+            </Grid>
         </Stack>
     );
-
 };
 
-export default Actualite
+export default Actualite;
