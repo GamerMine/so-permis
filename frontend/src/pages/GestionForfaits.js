@@ -40,74 +40,78 @@ const GestionForfait = () => {
         </Stack>
     ));
 
-    const verifConnexion = async () =>
-    {
-      const valeurDuCookie = Cookies.get('compte');
-      let formData = new FormData();
-      formData.append('compte', ''+valeurDuCookie);
-      const response = await axios.post(HOSTNAME+'/EstAdmin', formData);
-      if (response.data !== true)
-      {
-        navigate("/");
-      } else {
-          setContent((
-              <Box>
-                  <Heading textAlign="center" paddingTop="20px">
-                      Forfaits
-                  </Heading>
+    useEffect(() => {
+        const verifConnexion = async () =>
+        {
+            const valeurDuCookie = Cookies.get('compte');
+            let formData = new FormData();
+            formData.append('compte', ''+valeurDuCookie);
+            const response = await axios.post(HOSTNAME+'/EstAdmin', formData);
+            if (response.data !== true)
+            {
+                navigate("/");
+            } else {
+                setContent((
+                    <Box>
+                        <Heading textAlign="center" paddingTop="20px">
+                            Forfaits
+                        </Heading>
 
-                  <Box align='center'>
-                      <Center spacing="24px" marginY='1%' >
-                          <RadioGroup id="formationSelect" onChange={setPermisSelect} value={permisSelect}>
-                              <Stack direction="row">
-                                  <Radio value='permis'>Permis</Radio>
-                                  <Radio value='conduite_accompagnee'>Conduite Accompagnée</Radio>
-                                  <Radio value='code'>Code de la route</Radio>
-                                  <Radio value='annulation'>Annulation</Radio>
-                                  <Radio value='express'>Forfait Express</Radio>
-                              </Stack>
-                          </RadioGroup>
-                      </Center>
+                        <Box align='center'>
+                            <Center spacing="24px" marginY='1%' >
+                                <RadioGroup id="formationSelect" onChange={setPermisSelect} value={permisSelect}>
+                                    <Stack direction="row">
+                                        <Radio value='permis'>Permis</Radio>
+                                        <Radio value='conduite_accompagnee'>Conduite Accompagnée</Radio>
+                                        <Radio value='code'>Code de la route</Radio>
+                                        <Radio value='annulation'>Annulation</Radio>
+                                        <Radio value='express'>Forfait Express</Radio>
+                                    </Stack>
+                                </RadioGroup>
+                            </Center>
 
-                      <Link href="/AjouterForfaits"><Button style={{ ...style.bouton }} marginBottom='2%'>AJOUTER</Button></Link>
-                  </Box>
-                  <Card>
-                      <CardBody>
-                          <Table variant="striped" colorScheme="gray">
-                              <Thead backgroundColor='black' >
-                                  <Tr>
-                                      <Th color='white'>Nom</Th>
-                                      <Th color='white'>Prix</Th>
-                                      <Th color='white'>Description</Th>
-                                      <Th color='white'>Actions</Th>
-                                  </Tr>
-                              </Thead>
-                              <Tbody>
-                                  {formationsForfait}
-                              </Tbody>
-                          </Table>
+                            <Link href="/AjouterForfaits"><Button style={{ ...style.bouton }} marginBottom='2%'>AJOUTER</Button></Link>
+                        </Box>
+                        <Card>
+                            <CardBody>
+                                <Table variant="striped" colorScheme="gray">
+                                    <Thead backgroundColor='black' >
+                                        <Tr>
+                                            <Th color='white'>Nom</Th>
+                                            <Th color='white'>Prix</Th>
+                                            <Th color='white'>Description</Th>
+                                            <Th color='white'>Actions</Th>
+                                        </Tr>
+                                    </Thead>
+                                    <Tbody>
+                                        {formationsForfait}
+                                    </Tbody>
+                                </Table>
 
-                          {/* Pagination buttons */}
-                          <Center mt={4}>
-                              <Box>
-                                  {Array.from({ length: totalPages }, (_, index) => (
-                                      <Button
-                                          key={index}
-                                          colorScheme={currentPage === index + 1 ? 'teal' : 'gray'}
-                                          onClick={() => paginate(index + 1)}
-                                          mx={1}
-                                      >
-                                          {index + 1}
-                                      </Button>
-                                  ))}
-                              </Box>
-                          </Center>
-                      </CardBody>
-                  </Card>
-              </Box>
-          ));
-      }
-    }
+                                {/* Pagination buttons */}
+                                <Center mt={4}>
+                                    <Box>
+                                        {Array.from({ length: totalPages }, (_, index) => (
+                                            <Button
+                                                key={index}
+                                                colorScheme={currentPage === index + 1 ? 'teal' : 'gray'}
+                                                onClick={() => paginate(index + 1)}
+                                                mx={1}
+                                            >
+                                                {index + 1}
+                                            </Button>
+                                        ))}
+                                    </Box>
+                                </Center>
+                            </CardBody>
+                        </Card>
+                    </Box>
+                ));
+            }
+        }
+
+        verifConnexion();
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -186,7 +190,6 @@ const GestionForfait = () => {
             );
     });
 
-    verifConnexion();
     return (
         <Stack style={{gap: "0"}}>
             {content}

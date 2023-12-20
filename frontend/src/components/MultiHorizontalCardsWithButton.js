@@ -5,11 +5,11 @@ import {
     CardHeader,
     Grid,
     Text,
-    Link, CardFooter
+    CardFooter
 } from "@chakra-ui/react";
 import {useState} from "react";
 import ReactCardFlip from "react-card-flip";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, NavLink} from "react-router-dom";
 
 export class OCard {
 
@@ -139,9 +139,9 @@ export const MultiHorizontalCardsWithButton = (args) => {
                     </CardBody>
                     {card.canFlip === false && (
                         <CardFooter>
-                            <Link href={`${card.link}`} style={{width: "100%", textAlign: "center"}}> <Button style={style.buttonForward} >
+                            <NavLink to={`${card.link}`} style={{width: "100%", textAlign: "center"}}> <Button style={style.buttonForward} >
                                 <Text style={style.buttonText}>{card.texteBouton}</Text>
-                            </Button></Link>
+                            </Button></NavLink>
                         </CardFooter>
                     )}
                 </Card>
@@ -158,9 +158,9 @@ export const MultiHorizontalCardsWithButton = (args) => {
                         width={isSmallDevice ? "275px" : "350px"}
                     >
                         <CardBody alignSelf="center"  display="flex" flexDirection="column" justifyContent="center"  >
-                            <Link href={`${card.link}`} style={{cursor: "pointer"}}> <Button style={style.button} >
+                            <NavLink to={`${card.link}`} style={{cursor: "pointer"}}> <Button style={style.button} >
                                 <Text style={style.buttonText}>{card.texteBouton}</Text>
-                            </Button></Link>
+                            </Button></NavLink>
                         </CardBody>
                     </Card>
                 )}

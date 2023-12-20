@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {MultiHorizontalCardsWithButton, OCard} from "../components/MultiHorizontalCardsWithButton"
 
 import {Spinner, Stack, Text} from "@chakra-ui/react";
@@ -7,15 +7,18 @@ import { useNavigate } from "react-router-dom";
 import Cookies from 'js-cookie';
 import {HOSTNAME} from "../Variables";
 
+let verifie = 0;
+
 const PageAdmin = () => {
     const navigate = useNavigate();
     const [content, setContent] = useState((
         <Stack style={{top: "0", bottom: "0", position: "fixed", height: "100%", width: "100%"}}>
             <Spinner style={{alignSelf: "center", position: "absolute", top: "50%", transform: "translateY(-50%)"}}/>
         </Stack>
-));
+    ));
 
     const verifConnexion = async () => {
+        console.log("Calling verifConnexion");
         const valeurDuCookie = Cookies.get('compte');
         let formData = new FormData();
         formData.append('compte', ''+valeurDuCookie);
@@ -43,6 +46,8 @@ const PageAdmin = () => {
             ));
         }
     }
+
+    verifConnexion();
     const style = {
         cardsServices: {
             margin: "50"
@@ -62,7 +67,6 @@ const PageAdmin = () => {
     }
 
     //const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
-    verifConnexion();
     return (
         <Stack style={{gap: 0}} >
             {content}
