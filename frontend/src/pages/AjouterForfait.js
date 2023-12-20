@@ -8,7 +8,7 @@ import {
     Link,
     FormLabel,
     Input,
-    Textarea,
+    Textarea, RadioGroup, Stack, Radio, Center,
 } from "@chakra-ui/react";
 import { useState, useEffect } from 'react';
 import axios from "axios";
@@ -40,6 +40,7 @@ const AjouterForfait = () => {
       }
       console.log(response.data);
     }
+    const [permisSelect, setPermisSelect] = React.useState('permis')
 
     function recupererDonnees() {
         let formData = new FormData();
@@ -47,26 +48,31 @@ const AjouterForfait = () => {
         const nom = document.getElementById("nom").value;
         const prix = document.getElementById("prix").value;
         const info = document.getElementById("info").value;
+        const permisSelecttest = permisSelect;
 
         formData.append('nom', ''+nom);
-        formData.append('info', ''+info);
+        formData.append('infos', ''+info);
         formData.append('prix', ''+prix);
-        formData.append('$type_f', 'permis');
+        formData.append('type_f', ''+permisSelecttest);
 
 
         console.log(nom);
         console.log(prix);
         console.log(info);
+        console.log(permisSelecttest);
+
         handleUpdate(formData);
 
 
     }
 
+
     const handleUpdate = async (formData) => {
-        console.log(formData);
-        const response = await axios.post(HOSTNAME+'/AjouterForfait', formData);
-        window.location.replace("/GestionForfaits");
+        const response = await axios.post(HOSTNAME+'/AjouterFormations', formData);
+       window.location.replace("/GestionForfaits");
+
     };
+
 
     verifConnexion();
     return (
@@ -74,7 +80,16 @@ const AjouterForfait = () => {
             <Heading textAlign="center" paddingTop="20px">
                 Ajouter un forfait / Modifier un forfait
             </Heading>
+
             <Box align='center' marginBottom='2%'>
+                <Center spacing="24px" marginY='1%' >
+                    <RadioGroup id="formationSelect" onChange={setPermisSelect} value={permisSelect}>
+                        <Stack direction="row">
+                            <Radio value='permis'>Permis</Radio>
+                            <Radio value='code'>Code de la route</Radio>
+                        </Stack>
+                    </RadioGroup>
+                </Center>
                 <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='5%' w='50%' marginBottom='4%'>
                     <GridItem colSpan={2}>
                         <FormLabel>Nom</FormLabel>

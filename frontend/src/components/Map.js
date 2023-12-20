@@ -178,7 +178,7 @@ const ContactComponent = () => {
                         <FormErrorMessage>
                             {email.length > 0 && !validateEmail() && "Adresse email invalide"}
                         </FormErrorMessage>
-                        <Button type="submit" isLoading={isSubmitting} mt={4}>
+                        <Button type="submit" isLoading={isSubmitting} mt={2} ms={2}>
                             S'inscrire
                         </Button>
                     </FormControl>

@@ -34,8 +34,9 @@ class Forfaits extends BaseController
             $nom = $this->request->getPost('nom');
             $prix = $this->request->getPost('prix');
             $infos = $this->request->getPost('infos');
-            $type_f= $this->request->getPost('$type_f');
-            $db->insertFormation($nom,$prix, $infos,$type_f);
+            $type_f= $this->request->getPost('type_f');
+
+            $db->insertFormation($prix, $nom, $infos, $type_f);
             return json_encode(["success" => "Formations ajouté"]);
 
         } catch (\Throwable $th) {
