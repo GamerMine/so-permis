@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
     Box,
     Button,
@@ -15,7 +15,7 @@ import {
     Tooltip,
     useToast,
     Stack,
-    Link,
+    Link, Spinner,
 } from "@chakra-ui/react";
 import Cookies from 'js-cookie';
 import axios from "axios";
@@ -90,14 +90,70 @@ const ModifierArticle = () => {
     }
 
     let navigate = useNavigate();
-
+    const [content, setContent] = useState((
+        <Stack style={{top: "0", bottom: "0", position: "fixed", height: "100%", width: "100%"}}>
+            <Spinner style={{alignSelf: "center", position: "absolute", top: "50%", transform: "translateY(-50%)"}}/>
+        </Stack>
+    ));
     const verifConnexion = async () => {
         const valeurDuCookie = Cookies.get('compte');
         let formData = new FormData();
         formData.append('compte', '' + valeurDuCookie);
         const response = await axios.post(HOSTNAME+'/EstAdmin', formData);
-        if (response.data != true) {
+        if (response.data !== true) {
             navigate("/");
+        } else {
+            setContent((
+                <Box>
+                <Heading textAlign="center" marginTop='1%'>
+                    Modifier un article
+                </Heading>
+
+                <Box align='center'>
+                    <RadioGroup onChange={setValue} value={value} marginStart='40%'>
+                        <Stack direction="row">
+                            <Radio value="article">Écrire l'article</Radio>
+                            <Radio value="source">Ajouter une source</Radio>
+                        </Stack>
+                    </RadioGroup>
+                </Box>
+
+                {value === "article" && (
+                    <Box align='center' marginBottom='1%'>
+                        <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
+
+                            <GridItem colSpan={2}>
+                                <FormLabel>Titre</FormLabel>
+                                <Input id="titre" variant='flushed' placeholder="Titre" value={article.titre} onChange={handleInputChange} />
+                            </GridItem>
+
+                            <GridItem colSpan={2}>
+                                <FormLabel>Sources</FormLabel>
+                                <Input id="source" variant='flushed' placeholder="Sources" value={article.sources} onChange={handleInputChange} />
+                            </GridItem>
+
+                            <GridItem colSpan={2}>
+                                <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
+                                <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' value={article.image} onChange={handleInputChange} />
+                            </GridItem>
+
+                            <GridItem colSpan={4}>
+                                <FormLabel style={{ ...style.label }}>Infos</FormLabel>
+                                <Textarea id="infos" variant='outline' size='md' placeholder="Infos" value={article.infos} onChange={handleInputChange} />
+                            </GridItem>
+                        </Grid>
+                    </Box>
+                )}
+
+                <Box align='center' marginBottom='2%'>
+                    <Checkbox id="newsletter" value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>
+                    <div>
+                        <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
+                        <Link href="/GestionArticles"><Button colorScheme="red" >ANNULER</Button></Link>
+                    </div>
+                </Box>
+            </Box>
+            ));
         }
     }
 
@@ -130,56 +186,11 @@ const ModifierArticle = () => {
         handleUpdate(formData);
     }
 
+    verifConnexion();
     return (
-        <Box>
-            <Heading textAlign="center" marginTop='1%'>
-                Modifier un article
-            </Heading>
-
-            <Box align='center'>
-                <RadioGroup onChange={setValue} value={value} marginStart='40%'>
-                    <Stack direction="row">
-                        <Radio value="article">Écrire l'article</Radio>
-                        <Radio value="source">Ajouter une source</Radio>
-                    </Stack>
-                </RadioGroup>
-            </Box>
-
-            {value === "article" && (
-                <Box align='center' marginBottom='1%'>
-                    <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
-
-                        <GridItem colSpan={2}>
-                            <FormLabel>Titre</FormLabel>
-                            <Input id="titre" variant='flushed' placeholder="Titre" value={article.titre} onChange={handleInputChange} />
-                        </GridItem>
-
-                        <GridItem colSpan={2}>
-                            <FormLabel>Sources</FormLabel>
-                            <Input id="source" variant='flushed' placeholder="Sources" value={article.sources} onChange={handleInputChange} />
-                        </GridItem>
-
-                        <GridItem colSpan={2}>
-                            <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
-                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' value={article.image} onChange={handleInputChange} />
-                        </GridItem>
-
-                        <GridItem colSpan={4}>
-                            <FormLabel style={{ ...style.label }}>Infos</FormLabel>
-                            <Textarea id="infos" variant='outline' size='md' placeholder="Infos" value={article.infos} onChange={handleInputChange} />
-                        </GridItem>
-                    </Grid>
-                </Box>
-            )}
-
-            <Box align='center' marginBottom='2%'>
-                <Checkbox id="newsletter" value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>
-                <div>
-                    <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
-                    <Link href="/GestionArticles"><Button colorScheme="red" >ANNULER</Button></Link>
-                </div>
-            </Box>
-        </Box>
+        <Stack style={{gap: "0"}}>
+            {content}
+        </Stack>
     );
 }
 

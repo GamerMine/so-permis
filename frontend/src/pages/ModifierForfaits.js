@@ -15,7 +15,7 @@ import {
     Tooltip,
     useToast,
     Stack,
-    Link, Center,
+    Link, Center, Spinner,
 } from "@chakra-ui/react";
 import Cookies from 'js-cookie';
 import axios from "axios";
@@ -88,6 +88,12 @@ const ModifierForfaits = () => {
         }));
     }
 
+    const [content, setContent] = useState((
+        <Stack style={{top: "0", bottom: "0", position: "fixed", height: "100%", width: "100%"}}>
+            <Spinner style={{alignSelf: "center", position: "absolute", top: "50%", transform: "translateY(-50%)"}}/>
+        </Stack>
+    ));
+
     let navigate = useNavigate();
     const verifConnexion = async () => {
         const valeurDuCookie = Cookies.get('compte');
@@ -96,6 +102,45 @@ const ModifierForfaits = () => {
         const response = await axios.post(HOSTNAME+'/EstAdmin', formData);
         if (response.data != true) {
             navigate("/");
+        } else {
+            setContent((
+                <Box>
+                    <Heading textAlign="center" paddingTop="20px">
+                        Ajouter un forfait / Modifier un forfait
+                    </Heading>
+
+                    <Box align='center' marginBottom='2%'>
+                        <Center spacing="24px" marginY='1%' >
+                            <RadioGroup id="formationSelect" onChange={setPermisSelect} value={permisSelect}>
+                                <Stack direction="row">
+                                    <Radio value='permis'>Permis</Radio>
+                                    <Radio value='conduite_accompagnee'>Conduite Accompagnée</Radio>
+                                    <Radio value='code'>Code de la route</Radio>
+
+                                </Stack>
+                            </RadioGroup>
+                        </Center>
+                        <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='5%' w='50%' marginBottom='4%'>
+                            <GridItem colSpan={2}>
+                                <FormLabel>Nom</FormLabel>
+                                <Input id="nom" variant='flushed' placeholder="Nom" />
+                            </GridItem>
+
+                            <GridItem colSpan={2}>
+                                <FormLabel >Prix</FormLabel>
+                                <Input id="prix" variant='flushed' placeholder="Prix" />
+                            </GridItem>
+
+                            <GridItem colSpan={4}>
+                                <FormLabel >Description</FormLabel>
+                                <Textarea id="info" variant='outline' size='md' placeholder="Info" />
+                            </GridItem>
+                        </Grid>
+                        <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
+                        <Link href="/GestionForfaits"><Button colorScheme="red" >ANNULER</Button></Link>
+                    </Box>
+                </Box>
+            ));
         }
     }
 
@@ -119,42 +164,9 @@ const ModifierForfaits = () => {
     }
     verifConnexion();
     return (
-        <Box>
-            <Heading textAlign="center" paddingTop="20px">
-                Ajouter un forfait / Modifier un forfait
-            </Heading>
-
-            <Box align='center' marginBottom='2%'>
-                <Center spacing="24px" marginY='1%' >
-                    <RadioGroup id="formationSelect" onChange={setPermisSelect} value={permisSelect}>
-                        <Stack direction="row">
-                            <Radio value='permis'>Permis</Radio>
-                            <Radio value='conduite_accompagnee'>Conduite Accompagnée</Radio>
-                            <Radio value='code'>Code de la route</Radio>
-
-                        </Stack>
-                    </RadioGroup>
-                </Center>
-                <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='5%' w='50%' marginBottom='4%'>
-                    <GridItem colSpan={2}>
-                        <FormLabel>Nom</FormLabel>
-                        <Input id="nom" variant='flushed' placeholder="Nom" />
-                    </GridItem>
-
-                    <GridItem colSpan={2}>
-                        <FormLabel >Prix</FormLabel>
-                        <Input id="prix" variant='flushed' placeholder="Prix" />
-                    </GridItem>
-
-                    <GridItem colSpan={4}>
-                        <FormLabel >Description</FormLabel>
-                        <Textarea id="info" variant='outline' size='md' placeholder="Info" />
-                    </GridItem>
-                </Grid>
-                <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
-                <Link href="/GestionForfaits"><Button colorScheme="red" >ANNULER</Button></Link>
-            </Box>
-        </Box>
+        <Stack style={{gap: 0}}>
+            {content}
+        </Stack>
     );
 }
 export default ModifierForfaits;
