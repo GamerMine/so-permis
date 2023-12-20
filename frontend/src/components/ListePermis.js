@@ -4,14 +4,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import {HOSTNAME} from "../Variables";
 
-export class CardPermis {
 
-    constructor(titre, texteContenu, texteBouton) {
-        this.titre = titre;
-        this.texteContenu = texteContenu;
-        this.texteBouton = texteBouton;
-    }
-}
 export const ListePermis = (args) => {
 
     const style = {
@@ -68,14 +61,16 @@ export const ListePermis = (args) => {
             const response = await axios.get(HOSTNAME+'/getListePermis');
             let result =[];
             let tmp = response.data;
+
             for (let key of tmp)
+                if (key.type_f=="permis")
                 result.push(<Card style={{...style.card}} height={isSmallDevice ? "350px" : "450px"} flexDirection="column" width={isSmallDevice ? "275px" : "350px"}>
                     <GridItem>
                         <CardHeader height={isSmallDevice ? "160px" : "175px"}>
                             <Text style={style.textTitre} fontSize={{base:"33px", "smdp":"38px"}}>{key.nom}</Text>
                         </CardHeader>
                         <CardBody height={isSmallDevice ? "100px" : "200px"} alignSelf="center"  display="flex" flexDirection="column" justifyContent="center">
-                            <Text style={style.text} fontSize={{base:"30px", "smd":"35px"}}>{key.info}</Text>
+                            <Text style={style.textTitre} fontSize={{base:"30px", "smd":"35px"}}>{key.info}</Text>
                         </CardBody>
                         <CardFooter display="flex" flexDirection="column" justifyContent="center" alignSelf="center" height={isSmallDevice ? "100px" : "75px"}>
                             <Text style={style.bottomCard}>{key.prix}</Text>

@@ -28,14 +28,18 @@ const GestionForfait = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
     let navigate = useNavigate();
-    
+    let totalPages = Math.ceil(listItems.length / itemsPerPage);
+    let indexOfLastItem = currentPage * itemsPerPage;
+    let indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    let currentItems = listItems.slice(indexOfFirstItem, indexOfLastItem);
+    const [permisSelect, setPermisSelect] = React.useState('permis')
+
     const verifConnexion = async () =>
     {
       const valeurDuCookie = Cookies.get('compte');
       let formData = new FormData();
       formData.append('compte', ''+valeurDuCookie);
-      const response = await axios.post(HOSTNAME+'/EstAdmin',
-      formData);
+      const response = await axios.post(HOSTNAME+'/EstAdmin', formData);
       if (response.data != true)
       {
         navigate("/");
@@ -53,6 +57,8 @@ const GestionForfait = () => {
     const refreshPage = async () => {
         try {
             const response = await axios.get(HOSTNAME+'/getFormations');
+
+            console.log(response.data);
             setListItems(response.data);
         }
         catch (error) {
@@ -60,29 +66,33 @@ const GestionForfait = () => {
         }
     };
 
+    const changementCatego = ()=>{
+        let tabtemp = [];
+        for(let tesee of listItems)
+            if(permisSelect==tesee.type_f)
+                tabtemp.push(tesee);
+
+        totalPages = Math.ceil(tabtemp.length / itemsPerPage);
+        indexOfLastItem = currentPage * itemsPerPage;
+        indexOfFirstItem = indexOfLastItem - itemsPerPage;
+        currentItems = tabtemp.slice(indexOfFirstItem, indexOfLastItem);
+    }
+    changementCatego();
+
 
     const handleDelete = async (item) => {
         const formData = new FormData();
         console.log(item);
         formData.append('idFormation', item);
-        const response = await axios.post(HOSTNAME+'/DeleteFormations',
-            formData);
+        const response = await axios.post(HOSTNAME+'/DeleteFormations', formData);
         window.location.reload();
     };
 
-    const handleUpdate = async (item) => {
-        const formData = new FormData();
-        console.log(item);
-        formData.append('idFormation', item);
-        const response = await axios.post(HOSTNAME+'/UpdateFormations',
-            formData);
-        ;
+    const handleUpdate  = async (item) => {
+        navigate(`/ModifierForfaits/${item}`);
     };
 
-    const totalPages = Math.ceil(listItems.length / itemsPerPage);
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    let currentItems = listItems.slice(indexOfFirstItem, indexOfLastItem);
+
 
     // Fill remaining rows with empty strings
     currentItems = [...currentItems, ...Array(itemsPerPage - currentItems.length).fill('')];
@@ -99,11 +109,9 @@ const GestionForfait = () => {
     }
 
     let formationsForfait = [];
-    const [permisSelect, setPermisSelect] = React.useState('Permis')
 
     currentItems.map((formation, index) => {
-        console.log(formation);
-        if(permisSelect=="Permis" && formation.type_f=="permis")
+        if(permisSelect==formation.type_f)
             formationsForfait.push(
                 <Tr>
                     <Td>{formation.nom}</Td>
@@ -115,20 +123,8 @@ const GestionForfait = () => {
                     </Td>
                 </Tr>
             );
-        if(permisSelect=="Code" && formation.type_f=="code")
-            formationsForfait.push(
-                <Tr>
-                    <Td>{formation.nom}</Td>
-                    <Td>{formation.prix}</Td>
-                    <Td>{formation.infos}</Td>
-                    <Td>
-                        <Button style={{ ...style.bouton }} size="md" marginRight='2%' onClick={() => handleUpdate(formation.id)}>Modifier</Button>
-                        <Button colorScheme="red" size="md" onClick={() => handleDelete(formation.id)}>Supprimer</Button>
-                    </Td>
-                </Tr>
-            );
-    });
 
+    });
 
     verifConnexion();
     return (
@@ -141,8 +137,11 @@ const GestionForfait = () => {
                 <Center spacing="24px" marginY='1%' >
                     <RadioGroup id="formationSelect" onChange={setPermisSelect} value={permisSelect}>
                         <Stack direction="row">
-                            <Radio value='Permis'>Permis</Radio>
-                            <Radio value='Code'>Code de la route</Radio>
+                            <Radio value='permis'>Permis</Radio>
+                            <Radio value='conduite_accompagnee'>Conduite Accompagnée</Radio>
+                            <Radio value='code'>Code de la route</Radio>
+                            <Radio value='annulation'>Annulation</Radio>
+
                         </Stack>
                     </RadioGroup>
                 </Center>
