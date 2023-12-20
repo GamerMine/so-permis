@@ -59,4 +59,48 @@ class Forfaits extends BaseController
             return json_encode(["error" => $th->getMessage()]);
         }
     }
+
+    public function ModifierFormation($id){
+        try {
+            require(APPPATH . "Database/DB.inc.php");
+
+            $db = DB::getInstance();
+
+            // Récupérer les détails de l'article spécifique en fonction de l'ID
+            $formation = $db->getFormation($id);
+            $retour = array();
+
+            $retour = [
+                'idformation' => $formation[0]->getIdFormation(),
+                'prix' => $formation[0]->getPrix(),
+                'nom' => $formation[0]->getNom(),
+                'infos' => $formation[0]->getInfos(),
+                'type_f' => $formation[0]->getTypeF()
+            ];
+        return json_encode($retour);
+
+    } catch (\Throwable $th) {
+        return json_encode(["error" => $th->getMessage()]);
+    }
+}
+
+    public function UpdateFormation(){
+        try {
+            require (APPPATH . "Database/DB.inc.php");
+
+            $db = DB::getInstance();
+            $id = $this->request->getPost('id');
+            $prix = $this->request->getPost('prix');
+            $nom = $this->request->getPost('nom');
+            $infos = $this->request->getPost('infos');
+            $type_f= $this->request->getPost('type_f');
+
+            $db->UpdateFormation($id, $prix,$nom, $infos, $type_f);
+
+            return json_encode(["success" => "Formation modifié"]);
+
+        } catch (\Throwable $th) {
+            return json_encode(["error" => $th->getMessage()]);
+        }
+    }
 }
