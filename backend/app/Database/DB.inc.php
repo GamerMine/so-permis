@@ -162,9 +162,9 @@ class DB
      }
      public function insertFormation($prix, $nom, $infos, $type_f)
      {
-          $requete = 'insert into FORMATION values(?,?,?,?)';
-          $tparam = array($prix, $nom, $infos, $type_f);
-          return $this->execMaj($requete, $tparam);
+         $requete = 'insert into FORMATION (prix, nom, infos, type_f) values(?,?,?,?)';
+         $tparam = array($prix, $nom, $infos, $type_f);
+         return $this->execMaj($requete, $tparam);
      }
 
      public function getFormation($id)
