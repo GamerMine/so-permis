@@ -35,15 +35,16 @@ class Contact extends BaseController
                 //ajouter email dans la BD
                 $user = $this->insertNewsletter($email);
                 //$this->insertNewsletter($email);
-                //print_r($user);
+                print_r($user);
                 $this->NewsletterMailInscription();
-                return "ok";
+                return "inscritption faite";
                 //
 
             } else {
                 //pas inscrit ou pas actif
                 //print_r("aaaaaaaaaaaaaaaaaaaaa");
-                return "ok";
+                print_r($user);
+                return "déjà inscrit";
             }
         } catch (\Throwable $th) {
             return $th;
@@ -60,7 +61,7 @@ class Contact extends BaseController
             //print_r("test bd");
             //require(APPPATH . "Database/DB.inc.php");
             $db = DB::getInstance();
-            $db->insertNewsletter($email, 0);
+            $db->insertNewsletter($email);
             //print_r("insertion dans la BD");
         } catch (\Throwable $th) {
             return $th;
@@ -202,6 +203,92 @@ class Contact extends BaseController
             echo 'E-mail envoyé avec succès.';
         } else {
             echo 'Échec de l\'envoi de l\'e-mail. Erreur : ' . $email->printDebugger(['headers']);
+        }
+    }
+
+    function Confirmation()
+    {
+        print_r("test");
+        $token = $this->request->getPost('token');
+        $email = $this->request->getPost('email');
+        print_r($token);
+        print_r($email);
+        print_r("try\n");
+        try {
+            print_r("tryyyy\n");
+
+            //$this->tokenVerification($token, $email);
+            require(APPPATH . "Database/DB.inc.php");
+            $db = DB::getInstance();
+            $user = $db->getNewslettersEmail($email);
+            print_r($user);
+            $token = $user[0]->getGuid();
+            print_r("user avant \n");
+            $this->updateActif($token);
+        } catch (\Throwable $th) {
+            print_r($th);
+            return $th->getMessage();
+
+            //throw $th;
+        }
+        return;
+
+        /*
+        if ($this->tokenVerification($token, $email)) {
+            print_r("vérified");
+            print_r($token);
+            print_r("\n");
+            print_r($email);
+            $this->updateActif($token);
+            print_r("okkkkkkkkkkkkkk");
+            return True;
+        } else {
+            print_r("aled");
+            return False;
+        }
+        */
+    }
+
+    function tokenVerification($token, $email)
+    {
+        print_r("\nfunction tokenverification\n");
+        print_r($token);
+        print_r("\n");
+        print_r($email);
+
+        try {
+            print_r("test token verification\n");
+            return True;
+            //require(APPPATH . "Database/DB.inc.php");
+            $db = DB::getInstance();
+            $user = $db->getNewslettersEmail($email);
+            print_r($user);
+            if ($user['token'] == $token) {
+                print_r("token vérifié");
+                print_r($token);
+                return True;
+            } else {
+                print_r("token non vérifié");
+                return False;
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+            return $th->getMessage();
+        }
+    }
+
+    function updateActif($token)
+    {
+        try {
+            //require(APPPATH . "Database/DB.inc.php");
+            $db = DB::getInstance();
+            $db->updateActif($token);
+            print_r("update actif");
+        } catch (\Throwable $th) {
+            //throw $th;
+            print_r("erreur update actif");
+            print_r($th->getMessage());
+            return $th->getMessage();
         }
     }
 }
