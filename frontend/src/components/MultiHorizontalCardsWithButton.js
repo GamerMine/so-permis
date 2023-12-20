@@ -49,7 +49,7 @@ export const MultiHorizontalCardsWithButton = (args) => {
 
     const handleCardClick = (index) => {
         const updatedCards = [...cards];
-        if (updatedCards[index] === undefined) {
+        if (updatedCards[index] !== undefined) {
             updatedCards[index].isFlipped = !updatedCards[index].isFlipped;
             setCards(updatedCards);
         }

@@ -4,6 +4,7 @@ import {Box, Card, CardBody, Flex, Spinner, Stack, Text , Button} from "@chakra-
 import * as React from "react";
 import { MdOutlineKeyboardDoubleArrowLeft, MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import {isMobile} from "react-device-detect";
+import { HOSTNAME } from "../Variables";
 import {useNavigate} from "react-router-dom";
 
 let currentActu = 0;
@@ -196,7 +197,7 @@ const PanelActus = () => {
 
     const setActus = async() => {
         try {
-            const response = await axios.get("http://localhost:8080/getListeActus");
+            const response = await axios.get(HOSTNAME+"/getListeActus");
 
             nbActus = response.data.length;
             actus = response.data;
@@ -221,7 +222,6 @@ const PanelActus = () => {
         <Stack>
             {content}
         </Stack>
-
     )
 }
 

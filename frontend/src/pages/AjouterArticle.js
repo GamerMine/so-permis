@@ -13,11 +13,13 @@ import {
     Radio,
     Stack,
     Checkbox,
+    Textarea,
 } from "@chakra-ui/react";
 import { FormArticle } from "../components/FormArticle";
 import Cookies from 'js-cookie';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {HOSTNAME} from "../Variables";
 
 /**
  * Page permettant d'ajouter un article 
@@ -33,8 +35,7 @@ const AjouterArticle = () => {
     }
 
     const handleUpdate = async (formData) => {
-        const response = await axios.post('http://localhost:8080/AjouterArticle', //TestConnexion
-        formData);
+        const response = await axios.post(HOSTNAME+'/AjouterArticle', formData);
         window.location.replace("/GestionArticles");
     };
 
@@ -45,19 +46,17 @@ const AjouterArticle = () => {
     };
 
     let navigate = useNavigate();
-    
-    const verifConnexion = async () =>
-    {
-      const valeurDuCookie = Cookies.get('compte');
-      let formData = new FormData();
-      formData.append('compte', ''+valeurDuCookie);
-      const response = await axios.post('http://localhost:8080/EstAdmin',
-      formData);
-      if (response.data !== true)
-      {
-        navigate("/");
-      }
-      console.log(response.data);
+
+    const verifConnexion = async () => {
+        const valeurDuCookie = Cookies.get('compte');
+        let formData = new FormData();
+        formData.append('compte', '' + valeurDuCookie);
+        const response = await axios.post(HOSTNAME+'/EstAdmin',
+            formData);
+        if (response.data != true) {
+            navigate("/");
+        }
+        console.log(response.data);
     }
 
     const [value, setValue] = React.useState("article")
@@ -88,19 +87,11 @@ const AjouterArticle = () => {
                             <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' />
                         </GridItem>
 
-                    </Grid>
-
-                    {/*<GridItem colSpan={4}>
+                        <GridItem colSpan={4}>
                             <FormLabel>Contenu</FormLabel>
-                            <Textarea variant='outline' size='md' placeholder="Contenu"/>
+                            <Textarea id="contenu" variant='outline' size='md' placeholder="Contenu" />
                         </GridItem>
-
-                        <GridItem colSpan={2}>
-                            <FormLabel>Image</FormLabel>
-                            <Input variant='unstyled' type="file" accept="image/*" size='md'/>
-                        </GridItem>*/}
-
-                    <FormArticle getFormulairesLength={handleGetFormulairesLength} />
+                    </Grid>
                 </Box>
             );
 
@@ -120,8 +111,6 @@ const AjouterArticle = () => {
                 </Grid>
             </Box>
         );
-
-
     }
 
 
@@ -135,30 +124,15 @@ const AjouterArticle = () => {
             const titre = document.getElementById("titre").value;
             const sources = document.getElementById("source").value;
             const image = document.getElementById("image").value;
-
-            const formulaires = [] //tableau contenant les différentes parties de l'article
-
-            for (let i = 0; i < tailleFormulaires; i++) {
-                const sousTitre = document.getElementById("sousTitre" + i).value;
-                const contenu = document.getElementById("contenu" + i).value;
-                const image = document.getElementById("image" + i).value;
-
-                formulaires.push({ sousTitre: sousTitre, contenu: contenu, image: image });
-            }
+            const contenu = document.getElementById("contenu").value;
 
 
-            formData.append('titreActualite', ''+titre);
-            formData.append('infosActualite', ''+JSON.stringify(formulaires));
-            formData.append('imageURL', ''+image);
-            formData.append('sources', ''+sources);
+            formData.append('titreActualite', '' + titre);
+            formData.append('infosActualite', '' + contenu);
+            formData.append('imageURL', '' + image);
+            formData.append('sources', '' + sources);
 
-           
             handleUpdate(formData);
-
-            console.log(titre);
-            console.log(sources);
-            console.log(image);
-            console.log(formulaires);
         }
         else {
             const titre = document.getElementById("titre").value;
@@ -167,9 +141,6 @@ const AjouterArticle = () => {
         }
 
         const newsletter = document.getElementById("newsletter").checked;
-
-       
-        
     }
 
     return (

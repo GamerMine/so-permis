@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Heading, Table, Thead, Tbody, Tr, Th, Td, Button, Center } from '@chakra-ui/react';
 import axios from 'axios';
+import {HOSTNAME} from "../Variables";
 
 const Newsletter = () => {
   const [listItems, setListItems] = useState([]);
@@ -10,7 +11,7 @@ const Newsletter = () => {
   const handleDelete = async (item) => {
     const formData = new FormData();
     formData.append ('email', item);
-    const response = await axios.post('http://localhost:8080/DeleteNewsletter', //TestConnexion
+    const response = await axios.post(HOSTNAME+'/DeleteNewsletter', //TestConnexion
     formData);
     window.location.reload();
   };
@@ -24,7 +25,7 @@ const Newsletter = () => {
 
   const refreshPage = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/GetNewsletter');
+      const response = await axios.get(HOSTNAME+'/GetNewsletter');
       setListItems(response.data);
     } catch (error) {
       console.error('Erreur lors de la récupération des données :', error);

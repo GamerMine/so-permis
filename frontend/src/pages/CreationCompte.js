@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {HOSTNAME} from "../Variables";
+import {Spinner, Stack} from "@chakra-ui/react";
 
 const Connexion = () => {
   
@@ -14,117 +16,126 @@ const Connexion = () => {
 
   const [isLoginForm, setIsLoginForm] = useState(true);
 
+    const [content, setContent] = useState((
+        <Stack style={{top: "0", bottom: "0", position: "fixed", height: "100%", width: "100%"}}>
+            <Spinner style={{alignSelf: "center", position: "absolute", top: "50%", transform: "translateY(-50%)"}}/>
+        </Stack>
+    ));
+
   const verifConnexion = async () =>
   {
     const valeurDuCookie = Cookies.get('compte');
     let formData = new FormData();
     formData.append('compte', ''+valeurDuCookie);
-    const response = await axios.post('http://localhost:8080/EstAdmin',
+    const response = await axios.post(HOSTNAME+'/EstAdmin',
     formData);
-    if (response.data != true)
+    if (response.data !== true)
     {
       navigate("/");
+    } else {
+        setContent((
+            <div style={styles.container}>
+                <div style={styles.formContainer}>
+                    <div style={styles.box}>
+                        <h1 style={styles.titre}>INSCRIPTION</h1>
+                        <form onSubmit={useHandleSubmit}>
+
+                            <label style={styles.label}>
+                                Adresse mail du compte :
+                                <br/>
+                                <input
+                                    type="text"
+                                    value={registerEmail}
+                                    onChange={(e) => setRegisterEmail(e.target.value)}
+                                    style={styles.input}
+                                />
+                            </label>
+                            <br/>
+                            <label style={styles.label}>
+                                Mot de passe du compte:
+                                <br/>
+                                <input
+                                    type="password"
+                                    value={registerPassword}
+                                    onChange={(e) => setRegisterPassword(e.target.value)}
+                                    style={styles.input}
+                                />
+                            </label>
+                            <br/>
+                            <label style={styles.label}>
+                                Confirmer le mot de passe:
+                                <br/>
+                                <input
+                                    type="password"
+                                    value={registerPasswordConfirm}
+                                    onChange={(e) => setRegisterPasswordConfirm(e.target.value)}
+                                    style={styles.input}
+                                />
+                            </label>
+
+                            {emailError && <p style={styles.error}>{emailError}</p>}
+                            <br/>
+                            <input type="submit" value={'S\'inscrire'} style={styles.bouton}/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        ));
     }
-    console.log(response.data);
   }
 
-  const validateEmail = () => {
-    // Une expression régulière pour valider l'email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const validateEmail = () => {
+        // Une expression régulière pour valider l'email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailRegex.test(registerEmail)) {
-        setEmailError('Veuillez entrer une adresse e-mail valide.');
-        return false;
-    }
-    if (registerPassword === "" || registerPassword == null)
-    {
-        setEmailError('Veuillez entrer une mot de passe');
-        return false;
-    }
-    if (registerPassword != registerPasswordConfirm)
-    {
-        setEmailError('Le mot de passe n\'est pas le même que celui de la confirmation');
-        return false;
-    }
-    setEmailError('');
-    return true;
+        if (!emailRegex.test(registerEmail)) {
+            setEmailError('Veuillez entrer une adresse e-mail valide.');
+            return false;
+        }
+        if (registerPassword === "" || registerPassword == null) {
+            setEmailError('Veuillez entrer une mot de passe');
+            return false;
+        }
+        if (registerPassword != registerPasswordConfirm) {
+            setEmailError('Le mot de passe n\'est pas le même que celui de la confirmation');
+            return false;
+        }
+        setEmailError('');
+        return true;
 
-  };
+    };
 
-  let navigate = useNavigate();
-  const useHandleSubmit = async (event) => {
-    event.preventDefault();
-    if (!validateEmail()) {
-      return;
+    let navigate = useNavigate();
+    const useHandleSubmit = async (event) => {
+        event.preventDefault();
+        if (!validateEmail()) {
+            return;
+        }
+        try {
+            const valeurDuCookie = Cookies.get('compte');
+            let formData = new FormData();
+            formData.append('email', registerEmail);
+            formData.append('password', registerPassword);
+            formData.append('confirmPassword', registerPasswordConfirm);
+            formData.append('compte', '' + valeurDuCookie);
+            const response = await axios.post(HOSTNAME + '/CreationCompte',
+                formData);
+            console.log(response.data);
+            navigate("/");
+        } catch (error) {
+            // Gérez les erreurs ici
+            console.error(error);
+        }
     }
-    try {
-          const valeurDuCookie = Cookies.get('compte');
-          let formData = new FormData();
-          formData.append('email', registerEmail);
-          formData.append('password', registerPassword);
-          formData.append('confirmPassword', registerPasswordConfirm);
-          formData.append('compte', ''+valeurDuCookie);
-          const response = await axios.post('http://localhost:8080/CreationCompte',
-          formData);
-        console.log(response.data);
-        navigate("/");
-      } catch (error) {
-        // Gérez les erreurs ici
-        console.error(error);
-      }
-  }
 
-  const switchForm = () => {
-    setIsLoginForm(!isLoginForm);
-  };
-  verifConnexion();
+    const switchForm = () => {
+        setIsLoginForm(!isLoginForm);
+    };
+    verifConnexion();
   return (
-  <div style={styles.container}>
-    <div style={styles.formContainer}>
-      <div style={styles.box}>
-      <h1 style={styles.titre}>INSCRIPTION</h1>
-        <form onSubmit={useHandleSubmit}>
-
-            <label style={styles.label}>
-                Adresse mail du compte :
-                <br />
-                <input
-                type="text"
-                value={registerEmail}
-                onChange={(e) => setRegisterEmail(e.target.value)}
-                style={styles.input}
-                />
-            </label>
-            <br />
-            <label style={styles.label}>
-                Mot de passe du compte:
-                <br />
-                <input
-                type="password"
-                value={registerPassword}
-                onChange={(e) => setRegisterPassword(e.target.value)}
-                style={styles.input}
-                />
-            </label>
-            <br />
-            <label style={styles.label}>
-                Confirmer le mot de passe:
-                <br />
-                <input
-                type="password"
-                value={registerPasswordConfirm}
-                onChange={(e) => setRegisterPasswordConfirm(e.target.value)}
-                style={styles.input}
-                />
-            </label>
-
-            {emailError && <p style={styles.error}>{emailError}</p>}
-            <br />
-          <input type="submit" value={'S\'inscrire'} style={styles.bouton} />
-        </form>
-      </div>
-    </div>
-  </div>
+      <Stack style={{gap: "0"}}>
+          {content}
+      </Stack>
   );
 };
 

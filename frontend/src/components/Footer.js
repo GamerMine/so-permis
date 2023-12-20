@@ -3,15 +3,14 @@ import {
     Stack,
     Box,
     VStack,
-    Text,
-    Link
+    Text
 } from "@chakra-ui/react";
 import {BsInstagram, BsSnapchat} from "react-icons/bs";
-import {useLocation} from "react-router-dom";
+import {useLocation, NavLink} from "react-router-dom";
 
 const Footer = () => {
 
-    const normalHeaderLocations = ["/", "/CodeDeLaRoute", "/Informations", "/MentionsLegales", "/RGPD", "/Cookies", "/Permis", "/Contact", "/QuiSommesNous", "/Newsletter", "/ExemplePageArticle", "/Actualite"]
+    const normalHeaderLocations = ["", "/", "/CodeDeLaRoute", "/Informations", "/MentionsLegales", "/RGPD", "/Cookies", "/Permis", "/Contact", "/QuiSommesNous", "/Newsletter", "/ExemplePageArticle", "/Actualite"]
     const location = useLocation();
 
     const style = {
@@ -33,6 +32,7 @@ const Footer = () => {
         },
     }
 
+    if (location.pathname.endsWith("/")) location.pathname = location.pathname = location.pathname.substring(0, location.pathname.length - 1);
     if (normalHeaderLocations.includes(location.pathname)) {
         return (
             <footer style={{backgroundColor: "black"}}>
@@ -48,13 +48,13 @@ const Footer = () => {
                     <Box>
                         <VStack>
                             <Box display="flex" marginTop="25px">
-                                <BsInstagram size={30}/>
-                                <BsSnapchat style={{marginLeft: "20px"}} size={30}/>
+                                <a href={"https://www.instagram.com/sopermis76/"}><BsInstagram size={30}/></a>
+                                <a href={"https://t.snapchat.com/JWqJbzVO"}><BsSnapchat style={{marginLeft: "20px"}} size={30}/></a>
                             </Box>
 
                             <Box>
-                                <a href="/Contact"><Button style={{...style.bouton}}
-                                                           variant='solid'> Contactez-nous </Button></a>
+                                <NavLink to="/Contact"><Button style={{...style.bouton}}
+                                                           variant='solid'> Contactez-nous </Button></NavLink>
                             </Box>
 
                         </VStack>
@@ -62,10 +62,10 @@ const Footer = () => {
                     <Box align='center'>
                         <Text fontSize='2xl' as='u'>Informations</Text>
                         <VStack>
-                            <Link href="/">Accueil</Link>
-                            <Link href="/Permis">Permis de conduire</Link>
-                            <Link href="/CodeDeLaRoute">Code de la route</Link>
-                            <Link href="/QuiSommesNous">Qui sommes-nous ?</Link>
+                            <NavLink to="/">Accueil</NavLink>
+                            <NavLink to="/Permis">Permis de conduire</NavLink>
+                            <NavLink to="/CodeDeLaRoute">Code de la route</NavLink>
+                            <NavLink to="/QuiSommesNous">Qui sommes-nous ?</NavLink>
                         </VStack>
                     </Box>
                     <Box align='center'>
@@ -78,8 +78,8 @@ const Footer = () => {
 
                 </Stack>
                 <Box align='center' marginTop={{base: "80px", "sd": "20px"}}>
-                    <Text fontSize='sm' color={"gray"}><Link href="/MentionsLegales">Mentions légales</Link> - <Link
-                        href="/RGPD">RGPD</Link> </Text>
+                    <Text fontSize='sm' color={"gray"}><NavLink to="/MentionsLegales">Mentions légales</NavLink> - <NavLink
+                        to="/RGPD">RGPD</NavLink> </Text>
                 </Box>
             </footer>
         )

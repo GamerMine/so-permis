@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS FORMATION
 (
     idFormation SERIAL Primary Key NOT NULL,
     prix varchar(10) NOT NULL,
-    nom varchar(30) NOT NULL,
+    nom varchar(100) NOT NULL,
     infos varchar NOT NULL,
     type_f varchar NOT NULL
 );
@@ -27,16 +27,16 @@ CREATE TABLE IF NOT EXISTS NEWSLETTER
     nom varchar(30),
     prenom varchar(30),
     guid varchar(200),
-    actif boolean not null
+    actif boolean not null default false
 );
 
 CREATE TABLE IF NOT EXISTS ACTUALITE
 (
     idActualite SERIAL Primary Key NOT NULL,
-    titreActualite varchar NOT NULL,
-    infosActualite varchar NOT NULL,
-    imageURL varchar,
-    sources varchar
+    titreActualite varchar(200) NOT NULL,
+    infosActualite varchar(250) NOT NULL,
+    imageURL varchar(1000),
+    sources varchar(250)
 );
 
 INSERT INTO ACTUALITE (titreActualite, infosActualite, imageURL, sources) VALUES
@@ -49,23 +49,26 @@ INSERT INTO ADMINISTRATEUR(email, password, id_unique) VALUES
     'enorme.bg@leo.fr', 'chsuikunu', '1535766848483415641343135'
 );
 INSERT INTO FORMATION (prix, nom, infos, type_f) VALUES
-('990€', 'FORFAIT B COMPLET', 'Code + 30 leçons de conduite', 'permis'),
-('890€', 'FORFAIT B', '30 leçons de conduite (sans code)', 'code'),
+('130€', 'FORFAIT CODE SEUL', '', 'code'),
+('990€', 'FORFAIT B COMPLET', 'Code + 20 leçons de conduite', 'permis'),
+('890€', 'FORFAIT B', '20 leçons de conduite (sans code)', 'permis'),
+
 ('1210€','FORFAIT B COMPLET','Code + 25 leçons de conduite', 'permis'),
-('1110€','FORFAIT B','25 leçons de conduite (sans code)', 'code'),
-('1430€','FORFAIT B COMPLET','Code + 30 leçons de conduite', 'permis'),
-('1330€','FORFAIT B','30 leçons de conduite (sans code)', 'conduite accompagnée'),
-('1110€','CONDUITE SUPERVISÉE','', 'code express');
-INSERT INTO NEWSLETTER (email,nom, prenom, guid, actif) VALUES
-('enorme.bg@leo.fr', 'leplusgros', 'bg', 'pzekfkzepofkpze', True),
-('enorme.bh@leo.fr', 'leplusgros', 'bg','idhdoizajdpad', True),
-('enorme.bi@leo.fr', 'leplusgros', 'bg', 'izoajiojdapdjzaedjapzd', True),
-('enorme.bj@leo.fr', 'leplusgros', 'bg', 'ijjjoazjijzijzaâê', True),
-('enorme.bk@leo.fr', 'leplusgros', 'bg', 'jiojioejfoejfoe', True),
-('enorme.bl@leo.fr', 'leplusgros', 'bg', 'knbvbidhfiezkbvczie', True),
-('enorme.bm@leo.fr', 'leplusgros', 'bg', 'fefhzofaàçuaàdjoa', True),
-('enorme.bn@leo.fr', 'leplusgros', 'bg', 'joeifjja)zfjoafjzapofj', True),
-('enorme.bo@leo.fr', 'leplusgros', 'bg','fjpozejfeozjefpozjepfjkoz', True),
-('enorme.bp@leo.fr', 'leplusgros', 'bg', 'fofàejâfjeaôjifzeôjfôzief', True),
-('enorme.bq@leo.fr', 'leplusgros', 'bg', 'ofjofjezoijfẑefjiẑejfôzejfôjzeofjzoej^', True)
-;
+('1110€','FORFAIT B','25 leçons de conduite (sans code)', 'permis'),
+
+('1430€', 'FORFAIT B COMPLET', 'Code + 30 leçons de conduite', 'permis'),
+('1330€', 'FORFAIT B', '30 leçons de conduite', 'permis'),
+
+('1200€','FORFAIT CONDUITE ACCOMPAGNÉE','Code + 20 leçons', 'conduite_accompagnee'),
+('1100€','FORFAIT CONDUITE ACCOMPAGNÉE','Code + 20 leçons (sans code)', 'conduite_accompagnee'),
+
+('250','FORFAIT CODE EXPRESS EN 4 JOURS','', 'code'),
+('1390€','FORFAIT B ACCÉLÉRÉ EN 1 MOIS','', 'permis'),
+
+('150€','ANNULATION','Code', 'annulation'),
+('250€','ANNULATION','Code Express 4 jours', 'annulation'),
+
+('410€','ANNULATION','Code + conduite', 'annulation'),
+('660€','ANNULATION','Code + conduite express 15 jours', 'annulation'),
+
+('100€','CONDUITE SUPERVISÉE','', 'code');

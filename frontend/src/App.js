@@ -1,9 +1,10 @@
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Connexion from "./pages/Connexion";
 import AjouterForfaits from "./pages/AjouterForfait";
 import GestionForfaits from "./pages/GestionForfaits";
 import AjouterArticle from "./pages/AjouterArticle";
 import GestionArticles from "./pages/GestionArticles";
+import ModifierArticle from "./pages/ModifierArticle";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Home from "./pages/Home";
@@ -23,6 +24,8 @@ import ExemplePageArticle from './pages/ExemplePageArticle';
 import PageAdmin from './pages/PageAdmin';
 import HeaderAdmin from "./components/HeaderAdmin";
 import Actualite from "./pages/Actualite";
+import Confirmation from "./pages/Confirmation";
+import ModifierForfaits from "./pages/ModifierForfaits"
 
 function App() {
 
@@ -30,8 +33,8 @@ function App() {
 
     <ChakraProvider theme={customTheme}>
       <Router>
-        <Header/>
-        <HeaderAdmin/>
+        <Header />
+        <HeaderAdmin />
         <div className="container">
           <Routes>
             <Route exact path="/" element={<Home />} />
@@ -49,14 +52,17 @@ function App() {
             <Route exact path="/Connexion" element={<Connexion />} />
             <Route exact path="/AjouterArticle" element={<AjouterArticle />} />
             <Route exact path="/GestionArticles" element={<GestionArticles />} />
+            <Route exact path="/ModifierArticle/:articleId" element={<ModifierArticle />} />
             <Route exact path="/AjouterForfaits" element={<AjouterForfaits />} />
             <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
             <Route exact path="/CreationCompte" element={<CreationCompte />} />
             <Route exact path="/PageAdmin" element={<PageAdmin />} />
             <Route exact path="/Actualite" element={<Actualite/>} />
 
+            <Route exact path="/Confirmation" element={<Confirmation />} />
+
           </Routes>
-        <Footer />
+          <Footer />
         </div>
 
       </Router>
