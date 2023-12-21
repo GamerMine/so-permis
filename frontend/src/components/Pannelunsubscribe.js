@@ -1,0 +1,32 @@
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
+
+const ConfirmationComponent = () => {
+
+    // Récupérer l'URL actuelle
+    var urlCourante = window.location.href;
+
+    // Créer un objet URL à partir de l'URL
+    var urlObjet = new URL(urlCourante);
+    var parametres = new URLSearchParams(urlObjet.search);
+
+    // Accéder à un paramètre spécifique
+    var parametre1 = parametres.get('token');
+    var parametre2 = parametres.get('email');
+
+    // Afficher les paramètres
+    console.log(parametre1);
+    console.log(parametre2);
+    //attendre le chargement complet de la page
+
+
+    return (
+        <div>
+            <p>Confirmation en cours...</p>
+            {/* Vous pouvez ajouter une interface utilisateur supplémentaire ici si nécessaire */}
+        </div>
+    );
+};
+
+export default ConfirmationComponent;

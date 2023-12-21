@@ -61,7 +61,6 @@ const AjouterArticle = () => {
     }
 
     verifConnexion();
-
     /**
      * Méthode permettant de récupérer les données du formulaire
      */
@@ -73,17 +72,21 @@ const AjouterArticle = () => {
         const image = document.getElementById("image").value;
         const contenu = document.getElementById("contenu").value;
         const images = document.getElementById("image");
+        const newsletterChecked = document.getElementById("newsletter").checked;
 
         formData.append('titreActualite', '' + titre);
         formData.append('infosActualite', '' + contenu);
         formData.append('imageURL', '' + image);
         formData.append('sources', '' + sources);
+        formData.append('newsletter', '' + newsletterChecked);
         if (images.files.length > 0) {
             const imageFile = images.files[0];
             formData.append('file', imageFile);
         }
-
+        console.log(formData);
         handleUpdate(formData);
+
+        const newsletter = document.getElementById("newsletter").checked;
     }
 
     return (
