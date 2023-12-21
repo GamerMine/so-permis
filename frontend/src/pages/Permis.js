@@ -52,8 +52,8 @@ const Permis = () => {
                 <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                     [
                     new OCard("", "PERMIS B", "Nos forfaits permis B","permis", "/Permis"),
-                    new OCard("", "PERMIS B EXPRESS", "Nos forfaits permis B express","ConduiteAccompagnee", "/CodeDeLaRoute"),
-                    new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "/CodeDeLaRoute"),
+                    new OCard("", "PERMIS B EXPRESS", "Nos forfaits permis B express","ConduiteAccompagnee", "#permisExpress"),
+                    new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "#conduiteAccom"),
 
                 ]}/>
 
@@ -67,8 +67,9 @@ const Permis = () => {
                 <div style={style.transitionFadeTop}/>
 
             </Stack>
-            <div style={style.fondBas}>
+            <div id="permisExpress" style={style.fondBas}>
                 <PermisB/>
+                <div id="conduiteAccom" />
                 <ConduiteAccompagnee/>
                 <div style={style.transitionFadebasbas}/>
             </div>

@@ -131,16 +131,18 @@ const ModifierForfaits = () => {
                 </Heading>
 
                 <Box align='center' marginBottom='2%'>
-                    <Center spacing="24px" marginY='1%' >
-                        <RadioGroup id="type_f" value={value} onChange={setValue}>
-                            <Stack direction="row">
-                                <Radio value='permis'>Permis</Radio>
-                                <Radio value='conduite_accompagnee'>Conduite Accompagnée</Radio>
-                                <Radio value='code'>Code de la route</Radio>
-                                <Radio value='annulation'>Annulation</Radio>
-                            </Stack>
-                        </RadioGroup>
-                    </Center>
+                    { formation.type_f != "express" && formation.type_f != "" && (
+                        <Center spacing="24px" marginY='1%' >
+                            <RadioGroup id="type_f" value={value} onChange={setValue}>
+                                <Stack direction="row">
+                                    <Radio value='permis'>Permis</Radio>
+                                    <Radio value='conduite_accompagnee'>Conduite Accompagnée</Radio>
+                                    <Radio value='code'>Code de la route</Radio>
+                                    <Radio value='annulation'>Annulation</Radio>
+                                </Stack>
+                            </RadioGroup>
+                        </Center>
+                        )}
                     <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='5%' w='50%' marginBottom='4%'>
                         <GridItem colSpan={2}>
                             <FormLabel>Nom</FormLabel>
