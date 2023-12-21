@@ -12,7 +12,9 @@ import {
 const PannelInformationsVehicules =()=>{
     const style ={
         body:{
-            padding: "80px",
+            padding: "15px",
+            paddingTop:"80px",
+            paddingBottom:"80px"
         },
 
         title:{
@@ -66,7 +68,7 @@ const PannelInformationsVehicules =()=>{
 
     return (
         <Stack style={style.body}>
-            <Text style={style.title} textAlign={{base:"center", "sd":"left"}}>Nos véhicules chez So'Permis </Text>
+            <Text style={style.title} marginLeft={{"smdp":"65px"}} textAlign={{base:"center", "sd":"left"}}>Nos véhicules chez So'Permis</Text>
             <Grid templateColumns="repeat(1, 1fr)" gap="25px" alignSelf="center">
                 <Card marginRight="auto"  style={style.miniBox} marginLeft={{base:"auto" , xl:"50px"}} width={{base:"275px", "sd":"450px"}} >
                     <CardBody>

@@ -4,7 +4,7 @@ import {
     Grid,
     Card,
     Stack,
-    Text, GridItem, CardHeader, CardBody, CardFooter,
+    Text,
 } from "@chakra-ui/react";
 import {useEffect, useState} from "react";
 import axios from "axios";

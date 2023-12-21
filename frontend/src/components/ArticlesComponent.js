@@ -36,7 +36,7 @@ const ArticlesComponent = () => {
 
     const handleDelete = async (item) => {
         const formData = new FormData();
-        console.log(item);
+        //console.log(item);
         formData.append('idactualite', item);
         await axios.post(HOSTNAME+'/DeleteArticle', formData);
         window.location.reload();
@@ -56,7 +56,7 @@ const ArticlesComponent = () => {
 
             setTotalPages(Math.ceil(listItems.length / itemsPerPage));
 
-            console.log(currentItems);
+            //console.log(currentItems);
 
             let tmpArticles = [];
             currentItems.map((article, index) => {

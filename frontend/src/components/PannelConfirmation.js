@@ -18,8 +18,8 @@ const ConfirmationComponent = () => {
     var parametre2 = parametres.get('email');
 
     // Afficher les paramètres
-    console.log(parametre1);
-    console.log(parametre2);
+   // console.log(parametre1);
+    //console.log(parametre2);
     //attendre le chargement complet de la page
     useEffect(() => {
         const fetchData = async () => {
