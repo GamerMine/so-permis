@@ -49,7 +49,7 @@ const Connexion = () => {
         formData.append('password', password);
         const response = await axios.post(HOSTNAME+'/TestConnexion', //TestConnexion
         formData);
-        console.log(response.data);
+        //console.log(response.data);
         if (!(''+response.data).startsWith('Incorrect'))
         {
             Cookies.set('compte',response.data);
@@ -58,7 +58,7 @@ const Connexion = () => {
         }
         else
         {
-            console.log(response.data);
+           // console.log(response.data);
         }
       } catch (error) {
         // Gérez les erreurs ici

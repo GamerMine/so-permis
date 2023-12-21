@@ -8,10 +8,6 @@ import {
     Link,
     FormLabel,
     Input,
-    HStack,
-    RadioGroup,
-    Radio,
-    Stack,
     Checkbox,
     Textarea,
     Image
@@ -40,7 +36,7 @@ const AjouterArticle = () => {
             backgroundColor: "#1ec6b1",
             color: "white",
         },
-        
+
         image: {
             maxWidth: "200px",
             maxHeight: "200px",
@@ -49,7 +45,7 @@ const AjouterArticle = () => {
 
     const handleUpdate = async (formData) => {
         const response = await axios.post(HOSTNAME + '/AjouterArticle', formData);
-        console.log(response.data);
+        //console.log(response.data);
         window.location.replace("/GestionArticles");
     };
 
@@ -70,67 +66,10 @@ const AjouterArticle = () => {
         if (response.data != true) {
             navigate("/");
         }
-        console.log(response.data);
+        //console.log(response.data);
     }
 
-    const [value, setValue] = React.useState("article")
     verifConnexion();
-    /**
-     * Méthode permettant de changer le formulaire en fonction de la valeur du radio bouton
-     * @returns code HTML du formulaire
-     */
-    function changerFormulaire() {
-        if (value === "article") {
-            return (
-                <Box align='center' marginBottom='1%'>
-
-                    <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
-
-                        <GridItem colSpan={2}>
-                            <FormLabel>Titre</FormLabel>
-                            <Input id="titre" variant='flushed' placeholder="Titre" />
-                        </GridItem>
-
-                        <GridItem colSpan={2}>
-                            <FormLabel>Sources</FormLabel>
-                            <Input id="source" variant='flushed' placeholder="Sources" />
-                        </GridItem>
-
-                        <GridItem colSpan={2}>
-                            <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
-                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' onChange={onImageChange} />
-                        </GridItem>
-
-                        <GridItem colSpan={2}>
-                            <Image style={{ ...style.image }} src={urlImage} fallbackSrc='https://via.placeholder.com/200'/>
-                        </GridItem>
-
-                        <GridItem colSpan={4}>
-                            <FormLabel>Contenu</FormLabel>
-                            <Textarea id="contenu" variant='outline' size='md' placeholder="Contenu" />
-                        </GridItem>
-                    </Grid>
-                </Box>
-            );
-
-        }
-
-        return (
-            <Box align='center' marginBottom='1%'>
-                <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='5%' w='50%' marginBottom='4%'>
-                    <GridItem colSpan={2}>
-                        <FormLabel>Titre</FormLabel>
-                        <Input id="titre" variant='flushed' placeholder="Titre" />
-                    </GridItem>
-                    <GridItem colSpan={2}>
-                        <FormLabel>URL (source)</FormLabel>
-                        <Input id="source" variant='flushed' placeholder="URL" />
-                    </GridItem>
-                </Grid>
-            </Box>
-        );
-    }
-
 
     /**
      * Méthode permettant de récupérer les données du formulaire
@@ -138,29 +77,22 @@ const AjouterArticle = () => {
     function recupererDonnees() {
         let formData = new FormData();
 
-        if (value === "article") {
-            const titre = document.getElementById("titre").value;
-            const sources = document.getElementById("source").value;
-            const image = document.getElementById("image").value;
-            const contenu = document.getElementById("contenu").value;
-            const images = document.getElementById("image");
+        const titre = document.getElementById("titre").value;
+        const sources = document.getElementById("source").value;
+        const image = document.getElementById("image").value;
+        const contenu = document.getElementById("contenu").value;
+        const images = document.getElementById("image");
 
-            formData.append('titreActualite', '' + titre);
-            formData.append('infosActualite', '' + contenu);
-            formData.append('imageURL', '' + image);
-            formData.append('sources', '' + sources);
-            if (images.files.length > 0) {
-                const imageFile = images.files[0];
-                formData.append('file', imageFile);
-            }
-
-            handleUpdate(formData);
+        formData.append('titreActualite', '' + titre);
+        formData.append('infosActualite', '' + contenu);
+        formData.append('imageURL', '' + image);
+        formData.append('sources', '' + sources);
+        if (images.files.length > 0) {
+            const imageFile = images.files[0];
+            formData.append('file', imageFile);
         }
-        else {
-            const titre = document.getElementById("titre").value;
-            const source = document.getElementById("source").value;
 
-        }
+        handleUpdate(formData);
 
         const newsletter = document.getElementById("newsletter").checked;
     }
@@ -171,18 +103,34 @@ const AjouterArticle = () => {
                 Ajouter un article
             </Heading>
 
-            <Box align='center'>
-                <HStack spacing="24px" marginStart='40%' marginY='1%'>
-                    <RadioGroup onChange={setValue} value={value}>
-                        <Stack direction="row">
-                            <Radio value="article">Écrire l'article</Radio>
-                            <Radio value="source">Ajouter une source</Radio>
-                        </Stack>
-                    </RadioGroup>
-                </HStack>
-            </Box>
+            <Box align='center' marginBottom='1%'>
+                <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
 
-            {changerFormulaire()}
+                    <GridItem colSpan={2}>
+                        <FormLabel>Titre</FormLabel>
+                        <Input id="titre" variant='flushed' placeholder="Titre" />
+                    </GridItem>
+
+                    <GridItem colSpan={2}>
+                        <FormLabel>Sources</FormLabel>
+                        <Input id="source" variant='flushed' placeholder="Sources" />
+                    </GridItem>
+
+                    <GridItem colSpan={2}>
+                        <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
+                        <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' onChange={onImageChange} />
+                    </GridItem>
+
+                    <GridItem colSpan={2}>
+                        <Image style={{ ...style.image }} src={urlImage} fallbackSrc='https://via.placeholder.com/200' />
+                    </GridItem>
+
+                    <GridItem colSpan={4}>
+                        <FormLabel>Contenu</FormLabel>
+                        <Textarea id="contenu" variant='outline' size='md' placeholder="Contenu" />
+                    </GridItem>
+                </Grid>
+            </Box>
 
             <Box align='center' marginBottom='2%'>
                 <Checkbox id="newsletter" value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>

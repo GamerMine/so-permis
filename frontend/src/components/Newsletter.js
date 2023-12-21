@@ -8,12 +8,9 @@ import {
     FormControl,
     FormErrorMessage,
     FormLabel,
-    Grid,
-    GridItem,
     Input,
     Stack,
     Text,
-    Textarea,
 } from "@chakra-ui/react";
 
 const Newsletter = () => {

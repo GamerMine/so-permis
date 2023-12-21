@@ -14,7 +14,6 @@ import {
     Heading,
 } from "@chakra-ui/react";
 import { MultiHorizontalCardsWithButton, OCard } from "../components/MultiHorizontalCardsWithButton"
-import { HOSTNAME } from "../Variables";
 import ForfaitCode from "../components/ForfaitCode"
 import ForfaitAnnulation from "../components/ForfaitAnnulation"
 

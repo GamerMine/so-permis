@@ -16,8 +16,8 @@ const ConfirmationComponent = () => {
     var parametre2 = parametres.get('email');
 
     // Afficher les paramètres
-    console.log(parametre1);
-    console.log(parametre2);
+   // console.log(parametre1);
+    //console.log(parametre2);
     //attendre le chargement complet de la page
     useEffect(() => {
         const fetchData = async () => {
@@ -26,7 +26,7 @@ const ConfirmationComponent = () => {
             formData.append('email', parametre2);
             const response = await axios.post('http://localhost:8080/confirmation',
                 formData);
-            console.log(response.data);
+            //console.log(response.data);
         };
         fetchData();
     }, []);
