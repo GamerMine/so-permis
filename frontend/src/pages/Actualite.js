@@ -73,7 +73,7 @@ const Actualite = () => {
     useEffect(() => {
         const fetchActus = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/getListeActus");
+                const response = await axios.get(HOSTNAME+"/getListeActus");
                 const actu = response.data;
                 const reversedActus = actu.reverse();
                 setActus(reversedActus);

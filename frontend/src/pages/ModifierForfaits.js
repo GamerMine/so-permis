@@ -55,7 +55,7 @@ const ModifierForfaits = () => {
         // Fonction asynchrone pour récupérer les forfaits de l'article à partir du backend
         const fetchFormationDetails = async () => {
             try {
-                const response = await axios.get(`http://localhost:8080/ModifierFormation/${formationId}`);
+                const response = await axios.get(HOSTNAME+`/ModifierFormation/${formationId}`);
                 const forfaitData = response.data;
                 setFormation({
                     idformation: forfaitData.idformation,
