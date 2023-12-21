@@ -138,12 +138,17 @@ const Header = () => {
                                         </Grid>
                                     </MenuButton>
                                     <MenuList>
+                                        <NavLink style={style.navLinkSmall} to="/PageAdmin">
+                                            <MenuItem>
+                                                DASHBOARD
+                                            </MenuItem>
+                                        </NavLink>
                                         <NavLink style={style.navLinkSmall} to="/GestionForfaits">
                                             <MenuItem>
                                                 FORFAIT
                                             </MenuItem>
                                         </NavLink>
-                                        <NavLink style={style.navLinkSmall} to="#">
+                                        <NavLink style={style.navLinkSmall} to="/NewsLetter">
                                             <MenuItem>
                                                 NEWSLETTER
                                             </MenuItem>
@@ -151,6 +156,11 @@ const Header = () => {
                                         <NavLink style={style.navLinkSmall} to="/GestionArticles">
                                             <MenuItem>
                                                 ARTICLES
+                                            </MenuItem>
+                                        </NavLink>
+                                        <NavLink style={style.navLinkSmall} to="/CreationCompte">
+                                            <MenuItem>
+                                                CRÉER UN COMPTE
                                             </MenuItem>
                                         </NavLink>
                                         <NavLink style={style.navLinkSmall} to="#" onClick={requestDisconnect}>
