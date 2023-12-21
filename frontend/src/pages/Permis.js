@@ -51,7 +51,7 @@ const Permis = () => {
 
                 <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                     [
-                    new OCard("", "PERMIS B", "Nos forfaits permis B","permis", "/Permis"),
+                    new OCard("", "PERMIS B", "Nos forfaits permis B","permis", "#permis"),
                     new OCard("", "PERMIS B EXPRESS", "Nos forfaits permis B express","ConduiteAccompagnee", "#permisExpress"),
                     new OCard("", "CONDUITE ACCOMPAGNÉE", "Nos forfaits conduite accompagnée","conduite", "#conduiteAccom"),
 
@@ -61,7 +61,7 @@ const Permis = () => {
 
             </Stack>
             <Stack style={{backgroundImage: "url('./images/route.jpg')",backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
-                <div style={style.transitionFadeBot}/>
+                <div style={style.transitionFadeBot} id="permis"/>
 
                 <ListePermis style={style.cardsServices} hauteur={"450px"} largeur={"350px"}/>
                 <div style={style.transitionFadeTop}/>
