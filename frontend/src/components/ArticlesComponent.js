@@ -5,7 +5,6 @@ import {
     CardBody,
     Center,
     Heading,
-    Link,
     Table,
     Tbody, Td,
     Th,
@@ -16,13 +15,14 @@ import {
 import axios from "axios";
 import {HOSTNAME} from "../Variables";
 import {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, NavLink} from "react-router-dom";
 
 const ArticlesComponent = () => {
 
     const [articles, setArticles] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
+    const [dummy, setDummy] = useState(false);
 
     const itemsPerPage = 8;
     const navigate = useNavigate();
@@ -36,10 +36,9 @@ const ArticlesComponent = () => {
 
     const handleDelete = async (item) => {
         const formData = new FormData();
-        //console.log(item);
         formData.append('idactualite', item);
         await axios.post(HOSTNAME+'/DeleteArticle', formData);
-        window.location.reload();
+        setDummy(!dummy);
     };
 
     const handleUpdate = async (item) => {
@@ -55,8 +54,6 @@ const ArticlesComponent = () => {
             const currentItems = listItems.slice(indexOfFirstItem, indexOfLastItem);
 
             setTotalPages(Math.ceil(listItems.length / itemsPerPage));
-
-            //console.log(currentItems);
 
             let tmpArticles = [];
             currentItems.map((article, index) => {
@@ -85,7 +82,7 @@ const ArticlesComponent = () => {
 
     useEffect(() => {
         loadContent()
-    }, []);
+    }, [currentPage, dummy]);
 
     return (
         <Box>
@@ -95,7 +92,7 @@ const ArticlesComponent = () => {
 
             <div align='center'>
                 <Tooltip label="Ajouter un article" aria-label="Ajouter un article">
-                    <Link href="/AjouterArticle"> <Button style={{ ...style.bouton }}>AJOUTER</Button></Link>
+                    <NavLink to="/AjouterArticle"> <Button style={{ ...style.bouton }}>AJOUTER</Button></NavLink>
                 </Tooltip>
             </div>
 

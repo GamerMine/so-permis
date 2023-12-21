@@ -26,7 +26,7 @@ const GestionArticles = () => {
       formData.append('compte', ''+valeurDuCookie);
       const response = await axios.post(HOSTNAME+'/EstAdmin',
       formData);
-      if (response.data != true)
+      if (response.data !== true)
       {
         navigate("/");
       } else {
