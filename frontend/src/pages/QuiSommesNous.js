@@ -30,6 +30,7 @@ const QuiSommesNous = () => {
             fontWeight: '400',
             wordWrap: 'break-word',
             backgroundColor: "white",
+            textAlign:"justify"
         },
 
         titre: {

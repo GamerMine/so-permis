@@ -191,7 +191,7 @@ const CodeDeLaRoute = () => {
     };
 
     return (
-        <Stack style={{gap: 0 , ...style.police}}  marginBottom={"5%"} align="center">
+        <Stack style={{gap: 0 , ...style.police}}  marginBottom={"5%"} >
             <Stack style={{backgroundImage: "url('./images/code-route.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
                 <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                     [
