@@ -30,9 +30,11 @@ const Actualite = () => {
         actu: {
             height:"max-content",
             borderRadius:40,
+            border: "3px solid" ,
+            borderColor: "#20AB9A",
             fontSize: "30px",
-            backgroundColor: "#1EC6B1",
-            color:"black",
+            backgroundColor: "#F1F1F1",
+            color:"#1EC6B1",
             textAlign: "center",
             fontFamily: "Montserrat-Bold, Helvetica",
             marginLeft:"25px",
@@ -74,9 +76,9 @@ const Actualite = () => {
                     <Stack key={actuItem.idActu}>
                         <GridItem style={style.actu}>
                             <Stack onClick={onOpen}>
-                                <Text marginTop="5px">Article {index + 1}</Text>
+                            <Text marginTop="5px" alignSelf="center">{actuItem.titreActu}</Text>
                                 <Divider />
-                                <Text marginTop="5px" alignSelf="center">{actuItem.titreActu}</Text>
+                            <Text>{actuItem.infosActu.padStart(15," ... ")}</Text>
                             </Stack>
                         </GridItem>
 
