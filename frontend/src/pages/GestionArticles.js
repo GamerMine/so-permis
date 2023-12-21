@@ -1,18 +1,6 @@
 import {
-    Box,
-    Table,
-    Thead,
-    Tbody,
-    Tr,
-    Th,
-    Td,
-    Card,
-    CardBody,
-    Heading,
-    Button,
-    Link,
-    Center,
-    Tooltip, Stack, Spinner,
+    Stack, 
+    Spinner,
 } from "@chakra-ui/react";
 import { useState, useEffect } from 'react';
 import axios from "axios";
