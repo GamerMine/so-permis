@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS ACTUALITE
 
 INSERT INTO ACTUALITE (titreActualite, infosActualite, imageURL, sources) VALUES
 (
-    'Léo est trop fort', 'Car il a réussi a connecter la base', 'imageDeLeoLeBg.png', 'léo'
+    'Léo est trop fort', 'Car il a réussi a connecter la base', 'Kirby.PNG', 'léo'
 );
 
 INSERT INTO ADMINISTRATEUR(email, password, id_unique) VALUES 
