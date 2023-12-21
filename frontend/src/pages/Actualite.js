@@ -28,7 +28,7 @@ const Actualite = () => {
         },
         actu: {
             height:"max-content",
-            borderRadius:40,
+            borderRadius:30,
             border: "3px solid" ,
             borderColor: "#20AB9A",
             fontSize: "30px",
@@ -38,6 +38,7 @@ const Actualite = () => {
             fontFamily: "Montserrat-Bold, Helvetica",
             marginLeft:"25px",
             marginRight:"25px",
+            margin:"3%"
         },
         image:{
             margin:"auto" ,
@@ -51,7 +52,21 @@ const Actualite = () => {
         }
     };
 
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const [modalStates, setModalStates] = React.useState([]);
+
+    const onOpen = (index) => {
+        const newModalStates = [...modalStates];
+        newModalStates[index] = true;
+        setModalStates(newModalStates);
+    };
+
+    const onClose = (index) => {
+        const newModalStates = [...modalStates];
+        newModalStates[index] = false;
+        setModalStates(newModalStates);
+    };
+
+    //const { isOpen, onOpen, onClose } = useDisclosure();
 
     useEffect(() => {
         const fetchActus = async () => {
@@ -74,24 +89,33 @@ const Actualite = () => {
                 {actus.map((actuItem, index) => (
                     <Stack key={actuItem.idActu}>
                         <GridItem style={style.actu}>
-                            <Stack onClick={onOpen}>
-                            <Text marginTop="5px" alignSelf="center">{actuItem.titreActu}</Text>
+                            <Stack onClick={() => onOpen(index)}>
+                                <Text marginTop="5px" alignSelf="center">
+                                    {actuItem.titreActu}
+                                </Text>
                                 <Divider borderColor={"#1EC6B1"} />
-                            <Text>{(actuItem.infosActu).split(' ').slice(0,4).join(' ') + " ... "}</Text>
+                                <Text>
+                                    {(actuItem.infosActu).split(' ').slice(0,4).join(' ') + " ... "}
+                                </Text>
                             </Stack>
                         </GridItem>
 
-                        <Modal isOpen={isOpen} onClose={onClose}>
-                            <ModalOverlay />
+                        {console.log(actuItem.imageURL)}
+
+                        <Modal isOpen={modalStates[index]} onClose={() => onClose(index)}>
                             <ModalContent>
                                 <ModalHeader>
                                     {actuItem.titreActu != null ? actuItem.titreActu : null}
                                 </ModalHeader>
                                 <ModalCloseButton />
-                                <ModalBody alignItems="center" >
-                                    {actuItem.imageURL != null ?
-                                        <img style={{...style.image}}
-                                             src="./images/permis.jpg" alt="Description of the image"/> : null}
+                                <ModalBody alignItems="center">
+                                    {actuItem.imageURL != null ? (
+                                        <img
+                                            style={{ ...style.image }}
+                                            src={actuItem.imageURL}
+                                            alt="Description of the image"
+                                        />
+                                    ) : null}
                                     {actuItem.infosActu != null ? actuItem.infosActu : null}
                                 </ModalBody>
                                 <ModalFooter>
