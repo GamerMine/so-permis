@@ -18,7 +18,7 @@ const PannelInformationSOPermis =()=>{
 
         title:{
             margin:"50px",
-            color: "#FFF",
+            color: "#20AB9A",
             fontFamily: "Montserrat-Bold, Helvetica",
             fontSize: "35px",
             fontStyle: "normal",

@@ -73,6 +73,16 @@ const CodeDeLaRoute = () => {
 
         entete: {
             borderBottom: "1px solid white",
+        },
+
+        titrePartie: {
+            color: '#20AB9A',
+            fontSize: "35px",
+            fontFamily: "Montserrat-Bold, Helvetica",
+            fontWeight: '700',
+            wordWrap: 'break-word',
+            marginBottom:"30px",
+            padding:"15px"
         }
     };
 
@@ -206,19 +216,19 @@ const CodeDeLaRoute = () => {
             <Box w='100%' h='30px' align="center" bgGradient='linear(to-b, #040405, #000000)'></Box>
 
             <Box id="boxForfaits" w='100%' align="center" backgroundColor={"black"} marginBottom={"-10px"} marginTop={"-10px"}>
-                <Heading size="lg" style={{ ...style.textBlanc }}>Forfait Code</Heading>
+                <Heading style={{ ...style.titrePartie }} textAlign={{base:"center", "sd":"left"}}>Forfait Code</Heading>
                 <ForfaitCode/>
             </Box>
 
             <Box id="boxHoraires" w='100%' align="center" backgroundColor={"black"}  style={{ ...style.textBlanc }}>
-                <Heading size="lg" marginBottom={"2%"}>Horaires code en salle</Heading>
+            <Heading style={{ ...style.titrePartie }} textAlign={{base:"center", "sd":"left"}} marginBottom={"2%"}>Horaires code en salle</Heading>
                 {useSetWidthWindow()}
             </Box>
 
             <Box w='100%' h='20px' align="center" bgGradient='linear(to-b, #000000, #FFFFFF)'></Box>
 
+            <Heading style={{ ...style.titrePartie }} textAlign={{base:"center", "sd":"left"}} marginBottom={"2%"}>Condition d’annulation du code</Heading>
             <Stack id="boxAnnulation" w={{ base: "80%", "sb": "50%" }} h="100%" mx={"10%"} px={"5%"}>
-                <Heading size="lg" align='center' marginBottom={"2%"}>Condition d’annulation du code</Heading>
                 <Card style={{ ...style.carte }} boxShadow={"5px 5px 5px #b5b5b5"}>
                     <ForfaitAnnulation/>
                 </Card>

@@ -28,7 +28,7 @@ export const ListePermis = (args) => {
         textTitre:{
             marginTop:"30px",
             borderRadius:0,
-            fontFamily: "Montserrat-Bold, Helvetica",
+            fontFamily: "Montserrat, Helvetica",
             fontWeight: '700',
             wordWrap: 'break-word',
             marginBottom:"30px",
@@ -42,7 +42,7 @@ export const ListePermis = (args) => {
             backgroundColor: "black",
             color:"white",
             textAlign: "center",
-            fontFamily: "Montserrat-Bold, Helvetica",
+            fontFamily: "Montserrat, Helvetica",
             wordWrap: 'break-word',
         },
 
