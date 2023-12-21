@@ -48,13 +48,7 @@ const AjouterArticle = () => {
         //console.log(response.data);
         window.location.replace("/GestionArticles");
     };
-
-    const [tailleFormulaires, setTailleFormulaires] = useState(0);
-
-    const handleGetFormulairesLength = (length) => {
-        setTailleFormulaires(length);
-    };
-
+    
     let navigate = useNavigate();
 
     const verifConnexion = async () => {
