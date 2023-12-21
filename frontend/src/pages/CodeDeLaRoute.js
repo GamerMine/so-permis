@@ -17,7 +17,6 @@ import { MultiHorizontalCardsWithButton, OCard } from "../components/MultiHorizo
 import { HOSTNAME } from "../Variables";
 import ForfaitCode from "../components/ForfaitCode"
 import ForfaitAnnulation from "../components/ForfaitAnnulation"
-import axios from "axios";
 
 const CodeDeLaRoute = () => {
 
