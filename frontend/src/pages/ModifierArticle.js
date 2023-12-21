@@ -7,13 +7,10 @@ import {
     Grid,
     GridItem,
     Heading,
-    IconButton,
     Input,
     Radio,
     RadioGroup,
     Textarea,
-    Tooltip,
-    useToast,
     Stack,
     Link, Spinner,
 } from "@chakra-ui/react";
@@ -21,7 +18,6 @@ import Cookies from 'js-cookie';
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import {HOSTNAME} from "../Variables";
-import { IoIosAdd, IoIosRemove } from "react-icons/io";
 
 /**
  * Page permettant de modifier un article
@@ -37,7 +33,6 @@ const ModifierArticle = () => {
         image: '',
         sources: ''
     });
-    const [formulaires, setFormulaires] = useState([]);
     const [value, setValue] = useState("article");
 
     const style = {

@@ -98,7 +98,7 @@ const ModifierForfaits = () => {
         let formData = new FormData();
         formData.append('compte', '' + valeurDuCookie);
         const response = await axios.post(HOSTNAME+'/EstAdmin', formData);
-        if (response.data !== true) {
+        if (response.data != true) {
             navigate("/");
         }
     }
@@ -127,7 +127,7 @@ const ModifierForfaits = () => {
         <Stack style={{gap: 0}}>
             <Box>
                 <Heading textAlign="center" paddingTop="20px">
-                    Ajouter un forfait / Modifier un forfait
+                    Modifier un forfait
                 </Heading>
 
                 <Box align='center' marginBottom='2%'>
