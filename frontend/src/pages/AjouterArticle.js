@@ -14,11 +14,12 @@ import {
     Stack,
     Checkbox,
     Textarea,
+    Image
 } from "@chakra-ui/react";
 import Cookies from 'js-cookie';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import {HOSTNAME} from "../Variables";
+import { HOSTNAME } from "../Variables";
 
 /**
  * Page permettant d'ajouter un article 
@@ -26,15 +27,28 @@ import {HOSTNAME} from "../Variables";
  */
 const AjouterArticle = () => {
 
+    const [urlImage, setUrlImage] = useState(null)
+
+    const onImageChange = (event) => {
+        if (event.target.files && event.target.files[0]) {
+            setUrlImage(URL.createObjectURL(event.target.files[0]));
+        }
+    }
+
     const style = {
         bouton: {
             backgroundColor: "#1ec6b1",
             color: "white",
-        }
+        },
+        
+        image: {
+            maxWidth: "200px",
+            maxHeight: "200px",
+        },
     }
 
     const handleUpdate = async (formData) => {
-        const response = await axios.post(HOSTNAME+'/AjouterArticle', formData);
+        const response = await axios.post(HOSTNAME + '/AjouterArticle', formData);
         console.log(response.data);
         window.location.replace("/GestionArticles");
     };
@@ -51,7 +65,7 @@ const AjouterArticle = () => {
         const valeurDuCookie = Cookies.get('compte');
         let formData = new FormData();
         formData.append('compte', '' + valeurDuCookie);
-        const response = await axios.post(HOSTNAME+'/EstAdmin',
+        const response = await axios.post(HOSTNAME + '/EstAdmin',
             formData);
         if (response.data != true) {
             navigate("/");
@@ -84,7 +98,11 @@ const AjouterArticle = () => {
 
                         <GridItem colSpan={2}>
                             <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
-                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' />
+                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' onChange={onImageChange} />
+                        </GridItem>
+
+                        <GridItem colSpan={2}>
+                            <Image style={{ ...style.image }} src={urlImage} fallbackSrc='https://via.placeholder.com/200'/>
                         </GridItem>
 
                         <GridItem colSpan={4}>
