@@ -105,7 +105,7 @@ const PanelActus = () => {
             },
 
             text: {
-                color: "white",
+                color: "black",
                 fontFamily: 'Montserrat',
                 fontSize: 20
             },
