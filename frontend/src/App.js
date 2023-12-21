@@ -24,6 +24,7 @@ import PageAdmin from './pages/PageAdmin';
 import HeaderAdmin from "./components/HeaderAdmin";
 import Confirmation from "./pages/Confirmation";
 import ModifierForfaits from "./pages/ModifierForfaits"
+import PageErreur from './pages/PageErreur';
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
             <Route exact path="/ModifierForfaits/:formationId" element={<ModifierForfaits />} />
 
             <Route exact path="/Confirmation" element={<Confirmation />} />
+            <Route path="*" element={<PageErreur />} />
 
           </Routes>
           <Footer />
