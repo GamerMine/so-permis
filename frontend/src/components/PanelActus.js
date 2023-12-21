@@ -170,7 +170,7 @@ const PanelActus = () => {
                                 ) : (<p/>)
 
                             }
-                        <CardHeader style={style.CardHeader}/>
+                        <CardBody style={style.CardHeader}/>
                         <CardFooter style={style.cardBody}>
                             <Text style={{...style.text, whiteSpace: "nowrap"}}>{title} - <span
                                 style={{...style.text, fontStyle: "italic"}}>{author}</span></Text>
