@@ -78,7 +78,7 @@ const AjouterForfait = () => {
     return (
         <Box>
             <Heading textAlign="center" paddingTop="20px">
-                Ajouter un forfait / Modifier un forfait
+                Ajouter un forfait
             </Heading>
 
             <Box align='center' marginBottom='2%'>
@@ -89,7 +89,6 @@ const AjouterForfait = () => {
                             <Radio value='conduite_accompagnee'>Conduite Accompagnée</Radio>
                             <Radio value='code'>Code de la route</Radio>
                             <Radio value='annulation'>Annulation</Radio>
-
                         </Stack>
                     </RadioGroup>
                 </Center>
