@@ -7,11 +7,11 @@ import {
     Divider,
     Modal,
     ModalContent,
-    ModalOverlay,
     ModalHeader,
-    ModalBody, ModalFooter, ModalCloseButton, useDisclosure
+    ModalBody, ModalFooter, ModalCloseButton,
 } from "@chakra-ui/react";
 import axios from "axios";
+import {HOSTNAME} from "../Variables";
 
 const Actualite = () => {
     const [actus, setActus] = useState([]);
@@ -53,6 +53,8 @@ const Actualite = () => {
     };
 
     const [modalStates, setModalStates] = React.useState([]);
+
+    const hostname = HOSTNAME ;
 
     const onOpen = (index) => {
         const newModalStates = [...modalStates];
@@ -99,9 +101,6 @@ const Actualite = () => {
                                 </Text>
                             </Stack>
                         </GridItem>
-
-                        {console.log(actuItem.imageURL)}
-
                         <Modal isOpen={modalStates[index]} onClose={() => onClose(index)}>
                             <ModalContent>
                                 <ModalHeader>
@@ -109,13 +108,13 @@ const Actualite = () => {
                                 </ModalHeader>
                                 <ModalCloseButton />
                                 <ModalBody alignItems="center">
-                                    {actuItem.imageURL != null ? (
+                                    {actuItem.imageURL != "null" ? (
                                         <img
                                             style={{ ...style.image }}
-                                            src={actuItem.imageURL}
+                                            src={hostname + "/public/images/"+ actuItem.imageURL}
                                             alt="Description of the image"
                                         />
-                                    ) : null}
+                                    ) : ""}
                                     {actuItem.infosActu != null ? actuItem.infosActu : null}
                                 </ModalBody>
                                 <ModalFooter>

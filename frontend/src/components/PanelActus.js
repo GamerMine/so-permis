@@ -55,6 +55,8 @@ const PanelActus = () => {
          </Card>
     ));
 
+    const hostname = HOSTNAME ;
+
     const navigate = useNavigate();
     const handleRedirect = (link) =>{
         navigate(link);
@@ -74,10 +76,20 @@ const PanelActus = () => {
     }
 
     function createCardBody(imgLink, title, author, description, nbActus, status=isHoveringOld) {
+
+        console.log(imgLink)
+
+        if(imgLink == "null" )
+        {
+            imgLink = "Actualites.png";
+        }
+
+        console.log(imgLink)
+
         const style = {
             cards: {
                 alignSelf: "center",
-                backgroundImage: "linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 30%), url(" + imgLink + ")",
+                backgroundImage: "linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 30%), url(" + hostname + "/public/images/" + imgLink + ")",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
             },
@@ -120,7 +132,7 @@ const PanelActus = () => {
 
         const images = Array(Math.min(nbActus, 3)).fill('a');
 
-        console.log(status);
+        //console.log(status);
 
         return (
             <Stack>
