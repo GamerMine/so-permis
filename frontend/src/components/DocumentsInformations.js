@@ -23,7 +23,7 @@ const DocumentsInformations = (arg) => {
         },
 
         title:{
-            margin:"50px",
+            margin:"15px",
             color: "#20AB9A",
             fontFamily: "Montserrat-Bold, Helvetica",
             fontSize: "35px",
