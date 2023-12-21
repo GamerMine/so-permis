@@ -102,9 +102,42 @@ const ModifierArticle = () => {
         const response = await axios.post(HOSTNAME+'/EstAdmin', formData);
         if (response.data !== true) {
             navigate("/");
-        } else {
-            setContent((
-                <Box>
+        }
+    }
+
+    /**
+     * Méthode permettant de récupérer les données du formulaire
+     */
+    function recupererDonnees() {
+        let formData = new FormData();
+
+        if (value === "article") {
+            const titre = document.getElementById("titre").value;
+            const sources = document.getElementById("source").value;
+            const image = document.getElementById("image").value;
+            const infos = document.getElementById("infos").value;
+
+            formData.append('id', '' + article.id);
+            formData.append('titreActualite', '' + titre);
+            formData.append('infosActualite', '' + infos);
+            formData.append('imageURL', '' + image);
+            formData.append('sources', '' + sources);
+        }
+        else {
+            const titre = document.getElementById("titre").value;
+            const source = document.getElementById("source").value;
+
+        }
+
+        const newsletter = document.getElementById("newsletter").checked;
+
+        handleUpdate(formData);
+    }
+
+    verifConnexion();
+    return (
+        <Stack style={{gap: "0"}}>
+            <Box>
                 <Heading textAlign="center" marginTop='1%'>
                     Modifier un article
                 </Heading>
@@ -153,43 +186,6 @@ const ModifierArticle = () => {
                     </div>
                 </Box>
             </Box>
-            ));
-        }
-    }
-
-    /**
-     * Méthode permettant de récupérer les données du formulaire
-     */
-    function recupererDonnees() {
-        let formData = new FormData();
-
-        if (value === "article") {
-            const titre = document.getElementById("titre").value;
-            const sources = document.getElementById("source").value;
-            const image = document.getElementById("image").value;
-            const infos = document.getElementById("infos").value;
-
-            formData.append('id', '' + article.id);
-            formData.append('titreActualite', '' + titre);
-            formData.append('infosActualite', '' + infos);
-            formData.append('imageURL', '' + image);
-            formData.append('sources', '' + sources);
-        }
-        else {
-            const titre = document.getElementById("titre").value;
-            const source = document.getElementById("source").value;
-
-        }
-
-        const newsletter = document.getElementById("newsletter").checked;
-
-        handleUpdate(formData);
-    }
-
-    verifConnexion();
-    return (
-        <Stack style={{gap: "0"}}>
-            {content}
         </Stack>
     );
 }

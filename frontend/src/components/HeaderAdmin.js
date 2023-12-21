@@ -105,6 +105,7 @@ const Header = () => {
                                                      to="/GestionForfaits">FORFAIT</NavLink></GridItem>
                                         <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="#">NEWSLETTER</NavLink></GridItem>
                                         <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="/GestionArticles">ARTICLES</NavLink></GridItem>
+                                        <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="/CreationCompte">CRÉER UN COMPTE</NavLink></GridItem>
                                         <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="#" onClick={requestDisconnect}>DECONNEXION</NavLink></GridItem>
                                     </Grid>
                                 </div>

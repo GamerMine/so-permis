@@ -32,55 +32,6 @@ const Connexion = () => {
     if (response.data !== true)
     {
       navigate("/");
-    } else {
-        setContent((
-            <div style={styles.container}>
-                <div style={styles.formContainer}>
-                    <div style={styles.box}>
-                        <h1 style={styles.titre}>INSCRIPTION</h1>
-                        <form onSubmit={useHandleSubmit}>
-
-                            <label style={styles.label}>
-                                Adresse mail du compte :
-                                <br/>
-                                <input
-                                    type="text"
-                                    value={registerEmail}
-                                    onChange={(e) => setRegisterEmail(e.target.value)}
-                                    style={styles.input}
-                                />
-                            </label>
-                            <br/>
-                            <label style={styles.label}>
-                                Mot de passe du compte:
-                                <br/>
-                                <input
-                                    type="password"
-                                    value={registerPassword}
-                                    onChange={(e) => setRegisterPassword(e.target.value)}
-                                    style={styles.input}
-                                />
-                            </label>
-                            <br/>
-                            <label style={styles.label}>
-                                Confirmer le mot de passe:
-                                <br/>
-                                <input
-                                    type="password"
-                                    value={registerPasswordConfirm}
-                                    onChange={(e) => setRegisterPasswordConfirm(e.target.value)}
-                                    style={styles.input}
-                                />
-                            </label>
-
-                            {emailError && <p style={styles.error}>{emailError}</p>}
-                            <br/>
-                            <input type="submit" value={'S\'inscrire'} style={styles.bouton}/>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        ));
     }
   }
 
@@ -131,10 +82,56 @@ const Connexion = () => {
     const switchForm = () => {
         setIsLoginForm(!isLoginForm);
     };
+
     verifConnexion();
   return (
       <Stack style={{gap: "0"}}>
-          {content}
+          <div style={styles.container}>
+              <div style={styles.formContainer}>
+                  <div style={styles.box}>
+                      <h1 style={styles.titre}>INSCRIPTION</h1>
+                      <form onSubmit={useHandleSubmit}>
+
+                          <label style={styles.label}>
+                              Adresse mail du compte :
+                              <br/>
+                              <input
+                                  type="text"
+                                  value={registerEmail}
+                                  onChange={(e) => setRegisterEmail(e.target.value)}
+                                  style={styles.input}
+                              />
+                          </label>
+                          <br/>
+                          <label style={styles.label}>
+                              Mot de passe du compte:
+                              <br/>
+                              <input
+                                  type="password"
+                                  value={registerPassword}
+                                  onChange={(e) => setRegisterPassword(e.target.value)}
+                                  style={styles.input}
+                              />
+                          </label>
+                          <br/>
+                          <label style={styles.label}>
+                              Confirmer le mot de passe:
+                              <br/>
+                              <input
+                                  type="password"
+                                  value={registerPasswordConfirm}
+                                  onChange={(e) => setRegisterPasswordConfirm(e.target.value)}
+                                  style={styles.input}
+                              />
+                          </label>
+
+                          {emailError && <p style={styles.error}>{emailError}</p>}
+                          <br/>
+                          <input type="submit" value={'S\'inscrire'} style={styles.bouton}/>
+                      </form>
+                  </div>
+              </div>
+          </div>
       </Stack>
   );
 };

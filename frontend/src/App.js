@@ -47,7 +47,6 @@ function App() {
             <Route exact path="/Contact" element={<Contact />} />
             <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
             <Route exact path="/Newsletter" element={<Newsletter />} />
-            <Route exact path="/ExemplePageArticle" element={<ExemplePageArticle />} />
 
             <Route exact path="/Connexion" element={<Connexion />} />
             <Route exact path="/AjouterArticle" element={<AjouterArticle />} />

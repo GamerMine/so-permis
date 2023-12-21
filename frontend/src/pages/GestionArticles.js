@@ -1,4 +1,3 @@
-import React from "react";
 import {
     Box,
     Table,
@@ -20,13 +19,11 @@ import axios from "axios";
 import Cookies from 'js-cookie';
 import { useNavigate } from "react-router-dom";
 import {HOSTNAME} from "../Variables";
+import ArticlesComponent from "../components/ArticlesComponent";
 
 const GestionArticles = () => {
 
-    const [listItems, setListItems] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 8;
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     const [content, setContent] = useState((
         <Stack style={{top: "0", bottom: "0", position: "fixed", height: "100%", width: "100%"}}>
@@ -46,118 +43,15 @@ const GestionArticles = () => {
         navigate("/");
       } else {
           setContent((
-              <Box>
-                  <Heading textAlign="center" paddingTop="20px" marginBottom='2%'>
-                      Articles
-                  </Heading>
-
-                  <div align='center'>
-                      <Tooltip label="Ajouter un article" aria-label="Ajouter un article">
-                          <Link href="/AjouterArticle"> <Button style={{ ...style.bouton }}>AJOUTER</Button></Link>
-                      </Tooltip>
-                  </div>
-
-                  <Card marginTop='2%'>
-                      <CardBody>
-                          <Table variant="striped" colorScheme="gray">
-                              <Thead backgroundColor='black' >
-                                  <Tr>
-                                      <Th color='white'>Titre</Th>
-                                      <Th color='white'>Sources</Th>
-                                      <Th color='white'>Actions</Th>
-                                  </Tr>
-                              </Thead>
-                              <Tbody>
-                                  {articles}
-                              </Tbody>
-                          </Table>
-                          {/* Pagination buttons */}
-                          <Center mt={4}>
-                              <Box>
-                                  {Array.from({ length: totalPages }, (_, index) => (
-                                      <Button
-                                          key={index}
-                                          colorScheme={currentPage === index + 1 ? 'teal' : 'gray'}
-                                          onClick={() => paginate(index + 1)}
-                                          mx={1}
-                                      >
-                                          {index + 1}
-                                      </Button>
-                                  ))}
-                              </Box>
-                          </Center>
-                      </CardBody>
-                  </Card>
-              </Box>
+              <ArticlesComponent/>
           ));
       }
     }
 
-    const handleDelete = async (item) => {
-        const formData = new FormData();
-        console.log(item);
-        formData.append('idactualite', item);
-        const response = await axios.post(HOSTNAME+'/DeleteArticle',
-            formData);
-        window.location.reload();
-    };
-
-    const handleUpdate = async (item) => {
-        navigate(`/ModifierArticle/${item}`);
-    };
-
     useEffect(() => {
-        const fetchData = async () => {
-            await refreshPage();
-        };
-
-        fetchData();
+        verifConnexion();
     }, []);
 
-    const refreshPage = async () => {
-        try {
-            const response = await axios.get(HOSTNAME+'/getArticles');
-
-            setListItems(response.data);
-        }
-        catch (error) {
-            console.error('Erreur lors de la récupération des données :', error);
-        }
-    };
-
-    const totalPages = Math.ceil(listItems.length / itemsPerPage);
-    const indexOfLastItem = currentPage * itemsPerPage;
-    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-    let currentItems = listItems.slice(indexOfFirstItem, indexOfLastItem);
-
-    const paginate = (pageNumber) => {
-        setCurrentPage(pageNumber);
-    };
-
-    const style = {
-        bouton: {
-            backgroundColor: "#1ec6b1",
-            color: "white",
-        }
-    }
-
-    let articles = [];
-
-    currentItems.map((article, index) => {
-        articles.push(
-            <Tr key={index}>
-                <Td>{article.titreActualite}</Td>
-                <Td>{article.sources}</Td>
-                <Td>
-                    <Button style={{ ...style.bouton }} size="md" marginRight='2%' onClick={() => handleUpdate(article.id)}>Modifier</Button>
-                    <Button colorScheme="red" size="md" onClick={() => handleDelete(article.id)}>Supprimer</Button>
-                </Td>
-            </Tr>
-        );
-    });
-
-    const [value, setValue] = React.useState("permis")
-    verifConnexion();
     return (
         <Stack style={{gap: "0"}}>
             {content}
