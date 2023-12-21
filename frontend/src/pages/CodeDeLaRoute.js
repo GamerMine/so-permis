@@ -61,7 +61,7 @@ const CodeDeLaRoute = () => {
         },
 
         cardsServices: {
-            margin: "100px"
+            margin: "150px"
         },
 
         tableau: {
