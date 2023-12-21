@@ -12,12 +12,14 @@ import {
     RadioGroup,
     Textarea,
     Stack,
-    Link, Spinner,
+    Link, 
+    Spinner,
+    Image
 } from "@chakra-ui/react";
 import Cookies from 'js-cookie';
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import {HOSTNAME} from "../Variables";
+import { HOSTNAME } from "../Variables";
 
 /**
  * Page permettant de modifier un article
@@ -47,6 +49,19 @@ const ModifierArticle = () => {
             fontSize: "20px",
         },
 
+        image: {
+            maxWidth: "200px",
+            maxHeight: "200px",
+        },
+
+    }
+
+    const [urlImage, setUrlImage] = useState(null)
+
+    const onImageChange = (event) => {
+        if (event.target.files && event.target.files[0]) {
+            setUrlImage(URL.createObjectURL(event.target.files[0]));
+        }
     }
 
     useEffect(() => {
@@ -63,7 +78,9 @@ const ModifierArticle = () => {
                     image: articleData.imageURL,
                     sources: articleData.sources
                 });
-                console.log(response.data);
+                //Recuperation de l'image
+                const url = HOSTNAME + '/public/images/' + articleData.imageURL;
+                setUrlImage(url);
             } catch (error) {
                 console.error("Erreur lors de la récupération des détails de l'article :", error);
             }
@@ -88,15 +105,15 @@ const ModifierArticle = () => {
 
     let navigate = useNavigate();
     const [content, setContent] = useState((
-        <Stack style={{top: "0", bottom: "0", position: "fixed", height: "100%", width: "100%"}}>
-            <Spinner style={{alignSelf: "center", position: "absolute", top: "50%", transform: "translateY(-50%)"}}/>
+        <Stack style={{ top: "0", bottom: "0", position: "fixed", height: "100%", width: "100%" }}>
+            <Spinner style={{ alignSelf: "center", position: "absolute", top: "50%", transform: "translateY(-50%)" }} />
         </Stack>
     ));
     const verifConnexion = async () => {
         const valeurDuCookie = Cookies.get('compte');
         let formData = new FormData();
         formData.append('compte', '' + valeurDuCookie);
-        const response = await axios.post(HOSTNAME+'/EstAdmin', formData);
+        const response = await axios.post(HOSTNAME + '/EstAdmin', formData);
         if (response.data !== true) {
             navigate("/");
         }
@@ -138,7 +155,7 @@ const ModifierArticle = () => {
     }
 
     return (
-        <Stack style={{gap: "0"}}>
+        <Stack style={{ gap: "0" }}>
             <Box>
                 <Heading textAlign="center" marginTop='1%'>
                     Modifier un article
@@ -169,7 +186,11 @@ const ModifierArticle = () => {
 
                             <GridItem colSpan={2}>
                                 <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
-                                <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' onChange={handleInputChange} />
+                                <Input id='image' variant='unstyled' type="file" accept="image/*" size='md'  onChange={onImageChange}/>
+                            </GridItem>
+
+                            <GridItem colSpan={2}>
+                                <Image style={{ ...style.image }} src={urlImage} />
                             </GridItem>
 
                             <GridItem colSpan={4}>

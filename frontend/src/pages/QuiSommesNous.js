@@ -106,8 +106,23 @@ const QuiSommesNous = () => {
             <Box w='100%' h='20px' align="center" bgGradient='linear(to-b, #FFFFFF00, #FFFFFF)'></Box>
             
             <div style={style.para}>
-                <div style={style.titre}>Qui nous sommes?</div>
-                Les voitures
+                <div style={style.titre}>Qui Sommes nous ?</div>
+                Bienvenue chez SO Permis, votre auto-école de confiance au Havre ! Fondée récemment, notre établissement a rapidement gagné la confiance de la communauté locale en offrant une approche moderne et efficace pour obtenir votre code et permis de conduire.
+                <br/>
+                <br/>
+                Chez SO Permis, nous comprenons que le processus d'obtention du permis de conduire peut parfois sembler complexe, c'est pourquoi nous nous efforçons de rendre votre expérience aussi fluide que possible. Forts de notre équipe passionnée et expérimentée d'instructeurs, nous mettons tout en œuvre pour vous accompagner à chaque étape du chemin.
+                <br/>
+                <br/>
+                Ce qui distingue SO Permis, c'est notre engagement envers la réussite de nos élèves. Nous sommes fiers d'avoir déjà aidé des centaines de personnes à obtenir leur permis de conduire, ouvrant ainsi la voie à une nouvelle liberté sur la route. Notre taux de réussite élevé témoigne de notre dévouement à vous fournir les compétences nécessaires pour conduire en toute confiance et en toute sécurité.
+                <br/>
+                <br/>
+                Nous comprenons que chaque personne a des besoins différents, c'est pourquoi SO Permis propose une gamme de formules flexibles pour vous aider à obtenir votre code et votre permis de manière adaptée à votre emploi du temps et à vos préférences. Que vous soyez débutant ou que vous cherchiez à perfectionner vos compétences de conduite, nous avons la formule qui vous convient.
+                <br/>
+                <br/>
+                Rejoignez la communauté grandissante de conducteurs heureux qui ont choisi SO Permis pour leur formation routière. Faites confiance à notre équipe dévouée pour vous guider tout au long de votre parcours vers la liberté de conduire. Chez SO Permis, nous croyons que la route vers votre permis devrait être aussi agréable que possible !
+                <br/>
+                <br/>
+                Contactez-nous dès aujourd'hui pour en savoir plus sur nos offres et commencer votre voyage vers la réussite au volant avec SO Permis.
             </div>
         
         </Stack>
