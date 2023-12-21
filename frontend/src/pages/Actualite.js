@@ -9,10 +9,9 @@ import {
     ModalContent,
     ModalOverlay,
     ModalHeader,
-    ModalBody, ModalFooter, ModalCloseButton, Button, useDisclosure
+    ModalBody, ModalFooter, ModalCloseButton, useDisclosure
 } from "@chakra-ui/react";
 import axios from "axios";
-import {BsSun} from "react-icons/bs";
 
 const Actualite = () => {
     const [actus, setActus] = useState([]);
@@ -77,8 +76,8 @@ const Actualite = () => {
                         <GridItem style={style.actu}>
                             <Stack onClick={onOpen}>
                             <Text marginTop="5px" alignSelf="center">{actuItem.titreActu}</Text>
-                                <Divider />
-                            <Text>{actuItem.infosActu.padStart(15," ... ")}</Text>
+                                <Divider borderColor={"#1EC6B1"} />
+                            <Text>{(actuItem.infosActu).split(' ').slice(0,4).join(' ') + " ... "}</Text>
                             </Stack>
                         </GridItem>
 
