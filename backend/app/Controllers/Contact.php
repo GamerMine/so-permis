@@ -8,11 +8,24 @@ use Kint\Parser\ToStringPlugin;
 class Contact extends BaseController
 {
 
-    public function unsubscribeNewsletter(): string
+    public function unsubscribeNewsletter()
     {
-        $email = $this->request->getPost('email');
-        print_r($email);
-        return $email + " désinscrit";
+        try {
+            $email = $this->request->getPost('email');
+            $token = $this->request->getPost('token');
+            require(APPPATH . "Database/DB.inc.php");
+            $db = DB::getInstance();
+            $user = $db->getNewslettersEmail($email);
+            if ($user[0]->getGuid() == $token) {
+                $db->deleteNewsletter($user[0]->getGuid());
+                return "désinscrit";
+            } else {
+                return "erreur";
+            }
+        } catch (\Throwable $th) {
+            print_r($th);
+            return $th;
+        }
     }
 
     public function subscribeNewsletter()

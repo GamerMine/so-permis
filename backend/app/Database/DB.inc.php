@@ -267,7 +267,7 @@ class DB
 
      public function deleteNewsletter($id)
      {
-          $requete = 'delete from NEWSLETTER where idnewsletter = ?';
+          $requete = 'delete from NEWSLETTER where guid = ?';
           $tparam = array($id);
           return $this->execMaj($requete, $tparam);
      }

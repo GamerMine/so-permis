@@ -32,6 +32,7 @@ $routes->post('/Deconnexion', 'Connexion::deconnexion');
 $routes->match(['post', 'options'], '/TestConnexion', 'Connexion::TestConnexion');
 $routes->POST('/subscribeNewsletter', 'Contact::subscribeNewsletter');
 $routes->POST('/confirmation', 'Contact::Confirmation');
+$routes->POST('/unsubscribe', 'Contact::unsubscribeNewsletter');
 $routes->post('/EstAdmin', 'Connexion::EstConnecte');
 
 $routes->get('/getForfaitsCode', 'ForfaitsCode::getForfaitsCode');

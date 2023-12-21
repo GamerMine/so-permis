@@ -4,3 +4,139 @@ in APPPATH\Models\ACTUALITE.inc.php on line 3.
 CRITICAL - 2023-12-21 13:19:26 --> Cannot declare class ACTUALITE, because the name is already in use
 in APPPATH\Models\ACTUALITE.inc.php on line 3.
  1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-21 15:58:57 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 15:58:57 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 15:59:25 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 15:59:25 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:00:22 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:00:22 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:00:22 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:00:22 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:00:53 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:00:53 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:05:10 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:05:10 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:07:22 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:07:22 --> Unsupported operand types: string + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:08:05 --> Unsupported operand types: null + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:08:05 --> Unsupported operand types: null + string
+in APPPATH\Controllers\Contact.php on line 15.
+ 1 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 2 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:19:32 --> Undefined variable $tocken
+in APPPATH\Controllers\Contact.php on line 19.
+ 1 APPPATH\Controllers\Contact.php(19): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:21:04 --> Undefined variable $user
+in APPPATH\Controllers\Contact.php on line 19.
+ 1 APPPATH\Controllers\Contact.php(19): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')
+CRITICAL - 2023-12-21 16:21:06 --> Undefined variable $user
+in APPPATH\Controllers\Contact.php on line 19.
+ 1 APPPATH\Controllers\Contact.php(19): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH\CodeIgniter.php(919): App\Controllers\Contact->unsubscribeNewsletter()
+ 3 SYSTEMPATH\CodeIgniter.php(494): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH\CodeIgniter.php(353): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\iut\\S5\\SAE\\so-permis\\backend\\public\\index.php')

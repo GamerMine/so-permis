@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import { HOSTNAME } from "../Variables";
 
 const ConfirmationComponent = () => {
 
+    const navigate = useNavigate();
     // Récupérer l'URL actuelle
     var urlCourante = window.location.href;
 
@@ -19,11 +21,21 @@ const ConfirmationComponent = () => {
     console.log(parametre1);
     console.log(parametre2);
     //attendre le chargement complet de la page
+    useEffect(() => {
+        const fetchData = async () => {
+            const formData = new FormData();
+            formData.append('token', parametre1);
+            formData.append('email', parametre2);
+            await axios.post(HOSTNAME + '/unsubscribe', formData);
+            navigate("/");
 
+        };
+        (fetchData());
+    }, []);
 
     return (
         <div>
-            <p>Confirmation en cours...</p>
+            <p>désinscription en cours...</p>
             {/* Vous pouvez ajouter une interface utilisateur supplémentaire ici si nécessaire */}
         </div>
     );

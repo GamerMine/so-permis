@@ -26,6 +26,7 @@ import Actualite from "./pages/Actualite";
 import Confirmation from "./pages/Confirmation";
 import ModifierForfaits from "./pages/ModifierForfaits"
 import PageErreur from './pages/PageErreur';
+import Unsubscribe from './pages/unsubscribe.js';
 
 function App() {
 
@@ -46,8 +47,9 @@ function App() {
             <Route exact path="/Permis" element={<Permis />} />
             <Route exact path="/Contact" element={<Contact />} />
             <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
-            <Route exact path="/Actualite" element={<Actualite/>} />
+            <Route exact path="/Actualite" element={<Actualite />} />
             <Route exact path="/Confirmation" element={<Confirmation />} />
+            <Route exact path="/unsubscribe" element={<Unsubscribe />} />
             <Route exact path="/Connexion" element={<Connexion />} />
 
             <Route exact path="/Newsletter" element={<Newsletter />} />

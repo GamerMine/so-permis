@@ -152,7 +152,7 @@ class Articles extends BaseController
             print_r($users);
             foreach ($users as $user) {
                 print_r($user);
-                $this->sendArticleToUser($user);
+                $this->sendArticleToUser($user, $titre, $infos, $sources);
             }
             // return la liste des users
         } catch (\Throwable $th) {
@@ -162,7 +162,7 @@ class Articles extends BaseController
         }
     }
 
-    function sendArticleToUser($user)
+    function sendArticleToUser($user, $titre, $infos, $sources)
     {
         $email = \Config\Services::email();
 
@@ -170,6 +170,7 @@ class Articles extends BaseController
         $from = 'malo.rihet@gmail.com';
         $token = $user->getGuid();
         $subject = "Newletter So-Permis";
+        $unsubscribeLink = "http://localhost:3000/unsubscribe?token=$token&email=$to";
         $mail = "<!DOCTYPE html>
         <html lang=\"fr\">
         <head>
@@ -178,17 +179,20 @@ class Articles extends BaseController
             <title>Newsletter So-Permis</title>
         </head>
         <body>
-
+        <h1>Newsletter So-Permis</h1>
+        <h2>$titre</h2>
+        <p>$infos</p>
+        <p>Sources : $sources</p>
+        
         <!-- Coordonnées de contact -->
         <p>So-Permis<br>
         02 78 34 10 63<br>
         20 Rue Jean Lurçat,<br>
         76610 Le Havre<br>
-        <a href=\"\">Site Web</a><br>
-        <a href=\"\">Snapchat</a><br>
-        <a href=\"\">Instagram</a></p>
+        <a href=\"#\">Site Web</a><br>
+        <a href=\"#\">Snapchat</a><br>
 
-        se désinscrire : <a href=\"\">Désinscription</a>
+        Se désinscrire : <a href=\"$unsubscribeLink\">Désinscription</a>
         
         </body>
         </html>
@@ -203,7 +207,7 @@ class Articles extends BaseController
         if ($email->send()) {
             echo 'E-mail envoyé avec succès.';
         } else {
-            echo 'Échec de l\'envoi de l\'e-mail. Erreur : ';
+            echo 'Échec de l\'envoi de l\'e-mail. Erreur : ' . $email->printDebugger();
         }
     }
 }
