@@ -11,7 +11,8 @@ const RGPD = () => {
             fontSize: 18,
             fontFamily: 'Montserrat',
             fontWeight: '400',
-            wordWrap: 'break-word'
+            wordWrap: 'break-word',
+            textAlign:"justify"
         },
 
         baliseTiret:{
