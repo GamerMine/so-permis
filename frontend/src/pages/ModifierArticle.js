@@ -68,7 +68,7 @@ const ModifierArticle = () => {
         const fetchArticleDetails = async () => {
             try {
                 verifConnexion();
-                const response = await axios.get(`http://localhost:8080/ModifierArticle/${articleId}`);
+                const response = await axios.get(HOSTNAME+`/ModifierArticle/${articleId}`);
                 const articleData = response.data;
                 setArticle({
                     id: articleData.id,

@@ -174,7 +174,7 @@ export const MultiHorizontalCardsWithButton = (args) => {
                     >
                         <CardBody alignSelf="center"  display="flex" flexDirection="column" justifyContent="center"  >
                             {card.link.startsWith("#") ? (
-                                <a style={{width: "100%", textAlign: "center"}} href={card.link}>
+                                <a style={{width: "100%", textAlign: "center", scrollBehavior: "smooth"}} href={card.link}>
                                     <Button style={style.buttonForward}>
                                         <Text style={style.buttonText}>{card.texteBouton}</Text>
                                     </Button>

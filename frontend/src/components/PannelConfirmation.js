@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import {useNavigate, useParams} from 'react-router-dom';
 import axios from 'axios';
+import {HOSTNAME} from "../Variables";
 
 const ConfirmationComponent = () => {
 
@@ -26,7 +27,7 @@ const ConfirmationComponent = () => {
             const formData = new FormData();
             formData.append('token', parametre1);
             formData.append('email', parametre2);
-            await axios.post('http://localhost:8080/confirmation', formData);
+            await axios.post(HOSTNAME+'/confirmation', formData);
             navigate("/");
         };
         fetchData();
