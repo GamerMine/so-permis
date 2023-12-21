@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes, useHref} from 'react-router-dom';
 import Connexion from "./pages/Connexion";
 import AjouterForfaits from "./pages/AjouterForfait";
 import GestionForfaits from "./pages/GestionForfaits";
@@ -8,7 +8,7 @@ import ModifierArticle from "./pages/ModifierArticle";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import Home from "./pages/Home";
-import { ChakraProvider } from "@chakra-ui/react";
+import {ChakraProvider} from "@chakra-ui/react";
 import { customTheme } from "./Theme/customTheme";
 import Informations from "./pages/Informations";
 import MentionsLegales from "./pages/MentionsLegales";
@@ -26,6 +26,7 @@ import Actualite from "./pages/Actualite";
 import Confirmation from "./pages/Confirmation";
 import ModifierForfaits from "./pages/ModifierForfaits"
 import PageErreur from './pages/PageErreur';
+import FlecheRedirect from "./components/FlecheRedirect";
 
 function App() {
 
@@ -34,35 +35,38 @@ function App() {
     <ChakraProvider theme={customTheme}>
       <Router>
         <Header />
-        <HeaderAdmin />
-        <div className="container">
+        <HeaderAdmin  />
+        <div className="container" >
           <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/CodeDeLaRoute" element={<CodeDeLaRoute />} />
-            <Route exact path="/Informations" element={<Informations />} />
-            <Route exact path="/MentionsLegales" element={<MentionsLegales />} />
-            <Route exact path="/RGPD" element={<RGPD />} />
-            <Route exact path="/Cookies" element={<Cookies />} />
-            <Route exact path="/Permis" element={<Permis />} />
-            <Route exact path="/Contact" element={<Contact />} />
-            <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
-            <Route exact path="/Actualite" element={<Actualite/>} />
-            <Route exact path="/Confirmation" element={<Confirmation />} />
-            <Route exact path="/Connexion" element={<Connexion />} />
+            <Route exact path="/" element={<Home/>}/>
+            <Route exact path="/CodeDeLaRoute" element={<CodeDeLaRoute/>}/>
+            <Route exact path="/Informations" element={<Informations/>}/>
+            <Route exact path="/MentionsLegales" element={<MentionsLegales/>}/>
+            <Route exact path="/RGPD" element={<RGPD/>}/>
+            <Route exact path="/Cookies" element={<Cookies/>}/>
+            <Route exact path="/Permis" element={<Permis/>}/>
+            <Route exact path="/Contact" element={<Contact/>}/>
+            <Route exact path="/QuiSommesNous" element={<QuiSommesNous/>}/>
+            <Route exact path="/Actualite" element={<Actualite/>}/>
+            <Route exact path="/Confirmation" element={<Confirmation/>}/>
+            <Route exact path="/Connexion" element={<Connexion/>}/>
 
-            <Route exact path="/Newsletter" element={<Newsletter />} />
-            <Route exact path="/AjouterArticle" element={<AjouterArticle />} />
-            <Route exact path="/GestionArticles" element={<GestionArticles />} />
-            <Route exact path="/ModifierArticle/:articleId" element={<ModifierArticle />} />
-            <Route exact path="/AjouterForfaits" element={<AjouterForfaits />} />
-            <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
-            <Route exact path="/CreationCompte" element={<CreationCompte />} />
-            <Route exact path="/PageAdmin" element={<PageAdmin />} />
-            <Route exact path="/ModifierForfaits/:formationId" element={<ModifierForfaits />} />
-            <Route path="*" element={<PageErreur />} />
+            <Route exact path="/Newsletter" element={<Newsletter/>}/>
+            <Route exact path="/AjouterArticle" element={<AjouterArticle/>}/>
+            <Route exact path="/GestionArticles" element={<GestionArticles/>}/>
+            <Route exact path="/ModifierArticle/:articleId" element={<ModifierArticle/>}/>
+            <Route exact path="/AjouterForfaits" element={<AjouterForfaits/>}/>
+            <Route exact path="/GestionForfaits" element={<GestionForfaits/>}/>
+            <Route exact path="/CreationCompte" element={<CreationCompte/>}/>
+            <Route exact path="/PageAdmin" element={<PageAdmin/>}/>
+            <Route exact path="/ModifierForfaits/:formationId" element={<ModifierForfaits/>}/>
+            <Route path="*" element={<PageErreur/>}/>
 
           </Routes>
-          <Footer />
+
+          <FlecheRedirect/>
+
+          <Footer/>
         </div>
 
       </Router>
