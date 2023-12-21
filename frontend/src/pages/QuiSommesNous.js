@@ -97,7 +97,7 @@ const QuiSommesNous = () => {
                         <Text style={{ ...style.text }}>Qui sommes nous ?</Text>
                     </CardBody>
                     <CardFooter>
-                        <Button style={{ ...style.bottomCard }}>Découvrez qui se cache derrière So'Permis</Button>
+                        <a href={"#presentation"}><Button style={{ ...style.bottomCard }}>Découvrez qui se cache derrière So'Permis</Button></a>
                     </CardFooter>
                 </Card>
 
@@ -105,7 +105,7 @@ const QuiSommesNous = () => {
             </div>
             <Box w='100%' h='20px' align="center" bgGradient='linear(to-b, #FFFFFF00, #FFFFFF)'></Box>
             
-            <div style={style.para}>
+            <div style={style.para} id={"presentation"}>
                 <div style={style.titre}>Qui Sommes nous ?</div>
                 Bienvenue chez SO Permis, votre auto-école de confiance au Havre ! Fondée récemment, notre établissement a rapidement gagné la confiance de la communauté locale en offrant une approche moderne et efficace pour obtenir votre code et permis de conduire.
                 <br/>

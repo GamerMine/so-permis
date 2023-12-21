@@ -114,6 +114,11 @@ export const MultiHorizontalCardsWithButton = (args) => {
 
     let cardsElements = [];
 
+    function scrollTo() {
+        console.log("IN")
+        //console.log(id);
+    }
+
     args.cards.forEach((card, index) => {
         cardsElements.push(
 
@@ -141,13 +146,13 @@ export const MultiHorizontalCardsWithButton = (args) => {
                         <CardFooter>
                             {card.link.startsWith("#") ? (
                                 <a style={{width: "100%", textAlign: "center"}} href={card.link}>
-                                    <Button style={style.buttonForward} >
+                                    <Button style={style.buttonForward}>
                                         <Text style={style.buttonText}>{card.texteBouton}</Text>
                                     </Button>
                                 </a>
                             ) : (
                                 <NavLink to={`${card.link}`} style={{width: "100%", textAlign: "center"}}>
-                                    <Button style={style.buttonForward} >
+                                    <Button style={style.buttonForward}>
                                         <Text style={style.buttonText}>{card.texteBouton}</Text>
                                     </Button>
                                 </NavLink>
@@ -168,9 +173,19 @@ export const MultiHorizontalCardsWithButton = (args) => {
                         width={isSmallDevice ? "275px" : "350px"}
                     >
                         <CardBody alignSelf="center"  display="flex" flexDirection="column" justifyContent="center"  >
-                            <NavLink to={`${card.link}`} style={{cursor: "pointer"}}> <Button style={style.button} >
-                                <Text style={style.buttonText}>{card.texteBouton}</Text>
-                            </Button></NavLink>
+                            {card.link.startsWith("#") ? (
+                                <a style={{width: "100%", textAlign: "center"}} href={card.link}>
+                                    <Button style={style.buttonForward}>
+                                        <Text style={style.buttonText}>{card.texteBouton}</Text>
+                                    </Button>
+                                </a>
+                            ) : (
+                                <NavLink to={`${card.link}`} style={{width: "100%", textAlign: "center"}}>
+                                    <Button style={style.buttonForward}>
+                                        <Text style={style.buttonText}>{card.texteBouton}</Text>
+                                    </Button>
+                                </NavLink>
+                            )}
                         </CardBody>
                     </Card>
                 )}
