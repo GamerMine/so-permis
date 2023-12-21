@@ -69,9 +69,8 @@ const Connexion = () => {
             formData.append('password', registerPassword);
             formData.append('confirmPassword', registerPasswordConfirm);
             formData.append('compte', '' + valeurDuCookie);
-            const response = await axios.post(HOSTNAME + '/CreationCompte',
-                formData);
-            console.log(response.data);
+            const response = await axios.post(HOSTNAME + '/CreationCompte', formData);
+            //console.log(response.data);
             navigate("/");
         } catch (error) {
             // Gérez les erreurs ici

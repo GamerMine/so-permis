@@ -38,7 +38,7 @@ const AjouterForfait = () => {
       {
         navigate("/");
       }
-      console.log(response.data);
+      //console.log(response.data);
     }
     const [permisSelect, setPermisSelect] = React.useState('permis')
 
@@ -54,12 +54,6 @@ const AjouterForfait = () => {
         formData.append('infos', ''+info);
         formData.append('prix', ''+prix);
         formData.append('type_f', ''+permisSelecttest);
-
-
-        console.log(nom);
-        console.log(prix);
-        console.log(info);
-        console.log(permisSelecttest);
 
         handleUpdate(formData);
 

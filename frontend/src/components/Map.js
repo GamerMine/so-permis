@@ -94,12 +94,12 @@ const ContactComponent = () => {
     const navigate = useNavigate();
 
     const validateEmail = () => {
-        console.log("validateEmail");
+        //console.log("validateEmail");
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailRegex.test(email);
     };
     const handleSubmit = async (event) => {
-        console.log("handleSubmit");
+        //console.log("handleSubmit");
         event.preventDefault();
 
         if (!validateEmail()) {
@@ -108,7 +108,7 @@ const ContactComponent = () => {
 
         try {
             setIsSubmitting(true);
-            console.log("try");
+            //console.log("try");
 
             const formData = new FormData();
             formData.append('email', email);
@@ -128,7 +128,7 @@ const ContactComponent = () => {
                 navigate("/");
                 // You may want to handle success in a different way, like showing a success message.
             } else {
-                console.log(response.data);
+                //console.log(response.data);
                 alert("Utilisateur inscrit " + response.data);
             }
         } catch (error) {

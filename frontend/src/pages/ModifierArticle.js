@@ -91,7 +91,7 @@ const ModifierArticle = () => {
 
     const handleUpdate = async (formData) => {
         const response = await axios.post(HOSTNAME + '/UpdateArticle', formData);
-        console.log(response.data);
+        //console.log(response.data);
         window.location.replace("/GestionArticles");
     };
 

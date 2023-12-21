@@ -68,7 +68,7 @@ const Header = () => {
         const formData = new FormData();
         formData.append("compte", ""+Cookies.get('compte'));
         const response = await axios.post(HOSTNAME+"/Deconnexion", formData);
-        console.log(response.data);
+        //console.log(response.data);
         navigate("/");
     }
 

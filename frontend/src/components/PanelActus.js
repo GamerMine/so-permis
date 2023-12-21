@@ -77,14 +77,14 @@ const PanelActus = () => {
 
     function createCardBody(imgLink, title, author, description, nbActus, status=isHoveringOld) {
 
-        console.log(imgLink)
+        //console.log(imgLink)
 
         if(imgLink == "null" )
         {
             imgLink = "Actualites.png";
         }
 
-        console.log(imgLink)
+        //console.log(imgLink)
 
         const style = {
             cards: {

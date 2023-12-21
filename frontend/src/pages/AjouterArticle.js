@@ -49,7 +49,7 @@ const AjouterArticle = () => {
 
     const handleUpdate = async (formData) => {
         const response = await axios.post(HOSTNAME + '/AjouterArticle', formData);
-        console.log(response.data);
+        //console.log(response.data);
         window.location.replace("/GestionArticles");
     };
 
@@ -70,7 +70,7 @@ const AjouterArticle = () => {
         if (response.data != true) {
             navigate("/");
         }
-        console.log(response.data);
+        //console.log(response.data);
     }
 
     const [value, setValue] = React.useState("article")
