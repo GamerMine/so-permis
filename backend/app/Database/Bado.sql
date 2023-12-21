@@ -33,10 +33,10 @@ CREATE TABLE IF NOT EXISTS NEWSLETTER
 CREATE TABLE IF NOT EXISTS ACTUALITE
 (
     idActualite SERIAL Primary Key NOT NULL,
-    titreActualite varchar(200) NOT NULL,
-    infosActualite varchar(250) NOT NULL,
-    imageURL varchar(1000),
-    sources varchar(250)
+    titreActualite TEXT NOT NULL,
+    infosActualite TEXT NOT NULL,
+    imageURL TEXT,
+    sources TEXT
 );
 
 INSERT INTO ACTUALITE (titreActualite, infosActualite, imageURL, sources) VALUES
