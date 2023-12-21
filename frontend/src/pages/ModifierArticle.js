@@ -12,7 +12,7 @@ import {
     RadioGroup,
     Textarea,
     Stack,
-    Link, 
+    Link,
     Spinner,
     Image
 } from "@chakra-ui/react";
@@ -90,7 +90,7 @@ const ModifierArticle = () => {
     }, [articleId]);
 
     const handleUpdate = async (formData) => {
-        const response = await axios.post(HOSTNAME+'/UpdateArticle', formData);
+        const response = await axios.post(HOSTNAME + '/UpdateArticle', formData);
         console.log(response.data);
         window.location.replace("/GestionArticles");
     };
@@ -186,7 +186,7 @@ const ModifierArticle = () => {
 
                             <GridItem colSpan={2}>
                                 <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
-                                <Input id='image' variant='unstyled' type="file" accept="image/*" size='md'  onChange={onImageChange}/>
+                                <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' onChange={onImageChange} />
                             </GridItem>
 
                             <GridItem colSpan={2}>
@@ -202,7 +202,6 @@ const ModifierArticle = () => {
                 )}
 
                 <Box align='center' marginBottom='2%'>
-                    <Checkbox id="newsletter" value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>
                     <div>
                         <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
                         <Link href="/GestionArticles"><Button colorScheme="red" >ANNULER</Button></Link>
