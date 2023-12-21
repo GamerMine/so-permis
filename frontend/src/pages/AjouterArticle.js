@@ -49,7 +49,7 @@ const AjouterArticle = () => {
         //console.log(response.data);
         window.location.replace("/GestionArticles");
     };
-    
+
     let navigate = useNavigate();
 
     const verifConnexion = async () => {
@@ -128,73 +128,72 @@ const AjouterArticle = () => {
     function recupererDonnees() {
         let formData = new FormData();
 
-        if (value === "article") {
-            const titre = document.getElementById("titre").value;
-            const sources = document.getElementById("source").value;
-            const image = document.getElementById("image").value;
-            const contenu = document.getElementById("contenu").value;
-            const images = document.getElementById("image");
-            const newsletterChecked = document.getElementById("newsletter").checked;
+        const titre = document.getElementById("titre").value;
+        const sources = document.getElementById("source").value;
+        const image = document.getElementById("image").value;
+        const contenu = document.getElementById("contenu").value;
+        const images = document.getElementById("image");
+        const newsletterChecked = document.getElementById("newsletter").checked;
 
-            formData.append('titreActualite', '' + titre);
-            formData.append('infosActualite', '' + contenu);
-            formData.append('imageURL', '' + image);
-            formData.append('sources', '' + sources);
-            formData.append('newsletter', '' + newsletterChecked);
-            if (images.files.length > 0) {
-                const imageFile = images.files[0];
-                formData.append('file', imageFile);
-            }
-            console.log(formData);
-            handleUpdate(formData);
-
-            const newsletter = document.getElementById("newsletter").checked;
+        formData.append('titreActualite', '' + titre);
+        formData.append('infosActualite', '' + contenu);
+        formData.append('imageURL', '' + image);
+        formData.append('sources', '' + sources);
+        formData.append('newsletter', '' + newsletterChecked);
+        if (images.files.length > 0) {
+            const imageFile = images.files[0];
+            formData.append('file', imageFile);
         }
+        console.log(formData);
+        handleUpdate(formData);
 
-        return (
-            <Box>
-                <Heading textAlign="center" marginTop='1%'>
-                    Ajouter un article
-                </Heading>
-
-                <Box align='center' marginBottom='1%'>
-                    <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
-
-                        <GridItem colSpan={2}>
-                            <FormLabel>Titre</FormLabel>
-                            <Input id="titre" variant='flushed' placeholder="Titre" />
-                        </GridItem>
-
-                        <GridItem colSpan={2}>
-                            <FormLabel>Sources</FormLabel>
-                            <Input id="source" variant='flushed' placeholder="Sources" />
-                        </GridItem>
-
-                        <GridItem colSpan={2}>
-                            <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
-                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' onChange={onImageChange} />
-                        </GridItem>
-
-                        <GridItem colSpan={2}>
-                            <Image style={{ ...style.image }} src={urlImage} fallbackSrc='https://via.placeholder.com/200' />
-                        </GridItem>
-
-                        <GridItem colSpan={4}>
-                            <FormLabel>Contenu</FormLabel>
-                            <Textarea id="contenu" variant='outline' size='md' placeholder="Contenu" />
-                        </GridItem>
-                    </Grid>
-                </Box>
-
-                <Box align='center' marginBottom='2%'>
-                    <Checkbox id="newsletter" value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>
-                    <div>
-                        <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
-                        <Link href="/GestionArticles"><Button colorScheme="red" >ANNULER</Button></Link>
-                    </div>
-                </Box>
-            </Box>
-        );
+        const newsletter = document.getElementById("newsletter").checked;
     }
 
-    export default AjouterArticle;
+    return (
+        <Box>
+            <Heading textAlign="center" marginTop='1%'>
+                Ajouter un article
+            </Heading>
+
+            <Box align='center' marginBottom='1%'>
+                <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
+
+                    <GridItem colSpan={2}>
+                        <FormLabel>Titre</FormLabel>
+                        <Input id="titre" variant='flushed' placeholder="Titre" />
+                    </GridItem>
+
+                    <GridItem colSpan={2}>
+                        <FormLabel>Sources</FormLabel>
+                        <Input id="source" variant='flushed' placeholder="Sources" />
+                    </GridItem>
+
+                    <GridItem colSpan={2}>
+                        <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
+                        <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' onChange={onImageChange} />
+                    </GridItem>
+
+                    <GridItem colSpan={2}>
+                        <Image style={{ ...style.image }} src={urlImage} fallbackSrc='https://via.placeholder.com/200' />
+                    </GridItem>
+
+                    <GridItem colSpan={4}>
+                        <FormLabel>Contenu</FormLabel>
+                        <Textarea id="contenu" variant='outline' size='md' placeholder="Contenu" />
+                    </GridItem>
+                </Grid>
+            </Box>
+
+            <Box align='center' marginBottom='2%'>
+                <Checkbox id="newsletter" value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>
+                <div>
+                    <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
+                    <Link href="/GestionArticles"><Button colorScheme="red" >ANNULER</Button></Link>
+                </div>
+            </Box>
+        </Box>
+    );
+}
+
+export default AjouterArticle
