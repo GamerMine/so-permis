@@ -116,12 +116,18 @@ const ModifierArticle = () => {
             const sources = document.getElementById("source").value;
             const image = document.getElementById("image").value;
             const infos = document.getElementById("infos").value;
+            const files = document.getElementById("image");
+
 
             formData.append('id', '' + article.id);
             formData.append('titreActualite', '' + titre);
             formData.append('infosActualite', '' + infos);
             formData.append('imageURL', '' + image);
             formData.append('sources', '' + sources);
+            if (files.files.length > 0) {
+                const imageFile = files.files[0];
+                formData.append('file', imageFile);
+            }
         }
         else {
             const titre = document.getElementById("titre").value;
