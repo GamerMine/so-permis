@@ -1,6 +1,6 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
-import {Box, Card, CardBody, Flex, Spinner, Stack, Text , Button} from "@chakra-ui/react";
+import {Box, Card, CardBody, Flex, Spinner, Stack, Text , Button, CardHeader} from "@chakra-ui/react";
 import * as React from "react";
 import { MdOutlineKeyboardDoubleArrowLeft, MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import {isMobile} from "react-device-detect";
@@ -89,6 +89,9 @@ const PanelActus = () => {
         const style = {
             cards: {
                 alignSelf: "center",
+            },
+
+            CardHeader : {
                 backgroundImage: "linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 30%), url(" + hostname + "/public/images/" + imgLink + ")",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
@@ -167,6 +170,7 @@ const PanelActus = () => {
                                 ) : (<p/>)
 
                             }
+                        <CardHeader style={style.CardHeader}/>
                         <CardBody style={style.cardBody}>
                             <Text style={{...style.text, whiteSpace: "nowrap"}}>{title} - <span
                                 style={{...style.text, fontStyle: "italic"}}>{author}</span></Text>
