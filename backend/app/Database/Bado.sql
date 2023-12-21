@@ -63,7 +63,7 @@ INSERT INTO FORMATION (prix, nom, infos, type_f) VALUES
 ('1100€','FORFAIT CONDUITE ACCOMPAGNÉE','Code + 20 leçons (sans code)', 'conduite_accompagnee'),
 
 ('250','FORFAIT CODE EXPRESS EN 4 JOURS','', 'code'),
-('1390€','FORFAIT B ACCÉLÉRÉ EN 1 MOIS','', 'permis'),
+('1390€','FORFAIT B ACCÉLÉRÉ EN 1 MOIS','', 'express'),
 
 ('150€','ANNULATION','Code', 'annulation'),
 ('250€','ANNULATION','Code Express 4 jours', 'annulation'),

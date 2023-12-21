@@ -3,7 +3,7 @@
 namespace App\Controllers;
 use DB;
 use Kint\Parser\ToStringPlugin;
-
+use CodeIgniter\HTTP\IncomingRequest;
 class Articles extends BaseController
 { 
     public function getArticles() : string
@@ -42,6 +42,17 @@ class Articles extends BaseController
             $infos = $this->request->getPost('infosActualite');
             $image = $this->request->getPost('imageURL');
             $sources = $this->request->getPost('sources');
+            $file = $this->request->getFile('file');
+
+            $uploadPath = FCPATH . 'public/images/'; 
+
+            // Vérifier si le dossier de destination existe, sinon le créer
+            if (!is_dir($uploadPath)) {
+                mkdir($uploadPath, 0777, true);
+            }
+
+            // Déplacer le fichier vers le dossier de destination
+            $file->move($uploadPath, $file->getName());
 
             $db->insertActualite($titre,$infos, $image, $sources);
             return json_encode(["success" => "Article ajouté"]);
@@ -105,7 +116,18 @@ class Articles extends BaseController
             $infos = $this->request->getPost('infosActualite');
             $image = $this->request->getPost('imageURL');
             $sources = $this->request->getPost('sources');
+            $file = $this->request->getFile('file');
             print_r($titre);
+            
+            $uploadPath = FCPATH . 'public/images/'; 
+
+            // Vérifier si le dossier de destination existe, sinon le créer
+            if (!is_dir($uploadPath)) {
+                mkdir($uploadPath, 0777, true);
+            }
+
+            // Déplacer le fichier vers le dossier de destination
+            $file->move($uploadPath, $file->getName());
 
             $db->updateActualite($id, $titre,$infos, $image, $sources);
 

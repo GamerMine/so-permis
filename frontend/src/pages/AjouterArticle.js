@@ -35,6 +35,7 @@ const AjouterArticle = () => {
 
     const handleUpdate = async (formData) => {
         const response = await axios.post(HOSTNAME+'/AjouterArticle', formData);
+        console.log(response.data);
         window.location.replace("/GestionArticles");
     };
 
@@ -124,12 +125,16 @@ const AjouterArticle = () => {
             const sources = document.getElementById("source").value;
             const image = document.getElementById("image").value;
             const contenu = document.getElementById("contenu").value;
-
+            const images = document.getElementById("image");
 
             formData.append('titreActualite', '' + titre);
             formData.append('infosActualite', '' + contenu);
             formData.append('imageURL', '' + image);
             formData.append('sources', '' + sources);
+            if (images.files.length > 0) {
+                const imageFile = images.files[0];
+                formData.append('file', imageFile);
+            }
 
             handleUpdate(formData);
         }
