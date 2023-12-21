@@ -5,7 +5,6 @@ import {
     Button,
     Grid,
     GridItem,
-    Link,
     FormLabel,
     Input,
     Checkbox,
@@ -14,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import Cookies from 'js-cookie';
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { HOSTNAME } from "../Variables";
 
 /**
@@ -43,13 +42,12 @@ const AjouterArticle = () => {
         },
     }
 
+    const navigate = useNavigate();
     const handleUpdate = async (formData) => {
-        const response = await axios.post(HOSTNAME + '/AjouterArticle', formData);
-        //console.log(response.data);
-        window.location.replace("/GestionArticles");
+        await axios.post(HOSTNAME + '/AjouterArticle', formData);
+        navigate("/GestionArticles");
+
     };
-    
-    let navigate = useNavigate();
 
     const verifConnexion = async () => {
         const valeurDuCookie = Cookies.get('compte');
@@ -57,10 +55,9 @@ const AjouterArticle = () => {
         formData.append('compte', '' + valeurDuCookie);
         const response = await axios.post(HOSTNAME + '/EstAdmin',
             formData);
-        if (response.data != true) {
+        if (response.data !== true) {
             navigate("/");
         }
-        //console.log(response.data);
     }
 
     verifConnexion();
@@ -87,8 +84,6 @@ const AjouterArticle = () => {
         }
 
         handleUpdate(formData);
-
-        const newsletter = document.getElementById("newsletter").checked;
     }
 
     return (
@@ -130,7 +125,7 @@ const AjouterArticle = () => {
                 <Checkbox id="newsletter" value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>
                 <div>
                     <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
-                    <Link href="/GestionArticles"><Button colorScheme="red" >ANNULER</Button></Link>
+                    <NavLink to="/GestionArticles"><Button colorScheme="red" >ANNULER</Button></NavLink>
                 </div>
             </Box>
         </Box>

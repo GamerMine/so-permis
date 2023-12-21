@@ -5,15 +5,13 @@ import {
     Button,
     Grid,
     GridItem,
-    Link,
     FormLabel,
     Input,
     Textarea, RadioGroup, Stack, Radio, Center,
 } from "@chakra-ui/react";
-import { useState, useEffect } from 'react';
 import axios from "axios";
 import Cookies from 'js-cookie';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import {HOSTNAME} from "../Variables";
 
 const AjouterForfait = () => {
@@ -25,7 +23,7 @@ const AjouterForfait = () => {
         }
     }
 
-    let navigate = useNavigate();
+    const navigate = useNavigate();
     
     const verifConnexion = async () =>
     {
@@ -34,11 +32,10 @@ const AjouterForfait = () => {
       formData.append('compte', ''+valeurDuCookie);
       const response = await axios.post(HOSTNAME+'/EstAdmin',
       formData);
-      if (response.data != true)
+      if (response.data !== true)
       {
         navigate("/");
       }
-      //console.log(response.data);
     }
     const [permisSelect, setPermisSelect] = React.useState('permis')
 
@@ -56,14 +53,12 @@ const AjouterForfait = () => {
         formData.append('type_f', ''+permisSelecttest);
 
         handleUpdate(formData);
-
-
     }
 
 
     const handleUpdate = async (formData) => {
-        const response = await axios.post(HOSTNAME+'/AjouterFormations', formData);
-       window.location.replace("/GestionForfaits");
+       await axios.post(HOSTNAME+'/AjouterFormations', formData);
+       navigate("/GestionForfaits");
 
     };
 
@@ -103,7 +98,7 @@ const AjouterForfait = () => {
                     </GridItem>
                 </Grid>
                 <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
-                <Link href="/GestionForfaits"><Button colorScheme="red" >ANNULER</Button></Link>
+                <NavLink to="/GestionForfaits"><Button colorScheme="red" >ANNULER</Button></NavLink>
             </Box>
         </Box>
     );
