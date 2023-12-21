@@ -4,8 +4,11 @@ import {
     Grid,
     Card,
     Stack,
-    Text,
+    Text, GridItem, CardHeader, CardBody, CardFooter,
 } from "@chakra-ui/react";
+import {useEffect, useState} from "react";
+import axios from "axios";
+import {HOSTNAME} from "../Variables";
 
 const PermisB =()=>{
     const style ={
@@ -75,19 +78,39 @@ const PermisB =()=>{
         },
     };
 
+    const [permisB, setPermisB] = useState([])
+    useEffect(() => {
+        getPermisExpress();
+    },[])
+
+    const getPermisExpress = async() => {
+        try {
+
+            const response = await axios.get(HOSTNAME+'/getListePermis');
+            let result =[];
+            let tmp = response.data;
+
+            for (let key of tmp)
+                if (key.type_f=="express")
+                    result.push(
+                        <Card style={{backgroundColor: '#20AB9A'}} marginLeft="-15px">
+                            <Text style={style.textGaucheTitre}>
+                                {key.nom}
+                            </Text>
+                            <Text style={style.textGauche}>
+                                {key.info}
+                            </Text>
+                            <Text style={style.bottomCard}>{key.prix}</Text>
+                        </Card>);
+            setPermisB(result);
+        } catch (ignored) {}
+    }
+
     return (
-        <Stack style={style.body}>
+        <Stack  style={style.body}>
             <Text style={style.title} textAlign={{base:"center", "sd":"left"}}>Forfait B express</Text>
             <Grid templateColumns={{base: `repeat(1, 1fr)`, md: `repeat(2, 1fr)`, xl: `repeat(2, 1fr)`,}} gap="70px" alignSelf="center">
-                <Card style={{backgroundColor: '#20AB9A'}} marginLeft="-15px">
-                    <Text style={style.textGaucheTitre}>
-                        Forfait B express
-                    </Text>
-                    <Text style={style.textGauche}>
-                        Formation au permis B Classique accéléré en 1 mois
-                    </Text>
-                    <Text style={style.bottomCard}>1200€</Text>
-                </Card>
+                {permisB}
                 <Card style={{backgroundColor: '#0F1411'}} fontSize={{base:"25px", sm: "18px"}}>
                     <Text style={style.textDroite} padding={{base:"15px", "smdp":"80px"}}>
                         Le permis B en 1 mois, c'est comme un marathon. C'est un challenge qui demande de la motivation, de la concentration et de la persévérance. Mais c'est aussi une expérience fun et enrichissante. En 7 semaines, tu apprendras à conduire en sécurité, mais aussi à t'adapter à des situations de conduite variées.
