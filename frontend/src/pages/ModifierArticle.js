@@ -7,13 +7,10 @@ import {
     Grid,
     GridItem,
     Heading,
-    IconButton,
     Input,
     Radio,
     RadioGroup,
     Textarea,
-    Tooltip,
-    useToast,
     Stack,
     Link, Spinner,
 } from "@chakra-ui/react";
@@ -21,7 +18,6 @@ import Cookies from 'js-cookie';
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import {HOSTNAME} from "../Variables";
-import { IoIosAdd, IoIosRemove } from "react-icons/io";
 
 /**
  * Page permettant de modifier un article
@@ -37,7 +33,6 @@ const ModifierArticle = () => {
         image: '',
         sources: ''
     });
-    const [formulaires, setFormulaires] = useState([]);
     const [value, setValue] = useState("article");
 
     const style = {
@@ -173,7 +168,7 @@ const ModifierArticle = () => {
 
                             <GridItem colSpan={2}>
                                 <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
-                                <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' value={article.image} onChange={handleInputChange} />
+                                <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' onChange={handleInputChange} />
                             </GridItem>
 
                             <GridItem colSpan={4}>
