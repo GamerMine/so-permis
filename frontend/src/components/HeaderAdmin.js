@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 import { HOSTNAME } from "../Variables";
 
 const Header = () => {
-    const normalHeaderLocations = ["/ModifierForfaits/:formationId", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/:articleId" , "/PageAdmin"]
+    const normalHeaderLocations = ["/ModifierForfaits/:formationId", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/:articleId" , "/PageAdmin", "/Newsletter"]
     const location = useLocation();
     const navigate = useNavigate();
     const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
@@ -100,10 +100,8 @@ const Header = () => {
                                           display={{"sd": "grid", lg: "flex", base: "grid"}}
                                           gridTemplateColumns={{"sd": "repeat(3,1fr)"}}>
                                         <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="/PageAdmin">DASHBOARD</NavLink></GridItem>
-
-                                        <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}}
-                                                     to="/GestionForfaits">FORFAIT</NavLink></GridItem>
-                                        <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="#">NEWSLETTER</NavLink></GridItem>
+                                        <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="/GestionForfaits">FORFAIT</NavLink></GridItem>
+                                        <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="/NewsLetter">NEWSLETTER</NavLink></GridItem>
                                         <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="/GestionArticles">ARTICLES</NavLink></GridItem>
                                         <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="/CreationCompte">CRÉER UN COMPTE</NavLink></GridItem>
                                         <GridItem><NavLink style={{...style.gridElement, ...style.navLinkBig}} to="#" onClick={requestDisconnect}>DECONNEXION</NavLink></GridItem>
