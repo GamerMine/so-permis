@@ -8,7 +8,7 @@ import {
     CardBody,
     Center,
     Heading,
-    Link, Radio, RadioGroup,
+    Radio, RadioGroup,
     Stack,
     Table,
     Tbody,
@@ -17,13 +17,14 @@ import {
     Thead,
     Tr
 } from "@chakra-ui/react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, NavLink} from "react-router-dom";
 
 export const ForfaitComponent = () => {
     const [totalPages, setTotalPages] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [formationsForfait, setFormationsForfait] = useState([]);
     const [permisSelect, setPermisSelect] = useState('permis');
+    const [dummy, setDummy] = useState(false);
 
     const navigate = useNavigate();
 
@@ -98,7 +99,7 @@ export const ForfaitComponent = () => {
             //console.log(item);
             formData.append('idFormation', item);
             await axios.post(HOSTNAME+'/DeleteFormations', formData);
-            window.location.reload();
+            setDummy(!dummy);
     };
 
     const handleUpdate  = async (item) => {
@@ -111,7 +112,7 @@ export const ForfaitComponent = () => {
 
     useEffect(() => {
         loadContent();
-    }, [permisSelect]);
+    }, [permisSelect, currentPage, dummy]);
 
     return (
         <Box>
@@ -131,7 +132,7 @@ export const ForfaitComponent = () => {
                     </RadioGroup>
                 </Center>
 
-                <Link href="/AjouterForfaits"><Button style={{ ...style.bouton }} marginBottom='2%'>AJOUTER</Button></Link>
+                <NavLink to="/AjouterForfaits"><Button style={{ ...style.bouton }} marginBottom='2%'>AJOUTER</Button></NavLink>
             </Box>
             <Card>
                 <CardBody>

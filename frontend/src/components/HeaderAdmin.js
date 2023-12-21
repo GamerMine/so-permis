@@ -88,7 +88,7 @@ const Header = () => {
     if (pathname.endsWith("/")) pathname = pathname = pathname.substring(0, pathname.length - 1);
     if (headerLocations.includes(pathname)) {
         return (
-            <header>
+            <header id="top">
                 {!isSmallDevice ? (
 
                         <Grid display={{xl: "flex", lg: "grid"}} backgroundColor="black"

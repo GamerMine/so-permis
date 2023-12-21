@@ -191,9 +191,8 @@ const CodeDeLaRoute = () => {
     };
 
     return (
-
-        <VStack w="100%" h="100%" align="center" marginBottom={"5%"} style={{ ...style.police }}>
-            <Stack w={isSmallDevice ? "auto" : "100%"} marginBottom={"-10px"} style={{ ...style.textBlanc, ...style.box1 }}>
+        <Stack style={{gap: 0 , ...style.police}}  marginBottom={"5%"} align="center">
+            <Stack style={{backgroundImage: "url('./images/code-route.png')", backgroundRepeat: "no-repeat", backgroundSize: "cover"}}>
                 <MultiHorizontalCardsWithButton style={style.cardsServices} cards={
                     [
                         new OCard("", "FORFAITS CODE", "Nos forfaits code", "code", "#boxForfaits"),
@@ -211,7 +210,7 @@ const CodeDeLaRoute = () => {
                 <ForfaitCode/>
             </Box>
 
-            <Box id="boxHoraires" w='100%' align="center" backgroundColor={"black"} marginBottom={"-10px"} style={{ ...style.textBlanc }}>
+            <Box id="boxHoraires" w='100%' align="center" backgroundColor={"black"}  style={{ ...style.textBlanc }}>
                 <Heading size="lg" marginBottom={"2%"}>Horaires code en salle</Heading>
                 {useSetWidthWindow()}
             </Box>
@@ -224,7 +223,7 @@ const CodeDeLaRoute = () => {
                     <ForfaitAnnulation/>
                 </Card>
             </Stack>
-        </VStack>
+        </Stack>
     );
 };
 

@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useHref } from 'react-router-dom';
 import Connexion from "./pages/Connexion";
 import AjouterForfaits from "./pages/AjouterForfait";
 import GestionForfaits from "./pages/GestionForfaits";
@@ -27,6 +27,7 @@ import Confirmation from "./pages/Confirmation";
 import ModifierForfaits from "./pages/ModifierForfaits"
 import PageErreur from './pages/PageErreur';
 import Unsubscribe from './pages/unsubscribe.js';
+import FlecheRedirect from "./components/FlecheRedirect";
 
 function App() {
 
@@ -36,7 +37,7 @@ function App() {
       <Router>
         <Header />
         <HeaderAdmin />
-        <div className="container">
+        <div className="container" >
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/CodeDeLaRoute" element={<CodeDeLaRoute />} />
@@ -51,6 +52,18 @@ function App() {
             <Route exact path="/Confirmation" element={<Confirmation />} />
             <Route exact path="/unsubscribe" element={<Unsubscribe />} />
             <Route exact path="/Connexion" element={<Connexion />} />
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/CodeDeLaRoute" element={<CodeDeLaRoute />} />
+            <Route exact path="/Informations" element={<Informations />} />
+            <Route exact path="/MentionsLegales" element={<MentionsLegales />} />
+            <Route exact path="/RGPD" element={<RGPD />} />
+            <Route exact path="/Cookies" element={<Cookies />} />
+            <Route exact path="/Permis" element={<Permis />} />
+            <Route exact path="/Contact" element={<Contact />} />
+            <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
+            <Route exact path="/Actualite" element={<Actualite />} />
+            <Route exact path="/Confirmation" element={<Confirmation />} />
+            <Route exact path="/Connexion" element={<Connexion />} />
 
             <Route exact path="/Newsletter" element={<Newsletter />} />
             <Route exact path="/AjouterArticle" element={<AjouterArticle />} />
@@ -64,6 +77,9 @@ function App() {
             <Route path="*" element={<PageErreur />} />
 
           </Routes>
+
+          <FlecheRedirect />
+
           <Footer />
         </div>
 
