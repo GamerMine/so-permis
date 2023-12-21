@@ -40,19 +40,20 @@ class Articles extends BaseController
             $db = DB::getInstance();
             $titre = $this->request->getPost('titreActualite');
             $infos = $this->request->getPost('infosActualite');
-            $image = $this->request->getPost('imageURL');
             $sources = $this->request->getPost('sources');
             $file = $this->request->getFile('file');
-
+            $image = 'null';
             $uploadPath = FCPATH . 'public/images/'; 
 
-            // Vérifier si le dossier de destination existe, sinon le créer
             if (!is_dir($uploadPath)) {
                 mkdir($uploadPath, 0777, true);
             }
 
-            // Déplacer le fichier vers le dossier de destination
-            $file->move($uploadPath, $file->getName());
+            if( $file != null)
+            {
+                $file->move($uploadPath, $file->getName());
+                $image = $file->getName();
+            }
 
             $db->insertActualite($titre,$infos, $image, $sources);
             return json_encode(["success" => "Article ajouté"]);
@@ -114,20 +115,22 @@ class Articles extends BaseController
             $id = $this->request->getPost('id');
             $titre = $this->request->getPost('titreActualite');
             $infos = $this->request->getPost('infosActualite');
-            $image = $this->request->getPost('imageURL');
             $sources = $this->request->getPost('sources');
             $file = $this->request->getFile('file');
             print_r($titre);
-            
+            $image = 'null';
             $uploadPath = FCPATH . 'public/images/'; 
 
             // Vérifier si le dossier de destination existe, sinon le créer
             if (!is_dir($uploadPath)) {
                 mkdir($uploadPath, 0777, true);
             }
-
-            // Déplacer le fichier vers le dossier de destination
-            $file->move($uploadPath, $file->getName());
+            if( $file != null)
+            {
+                // Déplacer le fichier vers le dossier de destination
+                $file->move($uploadPath, $file->getName());
+                $image = $file->getName();
+            }
 
             $db->updateActualite($id, $titre,$infos, $image, $sources);
 

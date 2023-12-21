@@ -58,6 +58,7 @@ const ModifierArticle = () => {
         // Fonction asynchrone pour récupérer les détails de l'article à partir du backend
         const fetchArticleDetails = async () => {
             try {
+                verifConnexion();
                 const response = await axios.get(`http://localhost:8080/ModifierArticle/${articleId}`);
                 const articleData = response.data;
                 setArticle({
@@ -78,6 +79,7 @@ const ModifierArticle = () => {
 
     const handleUpdate = async (formData) => {
         const response = await axios.post(HOSTNAME+'/UpdateArticle', formData);
+        console.log(response.data);
         window.location.replace("/GestionArticles");
     };
 
@@ -140,7 +142,6 @@ const ModifierArticle = () => {
         handleUpdate(formData);
     }
 
-    verifConnexion();
     return (
         <Stack style={{gap: "0"}}>
             <Box>
@@ -173,7 +174,7 @@ const ModifierArticle = () => {
 
                             <GridItem colSpan={2}>
                                 <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
-                                <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' value={article.image} onChange={handleInputChange} />
+                                <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' onChange={handleInputChange} />
                             </GridItem>
 
                             <GridItem colSpan={4}>
