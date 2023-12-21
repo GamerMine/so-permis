@@ -71,4 +71,4 @@ INSERT INTO FORMATION (prix, nom, infos, type_f) VALUES
 ('410€','ANNULATION','Code + conduite', 'annulation'),
 ('660€','ANNULATION','Code + conduite express 15 jours', 'annulation'),
 
-('100€','CONDUITE SUPERVISÉE','', 'code');
+('100€','CONDUITE SUPERVISÉE','', 'conduite_accompagnee');
