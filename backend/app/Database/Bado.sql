@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS ACTUALITE CASCADE;
 CREATE TABLE IF NOT EXISTS FORMATION
 (
     idFormation SERIAL Primary Key NOT NULL,
-    prix varchar(10) NOT NULL,
+    prix varchar(20) NOT NULL,
     nom varchar(100) NOT NULL,
     infos varchar NOT NULL,
     type_f varchar NOT NULL
