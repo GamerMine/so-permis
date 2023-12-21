@@ -15,7 +15,6 @@ import {
     Checkbox,
     Textarea,
 } from "@chakra-ui/react";
-import { FormArticle } from "../components/FormArticle";
 import Cookies from 'js-cookie';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
