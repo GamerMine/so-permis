@@ -20,7 +20,6 @@ import CodeDeLaRoute from "./pages/CodeDeLaRoute";
 import QuiSommesNous from "./pages/QuiSommesNous.js";
 import Newsletter from './pages/Newsletter.js';
 import CreationCompte from './pages/CreationCompte.js'
-import ExemplePageArticle from './pages/ExemplePageArticle';
 import PageAdmin from './pages/PageAdmin';
 import HeaderAdmin from "./components/HeaderAdmin";
 import Actualite from "./pages/Actualite";
