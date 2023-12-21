@@ -45,9 +45,7 @@ class Articles extends BaseController
             $file = $this->request->getFile('file');
             $newsletters = $this->request->getPost('newsletter');
             if ($newsletters) {;
-
-                $titre = "article envoyé BG !";
-                $users = $this->sendArticle($titre, $infos, $sources);
+                $this->sendArticle($titre, $infos, $sources);
             }
             $image = 'null';
             $uploadPath = FCPATH . 'public/images/';
