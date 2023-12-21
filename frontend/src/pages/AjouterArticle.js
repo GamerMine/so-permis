@@ -66,63 +66,6 @@ const AjouterArticle = () => {
 
     verifConnexion();
     /**
-     * Méthode permettant de changer le formulaire en fonction de la valeur du radio bouton
-     * @returns code HTML du formulaire
-     */
-    function changerFormulaire() {
-        if (value === "article") {
-            return (
-                <Box align='center' marginBottom='1%'>
-
-                    <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
-
-                        <GridItem colSpan={2}>
-                            <FormLabel>Titre</FormLabel>
-                            <Input id="titre" variant='flushed' placeholder="Titre" />
-                        </GridItem>
-
-                        <GridItem colSpan={2}>
-                            <FormLabel>Sources</FormLabel>
-                            <Input id="source" variant='flushed' placeholder="Sources" />
-                        </GridItem>
-
-                        <GridItem colSpan={2}>
-                            <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
-                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' onChange={onImageChange} />
-                        </GridItem>
-
-                        <GridItem colSpan={2}>
-                            <Image style={{ ...style.image }} src={urlImage} fallbackSrc='https://via.placeholder.com/200' />
-                        </GridItem>
-
-                        <GridItem colSpan={4}>
-                            <FormLabel>Contenu</FormLabel>
-                            <Textarea id="contenu" variant='outline' size='md' placeholder="Contenu" />
-                        </GridItem>
-                    </Grid>
-                </Box>
-            );
-
-        }
-
-        return (
-            <Box align='center' marginBottom='1%'>
-                <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='5%' w='50%' marginBottom='4%'>
-                    <GridItem colSpan={2}>
-                        <FormLabel>Titre</FormLabel>
-                        <Input id="titre" variant='flushed' placeholder="Titre" />
-                    </GridItem>
-                    <GridItem colSpan={2}>
-                        <FormLabel>URL (source)</FormLabel>
-                        <Input id="source" variant='flushed' placeholder="URL" />
-                    </GridItem>
-                </Grid>
-            </Box>
-        );
-    }
-
-
-    /**
      * Méthode permettant de récupérer les données du formulaire
      */
     function recupererDonnees() {
