@@ -11,50 +11,15 @@ import {
     VStack,
     Stack,
     Card,
-    CardBody,
     Heading,
-    Grid,
-    GridItem,
 } from "@chakra-ui/react";
 import { MultiHorizontalCardsWithButton, OCard } from "../components/MultiHorizontalCardsWithButton"
-import { ListeCode } from "../components/ListeCode";
 import { HOSTNAME } from "../Variables";
+import ForfaitCode from "../components/ForfaitCode"
+import ForfaitAnnulation from "../components/ForfaitAnnulation"
 import axios from "axios";
 
 const CodeDeLaRoute = () => {
-
-    const [forfaitCode, setforfaitCode] = useState([]);
-    const [forfaitAnnulation, setforfaitAnnulation] = useState([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            await getForfaitsCode();
-            await getForfaitsAnnulation();
-        };
-
-        fetchData();
-    }, []);
-
-    const getForfaitsCode = async () => {
-        try {
-            const response = await axios.get(HOSTNAME + '/getForfaitsCode');
-            setforfaitCode(response.data);
-        }
-        catch (error) {
-            console.error('Erreur lors de la récupération des données :', error);
-        }
-    };
-
-    const getForfaitsAnnulation = async () => {
-        try {
-            const response = await axios.get(HOSTNAME + '/getForfaitsAnnulation');
-            setforfaitAnnulation(response.data);
-            console.log(response.data);
-        }
-        catch (error) {
-            console.error('Erreur lors de la récupération des données :', error);
-        }
-    };
 
     const style = {
 
@@ -245,15 +210,7 @@ const CodeDeLaRoute = () => {
 
             <Box id="boxForfaits" w='100%' align="center" backgroundColor={"black"} marginBottom={"-10px"} marginTop={"-10px"}>
                 <Heading size="lg" style={{ ...style.textBlanc }}>Forfait Code</Heading>
-                <Stack w='25%' columns={2} justify='center' marginBottom={"3%"}>
-                    <ListeCode style={style.cardsServices} cards={[
-                        ...forfaitCode.map((forfait, index) => {
-                            return (
-                                new OCard(forfait.nom, forfait.infos, forfait.prix, "", "", false, false)
-                            );
-                        })
-                    ]} />
-                </Stack>
+                <ForfaitCode/>
             </Box>
 
             <Box id="boxHoraires" w='100%' align="center" backgroundColor={"black"} marginBottom={"-10px"} style={{ ...style.textBlanc }}>
@@ -266,20 +223,7 @@ const CodeDeLaRoute = () => {
             <Stack id="boxAnnulation" w={{ base: "80%", "sb": "50%" }} h="100%" mx={"10%"} px={"5%"}>
                 <Heading size="lg" align='center' marginBottom={"2%"}>Condition d’annulation du code</Heading>
                 <Card style={{ ...style.carte }} boxShadow={"5px 5px 5px #b5b5b5"}>
-                    <CardBody >
-                        <Grid columns={2} >
-                            {
-                                forfaitAnnulation.map((forfait, index) => {
-                                    return (
-                                        <Box>
-                                            <GridItem style={{ ...style.texte }} >{forfait.nom}  {forfait.infos}</GridItem>
-                                            <GridItem style={{ ...style.prix }}>{forfait.prix}</GridItem>
-                                        </Box>
-                                    );
-                                })
-                            }
-                        </Grid>
-                    </CardBody>
+                    <ForfaitAnnulation/>
                 </Card>
             </Stack>
         </VStack>
