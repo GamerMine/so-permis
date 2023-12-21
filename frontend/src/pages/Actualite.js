@@ -90,7 +90,7 @@ const Actualite = () => {
             <Grid marginTop="20px" marginBottom="90px" templateColumns={{ base: "repeat(1, 1fr)", sd: "repeat(2, 1fr)", xg: "repeat(3, 8fr)" }}>
                 {actus.map((actuItem, index) => (
                     <Stack key={actuItem.idActu}>
-                        <GridItem style={style.actu}>
+                        <GridItem style={style.actu} maxWidth={{base:"300px", "smdp":"none"}}>
                             <Stack onClick={() => onOpen(index)}>
                                 <Text marginTop="5px" alignSelf="center">
                                     {actuItem.titreActu}
@@ -101,6 +101,8 @@ const Actualite = () => {
                                 </Text>
                             </Stack>
                         </GridItem>
+
+
                         <Modal isOpen={modalStates[index]} onClose={() => onClose(index)}>
                             <ModalContent>
                                 <ModalHeader>
