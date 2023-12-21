@@ -22,6 +22,7 @@ import Newsletter from './pages/Newsletter.js';
 import CreationCompte from './pages/CreationCompte.js'
 import PageAdmin from './pages/PageAdmin';
 import HeaderAdmin from "./components/HeaderAdmin";
+import Actualite from "./pages/Actualite";
 import Confirmation from "./pages/Confirmation";
 import ModifierForfaits from "./pages/ModifierForfaits"
 import PageErreur from './pages/PageErreur';
@@ -45,9 +46,11 @@ function App() {
             <Route exact path="/Permis" element={<Permis />} />
             <Route exact path="/Contact" element={<Contact />} />
             <Route exact path="/QuiSommesNous" element={<QuiSommesNous />} />
+            <Route exact path="/Actualite" element={<Actualite/>} />
+            <Route exact path="/Confirmation" element={<Confirmation />} />
+            <Route exact path="/Connexion" element={<Connexion />} />
 
             <Route exact path="/Newsletter" element={<Newsletter />} />
-            <Route exact path="/Connexion" element={<Connexion />} />
             <Route exact path="/AjouterArticle" element={<AjouterArticle />} />
             <Route exact path="/GestionArticles" element={<GestionArticles />} />
             <Route exact path="/ModifierArticle/:articleId" element={<ModifierArticle />} />
@@ -56,8 +59,6 @@ function App() {
             <Route exact path="/CreationCompte" element={<CreationCompte />} />
             <Route exact path="/PageAdmin" element={<PageAdmin />} />
             <Route exact path="/ModifierForfaits/:formationId" element={<ModifierForfaits />} />
-
-            <Route exact path="/Confirmation" element={<Confirmation />} />
             <Route path="*" element={<PageErreur />} />
 
           </Routes>

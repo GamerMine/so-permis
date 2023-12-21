@@ -41,12 +41,12 @@ CREATE TABLE IF NOT EXISTS ACTUALITE
 
 INSERT INTO ACTUALITE (titreActualite, infosActualite, imageURL, sources) VALUES
 (
-    'Léo est trop fort', 'Car il a réussi a connecter la base', 'imageDeLeoLeBg.png', 'léo'
+    'Léo est trop fort', 'Car il a réussi a connecter la base', 'Kirby.PNG', 'léo'
 );
 
 INSERT INTO ADMINISTRATEUR(email, password, id_unique) VALUES 
 (
-    'enorme.bg@leo.fr', 'chsuikunu', '1535766848483415641343135'
+    'admin.admin@admin.fr', 'admin', '1535766848483415641343135'
 );
 INSERT INTO FORMATION (prix, nom, infos, type_f) VALUES
 ('130€', 'FORFAIT CODE SEUL', '', 'code'),
@@ -71,4 +71,4 @@ INSERT INTO FORMATION (prix, nom, infos, type_f) VALUES
 ('410€','ANNULATION','Code + conduite', 'annulation'),
 ('660€','ANNULATION','Code + conduite express 15 jours', 'annulation'),
 
-('100€','CONDUITE SUPERVISÉE','', 'code');
+('100€','CONDUITE SUPERVISÉE','', 'conduite_accompagnee');

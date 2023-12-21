@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 import { HOSTNAME } from "../Variables";
 
 const Header = () => {
-    const normalHeaderLocations = ["/ModifierForfaits/:formationId", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/:articleId" , "/PageAdmin", "/Newsletter"]
+    const headerLocations = ["/ModifierForfaits/*", "/AjouterArticle", "/GestionArticles", "/AjouterForfaits", "/GestionForfaits", "/CreationCompte", "/ModifierArticle/*" , "/PageAdmin", "/NewsLetter"]
     const location = useLocation();
     const navigate = useNavigate();
     const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
@@ -68,7 +68,7 @@ const Header = () => {
         const formData = new FormData();
         formData.append("compte", ""+Cookies.get('compte'));
         const response = await axios.post(HOSTNAME+"/Deconnexion", formData);
-        console.log(response.data);
+        //console.log(response.data);
         navigate("/");
     }
 
@@ -76,8 +76,17 @@ const Header = () => {
         navigate('/PageAdmin');
     }
 
-    if (location.pathname.endsWith("/")) location.pathname = location.pathname = location.pathname.substring(0, location.pathname.length - 1);
-    if (normalHeaderLocations.includes(location.pathname)) {
+    let pathname = location.pathname;
+
+    for (const locations of headerLocations) {
+        if (locations.endsWith("*")) {
+            if (pathname.includes(locations.substring(0, locations.length - 2))) {
+                pathname = locations.substring(0, locations.length - 2) + "/*";
+            }
+        }
+    }
+    if (pathname.endsWith("/")) pathname = pathname = pathname.substring(0, pathname.length - 1);
+    if (headerLocations.includes(pathname)) {
         return (
             <header>
                 {!isSmallDevice ? (

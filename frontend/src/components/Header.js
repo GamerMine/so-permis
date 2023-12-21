@@ -6,7 +6,7 @@ import {useLocation} from "react-router-dom";
 
 const Header = () => {
 
-    const normalHeaderLocations = ["", "/", "/CodeDeLaRoute", "/Informations", "/MentionsLegales", "/RGPD", "/Cookies", "/Permis", "/Contact", "/QuiSommesNous", "/Newsletter", "/ExemplePageArticle", "/Connexion"]
+    const normalHeaderLocations = ["", "/", "/CodeDeLaRoute", "/Informations", "/MentionsLegales", "/RGPD", "/Cookies", "/Permis", "/Contact", "/QuiSommesNous", "/Newsletter", "/ExemplePageArticle", "/Connexion",  "/Actualite"]
     const location = useLocation();
     const navigate = useNavigate();
     const isSmallDevice = window.matchMedia("(max-width: 449px)").matches;
@@ -66,7 +66,7 @@ const Header = () => {
         navigate('/');
     }
 
-    if (location.pathname.endsWith("/")) location.pathname = location.pathname = location.pathname.substring(0, location.pathname.length - 1);
+    if (location.pathname.endsWith("/")) location.pathname = location.pathname.substring(0, location.pathname.length - 1);
     if (normalHeaderLocations.includes(location.pathname)) {
         return (
             <header>

@@ -95,7 +95,7 @@ export const ForfaitComponent = () => {
 
     const handleDelete = async (item) => {
             const formData = new FormData();
-            console.log(item);
+            //console.log(item);
             formData.append('idFormation', item);
             await axios.post(HOSTNAME+'/DeleteFormations', formData);
             window.location.reload();

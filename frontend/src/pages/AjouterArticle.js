@@ -8,10 +8,6 @@ import {
     Link,
     FormLabel,
     Input,
-    HStack,
-    RadioGroup,
-    Radio,
-    Stack,
     Checkbox,
     Textarea,
     Image
@@ -41,6 +37,7 @@ const AjouterArticle = () => {
             color: "white",
         },
 
+
         image: {
             maxWidth: "200px",
             maxHeight: "200px",
@@ -49,7 +46,7 @@ const AjouterArticle = () => {
 
     const handleUpdate = async (formData) => {
         const response = await axios.post(HOSTNAME + '/AjouterArticle', formData);
-        console.log(response.data);
+        //console.log(response.data);
         window.location.replace("/GestionArticles");
     };
 
@@ -70,10 +67,9 @@ const AjouterArticle = () => {
         if (response.data != true) {
             navigate("/");
         }
-        console.log(response.data);
+        //console.log(response.data);
     }
 
-    const [value, setValue] = React.useState("article")
     verifConnexion();
     /**
      * Méthode permettant de changer le formulaire en fonction de la valeur du radio bouton
@@ -157,44 +153,54 @@ const AjouterArticle = () => {
             }
             console.log(formData);
             handleUpdate(formData);
-        }
-        else {
-            const titre = document.getElementById("titre").value;
-            const source = document.getElementById("source").value;
 
+            const newsletter = document.getElementById("newsletter").checked;
         }
 
-        const newsletter = document.getElementById("newsletter").checked;
+        return (
+            <Box>
+                <Heading textAlign="center" marginTop='1%'>
+                    Ajouter un article
+                </Heading>
+
+                <Box align='center' marginBottom='1%'>
+                    <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
+
+                        <GridItem colSpan={2}>
+                            <FormLabel>Titre</FormLabel>
+                            <Input id="titre" variant='flushed' placeholder="Titre" />
+                        </GridItem>
+
+                        <GridItem colSpan={2}>
+                            <FormLabel>Sources</FormLabel>
+                            <Input id="source" variant='flushed' placeholder="Sources" />
+                        </GridItem>
+
+                        <GridItem colSpan={2}>
+                            <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
+                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' onChange={onImageChange} />
+                        </GridItem>
+
+                        <GridItem colSpan={2}>
+                            <Image style={{ ...style.image }} src={urlImage} fallbackSrc='https://via.placeholder.com/200' />
+                        </GridItem>
+
+                        <GridItem colSpan={4}>
+                            <FormLabel>Contenu</FormLabel>
+                            <Textarea id="contenu" variant='outline' size='md' placeholder="Contenu" />
+                        </GridItem>
+                    </Grid>
+                </Box>
+
+                <Box align='center' marginBottom='2%'>
+                    <Checkbox id="newsletter" value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>
+                    <div>
+                        <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
+                        <Link href="/GestionArticles"><Button colorScheme="red" >ANNULER</Button></Link>
+                    </div>
+                </Box>
+            </Box>
+        );
     }
 
-    return (
-        <Box>
-            <Heading textAlign="center" marginTop='1%'>
-                Ajouter un article
-            </Heading>
-
-            <Box align='center'>
-                <HStack spacing="24px" marginStart='40%' marginY='1%'>
-                    <RadioGroup onChange={setValue} value={value}>
-                        <Stack direction="row">
-                            <Radio value="article">Écrire l'article</Radio>
-                            <Radio value="source">Ajouter une source</Radio>
-                        </Stack>
-                    </RadioGroup>
-                </HStack>
-            </Box>
-
-            {changerFormulaire()}
-
-            <Box align='center' marginBottom='2%'>
-                <Checkbox id="newsletter" value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>
-                <div>
-                    <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
-                    <Link href="/GestionArticles"><Button colorScheme="red" >ANNULER</Button></Link>
-                </div>
-            </Box>
-        </Box>
-    );
-}
-
-export default AjouterArticle;
+    export default AjouterArticle;

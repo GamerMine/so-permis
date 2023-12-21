@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import {
     Box,
     CardBody,
-    Heading,    GridItem, Grid,
+    GridItem, Grid,
 } from "@chakra-ui/react";
 import { HOSTNAME } from "../Variables";
 import axios from "axios";

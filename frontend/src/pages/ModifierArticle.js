@@ -35,8 +35,7 @@ const ModifierArticle = () => {
         image: '',
         sources: ''
     });
-    const [value, setValue] = useState("article");
-
+    
     const style = {
         bouton: {
             backgroundColor: "#1ec6b1",
@@ -91,7 +90,7 @@ const ModifierArticle = () => {
 
     const handleUpdate = async (formData) => {
         const response = await axios.post(HOSTNAME + '/UpdateArticle', formData);
-        console.log(response.data);
+        //console.log(response.data);
         window.location.replace("/GestionArticles");
     };
 
@@ -109,6 +108,7 @@ const ModifierArticle = () => {
             <Spinner style={{ alignSelf: "center", position: "absolute", top: "50%", transform: "translateY(-50%)" }} />
         </Stack>
     ));
+    
     const verifConnexion = async () => {
         const valeurDuCookie = Cookies.get('compte');
         let formData = new FormData();
@@ -125,31 +125,22 @@ const ModifierArticle = () => {
     function recupererDonnees() {
         let formData = new FormData();
 
-        if (value === "article") {
-            const titre = document.getElementById("titre").value;
-            const sources = document.getElementById("source").value;
-            const image = document.getElementById("image").value;
-            const infos = document.getElementById("infos").value;
-            const files = document.getElementById("image");
+        const titre = document.getElementById("titre").value;
+        const sources = document.getElementById("sources").value;
+        const image = document.getElementById("image").value;
+        const infos = document.getElementById("infos").value;
+        const files = document.getElementById("image");
 
 
-            formData.append('id', '' + article.id);
-            formData.append('titreActualite', '' + titre);
-            formData.append('infosActualite', '' + infos);
-            formData.append('imageURL', '' + image);
-            formData.append('sources', '' + sources);
-            if (files.files.length > 0) {
-                const imageFile = files.files[0];
-                formData.append('file', imageFile);
-            }
+        formData.append('id', '' + article.id);
+        formData.append('titreActualite', '' + titre);
+        formData.append('infosActualite', '' + infos);
+        formData.append('imageURL', '' + image);
+        formData.append('sources', '' + sources);
+        if (files.files.length > 0) {
+            const imageFile = files.files[0];
+            formData.append('file', imageFile);
         }
-        else {
-            const titre = document.getElementById("titre").value;
-            const source = document.getElementById("source").value;
-
-        }
-
-        const newsletter = document.getElementById("newsletter").checked;
 
         handleUpdate(formData);
     }
@@ -161,45 +152,34 @@ const ModifierArticle = () => {
                     Modifier un article
                 </Heading>
 
-                <Box align='center'>
-                    <RadioGroup onChange={setValue} value={value} marginStart='40%'>
-                        <Stack direction="row">
-                            <Radio value="article">Écrire l'article</Radio>
-                            <Radio value="source">Ajouter une source</Radio>
-                        </Stack>
-                    </RadioGroup>
+                <Box align='center' marginBottom='1%'>
+                    <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
+
+                        <GridItem colSpan={2}>
+                            <FormLabel>Titre</FormLabel>
+                            <Input id="titre" variant='flushed' placeholder="Titre" value={article.titre} onChange={handleInputChange} />
+                        </GridItem>
+
+                        <GridItem colSpan={2}>
+                            <FormLabel>Sources</FormLabel>
+                            <Input id="sources" variant='flushed' placeholder="source" value={article.sources} onChange={handleInputChange} />
+                        </GridItem>
+
+                        <GridItem colSpan={2}>
+                            <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
+                            <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' onChange={onImageChange} />
+                        </GridItem>
+
+                        <GridItem colSpan={2}>
+                            <Image style={{ ...style.image }} src={urlImage} />
+                        </GridItem>
+
+                        <GridItem colSpan={4}>
+                            <FormLabel style={{ ...style.label }}>Infos</FormLabel>
+                            <Textarea id="infos" variant='outline' size='md' placeholder="Infos" value={article.infos} onChange={handleInputChange} />
+                        </GridItem>
+                    </Grid>
                 </Box>
-
-                {value === "article" && (
-                    <Box align='center' marginBottom='1%'>
-                        <Grid templateColumns="repeat(4, 1fr)" gap={6} marginTop='4%' w='50%' marginBottom='3%'>
-
-                            <GridItem colSpan={2}>
-                                <FormLabel>Titre</FormLabel>
-                                <Input id="titre" variant='flushed' placeholder="Titre" value={article.titre} onChange={handleInputChange} />
-                            </GridItem>
-
-                            <GridItem colSpan={2}>
-                                <FormLabel>Sources</FormLabel>
-                                <Input id="source" variant='flushed' placeholder="Sources" value={article.sources} onChange={handleInputChange} />
-                            </GridItem>
-
-                            <GridItem colSpan={2}>
-                                <FormLabel style={{ ...style.label }}>Image de l'article</FormLabel>
-                                <Input id='image' variant='unstyled' type="file" accept="image/*" size='md' onChange={onImageChange} />
-                            </GridItem>
-
-                            <GridItem colSpan={2}>
-                                <Image style={{ ...style.image }} src={urlImage} />
-                            </GridItem>
-
-                            <GridItem colSpan={4}>
-                                <FormLabel style={{ ...style.label }}>Infos</FormLabel>
-                                <Textarea id="infos" variant='outline' size='md' placeholder="Infos" value={article.infos} onChange={handleInputChange} />
-                            </GridItem>
-                        </Grid>
-                    </Box>
-                )}
 
                 <Box align='center' marginBottom='2%'>
                     <Checkbox id="newsletter" value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>
