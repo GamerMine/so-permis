@@ -66,7 +66,7 @@ const Header = () => {
         navigate('/');
     }
 
-    if (location.pathname.endsWith("/")) location.pathname = location.pathname = location.pathname.substring(0, location.pathname.length - 1);
+    if (location.pathname.endsWith("/")) location.pathname = location.pathname.substring(0, location.pathname.length - 1);
     if (normalHeaderLocations.includes(location.pathname)) {
         return (
             <header>

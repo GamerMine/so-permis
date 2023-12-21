@@ -115,7 +115,6 @@ export const MultiHorizontalCardsWithButton = (args) => {
     let cardsElements = [];
 
     args.cards.forEach((card, index) => {
-        let isInpageLink = card.link.startsWith("#");
         cardsElements.push(
 
             <ReactCardFlip
@@ -141,7 +140,7 @@ export const MultiHorizontalCardsWithButton = (args) => {
                     {card.canFlip === false && (
                         <CardFooter>
                             {card.link.startsWith("#") ? (
-                                <a style={{width: "100%", textAlign: "center"}} href={`${card.link}`}>
+                                <a style={{width: "100%", textAlign: "center"}} href={card.link}>
                                     <Button style={style.buttonForward} >
                                         <Text style={style.buttonText}>{card.texteBouton}</Text>
                                     </Button>
