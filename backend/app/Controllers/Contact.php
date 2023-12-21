@@ -15,7 +15,7 @@ class Contact extends BaseController
         return $email + " désinscrit";
     }
 
-    public function subscribeNewsletter(): string
+    public function subscribeNewsletter()
     {
 
         try {
@@ -291,4 +291,70 @@ class Contact extends BaseController
             return $th->getMessage();
         }
     }
+
+    //envoyer un article a tus les utilisateurs actifs
+    public function sendArticle($titre, $infos, $sources)
+    {
+        print_r($titre);
+        try {
+            //require(APPPATH . "Database/DB.inc.php");
+            $db = DB::getInstance();
+            $users = $db->getNewslettersActif();
+            return $users;
+            /*foreach ($users as $user) {
+                print_r($user);
+                $this->sendArticleToUser($user);
+            }*/
+            // return la liste des users
+        } catch (\Throwable $th) {
+            //throw $th;
+            print_r($th->getMessage());
+            return $th->getMessage();
+        }
+    }
+    /*
+    function sendArticleToUser($user)
+    {
+        //Librairie Email
+        $email = \Config\Services::email();
+        // Paramètres de l'e-mail
+        $to = $user->getEmail();
+        $from = 'malo.rihet@gmail.com';
+        $token = $user->getGuid();
+        $subject = "Newletter So-Permis";
+        $mail = "<!DOCTYPE html>
+        <html lang=\"fr\">
+        <head>
+            <meta charset=\"UTF-8\">
+            <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
+            <title>Newsletter So-Permis</title>
+        </head>
+        <body>
+
+        <!-- Coordonnées de contact -->
+        <p>So-Permis<br>
+        02 78 34 10 63<br>
+        20 Rue Jean Lurçat,<br>
+        76610 Le Havre<br>
+        <a href=\"http://localhost:3000\">Site Web</a><br>
+        <a href=\"\">Snapchat</a><br>
+        <a href=\"\">Instagram</a></p>
+        
+        </body>
+        </html>
+        ";
+        // Préparation de l'e-mail
+        $email->setTo($to);
+        $email->setFrom($from);
+        $email->setSubject($subject);
+        $email->setMessage($mail);
+        $email->setMailType('html');
+        // Envoyer l'e-mail
+        if ($email->send()) {
+            echo 'E-mail envoyé avec succès.';
+        } else {
+            echo 'Échec de l\'envoi de l\'e-mail. Erreur : ';
+        }
+    }
+    */
 }

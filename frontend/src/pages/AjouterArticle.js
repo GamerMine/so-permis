@@ -40,7 +40,7 @@ const AjouterArticle = () => {
             backgroundColor: "#1ec6b1",
             color: "white",
         },
-        
+
         image: {
             maxWidth: "200px",
             maxHeight: "200px",
@@ -102,7 +102,7 @@ const AjouterArticle = () => {
                         </GridItem>
 
                         <GridItem colSpan={2}>
-                            <Image style={{ ...style.image }} src={urlImage} fallbackSrc='https://via.placeholder.com/200'/>
+                            <Image style={{ ...style.image }} src={urlImage} fallbackSrc='https://via.placeholder.com/200' />
                         </GridItem>
 
                         <GridItem colSpan={4}>
@@ -144,16 +144,18 @@ const AjouterArticle = () => {
             const image = document.getElementById("image").value;
             const contenu = document.getElementById("contenu").value;
             const images = document.getElementById("image");
+            const newsletterChecked = document.getElementById("newsletter").checked;
 
             formData.append('titreActualite', '' + titre);
             formData.append('infosActualite', '' + contenu);
             formData.append('imageURL', '' + image);
             formData.append('sources', '' + sources);
+            formData.append('newsletter', '' + newsletterChecked);
             if (images.files.length > 0) {
                 const imageFile = images.files[0];
                 formData.append('file', imageFile);
             }
-
+            console.log(formData);
             handleUpdate(formData);
         }
         else {

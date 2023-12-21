@@ -202,6 +202,7 @@ const ModifierArticle = () => {
                 )}
 
                 <Box align='center' marginBottom='2%'>
+                    <Checkbox id="newsletter" value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>
                     <div>
                         <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
                         <Link href="/GestionArticles"><Button colorScheme="red" >ANNULER</Button></Link>

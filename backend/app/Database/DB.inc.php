@@ -186,7 +186,7 @@ class DB
           $requete = 'update Formation set prix = ?, nom =?, infos = ?, type_f = ? where idFormation = ?';
           $tparam = array($prix, $nom, $infos, $type_f, $id);
 
-         return $this->execMaj($requete, $tparam);
+          return $this->execMaj($requete, $tparam);
      }
 
      //Administrateurs
@@ -270,6 +270,12 @@ class DB
           $requete = 'delete from NEWSLETTER where idnewsletter = ?';
           $tparam = array($id);
           return $this->execMaj($requete, $tparam);
+     }
+
+     public function getNewslettersActif()
+     {
+          $requete = 'SELECT * FROM NEWSLETTER where actif = \'t\'';
+          return $this->execQuery($requete, null, 'NEWSLETTER');
      }
 
 
