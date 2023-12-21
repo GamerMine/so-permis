@@ -1,10 +1,11 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
-import {Box, Card, CardBody, Flex, Spinner, Stack, Text} from "@chakra-ui/react";
+import {Box, Card, CardBody, Flex, Spinner, Stack, Text , Button} from "@chakra-ui/react";
 import * as React from "react";
 import { MdOutlineKeyboardDoubleArrowLeft, MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 import {isMobile} from "react-device-detect";
 import { HOSTNAME } from "../Variables";
+import {useNavigate} from "react-router-dom";
 
 let currentActu = 0;
 
@@ -54,6 +55,13 @@ const PanelActus = () => {
          </Card>
     ));
 
+    const hostname = HOSTNAME ;
+
+    const navigate = useNavigate();
+    const handleRedirect = (link) =>{
+        navigate(link);
+    }
+
     const [isHovering, setIsHovering] = useState(false);
     let isHoveringOld = false;
 
@@ -68,10 +76,20 @@ const PanelActus = () => {
     }
 
     function createCardBody(imgLink, title, author, description, nbActus, status=isHoveringOld) {
+
+        console.log(imgLink)
+
+        if(imgLink == "null" )
+        {
+            imgLink = "Actualites.png";
+        }
+
+        console.log(imgLink)
+
         const style = {
             cards: {
                 alignSelf: "center",
-                backgroundImage: "linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 30%), url(" + imgLink + ")",
+                backgroundImage: "linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 30%), url(" + hostname + "/public/images/" + imgLink + ")",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
             },
@@ -103,65 +121,81 @@ const PanelActus = () => {
                 wordWrap: 'break-word',
                 marginBottom:"30px"
             },
+
+            button:{
+                width:"25%",
+                minWidth:"250px",
+                backgroundColor:"#20AB9A",
+                alignSelf:"center"
+            }
         }
 
         const images = Array(Math.min(nbActus, 3)).fill('a');
 
-        console.log(status);
+        //console.log(status);
 
         return (
-            <Stack style={{paddingLeft: "80px", paddingRight: "80px"}}>
-                <h4 style={style.title}>Retrouvez nos dernières actus !</h4>
-                    <Card style={style.cards} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} width={{xl: "900px", md: "700px", sm: "350px"}} height= "400px">
-                        {status || isMobile ? (
-                            <Stack>
-                                <Box style={{display: "flex", justifyContent: "center", position: "absolute", top: "50%", transform: "translateY(-50%)", left: "10px"}} borderRadius={"full"} bg={"rgba(0,0,0,0.37)"} w={"12"} h={"12"}>
-                                    <MdOutlineKeyboardDoubleArrowLeft
-                                        size={30}
-                                        style={{color: "white", position: "absolute", top: "50%", transform: "translateY(-50%)", cursor: "pointer"}}
-                                        onClick={() => {
-                                            if (currentActu <= 0) currentActu = Math.min(nbActus, 2);
-                                            else currentActu--;
-                                            setContent(createCardBody(actus[currentActu].imageURL, actus[currentActu].titreActu, actus[currentActu].sources, actus[currentActu].infosActu, nbActus))
-                                        }}
-                                    />
-                                </Box>
-                                <Box style={{display: "flex", justifyContent: "center", position: "absolute", top: "50%", transform: "translateY(-50%)", right: "10px"}} borderRadius={"full"} bg={"rgba(0,0,0,0.37)"} w={"12"} h={"12"}>
-                                    <MdOutlineKeyboardDoubleArrowRight
-                                        size={30}
-                                        style={{color: "white", position: "absolute", top: "50%", transform: "translateY(-50%)", cursor: "pointer"}}
-                                        onClick={() => {
-                                            if (currentActu >= Math.min(nbActus, 3) - 1) currentActu = 0;
-                                            else currentActu++;
-                                            setContent(createCardBody(actus[currentActu].imageURL, actus[currentActu].titreActu, actus[currentActu].sources, actus[currentActu].infosActu, nbActus))
-                                        }}
-                                    />
-                                </Box>
-                            </Stack>) : (<p/>)
-                        }
-                    <CardBody style={style.cardBody}>
-                        <Text style={{...style.text, whiteSpace: "nowrap"}}>{title} - <span
-                            style={{...style.text, fontStyle: "italic"}}>{author}</span></Text>
-                        <Text style={{...style.textDescription}}>{description}</Text>
-                    </CardBody>
-                </Card>
-                <Flex mt="2" style={{alignSelf: "center"}}>
-                    {images.map((_, index) => (
-                        <Box
-                            key={index}
-                            w="4"
-                            h="4"
-                            mx="1"
-                            bg={index === currentActu ? '#1EC6B1' : 'gray'}
-                            borderRadius="full"
-                            cursor="pointer"
-                            onClick={() => {
-                                currentActu = index;
-                                setContent(createCardBody(actus[currentActu].imageURL, actus[currentActu].titreActu, actus[currentActu].sources, actus[currentActu].infosActu, nbActus))
-                            }}
-                        />
-                    ))}
-                </Flex>
+            <Stack>
+                <Stack paddingLeft={{base:"15px" , "smdp":"80px"}} paddingRight={{base:"15px" , "smdp":"80px"}} >
+                    <Text style={style.title} textAlign={{base:"center", "sd":"left"}}>Retrouvez nos dernières actus !</Text>
+                        <Card style={style.cards} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} width={{xl: "900px", md: "700px", sm: "350px"}} height= "400px">
+                            {status || isMobile ? (
+                                <Stack>
+                                    <Box style={{display: "flex", justifyContent: "center", position: "absolute", top: "50%", transform: "translateY(-50%)", left: "10px"}} borderRadius={"full"} bg={"rgba(0,0,0,0.37)"} w={"12"} h={"12"}>
+                                        <MdOutlineKeyboardDoubleArrowLeft
+                                            size={30}
+                                            style={{color: "white", position: "absolute", top: "50%", transform: "translateY(-50%)", cursor: "pointer"}}
+                                            onClick={() => {
+                                                if (currentActu <= 0) currentActu = Math.min(nbActus, 2);
+                                                else currentActu--;
+                                                setContent(createCardBody(actus[currentActu].imageURL, actus[currentActu].titreActu, actus[currentActu].sources, actus[currentActu].infosActu, nbActus))
+                                            }}
+                                        />
+                                    </Box>
+                                    <Box style={{display: "flex", justifyContent: "center", position: "absolute", top: "50%", transform: "translateY(-50%)", right: "10px"}} borderRadius={"full"} bg={"rgba(0,0,0,0.37)"} w={"12"} h={"12"}>
+                                        <MdOutlineKeyboardDoubleArrowRight
+                                            size={30}
+                                            style={{color: "white", position: "absolute", top: "50%", transform: "translateY(-50%)", cursor: "pointer"}}
+                                            onClick={() => {
+                                                if (currentActu >= Math.min(nbActus, 3) - 1) currentActu = 0;
+                                                else currentActu++;
+                                                setContent(createCardBody(actus[currentActu].imageURL, actus[currentActu].titreActu, actus[currentActu].sources, actus[currentActu].infosActu, nbActus))
+                                            }}
+                                        />
+                                    </Box>
+                                </Stack>
+                                ) : (<p/>)
+
+                            }
+                        <CardBody style={style.cardBody}>
+                            <Text style={{...style.text, whiteSpace: "nowrap"}}>{title} - <span
+                                style={{...style.text, fontStyle: "italic"}}>{author}</span></Text>
+                            <Text style={{...style.textDescription}}>{description}</Text>
+                        </CardBody>
+                    </Card>
+                    <Flex mt="2" style={{alignSelf: "center"}}>
+                        {images.map((_, index) => (
+                            <Box
+                                key={index}
+                                w="4"
+                                h="4"
+                                mx="1"
+                                bg={index === currentActu ? '#1EC6B1' : 'gray'}
+                                borderRadius="full"
+                                cursor="pointer"
+                                onClick={() => {
+                                    currentActu = index;
+                                    setContent(createCardBody(actus[currentActu].imageURL, actus[currentActu].titreActu, actus[currentActu].sources, actus[currentActu].infosActu, nbActus))
+                                }}
+                            />
+                        ))}
+                    </Flex>
+                </Stack>
+                <Stack>
+                    <Button style={style.button} onClick={() => handleRedirect("/Actualite")}>
+                        Consultez toutes nos actualités
+                    </Button>
+                </Stack>
             </Stack>
         )
     }
