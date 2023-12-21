@@ -46,7 +46,7 @@ INSERT INTO ACTUALITE (titreActualite, infosActualite, imageURL, sources) VALUES
 
 INSERT INTO ADMINISTRATEUR(email, password, id_unique) VALUES 
 (
-    'enorme.bg@leo.fr', 'chsuikunu', '1535766848483415641343135'
+    'admin.admin@admin.fr', 'admin', '1535766848483415641343135'
 );
 INSERT INTO FORMATION (prix, nom, infos, type_f) VALUES
 ('130€', 'FORFAIT CODE SEUL', '', 'code'),
