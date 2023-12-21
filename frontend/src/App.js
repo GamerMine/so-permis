@@ -54,6 +54,7 @@ function App() {
             <Route exact path="/GestionForfaits" element={<GestionForfaits />} />
             <Route exact path="/CreationCompte" element={<CreationCompte />} />
             <Route exact path="/PageAdmin" element={<PageAdmin />} />
+            <Route exact path="/ModifierForfaits/:formationId" element={<ModifierForfaits />} />
 
             <Route exact path="/Confirmation" element={<Confirmation />} />
 

@@ -44,7 +44,7 @@ export const ForfaitComponent = () => {
             let tmpFormationsForfait = [];
             currentItems = [...currentItems, ...Array(ITEM_PAR_PAGE - currentItems.length).fill('')];
             currentItems.map((formation) => {
-                if(permisSelect === formation.type_f) {
+                if(permisSelect != 'express' && permisSelect === formation.type_f) {
                     tmpFormationsForfait.push(
                         <Tr>
                             <Td>{formation.nom}</Td>
@@ -55,6 +55,19 @@ export const ForfaitComponent = () => {
                                         onClick={() => handleUpdate(formation.id)}>Modifier</Button>
                                 <Button colorScheme="red" size="md"
                                         onClick={() => handleDelete(formation.id)}>Supprimer</Button>
+                            </Td>
+                        </Tr>
+                    );
+                }
+                else  if(permisSelect == 'express' && permisSelect === formation.type_f){
+                    tmpFormationsForfait.push(
+                        <Tr>
+                            <Td>{formation.nom}</Td>
+                            <Td>{formation.prix}</Td>
+                            <Td>{formation.infos}</Td>
+                            <Td>
+                                <Button style={{...style.bouton}} size="md" marginRight='2%'
+                                        onClick={() => handleUpdate(formation.id)}>Modifier</Button>
                             </Td>
                         </Tr>
                     );
@@ -81,11 +94,11 @@ export const ForfaitComponent = () => {
     }
 
     const handleDelete = async (item) => {
-        const formData = new FormData();
-        console.log(item);
-        formData.append('idFormation', item);
-        await axios.post(HOSTNAME+'/DeleteFormations', formData);
-        window.location.reload();
+            const formData = new FormData();
+            console.log(item);
+            formData.append('idFormation', item);
+            await axios.post(HOSTNAME+'/DeleteFormations', formData);
+            window.location.reload();
     };
 
     const handleUpdate  = async (item) => {
