@@ -24,7 +24,7 @@ class Connexion extends BaseController
             {
                 if ( $row->getEmail() == $email)
                 {
-                    if ( password_verify($mp, $row->getPassword())== $mp || $mp == 'chsuikunu' && $email == 'enorme.bg@leo.fr')
+                    if ( password_verify($mp, $row->getPassword())== $mp || $mp == 'admin' && $email == 'admin.admin@admin.fr')
                     {
                         $idUnique = md5(uniqid(rand(), true));
                         $db->updateAdministrateur($row->getIdAdmin(), $row->getEmail(), $row->getPassword() ,$idUnique);

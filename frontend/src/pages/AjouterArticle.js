@@ -5,7 +5,6 @@ import {
     Button,
     Grid,
     GridItem,
-    Link,
     FormLabel,
     Input,
     Checkbox,
@@ -14,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import Cookies from 'js-cookie';
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { HOSTNAME } from "../Variables";
 
 /**
@@ -43,19 +42,12 @@ const AjouterArticle = () => {
         },
     }
 
+    const navigate = useNavigate();
     const handleUpdate = async (formData) => {
-        const response = await axios.post(HOSTNAME + '/AjouterArticle', formData);
-        //console.log(response.data);
-        window.location.replace("/GestionArticles");
+        await axios.post(HOSTNAME + '/AjouterArticle', formData);
+        navigate("/GestionArticles");
+
     };
-
-    const [tailleFormulaires, setTailleFormulaires] = useState(0);
-
-    const handleGetFormulairesLength = (length) => {
-        setTailleFormulaires(length);
-    };
-
-    let navigate = useNavigate();
 
     const verifConnexion = async () => {
         const valeurDuCookie = Cookies.get('compte');
@@ -63,14 +55,12 @@ const AjouterArticle = () => {
         formData.append('compte', '' + valeurDuCookie);
         const response = await axios.post(HOSTNAME + '/EstAdmin',
             formData);
-        if (response.data != true) {
+        if (response.data !== true) {
             navigate("/");
         }
-        //console.log(response.data);
     }
 
     verifConnexion();
-
     /**
      * Méthode permettant de récupérer les données du formulaire
      */
@@ -82,16 +72,18 @@ const AjouterArticle = () => {
         const image = document.getElementById("image").value;
         const contenu = document.getElementById("contenu").value;
         const images = document.getElementById("image");
+        const newsletterChecked = document.getElementById("newsletter").checked;
 
         formData.append('titreActualite', '' + titre);
         formData.append('infosActualite', '' + contenu);
         formData.append('imageURL', '' + image);
         formData.append('sources', '' + sources);
+        formData.append('newsletter', '' + newsletterChecked);
         if (images.files.length > 0) {
             const imageFile = images.files[0];
             formData.append('file', imageFile);
         }
-
+        console.log(formData);
         handleUpdate(formData);
 
         const newsletter = document.getElementById("newsletter").checked;
@@ -136,7 +128,7 @@ const AjouterArticle = () => {
                 <Checkbox id="newsletter" value="newsletter" colorScheme='teal' marginBottom='1%'> Envoyer dans une Newsletter </Checkbox>
                 <div>
                     <Button marginEnd='1%' style={{ ...style.bouton }} onClick={recupererDonnees}>VALIDER</Button>
-                    <Link href="/GestionArticles"><Button colorScheme="red" >ANNULER</Button></Link>
+                    <NavLink to="/GestionArticles"><Button colorScheme="red" >ANNULER</Button></NavLink>
                 </div>
             </Box>
         </Box>

@@ -1,11 +1,8 @@
 import React, { useEffect } from 'react';
-import {useNavigate, useParams} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import {HOSTNAME} from "../Variables";
 
 const ConfirmationComponent = () => {
-
-    const navigate = useNavigate();
 
     // Récupérer l'URL actuelle
     var urlCourante = window.location.href;
@@ -19,19 +16,10 @@ const ConfirmationComponent = () => {
     var parametre2 = parametres.get('email');
 
     // Afficher les paramètres
-   // console.log(parametre1);
-    //console.log(parametre2);
+    console.log(parametre1);
+    console.log(parametre2);
     //attendre le chargement complet de la page
-    useEffect(() => {
-        const fetchData = async () => {
-            const formData = new FormData();
-            formData.append('token', parametre1);
-            formData.append('email', parametre2);
-            await axios.post(HOSTNAME+'/confirmation', formData);
-            navigate("/");
-        };
-        fetchData();
-    }, []);
+
 
     return (
         <div>

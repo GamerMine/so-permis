@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS ACTUALITE CASCADE;
 CREATE TABLE IF NOT EXISTS FORMATION
 (
     idFormation SERIAL Primary Key NOT NULL,
-    prix varchar(10) NOT NULL,
+    prix varchar(20) NOT NULL,
     nom varchar(100) NOT NULL,
     infos varchar NOT NULL,
     type_f varchar NOT NULL
@@ -46,7 +46,7 @@ INSERT INTO ACTUALITE (titreActualite, infosActualite, imageURL, sources) VALUES
 
 INSERT INTO ADMINISTRATEUR(email, password, id_unique) VALUES 
 (
-    'enorme.bg@leo.fr', 'chsuikunu', '1535766848483415641343135'
+    'admin.admin@admin.fr', 'admin', '1535766848483415641343135'
 );
 INSERT INTO FORMATION (prix, nom, infos, type_f) VALUES
 ('130€', 'FORFAIT CODE SEUL', '', 'code'),
@@ -71,4 +71,4 @@ INSERT INTO FORMATION (prix, nom, infos, type_f) VALUES
 ('410€','ANNULATION','Code + conduite', 'annulation'),
 ('660€','ANNULATION','Code + conduite express 15 jours', 'annulation'),
 
-('100€','CONDUITE SUPERVISÉE','', 'code');
+('100€','CONDUITE SUPERVISÉE','', 'conduite_accompagnee');

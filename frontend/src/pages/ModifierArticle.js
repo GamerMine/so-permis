@@ -68,7 +68,7 @@ const ModifierArticle = () => {
         const fetchArticleDetails = async () => {
             try {
                 verifConnexion();
-                const response = await axios.get(`http://localhost:8080/ModifierArticle/${articleId}`);
+                const response = await axios.get(HOSTNAME+`/ModifierArticle/${articleId}`);
                 const articleData = response.data;
                 setArticle({
                     id: articleData.id,
@@ -108,7 +108,7 @@ const ModifierArticle = () => {
             <Spinner style={{ alignSelf: "center", position: "absolute", top: "50%", transform: "translateY(-50%)" }} />
         </Stack>
     ));
-    
+
     const verifConnexion = async () => {
         const valeurDuCookie = Cookies.get('compte');
         let formData = new FormData();
@@ -171,7 +171,7 @@ const ModifierArticle = () => {
                         </GridItem>
 
                         <GridItem colSpan={2}>
-                            <Image style={{ ...style.image }} src={urlImage} />
+                            <Image style={{ ...style.image }} src={urlImage} fallbackSrc='https://via.placeholder.com/200'/>
                         </GridItem>
 
                         <GridItem colSpan={4}>
