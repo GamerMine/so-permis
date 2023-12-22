@@ -124,7 +124,7 @@ class Contact extends BaseController
         02 78 34 10 63<br>
         20 Rue Jean Lurçat,<br>
         76610 Le Havre<br>
-        <a href=\"http://localhost:3000\">Site Web</a><br>
+        <a href=\"https://so-permis.dwightstudio.fr\">Site Web</a><br>
         <a href=\"\">Snapchat</a><br>
         <a href=\"\">Instagram</a></p>
         
@@ -174,7 +174,7 @@ class Contact extends BaseController
         //enregistrer le jeton dans la base de données
 
         // Construction du lien de confirmation avec le jeton
-        $lienConfirmation = "http://localhost:3000/confirmation?token=$token&email=$emailUtilisateur";
+        $lienConfirmation = "https://so-permis.dwightstudio.fr/confirmation?token=$token&email=$emailUtilisateur";
         print_r("lien : ");
         print_r($lienConfirmation);
 

@@ -168,7 +168,7 @@ class Articles extends BaseController
         $from = 'malo.rihet@gmail.com';
         $token = $user->getGuid();
         $subject = "Newletter So-Permis";
-        $unsubscribeLink = "http://localhost:3000/unsubscribe?token=$token&email=$to";
+        $unsubscribeLink = "https://so-permis.dwightstudio.fr/unsubscribe?token=$token&email=$to";
         $mail = "<!DOCTYPE html>
         <html lang=\"fr\">
         <head>

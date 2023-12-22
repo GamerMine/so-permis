@@ -129,7 +129,7 @@ const ContactComponent = () => {
                 // You may want to handle success in a different way, like showing a success message.
             } else {
                 //console.log(response.data);
-                alert("Utilisateur inscrit " + response.data);
+                alert("Vérifiez vos mail");
             }
         } catch (error) {
             alert(error);
