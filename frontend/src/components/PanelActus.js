@@ -1,11 +1,19 @@
 import axios from "axios";
-import {useEffect, useState} from "react";
-import {Box, Card, CardBody, Flex, Spinner, Stack, Text , Button} from "@chakra-ui/react";
-import * as React from "react";
+import { useEffect, useState } from "react";
+import {
+    Box,
+    Card,
+    CardBody,
+    Text,
+    Button,
+    Stack,
+    Flex,
+    Spinner, Modal, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter,
+} from "@chakra-ui/react";
 import { MdOutlineKeyboardDoubleArrowLeft, MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
-import {isMobile} from "react-device-detect";
+import { isMobile } from "react-device-detect";
 import { HOSTNAME } from "../Variables";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 let currentActu = 0;
 
@@ -23,6 +31,8 @@ function checkImageExists(imageUrl) {
         imageData.src = imageUrl;
     });
 }
+
+
 
 const PanelActus = () => {
     const style = {
@@ -46,21 +56,40 @@ const PanelActus = () => {
 
     let nbActus = 0;
     let actus = [];
+    const [sizePage, setSizePage] = useState("580px");
 
     const [content, setContent] = useState((
         <Card style={style.cards} size={"xl"}>
             <CardBody style={style.cardBody}>
-                <Spinner/>
+                <Spinner />
             </CardBody>
-         </Card>
+        </Card>
     ));
 
-    const hostname = HOSTNAME ;
+    const hostname = HOSTNAME;
+
+
+    const [isPopupOpen, setPopupOpen] = useState(false);
+    const [isAutoScrollingPaused, setAutoScrollingPaused] = useState(false);
+    const [fullDescription, setFullDescription] = useState('');
+
+
+    function openPopup(description) {
+        setPopupOpen(true);
+        setAutoScrollingPaused(true);
+        setFullDescription(description);
+    }
+
+    function closePopup() {
+        setPopupOpen(false);
+        setAutoScrollingPaused(false);
+    }
+
 
     const navigate = useNavigate();
-    const handleRedirect = (link) =>{
+    const handleRedirect = (link) => {
         navigate(link);
-    }
+    };
 
     const [isHovering, setIsHovering] = useState(false);
     let isHoveringOld = false;
@@ -91,24 +120,26 @@ const PanelActus = () => {
                 alignSelf: "center",
                 backgroundImage: "linear-gradient(to top, #000000 0%, rgba(0, 0, 0, 0) 30%), url(" + hostname + "/public/images/" + imgLink + ")",
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
+                backgroundPosition: "top",
             },
 
             cardBody: {
+
                 position: "absolute",
                 bottom: 0,
                 width: "100%",
+                maxHeight : "50%",
                 left: 0,
             },
 
             text: {
-                color: "white",
+                color: "black",
                 fontFamily: 'Montserrat',
                 fontSize: 20
             },
 
             textDescription: {
-                color: "#e0e0e0",
+                color: "black",
                 fontFamily: "Montserrat",
                 fontSize: 16
             },
@@ -132,45 +163,60 @@ const PanelActus = () => {
 
         const images = Array(Math.min(nbActus, 3)).fill('a');
 
+        const imageContent = hostname + "/public/images/" + imgLink;
+
+        const sizeText = () => {
+            return description.length > 290;
+        }
         //console.log(status);
 
         return (
             <Stack>
                 <Stack paddingLeft={{base:"15px" , "smdp":"80px"}} paddingRight={{base:"15px" , "smdp":"80px"}} >
                     <Text style={style.title} textAlign={{base:"center", "sd":"left"}}>Retrouvez nos dernières actus !</Text>
-                        <Card style={style.cards} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} width={{xl: "900px", md: "700px", sm: "350px"}} height= "400px">
-                            {status || isMobile ? (
-                                <Stack>
-                                    <Box style={{display: "flex", justifyContent: "center", position: "absolute", top: "50%", transform: "translateY(-50%)", left: "10px"}} borderRadius={"full"} bg={"rgba(0,0,0,0.37)"} w={"12"} h={"12"}>
-                                        <MdOutlineKeyboardDoubleArrowLeft
-                                            size={30}
-                                            style={{color: "white", position: "absolute", top: "50%", transform: "translateY(-50%)", cursor: "pointer"}}
-                                            onClick={() => {
-                                                if (currentActu <= 0) currentActu = Math.min(nbActus, 2);
-                                                else currentActu--;
-                                                setContent(createCardBody(actus[currentActu].imageURL, actus[currentActu].titreActu, actus[currentActu].sources, actus[currentActu].infosActu, nbActus))
-                                            }}
-                                        />
-                                    </Box>
-                                    <Box style={{display: "flex", justifyContent: "center", position: "absolute", top: "50%", transform: "translateY(-50%)", right: "10px"}} borderRadius={"full"} bg={"rgba(0,0,0,0.37)"} w={"12"} h={"12"}>
-                                        <MdOutlineKeyboardDoubleArrowRight
-                                            size={30}
-                                            style={{color: "white", position: "absolute", top: "50%", transform: "translateY(-50%)", cursor: "pointer"}}
-                                            onClick={() => {
-                                                if (currentActu >= Math.min(nbActus, 3) - 1) currentActu = 0;
-                                                else currentActu++;
-                                                setContent(createCardBody(actus[currentActu].imageURL, actus[currentActu].titreActu, actus[currentActu].sources, actus[currentActu].infosActu, nbActus))
-                                            }}
-                                        />
-                                    </Box>
-                                </Stack>
-                                ) : (<p/>)
+                    <Card style={style.cards} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} width={{xl: "900px", md: "700px", sm: "350px"}} height={sizePage} backgroundSize={{base:"100% 45%", "md":"100% 72%"}}>
+                        {status || isMobile ? (
+                            <Stack>
+                                <Box style={{display: "flex", justifyContent: "center", position: "absolute", top: "50%", transform: "translateY(-50%)", left: "10px"}} borderRadius={"full"} bg={"rgba(0,0,0,0.37)"} w={"12"} h={"12"}>
+                                    <MdOutlineKeyboardDoubleArrowLeft
+                                        size={30}
+                                        style={{color: "white", position: "absolute", top: "50%", transform: "translateY(-50%)", cursor: "pointer"}}
+                                        onClick={() => {
+                                            if (currentActu <= 0) currentActu = Math.min(nbActus, 2);
+                                            else currentActu--;
+                                            setContent(createCardBody(actus[currentActu].imageURL, actus[currentActu].titreActu, actus[currentActu].sources, actus[currentActu].infosActu, nbActus))
+                                        }}
+                                    />
+                                </Box>
+                                <Box style={{display: "flex", justifyContent: "center", position: "absolute", top: "50%", transform: "translateY(-50%)", right: "10px"}} borderRadius={"full"} bg={"rgba(0,0,0,0.37)"} w={"12"} h={"12"}>
+                                    <MdOutlineKeyboardDoubleArrowRight
+                                        size={30}
+                                        style={{color: "white", position: "absolute", top: "50%", transform: "translateY(-50%)", cursor: "pointer"}}
+                                        onClick={() => {
+                                            if (currentActu >= Math.min(nbActus, 3) - 1) currentActu = 0;
+                                            else currentActu++;
+                                            setContent(createCardBody(actus[currentActu].imageURL, actus[currentActu].titreActu, actus[currentActu].sources, actus[currentActu].infosActu, nbActus))
+                                        }}
+                                    />
+                                </Box>
+                            </Stack>
+                        ) : (<p/>)
 
-                            }
+                        }
                         <CardBody style={style.cardBody}>
-                            <Text style={{...style.text, whiteSpace: "nowrap"}}>{title} - <span
+                            <Text style={{...style.text, whiteSpace: "normal"}}>{title} - <span
                                 style={{...style.text, fontStyle: "italic"}}>{author}</span></Text>
-                            <Text style={{...style.textDescription}}>{description}</Text>
+                            { sizeText() ? (
+                                <>
+                                    <p style={{...style.textDescription}}>
+                                        {description.substring(0, 290)}
+                                        <Button onClick={() => openPopup(description)}>...</Button>
+                                    </p>
+                                </>
+                            ) : (
+                                <Text style={{...style.textDescription}}>{description}</Text>
+                            )
+                            }
                         </CardBody>
                     </Card>
                     <Flex mt="2" style={{alignSelf: "center"}}>
@@ -200,11 +246,28 @@ const PanelActus = () => {
         )
     }
 
-    function changeActu(nbActus, actus) {
-        if (currentActu >= Math.min(nbActus, 3) - 1) currentActu = 0;
-        else currentActu++;
+    const Popup = ({ description }) => (
+        <Modal isOpen={isPopupOpen} onClose={closePopup}>
+            <ModalContent>
+                <ModalHeader color="#20AB9A">Description complète</ModalHeader>
+                <ModalCloseButton />
+                <ModalBody>{description}</ModalBody>
+                <ModalFooter>
+                    <Button color="#20AB9A" onClick={closePopup}>
+                        Fermer
+                    </Button>
+                </ModalFooter>
+            </ModalContent>
+        </Modal>
+    );
 
-        setContent(createCardBody(actus[currentActu].imageURL, actus[currentActu].titreActu, actus[currentActu].sources, actus[currentActu].infosActu, nbActus));
+    function changeActu(nbActus, actus) {
+        if (!isPopupOpen) {
+            if (currentActu >= Math.min(nbActus, 3) - 1) currentActu = 0;
+            else currentActu++;
+
+            setContent(createCardBody(actus[currentActu].imageURL, actus[currentActu].titreActu, actus[currentActu].sources, actus[currentActu].infosActu, nbActus));
+        }
     }
 
     const setActus = async() => {
@@ -219,7 +282,7 @@ const PanelActus = () => {
     }
 
     useEffect(() => {
-            setActus();
+        setActus();
     }, []);
 
     useEffect(() => {
@@ -233,6 +296,7 @@ const PanelActus = () => {
     return (
         <Stack>
             {content}
+            <Popup description={fullDescription} />
         </Stack>
     )
 }
