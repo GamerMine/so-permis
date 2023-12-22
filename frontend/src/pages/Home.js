@@ -44,7 +44,7 @@ const Home = () => {
             </Stack>
                 <div style={{backgroundColor: "rgb(15, 20, 17)", padding: "20px"}}>
                     <Text style={style.title} textAlign={{base:"center", "sd":"left"}}>Avis de nos clients</Text>
-                    <ElfsightWidget widgetId="4b32669e-1d41-4c0b-a813-efdeb3498bad" />;
+                    <ElfsightWidget widgetId="5fa0deb8-de05-4291-bda1-e6071929d77e" />;
                 </div>
                 <PannelInformationSOPermis/>;
                 <PanelActus/>
